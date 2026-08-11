@@ -1,0 +1,54 @@
+# Default configuration. Copy it, set `mailto` to your own address, and point
+# `run.name` at your review. Every value here except `mailto` and secrets is
+# hashed into run.json, so the configuration is part of the run's identity.
+run:
+  name: "my-review"
+  max_iterations: 6
+  directions: [backward, forward]
+
+providers:
+  order: [openalex, crossref]
+  openalex:
+    # Your own email. Both APIs use it for their polite pools: requests without
+    # it are rate-limited harder, and OpenAlex asks for it explicitly. It is
+    # deliberately excluded from the run manifest.
+    mailto: "you@example.org"
+    rps: 8
+  crossref:
+    mailto: "you@example.org"
+    rps: 8
+
+eligibility:
+  year_min: 2015
+  types: [article, review, book-chapter, conference-paper]
+  exclude_retracted: true
+  require_title: true
+
+dedup:
+  jw_threshold: 0.95
+
+ranking:
+  type: rrf
+  components: [bm25, network]
+
+stopping:
+  mode: any_of
+  rules:
+    - {type: estimated_recall, tau: 0.95, use_lower_ci: true}
+    - {type: marginal_yield, eps: 0.01, k: 2}
+    - {type: budget, max_screened: 2500}
+    - {type: exhaustion}
+
+estimate:
+  # Provider arms, not direction arms. A citation graph is temporally acyclic,
+  # so backward and forward expansion sample near-disjoint strata: on this
+  # project's own run the two arms shared 0 of 478 records and recall was not
+  # estimable. OpenAlex and Crossref can both return the same record, and here
+  # they overlap on 172.
+  arms:
+    - {name: openalex, filter: {provider: openalex}}
+    - {name: crossref, filter: {provider: crossref}}
+  method: chapman
+
+determinism:
+  cache_dir: "cache"

@@ -1,0 +1,58 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+.venv/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+.DS_Store
+
+# Working run directories. `run/` is a live working directory (state, response
+# cache, per-iteration exports); `runs/` is the plural form used in the docs.
+# A run directory is user data, not source: it is reproducible from seeds and a
+# config, and the cache alone runs to megabytes.
+run/
+runs/
+run_*/
+
+# LICENSED THIRD-PARTY DATA -- must never be redistributed.
+# scopus.csv is a raw Scopus export. Elsevier's terms do not permit
+# republishing raw records, so this file stays local even though the repository
+# is MIT-licensed. Ship a seeds file and a config instead; anyone can regenerate
+# their own export.
+scopus.csv
+*_scopus.csv
+
+# Screening decisions for a specific review -- the author's working data.
+labels_*.csv
+
+# Local working copies: the author's real review config and seed set. The
+# tracked config.yaml / seeds.txt are neutral templates.
+*.local.yaml
+*.local.txt
+
+# Internal audit and positioning material, kept out of the public repository:
+# the competitor threat assessment and the claim register are working documents
+# for manuscript preparation, not part of the software.
+audit/
+AUDIT_INDEX.md
+SOFTWAREX_READINESS.md
+PUBLISH.md
+compass_artifact_*.md
+manuscript/
+
+# Publisher's submission template -- Elsevier's document, not ours to redistribute.
+softwarex-osp-template*.docx
+
+# NOTEBOOKS ARE NOT COMMITTED FROM THIS DIRECTORY.
+# ewaluator.ipynb contains hard-coded API keys for six providers in its source
+# cells AND in its stored outputs. Notebook outputs are a common credential-leak
+# route because they survive "clearing the code". Keep notebooks out entirely and
+# use the sanitised copies under llm_eval/ instead.
+*.ipynb
+.ipynb_checkpoints/

@@ -1,0 +1,72 @@
+# SnowBallSLR configuration.
+# Every value here is hashed into run.json (except mailto and secrets), so a
+# configuration change is always visible in the reproducibility record.
+
+run:
+  name: "uav-delivery-slr"
+  max_iterations: 10
+  directions: [backward, forward]
+
+providers:
+  order: [openalex, crossref]
+  precedence: [openalex, crossref, semanticscholar, grobid]
+  openalex:
+    enabled: true
+    mailto: "you@example.org"   # polite pool: higher rate limits, no key needed
+    rps: 8
+  crossref:
+    enabled: true
+    mailto: "you@example.org"
+    rps: 8
+  semanticscholar:
+    enabled: false
+    api_key_env: "S2_API_KEY"
+    rps: 1
+  grobid:
+    enabled: false
+    url: "http://localhost:8070"
+    pdf_map: "pdfs.csv"
+
+eligibility:
+  year_min: 2010
+  # OpenAlex type vocabulary (post-July-2023): journal articles, conference
+  # papers and preprints are all reported as "article". The pre-2023 values
+  # journal-article / proceedings-article match nothing.
+  types: [article, review, book-chapter, conference-paper]
+  exclude_retracted: true
+  require_title: true
+  # Keep records whose year/type the provider does not report, and let the
+  # screener decide. Set to false to exclude them automatically.
+  keep_unknown_metadata: true
+
+dedup:
+  jw_threshold: 0.95
+  max_cluster_size: 8
+
+ranking:
+  type: rrf
+  components: [bm25, network]
+  rrf_k: 60
+
+stopping:
+  mode: any_of
+  rules:
+    - {type: estimated_recall, tau: 0.95, use_lower_ci: true}
+    - {type: marginal_yield, eps: 0.01, k: 2}
+    - {type: budget, max_screened: 3000}
+    - {type: exhaustion}
+
+estimate:
+  # Arms must be able to capture the SAME record. Backward and forward sample
+  # near-disjoint strata of a temporally acyclic graph, so direction arms
+  # typically give zero overlap and no estimate; providers overlap heavily.
+  # A third arm makes the independence assumption testable.
+  arms:
+    - {name: openalex, filter: {provider: openalex}}
+    - {name: crossref, filter: {provider: crossref}}
+    - {name: semanticscholar, filter: {provider: semanticscholar}}
+  method: loglinear
+
+determinism:
+  cache_dir: "cache"
+  offline: false

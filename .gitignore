@@ -5,6 +5,7 @@ __pycache__/
 htmlcov/
 dist/
 build/
+_site/
 *.egg-info/
 .venv/
 .mypy_cache/
@@ -18,7 +19,8 @@ build/
 # config, and the cache alone runs to megabytes.
 run/
 runs/
-run_*/
+# Live run directories at the repository root (run_llm/ and any sibling arm).
+/run_*/
 
 # LICENSED THIRD-PARTY DATA -- must never be redistributed.
 # scopus.csv is a raw Scopus export. Elsevier's terms do not permit

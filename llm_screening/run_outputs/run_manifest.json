@@ -1,0 +1,447 @@
+{
+  "cache_entries": 472,
+  "config": {
+    "dedup": {
+      "jw_threshold": 0.95,
+      "max_cluster_size": 8
+    },
+    "determinism": {
+      "backoff_base": 1.0,
+      "backoff_factor": 2.0,
+      "cache_dir": "cache",
+      "max_retries": 5,
+      "offline": false,
+      "refresh": false
+    },
+    "eligibility": {
+      "exclude_retracted": true,
+      "keep_unknown_metadata": true,
+      "languages": null,
+      "require_abstract": false,
+      "require_title": true,
+      "types": [
+        "article",
+        "review",
+        "book-chapter",
+        "conference-paper"
+      ],
+      "year_max": null,
+      "year_min": 2015
+    },
+    "estimate": {
+      "arms": [
+        {
+          "filter": {
+            "provider": "openalex"
+          },
+          "name": "openalex"
+        },
+        {
+          "filter": {
+            "provider": "crossref"
+          },
+          "name": "crossref"
+        }
+      ],
+      "method": "chapman"
+    },
+    "providers": {
+      "crossref": {
+        "base_url": "https://api.crossref.org",
+        "enabled": true,
+        "mailto": "<redacted>",
+        "rps": 8.0
+      },
+      "grobid": {
+        "enabled": false,
+        "min_match_score": 60.0,
+        "min_title_similarity": 0.9,
+        "pdf_map": "<redacted>",
+        "url": "<redacted>"
+      },
+      "openalex": {
+        "base_url": "https://api.openalex.org",
+        "enabled": true,
+        "mailto": "<redacted>",
+        "per_page": 200,
+        "rps": 8.0
+      },
+      "order": [
+        "openalex",
+        "crossref"
+      ],
+      "precedence": [
+        "openalex",
+        "crossref",
+        "semanticscholar",
+        "grobid"
+      ],
+      "semanticscholar": {
+        "api_key_env": "<redacted>",
+        "base_url": "https://api.semanticscholar.org/graph/v1",
+        "enabled": false,
+        "rps": 1.0
+      }
+    },
+    "ranking": {
+      "components": [
+        "bm25",
+        "network"
+      ],
+      "embedding_model": null,
+      "embedding_revision": null,
+      "network_weights": [
+        0.4,
+        0.25,
+        0.25,
+        0.1
+      ],
+      "rrf_k": 60,
+      "top_k": null,
+      "type": "rrf"
+    },
+    "run": {
+      "directions": [
+        "backward",
+        "forward"
+      ],
+      "max_iterations": 6,
+      "name": "ai-marketing-automation-slr"
+    },
+    "stopping": {
+      "mode": "any_of",
+      "rules": [
+        {
+          "tau": 0.95,
+          "type": "estimated_recall",
+          "use_lower_ci": true
+        },
+        {
+          "eps": 0.01,
+          "k": 2,
+          "type": "marginal_yield"
+        },
+        {
+          "max_screened": 2500,
+          "type": "budget"
+        },
+        {
+          "type": "exhaustion"
+        }
+      ]
+    }
+  },
+  "config_hash": "sha256:debd3c7c5b5bc40d453e6a9e226511af82c7f3b9c151505c4189aa4abcbdf1ba",
+  "embedding_model": null,
+  "finished_at": "2026-08-11T22:32:26Z",
+  "iterations": [
+    {
+      "candidates_hash": "sha256:ffe32484d7df0831736169db900b0fc62e55afed22e1afd2ce90b7aab91bec48",
+      "frontier_hash": "sha256:5fc149d5ab34433c9fb2b27ec9649e7e1fab790e3e22d96b29072ae5fbb478b1",
+      "labels_hash": "sha256:3e89f8d2c9fe4c599b0cd613a87ec6f11c7c6b7dba27e58f6cc53fc3b968da84",
+      "n": 1,
+      "n_after_dedup": 466,
+      "n_eligible": 302,
+      "n_excluded": 212,
+      "n_expanded": 15,
+      "n_included": 90,
+      "n_raw": 651,
+      "n_screened": 302,
+      "stop_decisions": [
+        {
+          "detail": {
+            "closure": {
+              "n_estimable_iterations": 1,
+              "required": 3
+            },
+            "closure_stable": false,
+            "estimate": {
+              "detail": {
+                "assumptions": {
+                  "closure": {
+                    "first_request": "2026-08-11T22:09:33Z",
+                    "last_request": "2026-08-11T22:09:51Z",
+                    "unresolved_records": 16
+                  },
+                  "dependence": {
+                    "n_arms": 2,
+                    "pairs": [],
+                    "testable": false
+                  },
+                  "heterogeneity": {
+                    "mean_arms_per_stratum": {
+                      "language": {
+                        "en": 1.1097560975609757,
+                        "non-en": 1.0,
+                        "unknown": 1.0
+                      },
+                      "publication_year": {
+                        "older": 1.3902439024390243,
+                        "recent": 0.8653846153846154
+                      },
+                      "venue_type": {
+                        "article": 1.2692307692307692,
+                        "book": 0.0,
+                        "book-chapter": 0.8846153846153846,
+                        "conference-paper": 0.9,
+                        "unknown": 1.0
+                      }
+                    }
+                  },
+                  "warnings": [
+                    "Independence of the two source arms is assumed but NOT testable with two arms (zero residual degrees of freedom). In citation searching the arms are typically positively dependent, because backward and forward chasing both concentrate on well-connected literature; under positive dependence N_hat is biased downward and the estimated recall must be read as an UPPER BOUND. Configure a third source arm to test this assumption.",
+                    "Catchability is heterogeneous across publication_year: 'recent' records are captured by 0.87 arms on average versus 1.39 for 'older'. N_hat is biased downward.",
+                    "Catchability is heterogeneous across venue_type: 'book' records are captured by 0.00 arms on average versus 1.27 for 'article'. N_hat is biased downward.",
+                    "16 discovered records could not be resolved to a persistent identifier and are excluded from the capture table."
+                  ]
+                },
+                "lincoln_petersen": 123.33333333333333,
+                "m": 24,
+                "n1": 74,
+                "n2": 40,
+                "se": 12.30384555269674
+              },
+              "estimable": true,
+              "method": "chapman",
+              "n_hat": 122.0,
+              "n_hat_ci": [
+                97.88446271671438,
+                146.11553728328562
+              ],
+              "n_observed": 90,
+              "reason": null,
+              "recall": 0.7377049180327869,
+              "recall_ci": [
+                0.6159509226285085,
+                0.9194513358107439
+              ],
+              "warnings": [
+                "Independence of the two source arms is assumed but NOT testable with two arms (zero residual degrees of freedom). In citation searching the arms are typically positively dependent, because backward and forward chasing both concentrate on well-connected literature; under positive dependence N_hat is biased downward and the estimated recall must be read as an UPPER BOUND. Configure a third source arm to test this assumption.",
+                "Catchability is heterogeneous across publication_year: 'recent' records are captured by 0.87 arms on average versus 1.39 for 'older'. N_hat is biased downward.",
+                "Catchability is heterogeneous across venue_type: 'book' records are captured by 0.00 arms on average versus 1.27 for 'article'. N_hat is biased downward.",
+                "16 discovered records could not be resolved to a persistent identifier and are excluded from the capture table."
+              ]
+            },
+            "threshold_met": false,
+            "used_lower_ci": true
+          },
+          "rationale": "Capture-recapture (chapman) across the configured source arms estimates a relevant population of 122.0 studies, of which 90 were identified; the lower bound of the 95% confidence interval of estimated recall is 61.6%, below the pre-specified threshold of 95%.",
+          "rule": "estimated_recall",
+          "threshold": 0.95,
+          "triggered": false,
+          "value": 0.6159509226285085
+        },
+        {
+          "detail": {
+            "iterations": 1
+          },
+          "rationale": "Fewer than 2 iterations completed; rule not yet applicable.",
+          "rule": "marginal_yield",
+          "threshold": 0.01,
+          "triggered": false,
+          "value": null
+        },
+        {
+          "detail": {},
+          "rationale": "302 records screened; budget not reached.",
+          "rule": "budget",
+          "threshold": 2500.0,
+          "triggered": false,
+          "value": 302.0
+        },
+        {
+          "detail": {},
+          "rationale": "90 studies remain to be expanded.",
+          "rule": "exhaustion",
+          "threshold": 0.0,
+          "triggered": false,
+          "value": 90.0
+        }
+      ]
+    },
+    {
+      "candidates_hash": "sha256:e56c4f111f2faefab7df7eb2515291345915ce79642bfb0b07c3b1e7a9b92ebc",
+      "frontier_hash": "sha256:306982c6f48e006c1b45089985f7e45ec7acacfce6f51bc8f086628a92fce8ce",
+      "labels_hash": "sha256:3a5051da0339a2693f5cd149f8ad03979a689902d05b16d1865a5cb7533068ce",
+      "n": 2,
+      "n_after_dedup": 11915,
+      "n_eligible": 9430,
+      "n_excluded": 6748,
+      "n_expanded": 90,
+      "n_included": 2682,
+      "n_raw": 18254,
+      "n_screened": 9430,
+      "stop_decisions": [
+        {
+          "detail": {
+            "closure": {
+              "n_estimable_iterations": 2,
+              "required": 3
+            },
+            "closure_stable": false,
+            "estimate": {
+              "detail": {
+                "assumptions": {
+                  "closure": {
+                    "first_request": "2026-08-11T22:09:33Z",
+                    "last_request": "2026-08-11T22:16:52Z",
+                    "unresolved_records": 158
+                  },
+                  "dependence": {
+                    "n_arms": 2,
+                    "pairs": [],
+                    "testable": false
+                  },
+                  "heterogeneity": {
+                    "mean_arms_per_stratum": {
+                      "language": {
+                        "en": 1.1431041936878512,
+                        "non-en": 1.0411764705882354,
+                        "unknown": 1.0
+                      },
+                      "publication_year": {
+                        "older": 1.2742382271468145,
+                        "recent": 1.025497512437811
+                      },
+                      "venue_type": {
+                        "article": 1.1424485125858124,
+                        "book": 2.0,
+                        "book-chapter": 1.1081677704194262,
+                        "conference-paper": 1.093150684931507,
+                        "review": 1.0806451612903225,
+                        "unknown": 1.0
+                      }
+                    }
+                  },
+                  "warnings": [
+                    "Independence of the two source arms is assumed but NOT testable with two arms (zero residual degrees of freedom). In citation searching the arms are typically positively dependent, because backward and forward chasing both concentrate on well-connected literature; under positive dependence N_hat is biased downward and the estimated recall must be read as an UPPER BOUND. Configure a third source arm to test this assumption.",
+                    "Catchability is heterogeneous across venue_type: 'unknown' records are captured by 1.00 arms on average versus 2.00 for 'book'. N_hat is biased downward.",
+                    "158 discovered records could not be resolved to a persistent identifier and are excluded from the capture table."
+                  ]
+                },
+                "lincoln_petersen": 3837.719298245614,
+                "m": 342,
+                "n1": 2625,
+                "n2": 500,
+                "se": 108.28651617823557
+              },
+              "estimable": true,
+              "method": "chapman",
+              "n_hat": 3834.6443148688045,
+              "n_hat_ci": [
+                3622.4027431594627,
+                4046.8858865781463
+              ],
+              "n_observed": 2783,
+              "reason": null,
+              "recall": 0.7257517963814631,
+              "recall_ci": [
+                0.6876892697246703,
+                0.7682745948819222
+              ],
+              "warnings": [
+                "Independence of the two source arms is assumed but NOT testable with two arms (zero residual degrees of freedom). In citation searching the arms are typically positively dependent, because backward and forward chasing both concentrate on well-connected literature; under positive dependence N_hat is biased downward and the estimated recall must be read as an UPPER BOUND. Configure a third source arm to test this assumption.",
+                "Catchability is heterogeneous across venue_type: 'unknown' records are captured by 1.00 arms on average versus 2.00 for 'book'. N_hat is biased downward.",
+                "158 discovered records could not be resolved to a persistent identifier and are excluded from the capture table."
+              ]
+            },
+            "threshold_met": false,
+            "used_lower_ci": true
+          },
+          "rationale": "Capture-recapture (chapman) across the configured source arms estimates a relevant population of 3834.6 studies, of which 2783 were identified; the lower bound of the 95% confidence interval of estimated recall is 68.8%, below the pre-specified threshold of 95%.",
+          "rule": "estimated_recall",
+          "threshold": 0.95,
+          "triggered": false,
+          "value": 0.6876892697246703
+        },
+        {
+          "detail": {
+            "window_rates": [
+              0.2980132450331126,
+              0.28441145281018027
+            ]
+          },
+          "rationale": "Marginal yield in the last 2 iterations was 29.80%, 28.44%, not yet below the 1.0% threshold.",
+          "rule": "marginal_yield",
+          "threshold": 0.01,
+          "triggered": false,
+          "value": 0.28441145281018027
+        },
+        {
+          "detail": {
+            "criterion": "max_screened"
+          },
+          "rationale": "Citation searching was stopped after 9732 records had been screened, reaching the pre-specified screening budget of 2500.",
+          "rule": "budget",
+          "threshold": 2500.0,
+          "triggered": true,
+          "value": 9732.0
+        },
+        {
+          "detail": {},
+          "rationale": "2682 studies remain to be expanded.",
+          "rule": "exhaustion",
+          "threshold": 0.0,
+          "triggered": false,
+          "value": 2682.0
+        }
+      ]
+    }
+  ],
+  "outputs": {
+    "iterations/iter_001/candidates.csv": "sha256:183a2ea476b9e78d1677024673399b722650c2377c46bfba88e66b86772f0f3c",
+    "iterations/iter_002/candidates.csv": "sha256:2618f5dcea94923b68cc0c07a9c6d3380a0a5b424a98caf3fadab4ba87a76bf4",
+    "outputs/included.csv": "sha256:373b4d11819857b9fa623b9c11056fb539f026218bc8c2305b0c407f7d1aad8a",
+    "outputs/network.graphml": "sha256:33abf0b52f215201b34c4f3b60b7a4829e6b91c0a655269f6b5fd1600e2da9c5",
+    "outputs/prisma.json": "sha256:7c2276742b73439ffe25a6f51484f29fe71a30b95920a72038b2409ec6bb4e3a",
+    "outputs/prisma.svg": "sha256:3c0e7ad9170b485d09c6c4189d436e360a187d3f931769f75271a2f6d4dc77db",
+    "outputs/report.md": "sha256:64e50455c4a09a807f687aa00ea0288e77811797f984aaf170d12fa889672c68"
+  },
+  "providers": [
+    {
+      "base_url": "https://api.openalex.org",
+      "name": "openalex",
+      "polite_pool": true,
+      "supports": [
+        "backward",
+        "forward"
+      ]
+    },
+    {
+      "base_url": "https://api.crossref.org",
+      "name": "crossref",
+      "polite_pool": true,
+      "supports": [
+        "backward"
+      ]
+    }
+  ],
+  "python_version": "3.12.13",
+  "ranker": {
+    "components": [
+      "bm25",
+      "network"
+    ],
+    "type": "rrf"
+  },
+  "seeds": [
+    "10.1007/978-3-030-39165-2_111",
+    "10.1007/978-3-031-20040-3_15",
+    "10.1007/978-3-031-20040-3_27",
+    "10.1007/978-3-319-25023-6_1",
+    "10.1007/978-981-13-3338-5_1",
+    "10.1007/978-981-99-7210-4_12",
+    "10.1057/dddmp.2015.29",
+    "10.1109/gcitc60406.2023.10425868",
+    "10.1201/9781032720104-15",
+    "10.3390/joitmc7020114",
+    "10.4018/978-1-6684-9146-1",
+    "10.4018/979-8-3693-7909-7.ch016",
+    "10.4018/ijdst.307953",
+    "10.4324/9781032711089-13",
+    "10.52783/jisem.v10i16s.2674"
+  ],
+  "snowballslr_version": "1.0.0",
+  "started_at": "2026-08-11T22:09:32Z",
+  "stopped_by": "budget"
+}

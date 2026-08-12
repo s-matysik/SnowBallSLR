@@ -1,0 +1,23 @@
+{
+ "rq": {
+  "research_question": "How are automation, AI, and digital technologies transforming marketing and sales practices, and what benefits, challenges, and limitations does this bring?",
+  "core_relation": "the adoption/integration of AI and automation technologies (ML, chatbots, programmatic advertising, IT-marketing collaboration) as drivers of change in marketing and sales functions (personalization, brand management, customer value, consumer wellbeing)",
+  "in_scope": [
+   "marketing automation",
+   "AI/ML in digital marketing",
+   "programmatic advertising",
+   "IT-marketing integration",
+   "personalization and consumer behavior prediction",
+   "phygital/omnichannel consumer interaction"
+  ],
+  "out_of_scope": [
+   "general entrepreneurship strategy",
+   "supply chain automation",
+   "pure computer science/edge computing infrastructure",
+   "consumer wellbeing psychology as standalone topic",
+   "financial performance metrics unrelated to marketing"
+  ],
+  "confidence": "medium",
+  "note": "The seeds coherently cluster around AI/automation's impact on marketing and sales, though a few (consumer wellbeing, entrepreneurship, edge computing) sit at the periphery rather than the core."
+ }
+}

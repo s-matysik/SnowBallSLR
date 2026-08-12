@@ -25,7 +25,7 @@ Design choices that matter for external validity:
 from __future__ import annotations
 
 import random
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from typing import Any
 
 __all__ = ["GraphSpec", "generate_graph"]

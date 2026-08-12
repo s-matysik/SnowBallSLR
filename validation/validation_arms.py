@@ -6,9 +6,8 @@ Simulates snowballing expansion while tracking, for every discovered work, which
 synthetic generator so the true relevant population is known.
 """
 from __future__ import annotations
-import random
+
 from dataclasses import dataclass
-from typing import Any
 
 
 @dataclass

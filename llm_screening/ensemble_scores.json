@@ -1,0 +1,1951 @@
+{
+ "scores": {
+  "doi:10.1002/kpm.1726": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 3,
+   "claude-haiku-4-5-20251001": 4
+  },
+  "doi:10.1002/jtr.70111": {
+   "claude-opus-5": 5,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "doi:10.1016/j.telpol.2020.101988": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 3,
+   "claude-haiku-4-5-20251001": 2
+  },
+  "doi:10.1016/j.jik.2020.08.001": {
+   "claude-opus-5": 9,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 9,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.1007/978-3-030-12453-3_143": {
+   "claude-opus-5": 9,
+   "claude-sonnet-5": 9,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 9
+  },
+  "doi:10.1142/s0219622025500981": {
+   "claude-opus-5": 10,
+   "claude-sonnet-5": 9,
+   "claude-opus-4-8": 9,
+   "claude-haiku-4-5-20251001": 9
+  },
+  "doi:10.1109/iccraids67816.2026.11519734": {
+   "claude-opus-5": 9,
+   "claude-sonnet-5": 9,
+   "claude-opus-4-8": 9,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.2174/9789815274707124010011": {
+   "claude-opus-5": 9,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 7
+  },
+  "doi:10.1155/hbe2/6675139": {
+   "claude-opus-5": 7,
+   "claude-sonnet-5": 7,
+   "claude-opus-4-8": 7,
+   "claude-haiku-4-5-20251001": 7
+  },
+  "doi:10.52970/grmilf.v3i1.398": {
+   "claude-opus-5": 9,
+   "claude-sonnet-5": 7,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.33140/eoa.02.01.04": {
+   "claude-opus-5": 8,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.1007/978-3-030-12453-3_151": {
+   "claude-opus-5": 9,
+   "claude-sonnet-5": 9,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 9
+  },
+  "doi:10.52970/grmilf.v4i2.356": {
+   "claude-opus-5": 9,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.1080/1051712x.2021.1920702": {
+   "claude-opus-5": 10,
+   "claude-sonnet-5": 9,
+   "claude-opus-4-8": 9,
+   "claude-haiku-4-5-20251001": 9
+  },
+  "doi:10.1177/18393349211037684": {
+   "claude-opus-5": 9,
+   "claude-sonnet-5": 9,
+   "claude-opus-4-8": 9,
+   "claude-haiku-4-5-20251001": 9
+  },
+  "doi:10.1007/978-3-030-72080-3_20": {
+   "claude-opus-5": 9,
+   "claude-sonnet-5": 9,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 9
+  },
+  "doi:10.1007/978-3-030-37494-5_2": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "doi:10.3390/app14135736": {
+   "claude-opus-5": 2,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 3,
+   "claude-haiku-4-5-20251001": 3
+  },
+  "doi:10.1007/s00146-021-01148-6": {
+   "claude-opus-5": 4,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 5
+  },
+  "doi:10.1039/c9sc03766g": {
+   "claude-opus-5": 1,
+   "claude-sonnet-5": 1,
+   "claude-opus-4-8": 1,
+   "claude-haiku-4-5-20251001": 1
+  },
+  "doi:10.1108/nbri-02-2015-0006": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "doi:10.1007/978-3-030-48230-5_7": {
+   "claude-opus-5": 7,
+   "claude-sonnet-5": 7,
+   "claude-opus-4-8": 7,
+   "claude-haiku-4-5-20251001": 7
+  },
+  "doi:10.4018/979-8-3693-3455-3.ch012": {
+   "claude-opus-5": 9,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.3390/su12135402": {
+   "claude-opus-5": 7,
+   "claude-sonnet-5": 5,
+   "claude-opus-4-8": 7,
+   "claude-haiku-4-5-20251001": 7
+  },
+  "doi:10.1007/s11747-020-00749-9": {
+   "claude-opus-5": 10,
+   "claude-sonnet-5": 10,
+   "claude-opus-4-8": 10,
+   "claude-haiku-4-5-20251001": 9
+  },
+  "doi:10.2478/picbe-2018-0072": {
+   "claude-opus-5": 8,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.1007/s11747-019-00696-0": {
+   "claude-opus-5": 9,
+   "claude-sonnet-5": 10,
+   "claude-opus-4-8": 10,
+   "claude-haiku-4-5-20251001": 9
+  },
+  "doi:10.1108/jcm-01-2025-7545": {
+   "claude-opus-5": 5,
+   "claude-sonnet-5": 4,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 5
+  },
+  "doi:10.1007/978-3-030-54292-4": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 3,
+   "claude-haiku-4-5-20251001": 4
+  },
+  "doi:10.1080/00913367.2020.1795954": {
+   "claude-opus-5": 9,
+   "claude-sonnet-5": 9,
+   "claude-opus-4-8": 9,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.1155/hbe2/3596211": {
+   "claude-opus-5": 7,
+   "claude-sonnet-5": 7,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "doi:10.4018/979-8-3693-3455-3.ch001": {
+   "claude-opus-5": 8,
+   "claude-sonnet-5": 7,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.1007/978-3-030-93131-5_5": {
+   "claude-opus-5": 8,
+   "claude-sonnet-5": 7,
+   "claude-opus-4-8": 7,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "doi:10.1142/s0219622024500081": {
+   "claude-opus-5": 10,
+   "claude-sonnet-5": 9,
+   "claude-opus-4-8": 9,
+   "claude-haiku-4-5-20251001": 9
+  },
+  "doi:10.1108/wjemsd-08-2020-0099": {
+   "claude-opus-5": 9,
+   "claude-sonnet-5": 9,
+   "claude-opus-4-8": 9,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.1007/978-3-030-86680-8_23": {
+   "claude-opus-5": 4,
+   "claude-sonnet-5": 6,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 5
+  },
+  "doi:10.1007/978-3-031-96930-0_11": {
+   "claude-opus-5": 9,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.4018/979-8-3693-7041-4.ch003": {
+   "claude-opus-5": 8,
+   "claude-sonnet-5": 7,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 7
+  },
+  "doi:10.1007/978-3-032-04944-5_13": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 3
+  },
+  "doi:10.1108/ijebr-12-2021-0984": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 3,
+   "claude-haiku-4-5-20251001": 4
+  },
+  "doi:10.1007/978-3-031-04832-6_4": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 3,
+   "claude-haiku-4-5-20251001": 4
+  },
+  "doi:10.3390/jtaer21060179": {
+   "claude-opus-5": 10,
+   "claude-sonnet-5": 9,
+   "claude-opus-4-8": 9,
+   "claude-haiku-4-5-20251001": 9
+  },
+  "doi:10.17747/2078-8886-2018-3-88-107": {
+   "claude-opus-5": 4,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 3,
+   "claude-haiku-4-5-20251001": 5
+  },
+  "doi:10.1109/access.2021.3140175": {
+   "claude-opus-5": 2,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 5
+  },
+  "doi:10.1108/jbim-09-2024-0679": {
+   "claude-opus-5": 7,
+   "claude-sonnet-5": 6,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.1007/978-3-031-91195-8_4": {
+   "claude-opus-5": 5,
+   "claude-sonnet-5": 5,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 7
+  },
+  "doi:10.1007/978-3-031-24866-5_27": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 6,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "doi:10.1007/978-3-031-56677-6_37": {
+   "claude-opus-5": 4,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "doi:10.1007/s40558-026-00362-6": {
+   "claude-opus-5": 7,
+   "claude-sonnet-5": 6,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 7
+  },
+  "doi:10.1007/978-3-032-15134-6_6": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 4,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 4
+  },
+  "doi:10.1007/978-3-031-72399-5_5": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 6,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "doi:10.1386/ipol_00005_1": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 6,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 7
+  },
+  "doi:10.1007/978-3-031-96590-6_8": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 6,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "doi:10.1108/ijrdm-08-2020-0312": {
+   "claude-opus-5": 9,
+   "claude-sonnet-5": 9,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.1007/s40558-025-00323-5": {
+   "claude-opus-5": 4,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 3,
+   "claude-haiku-4-5-20251001": 5
+  },
+  "doi:10.1007/s12525-016-0219-0": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 5,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 7
+  },
+  "doi:10.1108/ebr-10-2025-0389": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 6,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 7
+  },
+  "doi:10.61707/fcjfww10": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 5,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "doi:10.34190/ecel.21.1.446": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 3,
+   "claude-haiku-4-5-20251001": 4
+  },
+  "doi:10.1016/j.promfg.2018.07.155": {
+   "claude-opus-5": 1,
+   "claude-sonnet-5": 1,
+   "claude-opus-4-8": 1,
+   "claude-haiku-4-5-20251001": 1
+  },
+  "doi:10.1007/978-981-96-5487-1_26": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 4
+  },
+  "doi:10.1186/s40635-019-0286-6": {
+   "claude-opus-5": 1,
+   "claude-sonnet-5": 1,
+   "claude-opus-4-8": 1,
+   "claude-haiku-4-5-20251001": 2
+  },
+  "doi:10.1007/978-3-658-22681-7_3": {
+   "claude-opus-5": 8,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.1007/978-3-319-68750-6_18": {
+   "claude-opus-5": 8,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 7
+  },
+  "doi:10.3389/fpsyg.2022.856663": {
+   "claude-opus-5": 8,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.1080/00913367.2019.1654421": {
+   "claude-opus-5": 9,
+   "claude-sonnet-5": 9,
+   "claude-opus-4-8": 9,
+   "claude-haiku-4-5-20251001": 9
+  },
+  "doi:10.1007/978-981-97-3698-0_18": {
+   "claude-opus-5": 8,
+   "claude-sonnet-5": 7,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 7
+  },
+  "doi:10.1016/j.intmar.2019.08.002": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 6,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "doi:10.1007/978-3-658-18017-1_19-2": {
+   "claude-opus-5": 5,
+   "claude-sonnet-5": 5,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "doi:10.3390/joitmc6040189": {
+   "claude-opus-5": 1,
+   "claude-sonnet-5": 1,
+   "claude-opus-4-8": 1,
+   "claude-haiku-4-5-20251001": 2
+  },
+  "doi:10.1080/0965254x.2022.2148269": {
+   "claude-opus-5": 9,
+   "claude-sonnet-5": 9,
+   "claude-opus-4-8": 9,
+   "claude-haiku-4-5-20251001": 9
+  },
+  "doi:10.1111/ajr.12589": {
+   "claude-opus-5": 4,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 4
+  },
+  "doi:10.1088/1757-899x/666/1/012055": {
+   "claude-opus-5": 5,
+   "claude-sonnet-5": 5,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "doi:10.1016/j.ausmj.2020.04.002": {
+   "claude-opus-5": 9,
+   "claude-sonnet-5": 9,
+   "claude-opus-4-8": 9,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.1145/3457206": {
+   "claude-opus-5": 5,
+   "claude-sonnet-5": 5,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "doi:10.1007/978-3-658-21744-0_11": {
+   "claude-opus-5": 5,
+   "claude-sonnet-5": 4,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 5
+  },
+  "doi:10.1007/978-981-95-7809-2_12": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 6,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 5
+  },
+  "doi:10.1080/10696679.2023.2166535": {
+   "claude-opus-5": 8,
+   "claude-sonnet-5": 7,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.1007/978-3-658-29995-8_5": {
+   "claude-opus-5": 8,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 7,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.1108/jkm-07-2015-0293": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 3,
+   "claude-haiku-4-5-20251001": 3
+  },
+  "doi:10.1177/0008125619859317": {
+   "claude-opus-5": 10,
+   "claude-sonnet-5": 9,
+   "claude-opus-4-8": 9,
+   "claude-haiku-4-5-20251001": 9
+  },
+  "doi:10.1007/978-3-658-26050-7_1": {
+   "claude-opus-5": 2,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 2
+  },
+  "doi:10.1007/s11042-019-7526-3": {
+   "claude-opus-5": 1,
+   "claude-sonnet-5": 1,
+   "claude-opus-4-8": 1,
+   "claude-haiku-4-5-20251001": 1
+  },
+  "doi:10.1007/s11633-016-1039-6": {
+   "claude-opus-5": 2,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 2
+  },
+  "doi:10.25159/2663-659x/10130": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 4,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 5
+  },
+  "doi:10.6092/issn.2611-0563/13120": {
+   "claude-opus-5": 8,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 7,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.1016/j.procir.2019.03.307": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 3
+  },
+  "doi:10.1007/978-3-658-45040-3_14": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 4,
+   "claude-opus-4-8": 3,
+   "claude-haiku-4-5-20251001": 3
+  },
+  "doi:10.3390/joitmc4030023": {
+   "claude-opus-5": 2,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 2
+  },
+  "doi:10.1186/s12911-021-01488-9": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 3,
+   "claude-haiku-4-5-20251001": 2
+  },
+  "doi:10.1080/0965254x.2018.1493523": {
+   "claude-opus-5": 8,
+   "claude-sonnet-5": 7,
+   "claude-opus-4-8": 7,
+   "claude-haiku-4-5-20251001": 7
+  },
+  "doi:10.1016/j.intmar.2016.03.001": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 6,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "doi:10.1007/978-3-658-45495-1_1": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 3,
+   "claude-haiku-4-5-20251001": 4
+  },
+  "doi:10.1007/s11277-021-08094-y": {
+   "claude-opus-5": 1,
+   "claude-sonnet-5": 1,
+   "claude-opus-4-8": 1,
+   "claude-haiku-4-5-20251001": 1
+  },
+  "doi:10.1088/1742-6596/1577/1/012024": {
+   "claude-opus-5": 2,
+   "claude-sonnet-5": 1,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 2
+  },
+  "doi:10.1080/23311975.2024.2427428": {
+   "claude-opus-5": 7,
+   "claude-sonnet-5": 7,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.4018/979-8-3693-7041-4.ch006": {
+   "claude-opus-5": 10,
+   "claude-sonnet-5": 9,
+   "claude-opus-4-8": 9,
+   "claude-haiku-4-5-20251001": 9
+  },
+  "doi:10.1007/978-3-658-47100-2_5": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 6,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 5
+  },
+  "doi:10.1007/978-3-658-46399-1_72-1": {
+   "claude-opus-5": 9,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 9
+  },
+  "oa:W3190540542": {
+   "claude-opus-5": 5,
+   "claude-sonnet-5": 5,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "doi:10.21580/jdmhi.2020.2.1.5717": {
+   "claude-opus-5": 4,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 5
+  },
+  "doi:10.4324/9781315232201-11": {
+   "claude-opus-5": 8,
+   "claude-sonnet-5": 7,
+   "claude-opus-4-8": 7,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.1016/j.compeleceng.2020.106723": {
+   "claude-opus-5": 8,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.1108/itp-09-2019-0480": {
+   "claude-opus-5": 8,
+   "claude-sonnet-5": 7,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.18311/gjeis/2017/15877": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 5,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 7
+  },
+  "doi:10.1504/ijbdm.2019.10023294": {
+   "claude-opus-5": 9,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 9,
+   "claude-haiku-4-5-20251001": 9
+  },
+  "doi:10.3390/joitmc8020087": {
+   "claude-opus-5": 2,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 3,
+   "claude-haiku-4-5-20251001": 3
+  },
+  "doi:10.1088/1757-899x/666/1/012040": {
+   "claude-opus-5": 2,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 2
+  },
+  "doi:10.1504/ijbdm.2020.106876": {
+   "claude-opus-5": 9,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 9,
+   "claude-haiku-4-5-20251001": 9
+  },
+  "doi:10.1016/j.procs.2015.04.188": {
+   "claude-opus-5": 2,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 4
+  },
+  "doi:10.1016/j.bushor.2017.11.002": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 6,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 7
+  },
+  "doi:10.1016/j.indmarman.2019.11.014": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 6,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.1016/j.eswa.2018.11.002": {
+   "claude-opus-5": 7,
+   "claude-sonnet-5": 7,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "doi:10.1016/j.bushor.2020.12.004": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 6,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 7
+  },
+  "doi:10.1080/21639159.2020.1808812": {
+   "claude-opus-5": 5,
+   "claude-sonnet-5": 5,
+   "claude-opus-4-8": 7,
+   "claude-haiku-4-5-20251001": 7
+  },
+  "doi:10.1007/s12599-015-0370-8": {
+   "claude-opus-5": 8,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 9
+  },
+  "doi:10.1088/1757-899x/497/1/012114": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 5,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "doi:10.1080/10447318.2021.1976514": {
+   "claude-opus-5": 5,
+   "claude-sonnet-5": 5,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.1080/15252019.2025.2467051": {
+   "claude-opus-5": 4,
+   "claude-sonnet-5": 4,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "doi:10.1109/cscloud/edgecom.2018.00018": {
+   "claude-opus-5": 1,
+   "claude-sonnet-5": 1,
+   "claude-opus-4-8": 1,
+   "claude-haiku-4-5-20251001": 1
+  },
+  "doi:10.1016/j.chb.2020.106657": {
+   "claude-opus-5": 8,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.1016/j.bushor.2019.12.002": {
+   "claude-opus-5": 9,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.17803/1729-5920.2022.188.7.087-099": {
+   "claude-opus-5": 1,
+   "claude-sonnet-5": 1,
+   "claude-opus-4-8": 1,
+   "claude-haiku-4-5-20251001": 1
+  },
+  "doi:10.1177/02761467261424251": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "doi:10.1007/s11390-015-1518-1": {
+   "claude-opus-5": 2,
+   "claude-sonnet-5": 1,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 2
+  },
+  "doi:10.1108/978-1-83549-568-120251012": {
+   "claude-opus-5": 9,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.3390/joitmc8020093": {
+   "claude-opus-5": 4,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 5
+  },
+  "doi:10.1007/s11948-016-9792-z": {
+   "claude-opus-5": 2,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 2
+  },
+  "doi:10.1080/17510694.2021.2025001": {
+   "claude-opus-5": 7,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.1016/j.ijinfomgt.2019.03.010": {
+   "claude-opus-5": 5,
+   "claude-sonnet-5": 5,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 4
+  },
+  "doi:10.1016/j.techsoc.2020.101425": {
+   "claude-opus-5": 9,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "oa:W2971063541": {
+   "claude-opus-5": 2,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 3
+  },
+  "doi:10.1080/00913367.2022.2111728": {
+   "claude-opus-5": 8,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 7
+  },
+  "doi:10.1016/j.techfore.2023.122342": {
+   "claude-opus-5": 7,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "doi:10.1016/j.future.2021.01.028": {
+   "claude-opus-5": 1,
+   "claude-sonnet-5": 1,
+   "claude-opus-4-8": 1,
+   "claude-haiku-4-5-20251001": 1
+  },
+  "doi:10.3390/joitmc7030174": {
+   "claude-opus-5": 2,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 3,
+   "claude-haiku-4-5-20251001": 3
+  },
+  "doi:10.1021/acs.est.3c01106": {
+   "claude-opus-5": 1,
+   "claude-sonnet-5": 1,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 1
+  },
+  "doi:10.3390/su16156283": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 4
+  },
+  "doi:10.1080/22041451.2019.1561398": {
+   "claude-opus-5": 9,
+   "claude-sonnet-5": 9,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 9
+  },
+  "doi:10.1016/j.tourman.2015.05.017": {
+   "claude-opus-5": 2,
+   "claude-sonnet-5": 1,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 3
+  },
+  "doi:10.33258/birci.v3i3.1239": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 6,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 7
+  },
+  "doi:10.1201/9780429487736-8": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 6,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 7
+  },
+  "doi:10.1016/j.ecolind.2019.01.079": {
+   "claude-opus-5": 1,
+   "claude-sonnet-5": 1,
+   "claude-opus-4-8": 1,
+   "claude-haiku-4-5-20251001": 1
+  },
+  "doi:10.1016/j.indmarman.2019.12.008": {
+   "claude-opus-5": 9,
+   "claude-sonnet-5": 9,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 9
+  },
+  "doi:10.1108/ijoa-04-2020-2144": {
+   "claude-opus-5": 5,
+   "claude-sonnet-5": 4,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "doi:10.1109/tr.2020.3047833": {
+   "claude-opus-5": 1,
+   "claude-sonnet-5": 1,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 2
+  },
+  "doi:10.12688/f1000research.176534.1": {
+   "claude-opus-5": 8,
+   "claude-sonnet-5": 7,
+   "claude-opus-4-8": 7,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.1145/3778173": {
+   "claude-opus-5": 5,
+   "claude-sonnet-5": 5,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "doi:10.1080/15332667.2025.2514292": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 3,
+   "claude-haiku-4-5-20251001": 4
+  },
+  "doi:10.1016/j.indmarman.2020.07.022": {
+   "claude-opus-5": 7,
+   "claude-sonnet-5": 7,
+   "claude-opus-4-8": 7,
+   "claude-haiku-4-5-20251001": 9
+  },
+  "doi:10.1108/jsm-10-2016-0352": {
+   "claude-opus-5": 7,
+   "claude-sonnet-5": 7,
+   "claude-opus-4-8": 7,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.14529/em180315": {
+   "claude-opus-5": 7,
+   "claude-sonnet-5": 7,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.1088/1757-899x/497/1/012123": {
+   "claude-opus-5": 7,
+   "claude-sonnet-5": 6,
+   "claude-opus-4-8": 7,
+   "claude-haiku-4-5-20251001": 7
+  },
+  "doi:10.1109/cifer.2019.8759106": {
+   "claude-opus-5": 8,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 7,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "doi:10.1080/07370024.2021.1994860": {
+   "claude-opus-5": 2,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 3
+  },
+  "doi:10.26524/sajet.2020.2.7": {
+   "claude-opus-5": 7,
+   "claude-sonnet-5": 6,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "doi:10.1016/j.jclepro.2020.122729": {
+   "claude-opus-5": 1,
+   "claude-sonnet-5": 1,
+   "claude-opus-4-8": 1,
+   "claude-haiku-4-5-20251001": 1
+  },
+  "doi:10.4018/979-8-3693-0116-6.ch006": {
+   "claude-opus-5": 8,
+   "claude-sonnet-5": 7,
+   "claude-opus-4-8": 7,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.1145/3178876.3186060": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 6,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 4
+  },
+  "doi:10.17762/turcomat.v12i3.1648": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 6,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 7
+  },
+  "doi:10.1016/j.tourman.2020.104078": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 4,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 5
+  },
+  "doi:10.1109/cybersecurity49315.2020.9138861": {
+   "claude-opus-5": 7,
+   "claude-sonnet-5": 7,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 7
+  },
+  "doi:10.1142/9789811247729_0015": {
+   "claude-opus-5": 4,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 4
+  },
+  "doi:10.3390/electronics9050791": {
+   "claude-opus-5": 2,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 3
+  },
+  "doi:10.1145/3640457.3688183": {
+   "claude-opus-5": 5,
+   "claude-sonnet-5": 6,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "doi:10.17762/turcomat.v12i7.2551": {
+   "claude-opus-5": 4,
+   "claude-sonnet-5": 4,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 2
+  },
+  "doi:10.3145/epi.2020.may.23": {
+   "claude-opus-5": 5,
+   "claude-sonnet-5": 5,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 5
+  },
+  "doi:10.1016/j.techfore.2019.03.020": {
+   "claude-opus-5": 8,
+   "claude-sonnet-5": 9,
+   "claude-opus-4-8": 7,
+   "claude-haiku-4-5-20251001": 9
+  },
+  "doi:10.25139/jsk.v5i3.3077": {
+   "claude-opus-5": 9,
+   "claude-sonnet-5": 9,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.1145/3391614.3393653": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 4,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 5
+  },
+  "doi:10.35940/ijrte.c5868.098319": {
+   "claude-opus-5": 8,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 7,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.1109/ipdps47924.2020.00084": {
+   "claude-opus-5": 1,
+   "claude-sonnet-5": 1,
+   "claude-opus-4-8": 1,
+   "claude-haiku-4-5-20251001": 1
+  },
+  "doi:10.1145/3392063.3394420": {
+   "claude-opus-5": 2,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 3,
+   "claude-haiku-4-5-20251001": 4
+  },
+  "doi:10.1145/3308558.3313524": {
+   "claude-opus-5": 4,
+   "claude-sonnet-5": 4,
+   "claude-opus-4-8": 3,
+   "claude-haiku-4-5-20251001": 3
+  },
+  "doi:10.1109/lra.2021.3103048": {
+   "claude-opus-5": 1,
+   "claude-sonnet-5": 1,
+   "claude-opus-4-8": 1,
+   "claude-haiku-4-5-20251001": 1
+  },
+  "doi:10.1177/0162243920943665": {
+   "claude-opus-5": 2,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 2
+  },
+  "doi:10.4018/979-8-3693-9122-8.ch025": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 4,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "doi:10.1109/mwscas48704.2020.9184663": {
+   "claude-opus-5": 1,
+   "claude-sonnet-5": 1,
+   "claude-opus-4-8": 1,
+   "claude-haiku-4-5-20251001": 1
+  },
+  "doi:10.33423/jhetp.v23i3.5837": {
+   "claude-opus-5": 4,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 4
+  },
+  "doi:10.4018/978-1-5225-5912-2.ch010": {
+   "claude-opus-5": 7,
+   "claude-sonnet-5": 6,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 7
+  },
+  "doi:10.37679/trta.965966": {
+   "claude-opus-5": 4,
+   "claude-sonnet-5": 4,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 5
+  },
+  "doi:10.17645/mac.v9i4.4062": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 3,
+   "claude-haiku-4-5-20251001": 3
+  },
+  "doi:10.3145/epi.2017.mar.06": {
+   "claude-opus-5": 9,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.17577/ijertv8is060622": {
+   "claude-opus-5": 8,
+   "claude-sonnet-5": 7,
+   "claude-opus-4-8": 7,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "doi:10.3389/fpsyg.2021.740354": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 4
+  },
+  "doi:10.47772/ijriss.2021.5830": {
+   "claude-opus-5": 8,
+   "claude-sonnet-5": 7,
+   "claude-opus-4-8": 7,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.4337/9781035312870.00008": {
+   "claude-opus-5": 9,
+   "claude-sonnet-5": 9,
+   "claude-opus-4-8": 9,
+   "claude-haiku-4-5-20251001": 9
+  },
+  "doi:10.5220/0007395502560265": {
+   "claude-opus-5": 7,
+   "claude-sonnet-5": 7,
+   "claude-opus-4-8": 7,
+   "claude-haiku-4-5-20251001": 7
+  },
+  "doi:10.1080/13183222.2024.2443871": {
+   "claude-opus-5": 4,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 3,
+   "claude-haiku-4-5-20251001": 5
+  },
+  "doi:10.4324/9780429030871-17": {
+   "claude-opus-5": 7,
+   "claude-sonnet-5": 4,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "doi:10.3390/app112311087": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 4,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "doi:10.5539/ijbm.v15n7p120": {
+   "claude-opus-5": 7,
+   "claude-sonnet-5": 4,
+   "claude-opus-4-8": 7,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.5210/spir.v2023i0.13498": {
+   "claude-opus-5": 7,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 9
+  },
+  "doi:10.37200/ijpr/v24i1/pr200219": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 2
+  },
+  "doi:10.5772/intechopen.110169": {
+   "claude-opus-5": 5,
+   "claude-sonnet-5": 5,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 5
+  },
+  "doi:10.3389/fnbot.2022.913605": {
+   "claude-opus-5": 2,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 2
+  },
+  "doi:10.22381/crlsj11120198": {
+   "claude-opus-5": 5,
+   "claude-sonnet-5": 4,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 5
+  },
+  "sig:1411a73aec366954": {
+   "claude-opus-5": 8,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 7,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "sig:3fa6b821ab09ecf6": {
+   "claude-opus-5": 1,
+   "claude-sonnet-5": 1,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 2
+  },
+  "sig:36d5a9ddec1f4311": {
+   "claude-opus-5": 9,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 9
+  },
+  "sig:22a74b224b77be0c": {
+   "claude-opus-5": 2,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 2
+  },
+  "sig:8a9e26825f1f6b01": {
+   "claude-opus-5": 7,
+   "claude-sonnet-5": 4,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "doi:10.31637/epsir-2024-471": {
+   "claude-opus-5": 7,
+   "claude-sonnet-5": 6,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "sig:f98e1fdbe65bbad6": {
+   "claude-opus-5": 9,
+   "claude-sonnet-5": 9,
+   "claude-opus-4-8": 9,
+   "claude-haiku-4-5-20251001": 9
+  },
+  "sig:168de643e63b677d": {
+   "claude-opus-5": 5,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "doi:10.47134/jbkd.v2i1.3381": {
+   "claude-opus-5": 4,
+   "claude-sonnet-5": 4,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 7
+  },
+  "sig:5423adc33053aaa1": {
+   "claude-opus-5": 1,
+   "claude-sonnet-5": 1,
+   "claude-opus-4-8": 1,
+   "claude-haiku-4-5-20251001": 1
+  },
+  "sig:955ca29d85f01e56": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 4,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 7
+  },
+  "doi:10.17755/esosder.1552095": {
+   "claude-opus-5": 7,
+   "claude-sonnet-5": 6,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "sig:4367a4af0c2e495d": {
+   "claude-opus-5": 2,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 2
+  },
+  "sig:080e3a5b09364a75": {
+   "claude-opus-5": 2,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 1
+  },
+  "sig:5fbdf5e20ee5a005": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 7,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "sig:1f497b578e10acdb": {
+   "claude-opus-5": 1,
+   "claude-sonnet-5": 1,
+   "claude-opus-4-8": 1,
+   "claude-haiku-4-5-20251001": 1
+  },
+  "sig:2ebfff2f5600192b": {
+   "claude-opus-5": 7,
+   "claude-sonnet-5": 6,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 7
+  },
+  "sig:a5ce7b0fb5bf1979": {
+   "claude-opus-5": 5,
+   "claude-sonnet-5": 4,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 5
+  },
+  "sig:c4a90973e4c619e6": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 3,
+   "claude-haiku-4-5-20251001": 2
+  },
+  "sig:ae04f3e386c03c43": {
+   "claude-opus-5": 8,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 7,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "sig:1db9831b42bb6e20": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 5,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "sig:723a96e510924b1a": {
+   "claude-opus-5": 5,
+   "claude-sonnet-5": 5,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 5
+  },
+  "sig:bb8165be31635d22": {
+   "claude-opus-5": 2,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 2
+  },
+  "sig:2dd1e5d2e6714abb": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 4,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 7
+  },
+  "doi:10.58830/ozgur.pub610.c2595": {
+   "claude-opus-5": 9,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 9
+  },
+  "sig:aa2d13bea13f7b05": {
+   "claude-opus-5": 2,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 3
+  },
+  "sig:edd465299705eb07": {
+   "claude-opus-5": 2,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 4
+  },
+  "sig:6fcb03edec28a4d8": {
+   "claude-opus-5": 2,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 2
+  },
+  "sig:3dccb645d6bf1fa9": {
+   "claude-opus-5": 1,
+   "claude-sonnet-5": 1,
+   "claude-opus-4-8": 1,
+   "claude-haiku-4-5-20251001": 1
+  },
+  "sig:1a7c5cef7eb1b154": {
+   "claude-opus-5": 5,
+   "claude-sonnet-5": 4,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 5
+  },
+  "sig:bb45af654312ebe3": {
+   "claude-opus-5": 4,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 2
+  },
+  "sig:963cbbf714510cf9": {
+   "claude-opus-5": 2,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 3
+  },
+  "sig:f114a21b08a919e7": {
+   "claude-opus-5": 5,
+   "claude-sonnet-5": 6,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "sig:53c8f7bd5d88e0a4": {
+   "claude-opus-5": 7,
+   "claude-sonnet-5": 7,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "sig:4ba0e350d2350771": {
+   "claude-opus-5": 4,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 4
+  },
+  "sig:dab997053ff66a7b": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 6,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "sig:228c0edac3c95606": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 4
+  },
+  "sig:0eb48bdae2dd387a": {
+   "claude-opus-5": 7,
+   "claude-sonnet-5": 7,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 7
+  },
+  "sig:5636c9db5a8b372a": {
+   "claude-opus-5": 5,
+   "claude-sonnet-5": 6,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "sig:8fed0e7237e43ce9": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 4
+  },
+  "sig:8de033ed82b317aa": {
+   "claude-opus-5": 1,
+   "claude-sonnet-5": 1,
+   "claude-opus-4-8": 1,
+   "claude-haiku-4-5-20251001": 1
+  },
+  "sig:d942e8cbd5e0cb1b": {
+   "claude-opus-5": 2,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 3
+  },
+  "sig:23ef3e14aa7d3d59": {
+   "claude-opus-5": 4,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 3,
+   "claude-haiku-4-5-20251001": 5
+  },
+  "sig:eeb3c3b56ecfdae0": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 3,
+   "claude-haiku-4-5-20251001": 4
+  },
+  "sig:6258cf9e6caebd88": {
+   "claude-opus-5": 7,
+   "claude-sonnet-5": 6,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 7
+  },
+  "sig:ecb1332cfa4a4a58": {
+   "claude-opus-5": 5,
+   "claude-sonnet-5": 4,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "sig:575c8e2730677170": {
+   "claude-opus-5": 4,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 5
+  },
+  "sig:1c8a5a89584bfa1b": {
+   "claude-opus-5": 5,
+   "claude-sonnet-5": 5,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "sig:52848fc8d2291e5e": {
+   "claude-opus-5": 4,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 3,
+   "claude-haiku-4-5-20251001": 5
+  },
+  "sig:1f8b7553e4c4bf03": {
+   "claude-opus-5": 8,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 7,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "sig:c4cd128eb9a5b9a2": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 3,
+   "claude-haiku-4-5-20251001": 3
+  },
+  "sig:7d8b019f6eeeb1a1": {
+   "claude-opus-5": 2,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 2
+  },
+  "sig:2abe64f42db9e406": {
+   "claude-opus-5": 2,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 3
+  },
+  "sig:12c26d8560bbb174": {
+   "claude-opus-5": 7,
+   "claude-sonnet-5": 7,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "sig:72b8f09ca7a497a9": {
+   "claude-opus-5": 2,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 4
+  },
+  "doi:10.5771/9783748928928-243": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 5
+  },
+  "sig:73d132e4d52aaa63": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 5,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 5
+  },
+  "sig:5b59b2cbeaecdc9f": {
+   "claude-opus-5": 7,
+   "claude-sonnet-5": 7,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "sig:5842b60f0d9c3d85": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 6,
+   "claude-opus-4-8": 7,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "sig:fe40d704fce6d0f6": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 3
+  },
+  "sig:291dcf9f4a9ccfc7": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 6,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "doi:10.58830/ozgur.pub610.c2592": {
+   "claude-opus-5": 8,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "sig:04fd42c2e60ff6c9": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 3,
+   "claude-haiku-4-5-20251001": 4
+  },
+  "sig:ea65b1b810034244": {
+   "claude-opus-5": 2,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 2
+  },
+  "sig:612a37166197ea77": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 3
+  },
+  "sig:4b9e286d695a03b6": {
+   "claude-opus-5": 4,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 4
+  },
+  "sig:b64114c3111c7fce": {
+   "claude-opus-5": 5,
+   "claude-sonnet-5": 6,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 5
+  },
+  "sig:b3699604fd82d2a6": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 5
+  },
+  "sig:21055c9209436b37": {
+   "claude-opus-5": 1,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 1,
+   "claude-haiku-4-5-20251001": 2
+  },
+  "sig:867be3a5e8476d48": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 3,
+   "claude-haiku-4-5-20251001": 3
+  },
+  "sig:8c1f5ba5893c0d8b": {
+   "claude-opus-5": 5,
+   "claude-sonnet-5": 6,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "sig:5f92b7d6f989330b": {
+   "claude-opus-5": 5,
+   "claude-sonnet-5": 4,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 5
+  },
+  "sig:30645a831c20e9de": {
+   "claude-opus-5": 2,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 2
+  },
+  "sig:bf77594372e7c94d": {
+   "claude-opus-5": 7,
+   "claude-sonnet-5": 7,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "sig:8737f004e2c80f61": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 5
+  },
+  "sig:423afec4aa6b8311": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 3
+  },
+  "sig:b6d754e3785f722f": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 4
+  },
+  "sig:64d8d9bb5a72f611": {
+   "claude-opus-5": 2,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 3
+  },
+  "sig:9ed8d6d494a81aaa": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 3,
+   "claude-haiku-4-5-20251001": 4
+  },
+  "sig:25f82677e73556e1": {
+   "claude-opus-5": 4,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "sig:f730d758238ddbb1": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 5,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 5
+  },
+  "sig:efea0b68e31d3ae5": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 5,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "sig:76bbc57bfe4f33f7": {
+   "claude-opus-5": 1,
+   "claude-sonnet-5": 1,
+   "claude-opus-4-8": 1,
+   "claude-haiku-4-5-20251001": 1
+  },
+  "sig:5fd0ea8d8083aef7": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 3,
+   "claude-haiku-4-5-20251001": 3
+  },
+  "sig:c19558b34a342a9f": {
+   "claude-opus-5": 7,
+   "claude-sonnet-5": 7,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "sig:97382c8923c1d2fe": {
+   "claude-opus-5": 2,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 3,
+   "claude-haiku-4-5-20251001": 1
+  },
+  "sig:c51337e62679d5d3": {
+   "claude-opus-5": 8,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 7
+  },
+  "sig:88f49a5874570c6a": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 4,
+   "claude-opus-4-8": 3,
+   "claude-haiku-4-5-20251001": 4
+  },
+  "sig:85bf34aa700c7358": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 2
+  },
+  "sig:7207c69ac12e4665": {
+   "claude-opus-5": 5,
+   "claude-sonnet-5": 6,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "sig:95fff5cee88ef729": {
+   "claude-opus-5": 7,
+   "claude-sonnet-5": 7,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 7
+  },
+  "sig:b90daa15a876f85c": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 3,
+   "claude-haiku-4-5-20251001": 4
+  },
+  "sig:8cbe581034045d44": {
+   "claude-opus-5": 1,
+   "claude-sonnet-5": 1,
+   "claude-opus-4-8": 1,
+   "claude-haiku-4-5-20251001": 1
+  },
+  "sig:f1ce83860ae8a399": {
+   "claude-opus-5": 8,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 7,
+   "claude-haiku-4-5-20251001": 9
+  },
+  "sig:9a989e0b61b3ee68": {
+   "claude-opus-5": 1,
+   "claude-sonnet-5": 1,
+   "claude-opus-4-8": 1,
+   "claude-haiku-4-5-20251001": 1
+  },
+  "sig:fbf2fa6b5e4ff180": {
+   "claude-opus-5": 7,
+   "claude-sonnet-5": 7,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "sig:be2b3d12506eee3f": {
+   "claude-opus-5": 8,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 7,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "sig:88be611e75b35b67": {
+   "claude-opus-5": 7,
+   "claude-sonnet-5": 6,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "sig:a0ca0eb1982dcd01": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 4,
+   "claude-opus-4-8": 3,
+   "claude-haiku-4-5-20251001": 2
+  },
+  "sig:e2572bff2064c63f": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 6,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 7
+  },
+  "sig:ca4f159b9c97c893": {
+   "claude-opus-5": 5,
+   "claude-sonnet-5": 5,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 4
+  },
+  "sig:9c5c61a4ca75ba0d": {
+   "claude-opus-5": 5,
+   "claude-sonnet-5": 5,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 3
+  },
+  "sig:ebe6310a9e014822": {
+   "claude-opus-5": 2,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 1
+  },
+  "sig:beaf8f75f40f9bca": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 6,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 7
+  },
+  "sig:fea320bdbfe3f7c1": {
+   "claude-opus-5": 6,
+   "claude-sonnet-5": 5,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 6
+  },
+  "sig:bd4dc065b8e19fc6": {
+   "claude-opus-5": 2,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 2
+  },
+  "sig:f9bbca2a2bb7ca07": {
+   "claude-opus-5": 4,
+   "claude-sonnet-5": 4,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 5
+  },
+  "sig:bb8b68bec6b66b2a": {
+   "claude-opus-5": 1,
+   "claude-sonnet-5": 1,
+   "claude-opus-4-8": 1,
+   "claude-haiku-4-5-20251001": 1
+  },
+  "sig:c2d500d255a4d40b": {
+   "claude-opus-5": 3,
+   "claude-sonnet-5": 3,
+   "claude-opus-4-8": 2,
+   "claude-haiku-4-5-20251001": 3
+  },
+  "sig:fca2b6ea316be80a": {
+   "claude-opus-5": 2,
+   "claude-sonnet-5": 2,
+   "claude-opus-4-8": 1,
+   "claude-haiku-4-5-20251001": 2
+  },
+  "sig:d3c7fa9d7f897daf": {
+   "claude-opus-5": 7,
+   "claude-sonnet-5": 7,
+   "claude-opus-4-8": 6,
+   "claude-haiku-4-5-20251001": 8
+  }
+ },
+ "ctrl": {
+  "doi:10.1007/978-3-030-39165-2_111": {
+   "claude-opus-5": 5,
+   "claude-sonnet-5": 5,
+   "claude-opus-4-8": 5,
+   "claude-haiku-4-5-20251001": 7
+  },
+  "doi:10.1007/978-3-031-20040-3_15": {
+   "claude-opus-5": 9,
+   "claude-sonnet-5": 9,
+   "claude-opus-4-8": 9,
+   "claude-haiku-4-5-20251001": 9
+  },
+  "doi:10.1007/978-3-031-20040-3_27": {
+   "claude-opus-5": 10,
+   "claude-sonnet-5": 9,
+   "claude-opus-4-8": 9,
+   "claude-haiku-4-5-20251001": 9
+  },
+  "doi:10.1007/978-3-319-25023-6_1": {
+   "claude-opus-5": 8,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.1007/978-981-13-3338-5_1": {
+   "claude-opus-5": 8,
+   "claude-sonnet-5": 9,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.1007/978-981-99-7210-4_12": {
+   "claude-opus-5": 9,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.1057/dddmp.2015.29": {
+   "claude-opus-5": 8,
+   "claude-sonnet-5": 9,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.1109/gcitc60406.2023.10425868": {
+   "claude-opus-5": 9,
+   "claude-sonnet-5": 9,
+   "claude-opus-4-8": 9,
+   "claude-haiku-4-5-20251001": 9
+  },
+  "doi:10.1201/9781032720104-15": {
+   "claude-opus-5": 9,
+   "claude-sonnet-5": 9,
+   "claude-opus-4-8": 10,
+   "claude-haiku-4-5-20251001": 9
+  },
+  "doi:10.3390/joitmc7020114": {
+   "claude-opus-5": 7,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 7,
+   "claude-haiku-4-5-20251001": 7
+  },
+  "doi:10.4018/978-1-6684-9146-1": {
+   "claude-opus-5": 8,
+   "claude-sonnet-5": 9,
+   "claude-opus-4-8": 8,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.4018/979-8-3693-7909-7.ch016": {
+   "claude-opus-5": 8,
+   "claude-sonnet-5": 8,
+   "claude-opus-4-8": 9,
+   "claude-haiku-4-5-20251001": 8
+  },
+  "doi:10.4018/ijdst.307953": {
+   "claude-opus-5": 5,
+   "claude-sonnet-5": 5,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 7
+  },
+  "doi:10.4324/9781032711089-13": {
+   "claude-opus-5": 9,
+   "claude-sonnet-5": 9,
+   "claude-opus-4-8": 9,
+   "claude-haiku-4-5-20251001": 9
+  },
+  "doi:10.52783/jisem.v10i16s.2674": {
+   "claude-opus-5": 4,
+   "claude-sonnet-5": 4,
+   "claude-opus-4-8": 4,
+   "claude-haiku-4-5-20251001": 5
+  }
+ },
+ "models": [
+  "claude-opus-5",
+  "claude-sonnet-5",
+  "claude-opus-4-8",
+  "claude-haiku-4-5-20251001"
+ ],
+ "tau": 7.0
+}

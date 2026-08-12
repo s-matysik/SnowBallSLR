@@ -41,12 +41,20 @@ labels_*.csv
 # Internal audit and positioning material, kept out of the public repository:
 # the competitor threat assessment and the claim register are working documents
 # for manuscript preparation, not part of the software.
+notes/
 audit/
 AUDIT_INDEX.md
 SOFTWAREX_READINESS.md
 PUBLISH.md
 compass_artifact_*.md
 manuscript/
+
+# Local working notes and drafts, kept out of the public repository until they
+# are ready.
+SECURITY_NOTICE.md
+VALIDATION_ROADMAP.md
+WORKED_EXAMPLE.md
+validation/scopus_third_arm_prototype.py
 
 # Publisher's submission template -- Elsevier's document, not ours to redistribute.
 softwarex-osp-template*.docx

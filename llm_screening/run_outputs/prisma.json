@@ -1,0 +1,46 @@
+{
+  "duplicates_removed": 233,
+  "identified_by_direction": {
+    "backward": 5305,
+    "forward": 7159
+  },
+  "identified_by_provider": {
+    "crossref": 3887,
+    "openalex": 11245
+  },
+  "per_iteration": [
+    {
+      "cumulative_included": 105,
+      "cumulative_screened": 302,
+      "frontier_size": 90,
+      "n": 1,
+      "n_after_dedup": 0,
+      "n_eligible": 302,
+      "n_excluded": 212,
+      "n_expanded": 15,
+      "n_included": 90,
+      "n_raw": 0,
+      "n_screened": 302
+    },
+    {
+      "cumulative_included": 2787,
+      "cumulative_screened": 9732,
+      "frontier_size": 2682,
+      "n": 2,
+      "n_after_dedup": 0,
+      "n_eligible": 9430,
+      "n_excluded": 6748,
+      "n_expanded": 105,
+      "n_included": 2682,
+      "n_raw": 0,
+      "n_screened": 9430
+    }
+  ],
+  "records_excluded": 6960,
+  "records_identified_via_citation_searching": 12287,
+  "records_removed_before_screening": 2572,
+  "records_screened": 9732,
+  "records_unresolvable": 994,
+  "seeds": 15,
+  "studies_included": 2772
+}

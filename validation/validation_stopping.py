@@ -7,9 +7,9 @@ at that point, and what did stopping there cost or save relative to the
 oracle-optimal stop (the earliest iteration reaching the target recall).
 """
 from __future__ import annotations
-import math, random
-from dataclasses import dataclass, asdict
-from typing import Any
+
+import math
+from dataclasses import dataclass
 
 
 @dataclass

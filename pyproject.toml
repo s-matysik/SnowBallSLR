@@ -74,6 +74,9 @@ exclude_lines = [
 ]
 
 [tool.ruff]
+# Reproduction scripts are archived verbatim as they were run for the
+# validation report; reformatting them would break that correspondence.
+extend-exclude = ["validation/validation_*.py"]
 line-length = 92
 target-version = "py311"
 

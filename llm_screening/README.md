@@ -65,10 +65,21 @@ the include set is biased toward well-indexed records. The library's own PRISMA 
 these separately; a manual pass over high-scoring title-only records is the correct remedy and
 has not been performed here.
 
-Two further limits. The scores are single-rater-equivalent: no human double-screened a sample, so
-agreement with a human screener is unmeasured and the controls only establish that the ensemble
-separates known-relevant seeds from the pool. And the ensemble is one vendor's model family, so
-the four models are not independent raters in the sense capture-recapture assumes.
+Two further limits. No human-agreement coefficient is reported, and that is a scope decision rather
+than a pending measurement: the only screener available was the author, who set the question, seeds
+and rubric the models were given, so the coefficient would measure fidelity to that framing rather
+than agreement with independent expert judgement — which is why screening guidance requires two
+independent reviewers. What the controls do establish is that the ensemble separates known-relevant
+seeds from the candidate pool. The tooling for a genuine comparison ships here
+(`human_validation_sample.csv` plus `../validation/score_human_agreement.py`) and needs a screener
+who did not author the protocol.
+
+Separately, the four models used for the three case runs are all from one vendor, so they are not
+independent raters in the sense capture-recapture assumes. That limit has since been tested rather
+than only stated: `../validation/llm_screen_validate.py` re-scored 311 records with six models from
+six independent vendors, giving cross-family ICC of 0.70 to 0.90 across all fifteen pairs (see
+`../cases/xvendor_validation.json`), so the convergence is not an artefact of shared training
+provenance.
 
 ## Files
 

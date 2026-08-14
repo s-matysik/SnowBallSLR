@@ -1,0 +1,149 @@
+{
+  "duplicates_removed": 475,
+  "identified_by_direction": {
+    "backward": 11994
+  },
+  "identified_by_provider": {
+    "crossref": 9375,
+    "openalex": 8276
+  },
+  "per_iteration": [
+    {
+      "cumulative_included": 12,
+      "cumulative_screened": 115,
+      "frontier_size": 6,
+      "n": 1,
+      "n_after_dedup": 0,
+      "n_eligible": 115,
+      "n_excluded": 109,
+      "n_expanded": 6,
+      "n_included": 6,
+      "n_raw": 0,
+      "n_screened": 115
+    },
+    {
+      "cumulative_included": 49,
+      "cumulative_screened": 446,
+      "frontier_size": 37,
+      "n": 2,
+      "n_after_dedup": 0,
+      "n_eligible": 331,
+      "n_excluded": 294,
+      "n_expanded": 12,
+      "n_included": 37,
+      "n_raw": 0,
+      "n_screened": 331
+    },
+    {
+      "cumulative_included": 134,
+      "cumulative_screened": 2080,
+      "frontier_size": 85,
+      "n": 3,
+      "n_after_dedup": 0,
+      "n_eligible": 1634,
+      "n_excluded": 1549,
+      "n_expanded": 49,
+      "n_included": 85,
+      "n_raw": 0,
+      "n_screened": 1634
+    },
+    {
+      "cumulative_included": 280,
+      "cumulative_screened": 4676,
+      "frontier_size": 146,
+      "n": 4,
+      "n_after_dedup": 0,
+      "n_eligible": 2596,
+      "n_excluded": 2450,
+      "n_expanded": 134,
+      "n_included": 146,
+      "n_raw": 0,
+      "n_screened": 2596
+    },
+    {
+      "cumulative_included": 496,
+      "cumulative_screened": 7981,
+      "frontier_size": 216,
+      "n": 5,
+      "n_after_dedup": 0,
+      "n_eligible": 3305,
+      "n_excluded": 3089,
+      "n_expanded": 280,
+      "n_included": 216,
+      "n_raw": 0,
+      "n_screened": 3305
+    },
+    {
+      "cumulative_included": 578,
+      "cumulative_screened": 9824,
+      "frontier_size": 83,
+      "n": 6,
+      "n_after_dedup": 0,
+      "n_eligible": 1843,
+      "n_excluded": 1760,
+      "n_expanded": 495,
+      "n_included": 83,
+      "n_raw": 0,
+      "n_screened": 1843
+    },
+    {
+      "cumulative_included": 586,
+      "cumulative_screened": 10812,
+      "frontier_size": 8,
+      "n": 7,
+      "n_after_dedup": 0,
+      "n_eligible": 988,
+      "n_excluded": 980,
+      "n_expanded": 578,
+      "n_included": 8,
+      "n_raw": 0,
+      "n_screened": 988
+    },
+    {
+      "cumulative_included": 590,
+      "cumulative_screened": 10846,
+      "frontier_size": 4,
+      "n": 8,
+      "n_after_dedup": 0,
+      "n_eligible": 34,
+      "n_excluded": 30,
+      "n_expanded": 586,
+      "n_included": 4,
+      "n_raw": 0,
+      "n_screened": 34
+    },
+    {
+      "cumulative_included": 591,
+      "cumulative_screened": 10878,
+      "frontier_size": 1,
+      "n": 9,
+      "n_after_dedup": 0,
+      "n_eligible": 32,
+      "n_excluded": 31,
+      "n_expanded": 590,
+      "n_included": 1,
+      "n_raw": 0,
+      "n_screened": 32
+    },
+    {
+      "cumulative_included": 591,
+      "cumulative_screened": 10878,
+      "frontier_size": 0,
+      "n": 10,
+      "n_after_dedup": 0,
+      "n_eligible": 0,
+      "n_excluded": 0,
+      "n_expanded": 1,
+      "n_included": 0,
+      "n_raw": 0,
+      "n_screened": 0
+    }
+  ],
+  "records_excluded": 10291,
+  "records_identified_via_citation_searching": 11994,
+  "records_removed_before_screening": 1316,
+  "records_screened": 10876,
+  "records_unresolvable": 3510,
+  "seeds": 6,
+  "studies_included": 585
+}

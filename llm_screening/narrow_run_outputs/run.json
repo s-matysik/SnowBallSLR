@@ -1,0 +1,1478 @@
+{
+  "cache_entries": 1064,
+  "config": {
+    "dedup": {
+      "jw_threshold": 0.95,
+      "max_cluster_size": 8
+    },
+    "determinism": {
+      "backoff_base": 1.0,
+      "backoff_factor": 2.0,
+      "cache_dir": "cache",
+      "max_retries": 5,
+      "offline": false,
+      "refresh": false
+    },
+    "eligibility": {
+      "exclude_retracted": true,
+      "keep_unknown_metadata": true,
+      "languages": null,
+      "require_abstract": false,
+      "require_title": true,
+      "types": [
+        "article",
+        "book-chapter"
+      ],
+      "year_max": null,
+      "year_min": null
+    },
+    "estimate": {
+      "arms": [
+        {
+          "filter": {
+            "provider": "openalex"
+          },
+          "name": "openalex"
+        },
+        {
+          "filter": {
+            "provider": "crossref"
+          },
+          "name": "crossref"
+        }
+      ],
+      "membership_doi_column": "DOI",
+      "membership_sets": {},
+      "method": "chapman"
+    },
+    "providers": {
+      "crossref": {
+        "base_url": "https://api.crossref.org",
+        "enabled": true,
+        "mailto": "<redacted>",
+        "rps": 8.0
+      },
+      "grobid": {
+        "enabled": false,
+        "min_match_score": 60.0,
+        "min_title_similarity": 0.9,
+        "pdf_map": "<redacted>",
+        "url": "<redacted>"
+      },
+      "openalex": {
+        "base_url": "https://api.openalex.org",
+        "enabled": true,
+        "mailto": "<redacted>",
+        "per_page": 200,
+        "rps": 8.0
+      },
+      "order": [
+        "openalex",
+        "crossref"
+      ],
+      "precedence": [
+        "openalex",
+        "crossref",
+        "semanticscholar",
+        "grobid"
+      ],
+      "semanticscholar": {
+        "api_key_env": "<redacted>",
+        "base_url": "https://api.semanticscholar.org/graph/v1",
+        "enabled": false,
+        "rps": 1.0
+      }
+    },
+    "ranking": {
+      "components": [
+        "bm25",
+        "network"
+      ],
+      "embedding_model": null,
+      "embedding_revision": null,
+      "network_weights": [
+        0.4,
+        0.25,
+        0.25,
+        0.1
+      ],
+      "rrf_k": 60,
+      "top_k": null,
+      "type": "rrf"
+    },
+    "run": {
+      "directions": [
+        "backward"
+      ],
+      "max_iterations": 6,
+      "name": "narrow-rule-driven"
+    },
+    "stopping": {
+      "mode": "any_of",
+      "rules": [
+        {
+          "eps": 0.02,
+          "k": 2,
+          "type": "marginal_yield"
+        },
+        {
+          "max_drift": 0.05,
+          "min_stable_iterations": 2,
+          "tau": 0.95,
+          "type": "estimated_recall"
+        },
+        {
+          "max_screened": 20000,
+          "type": "budget"
+        },
+        {
+          "type": "exhaustion"
+        }
+      ]
+    }
+  },
+  "config_hash": "sha256:c4eff3a4d258332b7d2260a6a8ff0468dcc5220f89597f461eaf8784d04c8038",
+  "embedding_model": null,
+  "finished_at": "2026-08-14T14:46:48Z",
+  "iterations": [
+    {
+      "candidates_hash": "sha256:920e003030427f126a46795b49be9555d4296231e2031623c05299f10471b73b",
+      "frontier_hash": "sha256:8d85027c559e4db7bb7bd50c47c3e13c0c69d51439d6996392156d437871da69",
+      "labels_hash": "sha256:61b2f2720f4cf44c52b3014ceca012de7ceb901af3b655da4326bfd63033e4d2",
+      "n": 1,
+      "n_after_dedup": 134,
+      "n_eligible": 115,
+      "n_excluded": 109,
+      "n_expanded": 6,
+      "n_included": 6,
+      "n_raw": 176,
+      "n_screened": 115,
+      "stop_decisions": [
+        {
+          "detail": {
+            "iterations": 1
+          },
+          "rationale": "Fewer than 2 iterations completed; rule not yet applicable.",
+          "rule": "marginal_yield",
+          "threshold": 0.02,
+          "triggered": false,
+          "value": null
+        },
+        {
+          "detail": {
+            "closure": {
+              "n_estimable_iterations": 1,
+              "required": 3
+            },
+            "closure_stable": false,
+            "estimate": {
+              "detail": {
+                "assumptions": {
+                  "closure": {
+                    "first_request": "2026-08-14T13:23:36Z",
+                    "last_request": "2026-08-14T13:23:42Z",
+                    "unresolved_records": 1
+                  },
+                  "dependence": {
+                    "n_arms": 2,
+                    "pairs": [],
+                    "testable": false
+                  },
+                  "heterogeneity": {
+                    "mean_arms_per_stratum": {
+                      "language": {
+                        "en": 0.9090909090909091,
+                        "unknown": 1.0
+                      },
+                      "publication_year": {
+                        "older": 0.0,
+                        "recent": 1.5714285714285714
+                      },
+                      "venue_type": {
+                        "article": 1.0,
+                        "conference-paper": 0.0,
+                        "unknown": 1.0
+                      }
+                    }
+                  },
+                  "warnings": [
+                    "Independence of the two source arms is assumed but NOT testable with two arms (zero residual degrees of freedom). In citation searching the arms are typically positively dependent, because backward and forward chasing both concentrate on well-connected literature; under positive dependence N_hat is biased downward and the estimated recall must be read as an UPPER BOUND. Configure a third source arm to test this assumption.",
+                    "Catchability is heterogeneous across publication_year: 'older' records are captured by 0.00 arms on average versus 1.57 for 'recent'. N_hat is biased downward.",
+                    "Catchability is heterogeneous across venue_type: 'conference-paper' records are captured by 0.00 arms on average versus 1.00 for 'article'. N_hat is biased downward.",
+                    "1 discovered records could not be resolved to a persistent identifier and are excluded from the capture table."
+                  ]
+                },
+                "lincoln_petersen": 6.0,
+                "m": 5,
+                "n1": 5,
+                "n2": 6,
+                "se": 0.0
+              },
+              "estimable": true,
+              "method": "chapman",
+              "n_hat": 6.0,
+              "n_hat_ci": [
+                6.0,
+                6.0
+              ],
+              "n_observed": 6,
+              "reason": null,
+              "recall": 1.0,
+              "recall_ci": [
+                1.0,
+                1.0
+              ],
+              "warnings": [
+                "Independence of the two source arms is assumed but NOT testable with two arms (zero residual degrees of freedom). In citation searching the arms are typically positively dependent, because backward and forward chasing both concentrate on well-connected literature; under positive dependence N_hat is biased downward and the estimated recall must be read as an UPPER BOUND. Configure a third source arm to test this assumption.",
+                "Catchability is heterogeneous across publication_year: 'older' records are captured by 0.00 arms on average versus 1.57 for 'recent'. N_hat is biased downward.",
+                "Catchability is heterogeneous across venue_type: 'conference-paper' records are captured by 0.00 arms on average versus 1.00 for 'article'. N_hat is biased downward.",
+                "1 discovered records could not be resolved to a persistent identifier and are excluded from the capture table."
+              ]
+            },
+            "threshold_met": true,
+            "used_lower_ci": true
+          },
+          "rationale": "Capture-recapture (chapman) across the configured source arms estimates a relevant population of 6.0 studies, of which 6 were identified; the lower bound of the 95% confidence interval of estimated recall is 100.0%. The threshold of 95% is met, but the rule is withheld because only 1 estimable iteration(s) so far; the closure guard requires 3 to judge whether the estimated population has settled.",
+          "rule": "estimated_recall",
+          "threshold": 0.95,
+          "triggered": false,
+          "value": 1.0
+        },
+        {
+          "detail": {},
+          "rationale": "115 records screened; budget not reached.",
+          "rule": "budget",
+          "threshold": 20000.0,
+          "triggered": false,
+          "value": 115.0
+        },
+        {
+          "detail": {},
+          "rationale": "6 studies remain to be expanded.",
+          "rule": "exhaustion",
+          "threshold": 0.0,
+          "triggered": false,
+          "value": 6.0
+        }
+      ]
+    },
+    {
+      "candidates_hash": "sha256:3ca75646ccaeb992ce9e01fadc07b248ef08fe7a3acb605b7fcaea63e156e742",
+      "frontier_hash": "sha256:193ce53243d5df469319ad81cf2c7094c97a94a7dab688bd306c6a925c819de6",
+      "labels_hash": "sha256:fa9ee139097cb0b807c4e90aa9d310f62028f726b9e34c83a09aab2cf992b44d",
+      "n": 2,
+      "n_after_dedup": 361,
+      "n_eligible": 331,
+      "n_excluded": 294,
+      "n_expanded": 6,
+      "n_included": 37,
+      "n_raw": 625,
+      "n_screened": 331,
+      "stop_decisions": [
+        {
+          "detail": {
+            "window_rates": [
+              0.05217391304347826,
+              0.11178247734138973
+            ]
+          },
+          "rationale": "Marginal yield in the last 2 iterations was 5.22%, 11.18%, not yet below the 2.0% threshold.",
+          "rule": "marginal_yield",
+          "threshold": 0.02,
+          "triggered": false,
+          "value": 0.11178247734138973
+        },
+        {
+          "detail": {
+            "closure": {
+              "n_estimable_iterations": 2,
+              "required": 3
+            },
+            "closure_stable": false,
+            "estimate": {
+              "detail": {
+                "assumptions": {
+                  "closure": {
+                    "first_request": "2026-08-14T13:23:36Z",
+                    "last_request": "2026-08-14T13:27:46Z",
+                    "unresolved_records": 3
+                  },
+                  "dependence": {
+                    "n_arms": 2,
+                    "pairs": [],
+                    "testable": false
+                  },
+                  "heterogeneity": {
+                    "mean_arms_per_stratum": {
+                      "language": {
+                        "en": 1.565217391304348,
+                        "unknown": 1.0
+                      },
+                      "publication_year": {
+                        "older": 1.3636363636363635,
+                        "recent": 1.6666666666666667
+                      },
+                      "venue_type": {
+                        "article": 1.6,
+                        "conference-paper": 0.0,
+                        "unknown": 1.0
+                      }
+                    }
+                  },
+                  "warnings": [
+                    "Independence of the two source arms is assumed but NOT testable with two arms (zero residual degrees of freedom). In citation searching the arms are typically positively dependent, because backward and forward chasing both concentrate on well-connected literature; under positive dependence N_hat is biased downward and the estimated recall must be read as an UPPER BOUND. Configure a third source arm to test this assumption.",
+                    "Catchability is heterogeneous across language: 'unknown' records are captured by 1.00 arms on average versus 1.57 for 'en'. N_hat is biased downward.",
+                    "Catchability is heterogeneous across venue_type: 'conference-paper' records are captured by 0.00 arms on average versus 1.60 for 'article'. N_hat is biased downward.",
+                    "3 discovered records could not be resolved to a persistent identifier and are excluded from the capture table."
+                  ]
+                },
+                "lincoln_petersen": 43.75,
+                "m": 32,
+                "n1": 40,
+                "n2": 35,
+                "se": 0.9781273467528279
+              },
+              "estimable": true,
+              "method": "chapman",
+              "n_hat": 43.72727272727273,
+              "n_hat_ci": [
+                43.0,
+                45.64440232690827
+              ],
+              "n_observed": 43,
+              "reason": null,
+              "recall": 0.9833679833679834,
+              "recall_ci": [
+                0.9420651341216195,
+                1.0
+              ],
+              "warnings": [
+                "Independence of the two source arms is assumed but NOT testable with two arms (zero residual degrees of freedom). In citation searching the arms are typically positively dependent, because backward and forward chasing both concentrate on well-connected literature; under positive dependence N_hat is biased downward and the estimated recall must be read as an UPPER BOUND. Configure a third source arm to test this assumption.",
+                "Catchability is heterogeneous across language: 'unknown' records are captured by 1.00 arms on average versus 1.57 for 'en'. N_hat is biased downward.",
+                "Catchability is heterogeneous across venue_type: 'conference-paper' records are captured by 0.00 arms on average versus 1.60 for 'article'. N_hat is biased downward.",
+                "3 discovered records could not be resolved to a persistent identifier and are excluded from the capture table."
+              ]
+            },
+            "threshold_met": false,
+            "used_lower_ci": true
+          },
+          "rationale": "Capture-recapture (chapman) across the configured source arms estimates a relevant population of 43.7 studies, of which 43 were identified; the lower bound of the 95% confidence interval of estimated recall is 94.2%, below the pre-specified threshold of 95%.",
+          "rule": "estimated_recall",
+          "threshold": 0.95,
+          "triggered": false,
+          "value": 0.9420651341216195
+        },
+        {
+          "detail": {},
+          "rationale": "446 records screened; budget not reached.",
+          "rule": "budget",
+          "threshold": 20000.0,
+          "triggered": false,
+          "value": 446.0
+        },
+        {
+          "detail": {},
+          "rationale": "37 studies remain to be expanded.",
+          "rule": "exhaustion",
+          "threshold": 0.0,
+          "triggered": false,
+          "value": 37.0
+        }
+      ]
+    },
+    {
+      "candidates_hash": "sha256:96239110e53d17f75e2a3761af2aecabff881cd7fca1b1dd0f09b8d4d6069c1e",
+      "frontier_hash": "sha256:bb0fd469e7b8dc06697051638a7a1b1ddf1b763bf2f1034e324c8df69938e807",
+      "labels_hash": "sha256:ade0c395acdd7c81221e78820d5daa8725cec59a6a31801b9d1005e350a8e8fa",
+      "n": 3,
+      "n_after_dedup": 1846,
+      "n_eligible": 1634,
+      "n_excluded": 1549,
+      "n_expanded": 37,
+      "n_included": 85,
+      "n_raw": 3247,
+      "n_screened": 1634,
+      "stop_decisions": [
+        {
+          "detail": {
+            "window_rates": [
+              0.11178247734138973,
+              0.052019583843329255
+            ]
+          },
+          "rationale": "Marginal yield in the last 2 iterations was 11.18%, 5.20%, not yet below the 2.0% threshold.",
+          "rule": "marginal_yield",
+          "threshold": 0.02,
+          "triggered": false,
+          "value": 0.052019583843329255
+        },
+        {
+          "detail": {
+            "closure": {
+              "max_drift_observed": 6.287878787878788,
+              "n_hat_trail": [
+                6.0,
+                43.72727272727273,
+                132.50574712643677
+              ]
+            },
+            "closure_stable": false,
+            "estimate": {
+              "detail": {
+                "assumptions": {
+                  "closure": {
+                    "first_request": "2026-08-14T13:23:36Z",
+                    "last_request": "2026-08-14T13:30:16Z",
+                    "unresolved_records": 27
+                  },
+                  "dependence": {
+                    "n_arms": 2,
+                    "pairs": [],
+                    "testable": false
+                  },
+                  "heterogeneity": {
+                    "mean_arms_per_stratum": {
+                      "language": {
+                        "en": 1.7596153846153846,
+                        "non-en": 1.5,
+                        "unknown": 1.0
+                      },
+                      "publication_year": {
+                        "older": 1.653061224489796,
+                        "recent": 1.6857142857142857
+                      },
+                      "venue_type": {
+                        "article": 1.7777777777777777,
+                        "book-chapter": 1.6666666666666667,
+                        "conference-paper": 0.0,
+                        "unknown": 1.0
+                      }
+                    }
+                  },
+                  "warnings": [
+                    "Independence of the two source arms is assumed but NOT testable with two arms (zero residual degrees of freedom). In citation searching the arms are typically positively dependent, because backward and forward chasing both concentrate on well-connected literature; under positive dependence N_hat is biased downward and the estimated recall must be read as an UPPER BOUND. Configure a third source arm to test this assumption.",
+                    "Catchability is heterogeneous across language: 'unknown' records are captured by 1.00 arms on average versus 1.76 for 'en'. N_hat is biased downward.",
+                    "Catchability is heterogeneous across venue_type: 'conference-paper' records are captured by 0.00 arms on average versus 1.78 for 'article'. N_hat is biased downward.",
+                    "27 discovered records could not be resolved to a persistent identifier and are excluded from the capture table."
+                  ]
+                },
+                "lincoln_petersen": 132.5581395348837,
+                "m": 86,
+                "n1": 100,
+                "n2": 114,
+                "se": 2.6145205028789307
+              },
+              "estimable": true,
+              "method": "chapman",
+              "n_hat": 132.50574712643677,
+              "n_hat_ci": [
+                128.0,
+                137.63020731207948
+              ],
+              "n_observed": 128,
+              "reason": null,
+              "recall": 0.965995836224844,
+              "recall_ci": [
+                0.9300283891148782,
+                1.0
+              ],
+              "warnings": [
+                "Independence of the two source arms is assumed but NOT testable with two arms (zero residual degrees of freedom). In citation searching the arms are typically positively dependent, because backward and forward chasing both concentrate on well-connected literature; under positive dependence N_hat is biased downward and the estimated recall must be read as an UPPER BOUND. Configure a third source arm to test this assumption.",
+                "Catchability is heterogeneous across language: 'unknown' records are captured by 1.00 arms on average versus 1.76 for 'en'. N_hat is biased downward.",
+                "Catchability is heterogeneous across venue_type: 'conference-paper' records are captured by 0.00 arms on average versus 1.78 for 'article'. N_hat is biased downward.",
+                "27 discovered records could not be resolved to a persistent identifier and are excluded from the capture table."
+              ]
+            },
+            "threshold_met": false,
+            "used_lower_ci": true
+          },
+          "rationale": "Capture-recapture (chapman) across the configured source arms estimates a relevant population of 132.5 studies, of which 128 were identified; the lower bound of the 95% confidence interval of estimated recall is 93.0%, below the pre-specified threshold of 95%.",
+          "rule": "estimated_recall",
+          "threshold": 0.95,
+          "triggered": false,
+          "value": 0.9300283891148782
+        },
+        {
+          "detail": {},
+          "rationale": "2080 records screened; budget not reached.",
+          "rule": "budget",
+          "threshold": 20000.0,
+          "triggered": false,
+          "value": 2080.0
+        },
+        {
+          "detail": {},
+          "rationale": "85 studies remain to be expanded.",
+          "rule": "exhaustion",
+          "threshold": 0.0,
+          "triggered": false,
+          "value": 85.0
+        }
+      ]
+    },
+    {
+      "candidates_hash": "sha256:a3a3ae21ea7400294e330e6e57a1ec9d1c80794411f8211de208ba93138f1357",
+      "frontier_hash": "sha256:ff80f75dd5cabd11b13d1e3d3208d8e60aad5854e866b2ffe8fa5b4bbddbab27",
+      "labels_hash": "sha256:7a6ed917b3bf9b018958fe1ea3a8db9eca72ec92ab8a9eea6db5e8019b1f6c47",
+      "n": 4,
+      "n_after_dedup": 3195,
+      "n_eligible": 2596,
+      "n_excluded": 2450,
+      "n_expanded": 85,
+      "n_included": 146,
+      "n_raw": 5734,
+      "n_screened": 2596,
+      "stop_decisions": [
+        {
+          "detail": {
+            "window_rates": [
+              0.052019583843329255,
+              0.05624036979969183
+            ]
+          },
+          "rationale": "Marginal yield in the last 2 iterations was 5.20%, 5.62%, not yet below the 2.0% threshold.",
+          "rule": "marginal_yield",
+          "threshold": 0.02,
+          "triggered": false,
+          "value": 0.05624036979969183
+        },
+        {
+          "detail": {
+            "closure": {
+              "max_drift_observed": 2.030276961311444,
+              "n_hat_trail": [
+                43.72727272727273,
+                132.50574712643677,
+                285.5497076023392
+              ]
+            },
+            "closure_stable": false,
+            "estimate": {
+              "detail": {
+                "assumptions": {
+                  "closure": {
+                    "first_request": "2026-08-14T13:23:36Z",
+                    "last_request": "2026-08-14T13:35:02Z",
+                    "unresolved_records": 76
+                  },
+                  "dependence": {
+                    "n_arms": 2,
+                    "pairs": [],
+                    "testable": false
+                  },
+                  "heterogeneity": {
+                    "mean_arms_per_stratum": {
+                      "language": {
+                        "en": 1.8350515463917525,
+                        "non-en": 1.2857142857142858,
+                        "unknown": 1.0
+                      },
+                      "publication_year": {
+                        "older": 1.6293103448275863,
+                        "recent": 1.7165354330708662
+                      },
+                      "venue_type": {
+                        "article": 1.8333333333333333,
+                        "book-chapter": 1.625,
+                        "conference-paper": 0.0,
+                        "unknown": 1.0
+                      }
+                    }
+                  },
+                  "warnings": [
+                    "Independence of the two source arms is assumed but NOT testable with two arms (zero residual degrees of freedom). In citation searching the arms are typically positively dependent, because backward and forward chasing both concentrate on well-connected literature; under positive dependence N_hat is biased downward and the estimated recall must be read as an UPPER BOUND. Configure a third source arm to test this assumption.",
+                    "Catchability is heterogeneous across language: 'unknown' records are captured by 1.00 arms on average versus 1.84 for 'en'. N_hat is biased downward.",
+                    "Catchability is heterogeneous across venue_type: 'conference-paper' records are captured by 0.00 arms on average versus 1.83 for 'article'. N_hat is biased downward.",
+                    "76 discovered records could not be resolved to a persistent identifier and are excluded from the capture table."
+                  ]
+                },
+                "lincoln_petersen": 285.61764705882354,
+                "m": 170,
+                "n1": 195,
+                "n2": 249,
+                "se": 4.386531537812719
+              },
+              "estimable": true,
+              "method": "chapman",
+              "n_hat": 285.5497076023392,
+              "n_hat_ci": [
+                276.9521057882263,
+                294.1473094164521
+              ],
+              "n_observed": 274,
+              "reason": null,
+              "recall": 0.9595527248151713,
+              "recall_ci": [
+                0.9315060557364213,
+                0.9893407353599123
+              ],
+              "warnings": [
+                "Independence of the two source arms is assumed but NOT testable with two arms (zero residual degrees of freedom). In citation searching the arms are typically positively dependent, because backward and forward chasing both concentrate on well-connected literature; under positive dependence N_hat is biased downward and the estimated recall must be read as an UPPER BOUND. Configure a third source arm to test this assumption.",
+                "Catchability is heterogeneous across language: 'unknown' records are captured by 1.00 arms on average versus 1.84 for 'en'. N_hat is biased downward.",
+                "Catchability is heterogeneous across venue_type: 'conference-paper' records are captured by 0.00 arms on average versus 1.83 for 'article'. N_hat is biased downward.",
+                "76 discovered records could not be resolved to a persistent identifier and are excluded from the capture table."
+              ]
+            },
+            "threshold_met": false,
+            "used_lower_ci": true
+          },
+          "rationale": "Capture-recapture (chapman) across the configured source arms estimates a relevant population of 285.5 studies, of which 274 were identified; the lower bound of the 95% confidence interval of estimated recall is 93.2%, below the pre-specified threshold of 95%.",
+          "rule": "estimated_recall",
+          "threshold": 0.95,
+          "triggered": false,
+          "value": 0.9315060557364213
+        },
+        {
+          "detail": {},
+          "rationale": "4676 records screened; budget not reached.",
+          "rule": "budget",
+          "threshold": 20000.0,
+          "triggered": false,
+          "value": 4676.0
+        },
+        {
+          "detail": {},
+          "rationale": "146 studies remain to be expanded.",
+          "rule": "exhaustion",
+          "threshold": 0.0,
+          "triggered": false,
+          "value": 146.0
+        }
+      ]
+    },
+    {
+      "candidates_hash": "sha256:80201cfb3b405e5dc46f0529700bdc5e67a569a80773f1aadb5bbbdeb05be2f1",
+      "frontier_hash": "sha256:5ef096000620e75fcc2a332ec8d034164304acfae5b77cc2cb76a3e6c03d65aa",
+      "labels_hash": "sha256:523f7bb7f10aa05e1e00ec3e75ab00ed8d8fd96880160d83fa7d119cd79766fd",
+      "n": 5,
+      "n_after_dedup": 4241,
+      "n_eligible": 3305,
+      "n_excluded": 3089,
+      "n_expanded": 146,
+      "n_included": 216,
+      "n_raw": 8034,
+      "n_screened": 3305,
+      "stop_decisions": [
+        {
+          "detail": {
+            "window_rates": [
+              0.05624036979969183,
+              0.06535552193645991
+            ]
+          },
+          "rationale": "Marginal yield in the last 2 iterations was 5.62%, 6.54%, not yet below the 2.0% threshold.",
+          "rule": "marginal_yield",
+          "threshold": 0.02,
+          "triggered": false,
+          "value": 0.06535552193645991
+        },
+        {
+          "detail": {
+            "closure": {
+              "max_drift_observed": 1.1549986607740728,
+              "n_hat_trail": [
+                132.50574712643677,
+                285.5497076023392,
+                534.0519480519481
+              ]
+            },
+            "closure_stable": false,
+            "estimate": {
+              "detail": {
+                "assumptions": {
+                  "closure": {
+                    "first_request": "2026-08-14T13:23:36Z",
+                    "last_request": "2026-08-14T14:11:08Z",
+                    "unresolved_records": 206
+                  },
+                  "dependence": {
+                    "n_arms": 2,
+                    "pairs": [],
+                    "testable": false
+                  },
+                  "heterogeneity": {
+                    "mean_arms_per_stratum": {
+                      "language": {
+                        "en": 1.8037037037037038,
+                        "non-en": 1.5,
+                        "unknown": 1.0
+                      },
+                      "publication_year": {
+                        "older": 1.4210526315789473,
+                        "recent": 1.70935960591133
+                      },
+                      "venue_type": {
+                        "article": 1.8134328358208955,
+                        "book-chapter": 1.4666666666666666,
+                        "conference-paper": 0.0,
+                        "unknown": 1.0
+                      }
+                    }
+                  },
+                  "warnings": [
+                    "Independence of the two source arms is assumed but NOT testable with two arms (zero residual degrees of freedom). In citation searching the arms are typically positively dependent, because backward and forward chasing both concentrate on well-connected literature; under positive dependence N_hat is biased downward and the estimated recall must be read as an UPPER BOUND. Configure a third source arm to test this assumption.",
+                    "Catchability is heterogeneous across language: 'unknown' records are captured by 1.00 arms on average versus 1.80 for 'en'. N_hat is biased downward.",
+                    "Catchability is heterogeneous across venue_type: 'conference-paper' records are captured by 0.00 arms on average versus 1.81 for 'article'. N_hat is biased downward.",
+                    "206 discovered records could not be resolved to a persistent identifier and are excluded from the capture table."
+                  ]
+                },
+                "lincoln_petersen": 534.2434782608696,
+                "m": 230,
+                "n1": 278,
+                "n2": 442,
+                "se": 10.079443193407531
+              },
+              "estimable": true,
+              "method": "chapman",
+              "n_hat": 534.0519480519481,
+              "n_hat_ci": [
+                514.2962393928693,
+                553.8076567110269
+              ],
+              "n_observed": 490,
+              "reason": null,
+              "recall": 0.9175137396041048,
+              "recall_ci": [
+                0.8847837224028824,
+                0.9527582791164267
+              ],
+              "warnings": [
+                "Independence of the two source arms is assumed but NOT testable with two arms (zero residual degrees of freedom). In citation searching the arms are typically positively dependent, because backward and forward chasing both concentrate on well-connected literature; under positive dependence N_hat is biased downward and the estimated recall must be read as an UPPER BOUND. Configure a third source arm to test this assumption.",
+                "Catchability is heterogeneous across language: 'unknown' records are captured by 1.00 arms on average versus 1.80 for 'en'. N_hat is biased downward.",
+                "Catchability is heterogeneous across venue_type: 'conference-paper' records are captured by 0.00 arms on average versus 1.81 for 'article'. N_hat is biased downward.",
+                "206 discovered records could not be resolved to a persistent identifier and are excluded from the capture table."
+              ]
+            },
+            "threshold_met": false,
+            "used_lower_ci": true
+          },
+          "rationale": "Capture-recapture (chapman) across the configured source arms estimates a relevant population of 534.1 studies, of which 490 were identified; the lower bound of the 95% confidence interval of estimated recall is 88.5%, below the pre-specified threshold of 95%.",
+          "rule": "estimated_recall",
+          "threshold": 0.95,
+          "triggered": false,
+          "value": 0.8847837224028824
+        },
+        {
+          "detail": {},
+          "rationale": "7981 records screened; budget not reached.",
+          "rule": "budget",
+          "threshold": 20000.0,
+          "triggered": false,
+          "value": 7981.0
+        },
+        {
+          "detail": {},
+          "rationale": "216 studies remain to be expanded.",
+          "rule": "exhaustion",
+          "threshold": 0.0,
+          "triggered": false,
+          "value": 216.0
+        }
+      ]
+    },
+    {
+      "candidates_hash": "sha256:192730beb57f630a5dca41f1b21f061962029cb3d095b3c6d0b5155b2cab77f9",
+      "frontier_hash": "sha256:dafddf940fffa551aaec174a4f5b64009d433644be3f1f42334fa4bbe4b99fca",
+      "labels_hash": "sha256:63a475164c9a1d9b9570a1974be436753e3c1e496cf1ce83441bd4b8d3ede02e",
+      "n": 6,
+      "n_after_dedup": 2701,
+      "n_eligible": 1843,
+      "n_excluded": 1760,
+      "n_expanded": 216,
+      "n_included": 83,
+      "n_raw": 4734,
+      "n_screened": 1843,
+      "stop_decisions": [
+        {
+          "detail": {
+            "window_rates": [
+              0.06535552193645991,
+              0.04503526858383071
+            ]
+          },
+          "rationale": "Marginal yield in the last 2 iterations was 6.54%, 4.50%, not yet below the 2.0% threshold.",
+          "rule": "marginal_yield",
+          "threshold": 0.02,
+          "triggered": false,
+          "value": 0.04503526858383071
+        },
+        {
+          "detail": {
+            "closure": {
+              "max_drift_observed": 0.8702591311901354,
+              "n_hat_trail": [
+                285.5497076023392,
+                534.0519480519481,
+                629.6384615384616
+              ]
+            },
+            "closure_stable": false,
+            "estimate": {
+              "detail": {
+                "assumptions": {
+                  "closure": {
+                    "first_request": "2026-08-14T13:23:36Z",
+                    "last_request": "2026-08-14T14:22:44Z",
+                    "unresolved_records": 248
+                  },
+                  "dependence": {
+                    "n_arms": 2,
+                    "pairs": [],
+                    "testable": false
+                  },
+                  "heterogeneity": {
+                    "mean_arms_per_stratum": {
+                      "language": {
+                        "en": 1.798045602605863,
+                        "non-en": 1.4705882352941178,
+                        "unknown": 1.0
+                      },
+                      "publication_year": {
+                        "older": 1.4170616113744077,
+                        "recent": 1.6932773109243697
+                      },
+                      "venue_type": {
+                        "article": 1.8045602605863191,
+                        "book-chapter": 1.4375,
+                        "conference-paper": 0.0,
+                        "unknown": 1.0
+                      }
+                    }
+                  },
+                  "warnings": [
+                    "Independence of the two source arms is assumed but NOT testable with two arms (zero residual degrees of freedom). In citation searching the arms are typically positively dependent, because backward and forward chasing both concentrate on well-connected literature; under positive dependence N_hat is biased downward and the estimated recall must be read as an UPPER BOUND. Configure a third source arm to test this assumption.",
+                    "Catchability is heterogeneous across language: 'unknown' records are captured by 1.00 arms on average versus 1.80 for 'en'. N_hat is biased downward.",
+                    "Catchability is heterogeneous across venue_type: 'conference-paper' records are captured by 0.00 arms on average versus 1.80 for 'article'. N_hat is biased downward.",
+                    "248 discovered records could not be resolved to a persistent identifier and are excluded from the capture table."
+                  ]
+                },
+                "lincoln_petersen": 629.8610038610038,
+                "m": 259,
+                "n1": 318,
+                "n2": 513,
+                "se": 11.801199807510185
+              },
+              "estimable": true,
+              "method": "chapman",
+              "n_hat": 629.6384615384616,
+              "n_hat_ci": [
+                606.5081099157416,
+                652.7688131611816
+              ],
+              "n_observed": 572,
+              "reason": null,
+              "recall": 0.9084578451614479,
+              "recall_ci": [
+                0.8762673529545013,
+                0.9431036298582461
+              ],
+              "warnings": [
+                "Independence of the two source arms is assumed but NOT testable with two arms (zero residual degrees of freedom). In citation searching the arms are typically positively dependent, because backward and forward chasing both concentrate on well-connected literature; under positive dependence N_hat is biased downward and the estimated recall must be read as an UPPER BOUND. Configure a third source arm to test this assumption.",
+                "Catchability is heterogeneous across language: 'unknown' records are captured by 1.00 arms on average versus 1.80 for 'en'. N_hat is biased downward.",
+                "Catchability is heterogeneous across venue_type: 'conference-paper' records are captured by 0.00 arms on average versus 1.80 for 'article'. N_hat is biased downward.",
+                "248 discovered records could not be resolved to a persistent identifier and are excluded from the capture table."
+              ]
+            },
+            "threshold_met": false,
+            "used_lower_ci": true
+          },
+          "rationale": "Capture-recapture (chapman) across the configured source arms estimates a relevant population of 629.6 studies, of which 572 were identified; the lower bound of the 95% confidence interval of estimated recall is 87.6%, below the pre-specified threshold of 95%.",
+          "rule": "estimated_recall",
+          "threshold": 0.95,
+          "triggered": false,
+          "value": 0.8762673529545013
+        },
+        {
+          "detail": {},
+          "rationale": "9824 records screened; budget not reached.",
+          "rule": "budget",
+          "threshold": 20000.0,
+          "triggered": false,
+          "value": 9824.0
+        },
+        {
+          "detail": {},
+          "rationale": "83 studies remain to be expanded.",
+          "rule": "exhaustion",
+          "threshold": 0.0,
+          "triggered": false,
+          "value": 83.0
+        }
+      ]
+    },
+    {
+      "candidates_hash": "sha256:8724d00a78665c535ce32054ac2b59f8db42c1a4abb1d482461b9258abd8c3f4",
+      "frontier_hash": "sha256:17a4157861f2afc5a486ead9f9936b392310b33d12676a33a38a10d716522543",
+      "labels_hash": "sha256:db3d6e251a3b70501752eda2bbc0a50842d6b6b053cf0fda0effc66afb0d170d",
+      "n": 7,
+      "n_after_dedup": 1582,
+      "n_eligible": 988,
+      "n_excluded": 980,
+      "n_expanded": 83,
+      "n_included": 8,
+      "n_raw": 2527,
+      "n_screened": 988,
+      "stop_decisions": [
+        {
+          "detail": {
+            "window_rates": [
+              0.04503526858383071,
+              0.008097165991902834
+            ]
+          },
+          "rationale": "Marginal yield in the last 2 iterations was 4.50%, 0.81%, not yet below the 2.0% threshold.",
+          "rule": "marginal_yield",
+          "threshold": 0.02,
+          "triggered": false,
+          "value": 0.008097165991902834
+        },
+        {
+          "detail": {
+            "closure": {
+              "max_drift_observed": 0.1789835498872024,
+              "n_hat_trail": [
+                534.0519480519481,
+                629.6384615384616,
+                638.5496183206106
+              ]
+            },
+            "closure_stable": false,
+            "estimate": {
+              "detail": {
+                "assumptions": {
+                  "closure": {
+                    "first_request": "2026-08-14T13:23:36Z",
+                    "last_request": "2026-08-14T14:31:11Z",
+                    "unresolved_records": 254
+                  },
+                  "dependence": {
+                    "n_arms": 2,
+                    "pairs": [],
+                    "testable": false
+                  },
+                  "heterogeneity": {
+                    "mean_arms_per_stratum": {
+                      "language": {
+                        "en": 1.7993527508090614,
+                        "non-en": 1.4705882352941178,
+                        "unknown": 1.0
+                      },
+                      "publication_year": {
+                        "older": 1.4158878504672898,
+                        "recent": 1.6945606694560669
+                      },
+                      "venue_type": {
+                        "article": 1.8058252427184467,
+                        "book-chapter": 1.4375,
+                        "conference-paper": 0.0,
+                        "unknown": 1.0
+                      }
+                    }
+                  },
+                  "warnings": [
+                    "Independence of the two source arms is assumed but NOT testable with two arms (zero residual degrees of freedom). In citation searching the arms are typically positively dependent, because backward and forward chasing both concentrate on well-connected literature; under positive dependence N_hat is biased downward and the estimated recall must be read as an UPPER BOUND. Configure a third source arm to test this assumption.",
+                    "Catchability is heterogeneous across language: 'unknown' records are captured by 1.00 arms on average versus 1.80 for 'en'. N_hat is biased downward.",
+                    "Catchability is heterogeneous across venue_type: 'conference-paper' records are captured by 0.00 arms on average versus 1.81 for 'article'. N_hat is biased downward.",
+                    "254 discovered records could not be resolved to a persistent identifier and are excluded from the capture table."
+                  ]
+                },
+                "lincoln_petersen": 638.7739463601532,
+                "m": 261,
+                "n1": 320,
+                "n2": 521,
+                "se": 11.932220821177355
+              },
+              "estimable": true,
+              "method": "chapman",
+              "n_hat": 638.5496183206106,
+              "n_hat_ci": [
+                615.162465511103,
+                661.9367711301182
+              ],
+              "n_observed": 580,
+              "reason": null,
+              "recall": 0.9083084279737,
+              "recall_ci": [
+                0.8762166196172658,
+                0.9428403592831552
+              ],
+              "warnings": [
+                "Independence of the two source arms is assumed but NOT testable with two arms (zero residual degrees of freedom). In citation searching the arms are typically positively dependent, because backward and forward chasing both concentrate on well-connected literature; under positive dependence N_hat is biased downward and the estimated recall must be read as an UPPER BOUND. Configure a third source arm to test this assumption.",
+                "Catchability is heterogeneous across language: 'unknown' records are captured by 1.00 arms on average versus 1.80 for 'en'. N_hat is biased downward.",
+                "Catchability is heterogeneous across venue_type: 'conference-paper' records are captured by 0.00 arms on average versus 1.81 for 'article'. N_hat is biased downward.",
+                "254 discovered records could not be resolved to a persistent identifier and are excluded from the capture table."
+              ]
+            },
+            "threshold_met": false,
+            "used_lower_ci": true
+          },
+          "rationale": "Capture-recapture (chapman) across the configured source arms estimates a relevant population of 638.5 studies, of which 580 were identified; the lower bound of the 95% confidence interval of estimated recall is 87.6%, below the pre-specified threshold of 95%.",
+          "rule": "estimated_recall",
+          "threshold": 0.95,
+          "triggered": false,
+          "value": 0.8762166196172658
+        },
+        {
+          "detail": {},
+          "rationale": "10812 records screened; budget not reached.",
+          "rule": "budget",
+          "threshold": 20000.0,
+          "triggered": false,
+          "value": 10812.0
+        },
+        {
+          "detail": {},
+          "rationale": "8 studies remain to be expanded.",
+          "rule": "exhaustion",
+          "threshold": 0.0,
+          "triggered": false,
+          "value": 8.0
+        }
+      ]
+    },
+    {
+      "candidates_hash": "sha256:5959df6edf3a115c346bec5238e3bcfce80e7606ea50a9156baac82838ea0a00",
+      "frontier_hash": "sha256:5b2b55d469c0158a4ea203ed257e593161f14326c3e58ab25e04ea4d96c3efd9",
+      "labels_hash": "sha256:39b59aae055d69c804bba92c1ddfda9d273ddd7d41fac96c38cc19670ee1e8ba",
+      "n": 8,
+      "n_after_dedup": 69,
+      "n_eligible": 34,
+      "n_excluded": 30,
+      "n_expanded": 8,
+      "n_included": 4,
+      "n_raw": 118,
+      "n_screened": 34,
+      "stop_decisions": [
+        {
+          "detail": {
+            "window_rates": [
+              0.008097165991902834,
+              0.11764705882352941
+            ]
+          },
+          "rationale": "Marginal yield in the last 2 iterations was 0.81%, 11.76%, not yet below the 2.0% threshold.",
+          "rule": "marginal_yield",
+          "threshold": 0.02,
+          "triggered": false,
+          "value": 0.11764705882352941
+        },
+        {
+          "detail": {
+            "closure": {
+              "max_drift_observed": 0.01415281518917303,
+              "n_hat_trail": [
+                629.6384615384616,
+                638.5496183206106,
+                642.1094339622641
+              ]
+            },
+            "closure_stable": true,
+            "estimate": {
+              "detail": {
+                "assumptions": {
+                  "closure": {
+                    "first_request": "2026-08-14T13:23:36Z",
+                    "last_request": "2026-08-14T14:37:42Z",
+                    "unresolved_records": 255
+                  },
+                  "dependence": {
+                    "n_arms": 2,
+                    "pairs": [],
+                    "testable": false
+                  },
+                  "heterogeneity": {
+                    "mean_arms_per_stratum": {
+                      "language": {
+                        "en": 1.8012820512820513,
+                        "non-en": 1.4705882352941178,
+                        "unknown": 1.0
+                      },
+                      "publication_year": {
+                        "older": 1.4212962962962963,
+                        "recent": 1.6958333333333333
+                      },
+                      "venue_type": {
+                        "article": 1.8070739549839228,
+                        "book-chapter": 1.4705882352941178,
+                        "conference-paper": 0.0,
+                        "unknown": 1.0
+                      }
+                    }
+                  },
+                  "warnings": [
+                    "Independence of the two source arms is assumed but NOT testable with two arms (zero residual degrees of freedom). In citation searching the arms are typically positively dependent, because backward and forward chasing both concentrate on well-connected literature; under positive dependence N_hat is biased downward and the estimated recall must be read as an UPPER BOUND. Configure a third source arm to test this assumption.",
+                    "Catchability is heterogeneous across language: 'unknown' records are captured by 1.00 arms on average versus 1.80 for 'en'. N_hat is biased downward.",
+                    "Catchability is heterogeneous across venue_type: 'conference-paper' records are captured by 0.00 arms on average versus 1.81 for 'article'. N_hat is biased downward.",
+                    "255 discovered records could not be resolved to a persistent identifier and are excluded from the capture table."
+                  ]
+                },
+                "lincoln_petersen": 642.3295454545455,
+                "m": 264,
+                "n1": 323,
+                "n2": 525,
+                "se": 11.85290884372551
+              },
+              "estimable": true,
+              "method": "chapman",
+              "n_hat": 642.1094339622641,
+              "n_hat_ci": [
+                618.8777326285622,
+                665.3411352959661
+              ],
+              "n_observed": 584,
+              "reason": null,
+              "recall": 0.9095022890355492,
+              "recall_ci": [
+                0.8777452182333761,
+                0.9436435812928253
+              ],
+              "warnings": [
+                "Independence of the two source arms is assumed but NOT testable with two arms (zero residual degrees of freedom). In citation searching the arms are typically positively dependent, because backward and forward chasing both concentrate on well-connected literature; under positive dependence N_hat is biased downward and the estimated recall must be read as an UPPER BOUND. Configure a third source arm to test this assumption.",
+                "Catchability is heterogeneous across language: 'unknown' records are captured by 1.00 arms on average versus 1.80 for 'en'. N_hat is biased downward.",
+                "Catchability is heterogeneous across venue_type: 'conference-paper' records are captured by 0.00 arms on average versus 1.81 for 'article'. N_hat is biased downward.",
+                "255 discovered records could not be resolved to a persistent identifier and are excluded from the capture table."
+              ]
+            },
+            "threshold_met": false,
+            "used_lower_ci": true
+          },
+          "rationale": "Capture-recapture (chapman) across the configured source arms estimates a relevant population of 642.1 studies, of which 584 were identified; the lower bound of the 95% confidence interval of estimated recall is 87.8%, below the pre-specified threshold of 95%.",
+          "rule": "estimated_recall",
+          "threshold": 0.95,
+          "triggered": false,
+          "value": 0.8777452182333761
+        },
+        {
+          "detail": {},
+          "rationale": "10846 records screened; budget not reached.",
+          "rule": "budget",
+          "threshold": 20000.0,
+          "triggered": false,
+          "value": 10846.0
+        },
+        {
+          "detail": {},
+          "rationale": "4 studies remain to be expanded.",
+          "rule": "exhaustion",
+          "threshold": 0.0,
+          "triggered": false,
+          "value": 4.0
+        }
+      ]
+    },
+    {
+      "candidates_hash": "sha256:74b743bafb4cc79260aa754477177caa3c8e9e8371a2f842078be23d0308ea0d",
+      "frontier_hash": "sha256:1894cb4e605429ba507158394a6c36c30911dd8966e4d8266c995a8b91473729",
+      "labels_hash": "sha256:0c741694c164a45de8cdf0671b3b9c32d3c31b4cf4b06ee31787cab6e42e97c2",
+      "n": 9,
+      "n_after_dedup": 87,
+      "n_eligible": 32,
+      "n_excluded": 31,
+      "n_expanded": 4,
+      "n_included": 1,
+      "n_raw": 121,
+      "n_screened": 32,
+      "stop_decisions": [
+        {
+          "detail": {
+            "window_rates": [
+              0.11764705882352941,
+              0.03125
+            ]
+          },
+          "rationale": "Marginal yield in the last 2 iterations was 11.76%, 3.12%, not yet below the 2.0% threshold.",
+          "rule": "marginal_yield",
+          "threshold": 0.02,
+          "triggered": false,
+          "value": 0.03125
+        },
+        {
+          "detail": {
+            "closure": {
+              "max_drift_observed": 0.005574845774735265,
+              "n_hat_trail": [
+                638.5496183206106,
+                642.1094339622641,
+                643.3320754716981
+              ]
+            },
+            "closure_stable": true,
+            "estimate": {
+              "detail": {
+                "assumptions": {
+                  "closure": {
+                    "first_request": "2026-08-14T13:23:36Z",
+                    "last_request": "2026-08-14T14:42:38Z",
+                    "unresolved_records": 256
+                  },
+                  "dependence": {
+                    "n_arms": 2,
+                    "pairs": [],
+                    "testable": false
+                  },
+                  "heterogeneity": {
+                    "mean_arms_per_stratum": {
+                      "language": {
+                        "en": 1.8012820512820513,
+                        "non-en": 1.4705882352941178,
+                        "unknown": 1.0
+                      },
+                      "publication_year": {
+                        "older": 1.4212962962962963,
+                        "recent": 1.6929460580912863
+                      },
+                      "venue_type": {
+                        "article": 1.8070739549839228,
+                        "book-chapter": 1.4705882352941178,
+                        "conference-paper": 0.0,
+                        "unknown": 1.0
+                      }
+                    }
+                  },
+                  "warnings": [
+                    "Independence of the two source arms is assumed but NOT testable with two arms (zero residual degrees of freedom). In citation searching the arms are typically positively dependent, because backward and forward chasing both concentrate on well-connected literature; under positive dependence N_hat is biased downward and the estimated recall must be read as an UPPER BOUND. Configure a third source arm to test this assumption.",
+                    "Catchability is heterogeneous across language: 'unknown' records are captured by 1.00 arms on average versus 1.80 for 'en'. N_hat is biased downward.",
+                    "Catchability is heterogeneous across venue_type: 'conference-paper' records are captured by 0.00 arms on average versus 1.81 for 'article'. N_hat is biased downward.",
+                    "256 discovered records could not be resolved to a persistent identifier and are excluded from the capture table."
+                  ]
+                },
+                "lincoln_petersen": 643.5530303030303,
+                "m": 264,
+                "n1": 323,
+                "n2": 526,
+                "se": 11.886877084594246
+              },
+              "estimable": true,
+              "method": "chapman",
+              "n_hat": 643.3320754716981,
+              "n_hat_ci": [
+                620.0337963858933,
+                666.6303545575029
+              ],
+              "n_observed": 585,
+              "reason": null,
+              "recall": 0.9093282028120107,
+              "recall_ci": [
+                0.8775477984171789,
+                0.9434969567947726
+              ],
+              "warnings": [
+                "Independence of the two source arms is assumed but NOT testable with two arms (zero residual degrees of freedom). In citation searching the arms are typically positively dependent, because backward and forward chasing both concentrate on well-connected literature; under positive dependence N_hat is biased downward and the estimated recall must be read as an UPPER BOUND. Configure a third source arm to test this assumption.",
+                "Catchability is heterogeneous across language: 'unknown' records are captured by 1.00 arms on average versus 1.80 for 'en'. N_hat is biased downward.",
+                "Catchability is heterogeneous across venue_type: 'conference-paper' records are captured by 0.00 arms on average versus 1.81 for 'article'. N_hat is biased downward.",
+                "256 discovered records could not be resolved to a persistent identifier and are excluded from the capture table."
+              ]
+            },
+            "threshold_met": false,
+            "used_lower_ci": true
+          },
+          "rationale": "Capture-recapture (chapman) across the configured source arms estimates a relevant population of 643.3 studies, of which 585 were identified; the lower bound of the 95% confidence interval of estimated recall is 87.8%, below the pre-specified threshold of 95%.",
+          "rule": "estimated_recall",
+          "threshold": 0.95,
+          "triggered": false,
+          "value": 0.8775477984171789
+        },
+        {
+          "detail": {},
+          "rationale": "10878 records screened; budget not reached.",
+          "rule": "budget",
+          "threshold": 20000.0,
+          "triggered": false,
+          "value": 10878.0
+        },
+        {
+          "detail": {},
+          "rationale": "1 studies remain to be expanded.",
+          "rule": "exhaustion",
+          "threshold": 0.0,
+          "triggered": false,
+          "value": 1.0
+        }
+      ]
+    },
+    {
+      "candidates_hash": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "frontier_hash": "sha256:3f0a56d945e2e4cca9fdc79ed657a6398ca21e418568c6a6d9cf825cccc23c5f",
+      "labels_hash": null,
+      "n": 10,
+      "n_after_dedup": 0,
+      "n_eligible": 0,
+      "n_excluded": 0,
+      "n_expanded": 1,
+      "n_included": 0,
+      "n_raw": 0,
+      "n_screened": 0,
+      "stop_decisions": [
+        {
+          "detail": {
+            "window_rates": [
+              0.03125,
+              0.0
+            ]
+          },
+          "rationale": "Marginal yield in the last 2 iterations was 3.12%, 0.00%, not yet below the 2.0% threshold.",
+          "rule": "marginal_yield",
+          "threshold": 0.02,
+          "triggered": false,
+          "value": 0.0
+        },
+        {
+          "detail": {
+            "closure": {
+              "max_drift_observed": 0.001904101458048073,
+              "n_hat_trail": [
+                642.1094339622641,
+                643.3320754716981,
+                643.3320754716981
+              ]
+            },
+            "closure_stable": true,
+            "estimate": {
+              "detail": {
+                "assumptions": {
+                  "closure": {
+                    "first_request": "2026-08-14T13:23:36Z",
+                    "last_request": "2026-08-14T14:42:38Z",
+                    "unresolved_records": 256
+                  },
+                  "dependence": {
+                    "n_arms": 2,
+                    "pairs": [],
+                    "testable": false
+                  },
+                  "heterogeneity": {
+                    "mean_arms_per_stratum": {
+                      "language": {
+                        "en": 1.8012820512820513,
+                        "non-en": 1.4705882352941178,
+                        "unknown": 1.0
+                      },
+                      "publication_year": {
+                        "older": 1.4212962962962963,
+                        "recent": 1.6929460580912863
+                      },
+                      "venue_type": {
+                        "article": 1.8070739549839228,
+                        "book-chapter": 1.4705882352941178,
+                        "conference-paper": 0.0,
+                        "unknown": 1.0
+                      }
+                    }
+                  },
+                  "warnings": [
+                    "Independence of the two source arms is assumed but NOT testable with two arms (zero residual degrees of freedom). In citation searching the arms are typically positively dependent, because backward and forward chasing both concentrate on well-connected literature; under positive dependence N_hat is biased downward and the estimated recall must be read as an UPPER BOUND. Configure a third source arm to test this assumption.",
+                    "Catchability is heterogeneous across language: 'unknown' records are captured by 1.00 arms on average versus 1.80 for 'en'. N_hat is biased downward.",
+                    "Catchability is heterogeneous across venue_type: 'conference-paper' records are captured by 0.00 arms on average versus 1.81 for 'article'. N_hat is biased downward.",
+                    "256 discovered records could not be resolved to a persistent identifier and are excluded from the capture table."
+                  ]
+                },
+                "lincoln_petersen": 643.5530303030303,
+                "m": 264,
+                "n1": 323,
+                "n2": 526,
+                "se": 11.886877084594246
+              },
+              "estimable": true,
+              "method": "chapman",
+              "n_hat": 643.3320754716981,
+              "n_hat_ci": [
+                620.0337963858933,
+                666.6303545575029
+              ],
+              "n_observed": 585,
+              "reason": null,
+              "recall": 0.9093282028120107,
+              "recall_ci": [
+                0.8775477984171789,
+                0.9434969567947726
+              ],
+              "warnings": [
+                "Independence of the two source arms is assumed but NOT testable with two arms (zero residual degrees of freedom). In citation searching the arms are typically positively dependent, because backward and forward chasing both concentrate on well-connected literature; under positive dependence N_hat is biased downward and the estimated recall must be read as an UPPER BOUND. Configure a third source arm to test this assumption.",
+                "Catchability is heterogeneous across language: 'unknown' records are captured by 1.00 arms on average versus 1.80 for 'en'. N_hat is biased downward.",
+                "Catchability is heterogeneous across venue_type: 'conference-paper' records are captured by 0.00 arms on average versus 1.81 for 'article'. N_hat is biased downward.",
+                "256 discovered records could not be resolved to a persistent identifier and are excluded from the capture table."
+              ]
+            },
+            "threshold_met": false,
+            "used_lower_ci": true
+          },
+          "rationale": "Capture-recapture (chapman) across the configured source arms estimates a relevant population of 643.3 studies, of which 585 were identified; the lower bound of the 95% confidence interval of estimated recall is 87.8%, below the pre-specified threshold of 95%.",
+          "rule": "estimated_recall",
+          "threshold": 0.95,
+          "triggered": false,
+          "value": 0.8775477984171789
+        },
+        {
+          "detail": {},
+          "rationale": "10878 records screened; budget not reached.",
+          "rule": "budget",
+          "threshold": 20000.0,
+          "triggered": false,
+          "value": 10878.0
+        },
+        {
+          "detail": {},
+          "rationale": "Citation searching was continued until the frontier was exhausted after iteration 10: no newly included study remained whose references and citations had not already been retrieved.",
+          "rule": "exhaustion",
+          "threshold": 0.0,
+          "triggered": true,
+          "value": 0.0
+        }
+      ]
+    }
+  ],
+  "outputs": {
+    "iterations/iter_001/candidates.csv": "sha256:14ef0016d99d9f3492a0438500e61ca0db15046681d9149027fec5cfb6a0fd08",
+    "iterations/iter_002/candidates.csv": "sha256:276f1481cb18c8d80980b2a88733fed78ab8379f28ac14e2d0816d2d3c1243ad",
+    "iterations/iter_003/candidates.csv": "sha256:0abe8c5d7623f3b03091d20bc36adf89909e11a76849da5d2f7c4f91dadc246d",
+    "iterations/iter_004/candidates.csv": "sha256:5fd0937b23f2fdc0d916b5e17d458c397dcc68c641f2a3304733dc34482f9645",
+    "iterations/iter_005/candidates.csv": "sha256:5142deb987f716e5b9234f6939bc12dfc02f8dedd8455d7c3b9ff4e8f9505b34",
+    "iterations/iter_006/candidates.csv": "sha256:54d817797ee8ac7cdb193e6a88f768394f9b46b59f54584e7788f424e4f7cd98",
+    "iterations/iter_007/candidates.csv": "sha256:7aa331c0e612befba02b93aabd0ed0cd6377a9cf2c5b87c13f036221c04eb681",
+    "iterations/iter_008/candidates.csv": "sha256:ad718da8d52d323d05313ec0c73e382e240abcbd8f5a50270f179a0f3da946c9",
+    "iterations/iter_009/candidates.csv": "sha256:0c646407ea4a1c446b41346c4e12027203071ecb3ed7407a62ead7dae8660193",
+    "iterations/iter_010/candidates.csv": "sha256:4d57ad9bf0333d5f7ce86ebacba01ab6c338eb8d3e50fde91a7ecef9309e1bd6",
+    "outputs/included.csv": "sha256:721f8c76727cdc9cebd85c32de6a17490554bc6afbacaa21fb3aa1b29dea9d58",
+    "outputs/prisma.json": "sha256:6525a5f9e2bdf3b8af7d0522cea2bc6d2571a12ef17d78dc12be31185821b5a5",
+    "outputs/prisma.svg": "sha256:c0134dc53f97d81977771eda3d03b3a1a1d5ed8afdc9a324a71c5a1e7751a4ef",
+    "outputs/report.md": "sha256:52427ee9395a1e16af497e03652087627958119f43df70e5ab6dc9f5c6fa8f7c"
+  },
+  "providers": [
+    {
+      "base_url": "https://api.openalex.org",
+      "name": "openalex",
+      "polite_pool": false,
+      "supports": [
+        "backward",
+        "forward"
+      ]
+    },
+    {
+      "base_url": "https://api.crossref.org",
+      "name": "crossref",
+      "polite_pool": false,
+      "supports": [
+        "backward"
+      ]
+    }
+  ],
+  "python_version": "3.12.13",
+  "ranker": {
+    "components": [
+      "bm25",
+      "network"
+    ],
+    "type": "rrf"
+  },
+  "seeds": [
+    "10.1016/0272-6963(84)90012-3",
+    "10.1016/0737-6782(95)00026-P",
+    "10.1080/0308106042000273031",
+    "10.1108/17410380810888094",
+    "10.1145/3056540.3076192",
+    "10.1155/2022/7796507"
+  ],
+  "snowballslr_version": "1.0.0",
+  "started_at": "2026-08-14T13:23:36Z",
+  "stopped_by": "exhaustion"
+}

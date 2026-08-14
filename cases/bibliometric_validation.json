@@ -1,0 +1,246 @@
+{
+ "design": "Non-LLM bibliometric predictors of the ensemble's inclusion decision, computed from library-stored metadata and record text only. Convergent validity: an independent signal that agrees on topic but not on prestige is evidence the screener judges relevance.",
+ "provenance": "Every figure in this file comes from one code path -- validation/llm_screen_validate.py bibliometric -- run once per corpus on the full scored pool. Earlier versions of this file mixed those values with figures from an ad-hoc notebook computation, which disagreed in the third decimal and, for the top-rank comparison, in the count. Regenerate with that command rather than editing numbers here.",
+ "basis": "full scored pool (all records the ensemble scored), per corpus",
+ "n_records": {
+  "adverse": 3998,
+  "mid": 2500,
+  "large": 3000
+ },
+ "auc_by_predictor": {
+  "topic_centroid": {
+   "adverse": 0.6736,
+   "mid": 0.7702,
+   "large": 0.664
+  },
+  "topic_max_seed": {
+   "adverse": 0.5667,
+   "mid": 0.6812,
+   "large": 0.5874
+  },
+  "venue_is_seed_venue": {
+   "adverse": 0.4817,
+   "mid": 0.4935,
+   "large": 0.501
+  },
+  "cited_by": {
+   "adverse": 0.4536,
+   "mid": 0.4689,
+   "large": 0.4986
+  },
+  "ref_count": {
+   "adverse": 0.5399,
+   "mid": 0.5433,
+   "large": 0.5355
+  },
+  "year": {
+   "adverse": 0.6842,
+   "mid": 0.5587,
+   "large": 0.5652
+  }
+ },
+ "predictor_kind": {
+  "topic_centroid": "topical",
+  "topic_max_seed": "topical",
+  "venue_is_seed_venue": "topical",
+  "cited_by": "prestige",
+  "ref_count": "prestige",
+  "year": "prestige"
+ },
+ "topical_mean": 0.7026,
+ "prestige_cited_by_mean": 0.4737,
+ "range_restriction": {
+  "topic_centroid_full_pool": {
+   "adverse": 0.6736,
+   "mid": 0.7702,
+   "large": 0.664
+  },
+  "topic_centroid_gate_survivors": {
+   "adverse": 0.5814,
+   "mid": 0.738,
+   "large": 0.5446
+  },
+  "n_gate_survivors": {
+   "adverse": 709,
+   "mid": 1167,
+   "large": 544
+  },
+  "note": "Restricting to gate survivors removes the easy exclusions, so the topical predictor's apparent discrimination falls -- most sharply in the large corpus (0.664 to 0.545). The full-pool figure supports the claim 'the screener tracks topic'; the survivor figure supports the weaker claim 'it discriminates among borderline records'. Both are reported with their basis named, because quoting only the higher one would overstate the evidence."
+ },
+ "top_rank_agreement": {
+  "adverse": {
+   "top_n": 250,
+   "overlap": 23,
+   "share": 0.092,
+   "chance": 0.0625
+  },
+  "mid": {
+   "top_n": 250,
+   "overlap": 89,
+   "share": 0.356,
+   "chance": 0.1
+  },
+  "large": {
+   "top_n": 250,
+   "overlap": 40,
+   "share": 0.16,
+   "chance": 0.0833
+  }
+ },
+ "top_rank_note": "Overlap between the 250 records the ensemble ranked highest and the 250 ranked highest by tf-idf similarity to the seed centroid. Substantial in the favourable corpus (89/250 = 36% against a chance rate of 10%) and moderate in the large one (40/250 = 16% vs 8%), but only 23/250 = 9.2% against a chance rate of 6.3% in the adverse corpus -- barely above chance there, so this comparison supports the convergence claim in two corpora and not the third. Partial overlap is expected and desirable: identical rankings would mean the model added nothing over tf-idf.",
+ "seed_convergence": {
+  "spearman_llm_vs_tfidf": 0.5134,
+  "n_seeds": 15,
+  "lowest_on_both": "Structural Biology and Drug Discovery",
+  "note": "The adverse seed set contains a structural-biology paper admitted by the Boolean query. Leave-one-out TF-IDF similarity to the other 14 seeds ranks it last, and the LLM ensemble scores it 1.0 -- the lowest of the fifteen. Two methods sharing no machinery agree that the seed, not the screener, was the problem."
+ },
+ "keyword_overlap": {
+  "auc": 0.392,
+  "n_pos": 12,
+  "n_neg": 20,
+  "usable": false,
+  "note": "Scopus author and index keywords are human-assigned metadata and would be the most attractive predictor, but only 1.9% of screened records appear in the export at all (47 of 2,515 in the favourable case), leaving 32 with both a keyword list and a decision. Too few for an estimate; reported as not usable rather than as a null result."
+ },
+ "interpretation": "The pattern is the finding. Topical similarity to the seed set tracks the ensemble's decisions in every corpus (0.6736, 0.7702, 0.664) while prestige predictors do not: citation count averages 0.474, at or below chance, and reference-list length 0.540. A screener that rewarded well-cited or well-connected work would show the opposite pattern, and that is the specific failure mode a positive control cannot detect, because the papers a reviewer chooses as seeds are themselves well-cited. Publication year is the exception worth naming: 0.6842 in the adverse corpus, which spans 1971-2025, so recency carries genuine topical information there. Field coverage is near-complete for every predictor (see auc_class_counts), so none of these figures rests on a reduced subset; what does vary by basis is range restriction, reported under range_restriction.",
+ "auc_class_counts": {
+  "topic_centroid": {
+   "adverse": {
+    "n_ensemble_included": 1601,
+    "n_ensemble_excluded": 2397,
+    "n_used": 3998,
+    "n_missing_field": 0,
+    "pct_missing_field": 0.0
+   },
+   "mid": {
+    "n_ensemble_included": 337,
+    "n_ensemble_excluded": 2163,
+    "n_used": 2500,
+    "n_missing_field": 0,
+    "pct_missing_field": 0.0
+   },
+   "large": {
+    "n_ensemble_included": 686,
+    "n_ensemble_excluded": 2314,
+    "n_used": 3000,
+    "n_missing_field": 0,
+    "pct_missing_field": 0.0
+   }
+  },
+  "topic_max_seed": {
+   "adverse": {
+    "n_ensemble_included": 1601,
+    "n_ensemble_excluded": 2397,
+    "n_used": 3998,
+    "n_missing_field": 0,
+    "pct_missing_field": 0.0
+   },
+   "mid": {
+    "n_ensemble_included": 337,
+    "n_ensemble_excluded": 2163,
+    "n_used": 2500,
+    "n_missing_field": 0,
+    "pct_missing_field": 0.0
+   },
+   "large": {
+    "n_ensemble_included": 686,
+    "n_ensemble_excluded": 2314,
+    "n_used": 3000,
+    "n_missing_field": 0,
+    "pct_missing_field": 0.0
+   }
+  },
+  "venue_is_seed_venue": {
+   "adverse": {
+    "n_ensemble_included": 1601,
+    "n_ensemble_excluded": 2397,
+    "n_used": 3998,
+    "n_missing_field": 0,
+    "pct_missing_field": 0.0
+   },
+   "mid": {
+    "n_ensemble_included": 337,
+    "n_ensemble_excluded": 2163,
+    "n_used": 2500,
+    "n_missing_field": 0,
+    "pct_missing_field": 0.0
+   },
+   "large": {
+    "n_ensemble_included": 686,
+    "n_ensemble_excluded": 2314,
+    "n_used": 3000,
+    "n_missing_field": 0,
+    "pct_missing_field": 0.0
+   }
+  },
+  "cited_by": {
+   "adverse": {
+    "n_ensemble_included": 1594,
+    "n_ensemble_excluded": 2245,
+    "n_used": 3839,
+    "n_missing_field": 159,
+    "pct_missing_field": 0.0398
+   },
+   "mid": {
+    "n_ensemble_included": 337,
+    "n_ensemble_excluded": 2161,
+    "n_used": 2498,
+    "n_missing_field": 2,
+    "pct_missing_field": 0.0008
+   },
+   "large": {
+    "n_ensemble_included": 686,
+    "n_ensemble_excluded": 2313,
+    "n_used": 2999,
+    "n_missing_field": 1,
+    "pct_missing_field": 0.0003
+   }
+  },
+  "ref_count": {
+   "adverse": {
+    "n_ensemble_included": 1594,
+    "n_ensemble_excluded": 2245,
+    "n_used": 3839,
+    "n_missing_field": 159,
+    "pct_missing_field": 0.0398
+   },
+   "mid": {
+    "n_ensemble_included": 337,
+    "n_ensemble_excluded": 2161,
+    "n_used": 2498,
+    "n_missing_field": 2,
+    "pct_missing_field": 0.0008
+   },
+   "large": {
+    "n_ensemble_included": 686,
+    "n_ensemble_excluded": 2313,
+    "n_used": 2999,
+    "n_missing_field": 1,
+    "pct_missing_field": 0.0003
+   }
+  },
+  "year": {
+   "adverse": {
+    "n_ensemble_included": 1596,
+    "n_ensemble_excluded": 2320,
+    "n_used": 3916,
+    "n_missing_field": 82,
+    "pct_missing_field": 0.0205
+   },
+   "mid": {
+    "n_ensemble_included": 337,
+    "n_ensemble_excluded": 2163,
+    "n_used": 2500,
+    "n_missing_field": 0,
+    "pct_missing_field": 0.0
+   },
+   "large": {
+    "n_ensemble_included": 686,
+    "n_ensemble_excluded": 2314,
+    "n_used": 3000,
+    "n_missing_field": 0,
+    "pct_missing_field": 0.0
+   }
+  }
+ },
+ "auc_class_counts_note": "n_ensemble_included / n_ensemble_excluded are the AUC's POSITIVE and NEGATIVE classes -- records the LLM ensemble included versus excluded at tau -- not present versus missing data. Field missingness is reported separately as n_missing_field: a record is dropped from a predictor's AUC only when that predictor's value is absent. For cited_by the missing counts are adverse 159/3998, mid 2/2500, large 1/3000. A citation count of 0 is a real measured value, not a gap: 42 of the 311 records in validation/validation_records.json have cited_by_count == 0, and OpenAlex independently reports 0 for each of the six checked, so they are uncited papers rather than unknowns."
+}

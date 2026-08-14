@@ -1,0 +1,66 @@
+{
+ "design": "Same 150 records (stratified across the score range) from the mid case, re-scored by claude-sonnet-5 under three conditions: the shipped prompt re-run, an independently worded rubric with identical decision criteria, and the shipped prompt with records reversed within each batch.",
+ "n": 150,
+ "model": "claude-sonnet-5",
+ "tau": 7.0,
+ "test_retest": {
+  "r": 0.956,
+  "mae": 0.68,
+  "kappa": 0.888,
+  "note": "against the original three-model mean"
+ },
+ "paraphrase": {
+  "r": 0.969,
+  "mae": 0.45,
+  "kappa": 0.795,
+  "includes_shipped": 58,
+  "includes_paraphrased": 46,
+  "change_in_includes": -0.207
+ },
+ "order": {
+  "r": 0.956,
+  "mae": 0.53,
+  "kappa": 0.843,
+  "includes_reversed": 53,
+  "change_in_includes": -0.086
+ },
+ "threshold_sweep": {
+  "5.0": {
+   "base": 84,
+   "para": 78,
+   "rev": 75
+  },
+  "6.0": {
+   "base": 76,
+   "para": 67,
+   "rev": 67
+  },
+  "6.5": {
+   "base": 58,
+   "para": 46,
+   "rev": 53
+  },
+  "7.0": {
+   "base": 58,
+   "para": 46,
+   "rev": 53
+  },
+  "7.5": {
+   "base": 40,
+   "para": 31,
+   "rev": 35
+  },
+  "8.0": {
+   "base": 40,
+   "para": 31,
+   "rev": 35
+  }
+ },
+ "boundary_finding": "13 of 14 paraphrase-induced decision flips involve a shipped score of 6-8, i.e. records at the inclusion boundary. The screener's ordering is stable (r=0.97); what moves is where a boundary record lands relative to a hard cutoff.",
+ "gate_efficiency": {
+  "iteration1": 0.467,
+  "iteration2": 0.874,
+  "note": "Gate survival rises from 47% to 87% between iterations because iteration 2 expands from INCLUDED records, so its pool is topically enriched. The two-stage design's cost saving shrinks from 53% to 13% exactly where the candidate pool grows largest."
+ },
+ "single_vendor": "All three ensemble members are Claude models (haiku-4-5, sonnet-5, opus-4-8). Inter-model agreement therefore measures within-family consistency, not independent judgement. This is the largest remaining gap in the screening validation and is now stated as such."
+}

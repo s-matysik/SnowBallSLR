@@ -1,0 +1,385 @@
+{
+ "purpose": "Reach a rule-driven stop on live data. The three earlier runs all stopped on a screening budget, so the recall rule never had a second population estimate and could not fire. This run was sized so several iterations fit inside a comparable budget.",
+ "design": {
+  "seeds": 6,
+  "seed_criterion": "5-35 references and >=10 citations, from the 260-record innovation x marketing x automation corpus, so iteration 1 stays small",
+  "directions": [
+   "backward"
+  ],
+  "direction_rationale": "forward expansion produced 2-10x more candidates than backward in every earlier run and is unbounded for a well-cited paper",
+  "budget": 20000,
+  "budget_rationale": "deliberately non-binding, so whatever fires is a saturation rule rather than a budget"
+ },
+ "iterations": [
+  {
+   "n": 1,
+   "n_screened": 115,
+   "n_included": 6,
+   "cumulative_screened": 115,
+   "frontier_size": 6
+  },
+  {
+   "n": 2,
+   "n_screened": 331,
+   "n_included": 37,
+   "cumulative_screened": 446,
+   "frontier_size": 37
+  },
+  {
+   "n": 3,
+   "n_screened": 1634,
+   "n_included": 85,
+   "cumulative_screened": 2080,
+   "frontier_size": 85
+  },
+  {
+   "n": 4,
+   "n_screened": 2596,
+   "n_included": 146,
+   "cumulative_screened": 4676,
+   "frontier_size": 146
+  },
+  {
+   "n": 5,
+   "n_screened": 3305,
+   "n_included": 216,
+   "cumulative_screened": 7981,
+   "frontier_size": 216
+  },
+  {
+   "n": 6,
+   "n_screened": 1843,
+   "n_included": 83,
+   "cumulative_screened": 9824,
+   "frontier_size": 83
+  },
+  {
+   "n": 7,
+   "n_screened": 988,
+   "n_included": 8,
+   "cumulative_screened": 10812,
+   "frontier_size": 8
+  },
+  {
+   "n": 8,
+   "n_screened": 34,
+   "n_included": 4,
+   "cumulative_screened": 10846,
+   "frontier_size": 4
+  },
+  {
+   "n": 9,
+   "n_screened": 32,
+   "n_included": 1,
+   "cumulative_screened": 10878,
+   "frontier_size": 1
+  },
+  {
+   "n": 10,
+   "n_screened": 0,
+   "n_included": 0,
+   "cumulative_screened": 10878,
+   "frontier_size": 0
+  }
+ ],
+ "estimate_trail": [
+  {
+   "n": 1,
+   "n_hat": 6.0,
+   "n_observed": 6,
+   "recall": 1.0,
+   "recall_lower": 1.0
+  },
+  {
+   "n": 2,
+   "n_hat": 43.72727272727273,
+   "n_observed": 43,
+   "recall": 0.9833679833679834,
+   "recall_lower": 0.9420651341216195
+  },
+  {
+   "n": 3,
+   "n_hat": 132.50574712643677,
+   "n_observed": 128,
+   "recall": 0.965995836224844,
+   "recall_lower": 0.9300283891148782
+  },
+  {
+   "n": 4,
+   "n_hat": 285.5497076023392,
+   "n_observed": 274,
+   "recall": 0.9595527248151713,
+   "recall_lower": 0.9315060557364213
+  },
+  {
+   "n": 5,
+   "n_hat": 534.0519480519481,
+   "n_observed": 490,
+   "recall": 0.9175137396041048,
+   "recall_lower": 0.8847837224028824
+  },
+  {
+   "n": 6,
+   "n_hat": 629.6384615384616,
+   "n_observed": 572,
+   "recall": 0.9084578451614479,
+   "recall_lower": 0.8762673529545013
+  },
+  {
+   "n": 7,
+   "n_hat": 638.5496183206106,
+   "n_observed": 580,
+   "recall": 0.9083084279737,
+   "recall_lower": 0.8762166196172658
+  },
+  {
+   "n": 8,
+   "n_hat": 642.1094339622641,
+   "n_observed": 584,
+   "recall": 0.9095022890355492,
+   "recall_lower": 0.8777452182333761
+  },
+  {
+   "n": 9,
+   "n_hat": 643.3320754716981,
+   "n_observed": 585,
+   "recall": 0.9093282028120107,
+   "recall_lower": 0.8775477984171789
+  },
+  {
+   "n": 10,
+   "n_hat": 643.3320754716981,
+   "n_observed": 585,
+   "recall": 0.9093282028120107,
+   "recall_lower": 0.8775477984171789
+  }
+ ],
+ "status": "COMPLETE \u2014 stopped by the exhaustion rule after 10 iterations.",
+ "result_so_far": {
+  "closure_violation_on_live_data": true,
+  "note": "The paper's central claim, measured outside simulation. At iteration 1 the estimator reported a population of 6.0 against 6 observed \u2014 recall 1.000 with the lower bound also at 1.000, i.e. apparently complete. The population then climbed to 43.7, 132.5, 285.5, 534.1, 629.6, 638.5, 642.1 and settled at 643.3. The iteration-1 estimate was wrong by a factor of 107, and wrong in the direction that matters: an unguarded rule would have terminated the review after six included studies out of 591.",
+  "drift": [
+   {
+    "from": 1,
+    "to": 2,
+    "drift": 6.2879
+   },
+   {
+    "from": 2,
+    "to": 3,
+    "drift": 2.0303
+   },
+   {
+    "from": 3,
+    "to": 4,
+    "drift": 1.155
+   },
+   {
+    "from": 4,
+    "to": 5,
+    "drift": 0.8703
+   },
+   {
+    "from": 5,
+    "to": 6,
+    "drift": 0.179
+   },
+   {
+    "from": 6,
+    "to": 7,
+    "drift": 0.0142
+   },
+   {
+    "from": 7,
+    "to": 8,
+    "drift": 0.0056
+   },
+   {
+    "from": 8,
+    "to": 9,
+    "drift": 0.0019
+   },
+   {
+    "from": 9,
+    "to": 10,
+    "drift": 0.0
+   }
+  ],
+  "guard_behaviour": "Correct at every iteration: the lower CI bound reached 0.942 and 0.930, below tau=0.95, and N_hat drift of +629% and +203% is far outside the 5% stability requirement, so the rule withheld on both grounds.",
+  "what_releases_the_rule": "The lower confidence bound has flattened at 0.930-0.932 rather than climbing toward the 0.95 threshold, because the estimated population grows in step with the observed count. The threshold condition is therefore not what will release this rule \u2014 the stability condition is. Drift is decelerating monotonically (+629%, +203%, +115%) but is still an order of magnitude outside the 5% band.",
+  "what_happened_to_the_recall_rule": "It never fired, and correctly so. The lower confidence bound fell from 1.000 to a plateau at 0.877 as the estimated population grew faster than the observed count, so the 0.95 threshold was never met after iteration 1. The stability condition was eventually satisfied \u2014 drift fell to 1.4%, then 0.6%, then 0.2% \u2014 but the threshold condition was not. The rule that did fire was exhaustion, and the run's own recall estimate says why that was the right outcome: at 0.908 estimated recall there was still literature to find, so no early stop was warranted."
+ },
+ "how_to_finish": {
+  "step1": "screen /tmp/narrow_cand4.json with validation/llm_screen_validate.py (two-stage gate, the protocol validated in supplementary Section S2), writing labels_narrow_004.csv",
+  "step2": "python cases/narrow_driver.py step",
+  "step3": "repeat until stopped_by is 'estimated_recall' or 'marginal_yield' rather than 'budget'",
+  "expectation": "marginal yield fell 11.2% -> 5.2% between iterations 2 and 3 and its threshold is 2%, so on the present trend it is the rule most likely to fire first, probably within two or three further iterations."
+ },
+ "stopped_by": "exhaustion",
+ "stop_is_saturation": true,
+ "prisma": {
+  "duplicates_removed": 475,
+  "identified_by_direction": {
+   "backward": 11994
+  },
+  "identified_by_provider": {
+   "crossref": 9375,
+   "openalex": 8276
+  },
+  "per_iteration": [
+   {
+    "cumulative_included": 12,
+    "cumulative_screened": 115,
+    "frontier_size": 6,
+    "n": 1,
+    "n_after_dedup": 0,
+    "n_eligible": 115,
+    "n_excluded": 109,
+    "n_expanded": 6,
+    "n_included": 6,
+    "n_raw": 0,
+    "n_screened": 115
+   },
+   {
+    "cumulative_included": 49,
+    "cumulative_screened": 446,
+    "frontier_size": 37,
+    "n": 2,
+    "n_after_dedup": 0,
+    "n_eligible": 331,
+    "n_excluded": 294,
+    "n_expanded": 12,
+    "n_included": 37,
+    "n_raw": 0,
+    "n_screened": 331
+   },
+   {
+    "cumulative_included": 134,
+    "cumulative_screened": 2080,
+    "frontier_size": 85,
+    "n": 3,
+    "n_after_dedup": 0,
+    "n_eligible": 1634,
+    "n_excluded": 1549,
+    "n_expanded": 49,
+    "n_included": 85,
+    "n_raw": 0,
+    "n_screened": 1634
+   },
+   {
+    "cumulative_included": 280,
+    "cumulative_screened": 4676,
+    "frontier_size": 146,
+    "n": 4,
+    "n_after_dedup": 0,
+    "n_eligible": 2596,
+    "n_excluded": 2450,
+    "n_expanded": 134,
+    "n_included": 146,
+    "n_raw": 0,
+    "n_screened": 2596
+   },
+   {
+    "cumulative_included": 496,
+    "cumulative_screened": 7981,
+    "frontier_size": 216,
+    "n": 5,
+    "n_after_dedup": 0,
+    "n_eligible": 3305,
+    "n_excluded": 3089,
+    "n_expanded": 280,
+    "n_included": 216,
+    "n_raw": 0,
+    "n_screened": 3305
+   },
+   {
+    "cumulative_included": 578,
+    "cumulative_screened": 9824,
+    "frontier_size": 83,
+    "n": 6,
+    "n_after_dedup": 0,
+    "n_eligible": 1843,
+    "n_excluded": 1760,
+    "n_expanded": 495,
+    "n_included": 83,
+    "n_raw": 0,
+    "n_screened": 1843
+   },
+   {
+    "cumulative_included": 586,
+    "cumulative_screened": 10812,
+    "frontier_size": 8,
+    "n": 7,
+    "n_after_dedup": 0,
+    "n_eligible": 988,
+    "n_excluded": 980,
+    "n_expanded": 578,
+    "n_included": 8,
+    "n_raw": 0,
+    "n_screened": 988
+   },
+   {
+    "cumulative_included": 590,
+    "cumulative_screened": 10846,
+    "frontier_size": 4,
+    "n": 8,
+    "n_after_dedup": 0,
+    "n_eligible": 34,
+    "n_excluded": 30,
+    "n_expanded": 586,
+    "n_included": 4,
+    "n_raw": 0,
+    "n_screened": 34
+   },
+   {
+    "cumulative_included": 591,
+    "cumulative_screened": 10878,
+    "frontier_size": 1,
+    "n": 9,
+    "n_after_dedup": 0,
+    "n_eligible": 32,
+    "n_excluded": 31,
+    "n_expanded": 590,
+    "n_included": 1,
+    "n_raw": 0,
+    "n_screened": 32
+   },
+   {
+    "cumulative_included": 591,
+    "cumulative_screened": 10878,
+    "frontier_size": 0,
+    "n": 10,
+    "n_after_dedup": 0,
+    "n_eligible": 0,
+    "n_excluded": 0,
+    "n_expanded": 1,
+    "n_included": 0,
+    "n_raw": 0,
+    "n_screened": 0
+   }
+  ],
+  "records_excluded": 10291,
+  "records_identified_via_citation_searching": 11994,
+  "records_removed_before_screening": 1316,
+  "records_screened": 10876,
+  "records_unresolvable": 3510,
+  "seeds": 6,
+  "studies_included": 585
+ },
+ "verification": {
+  "ok": true,
+  "artifacts_checked": 14,
+  "cache_entries_checked": 1064,
+  "mismatches": 0
+ },
+ "result": {
+  "rule_driven_stop": true,
+  "rule": "exhaustion",
+  "rationale": "Citation searching was continued until the frontier was exhausted after iteration 10: no newly included study remained whose references and citations had not already been retrieved.",
+  "screened": 10878,
+  "included": 591,
+  "iterations": 10,
+  "budget_used_fraction": 0.544,
+  "note": "This is the first of the four live runs to terminate on a saturation criterion rather than on a resource limit. The budget of 20,000 was never reached; the run stopped because the citation graph reachable from the seeds was closed."
+ }
+}

@@ -1,0 +1,24 @@
+{
+  "research_question": "How do blockchain and adjacent emerging digital technologies (AI, mobile payment and app platforms, social media, omnichannel systems) shape customer-side relational outcomes -- loyalty, trust, satisfaction, retention and engagement -- in commercial and service relationships?",
+  "core_relation": "an emerging digital technology (blockchain/distributed ledger foremost, and also AI, mobile/app platforms, social media, omnichannel retail systems) acting as an antecedent, enabler or moderator of a customer-side relational outcome (loyalty, brand trust, satisfaction, retention, repurchase intention, engagement, perceived value) in a commercial, retail or service setting",
+  "in_scope": [
+    "blockchain- or token-based loyalty and reward programmes, and crypto/NFT customer incentives",
+    "blockchain or distributed ledger in marketing, branding and customer relationship management",
+    "consumer trust, transparency and privacy effects of blockchain-enabled products, provenance or payment systems",
+    "technology adoption and service-quality studies whose outcome is customer loyalty, satisfaction, repurchase or continuance intention (mobile payments, banking/retail/library apps, e-commerce platforms)",
+    "AI, chatbots, recommender and personalisation systems studied for their effect on customer loyalty, trust or satisfaction",
+    "omnichannel and phygital retailing, social media marketing and digital transformation of the customer relationship in retail, hospitality, tourism and financial services"
+  ],
+  "out_of_scope": [
+    "blockchain as pure technical infrastructure -- consensus protocols, scalability, throughput, cryptography, smart-contract security or verification -- with no customer or marketing outcome",
+    "blockchain and IoT in supply chain, logistics, manufacturing, energy, agriculture or healthcare traceability where the outcome is operational or sustainability performance rather than a customer relational outcome",
+    "cryptocurrency and token price behaviour, asset pricing, investment, trading, financial-market or fintech-regulation studies without a customer loyalty/trust outcome",
+    "employee-side outcomes -- HRM, work engagement, employee performance, organisational change readiness",
+    "law, regulation, policy, ethics and algorithmic-accountability analyses without a customer relational outcome",
+    "firm financial performance, entrepreneurship, competitive strategy and platform-economics studies with no customer-side relational construct",
+    "bibliometric or research-mapping exercises on digital technology in general, where no substantive technology-to-loyalty relation is examined",
+    "engineering of edge/5G/network infrastructure, medicine, education and public administration applications with no commercial customer relationship"
+  ],
+  "confidence": "medium-high",
+  "derivation_note": "Derived from the 15 seed titles of the mid case (Scopus query \"blockchain\" AND \"customer loyalty\", 1,995 records). The seed set has a clear centre of gravity -- blockchain/AI/digital-platform technology meeting customer loyalty, trust and satisfaction (blockchain-for-marketing, mobile-payment usage satisfaction, library app loyalty, social media brand trust, omnichannel retailing, hospitality digitalization, smartwatch user satisfaction, AI-for-marketing). Six of the fifteen sit off that centre and are covered by the out-of-scope list rather than stretched into scope: blockchain for sustainable manufacturing/PLM, international human rights law and algorithmic accountability, AI and employee performance/work engagement, platform competition economics, a digital-transformation bibliometric analysis, and FinTech/Islamic-finance review. This is expected of a Scopus Boolean co-occurrence export, which admits records whose two keywords appear in unrelated passages, and it means seed AUC should be read with those six identified in advance rather than treated as screener error."
+}

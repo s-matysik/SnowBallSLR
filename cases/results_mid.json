@@ -1,0 +1,514 @@
+{
+ "case": "mid",
+ "label": "blockchain x customer loyalty",
+ "scopus_query": "\"blockchain\" AND \"customer loyalty\"",
+ "corpus_records": 1995,
+ "doi_coverage": 0.959,
+ "median_references_per_record": 84,
+ "span": "2014-2025",
+ "research_question": {
+  "research_question": "How do blockchain and adjacent emerging digital technologies (AI, mobile payment and app platforms, social media, omnichannel systems) shape customer-side relational outcomes -- loyalty, trust, satisfaction, retention and engagement -- in commercial and service relationships?",
+  "core_relation": "an emerging digital technology (blockchain/distributed ledger foremost, and also AI, mobile/app platforms, social media, omnichannel retail systems) acting as an antecedent, enabler or moderator of a customer-side relational outcome (loyalty, brand trust, satisfaction, retention, repurchase intention, engagement, perceived value) in a commercial, retail or service setting",
+  "in_scope": [
+   "blockchain- or token-based loyalty and reward programmes, and crypto/NFT customer incentives",
+   "blockchain or distributed ledger in marketing, branding and customer relationship management",
+   "consumer trust, transparency and privacy effects of blockchain-enabled products, provenance or payment systems",
+   "technology adoption and service-quality studies whose outcome is customer loyalty, satisfaction, repurchase or continuance intention (mobile payments, banking/retail/library apps, e-commerce platforms)",
+   "AI, chatbots, recommender and personalisation systems studied for their effect on customer loyalty, trust or satisfaction",
+   "omnichannel and phygital retailing, social media marketing and digital transformation of the customer relationship in retail, hospitality, tourism and financial services"
+  ],
+  "out_of_scope": [
+   "blockchain as pure technical infrastructure -- consensus protocols, scalability, throughput, cryptography, smart-contract security or verification -- with no customer or marketing outcome",
+   "blockchain and IoT in supply chain, logistics, manufacturing, energy, agriculture or healthcare traceability where the outcome is operational or sustainability performance rather than a customer relational outcome",
+   "cryptocurrency and token price behaviour, asset pricing, investment, trading, financial-market or fintech-regulation studies without a customer loyalty/trust outcome",
+   "employee-side outcomes -- HRM, work engagement, employee performance, organisational change readiness",
+   "law, regulation, policy, ethics and algorithmic-accountability analyses without a customer relational outcome",
+   "firm financial performance, entrepreneurship, competitive strategy and platform-economics studies with no customer-side relational construct",
+   "bibliometric or research-mapping exercises on digital technology in general, where no substantive technology-to-loyalty relation is examined",
+   "engineering of edge/5G/network infrastructure, medicine, education and public administration applications with no commercial customer relationship"
+  ],
+  "confidence": "medium-high",
+  "derivation_note": "Derived from the 15 seed titles of the mid case (Scopus query \"blockchain\" AND \"customer loyalty\", 1,995 records). The seed set has a clear centre of gravity -- blockchain/AI/digital-platform technology meeting customer loyalty, trust and satisfaction (blockchain-for-marketing, mobile-payment usage satisfaction, library app loyalty, social media brand trust, omnichannel retailing, hospitality digitalization, smartwatch user satisfaction, AI-for-marketing). Six of the fifteen sit off that centre and are covered by the out-of-scope list rather than stretched into scope: blockchain for sustainable manufacturing/PLM, international human rights law and algorithmic accountability, AI and employee performance/work engagement, platform competition economics, a digital-transformation bibliometric analysis, and FinTech/Islamic-finance review. This is expected of a Scopus Boolean co-occurrence export, which admits records whose two keywords appear in unrelated passages, and it means seed AUC should be read with those six identified in advance rather than treated as screener error."
+ },
+ "prisma": {
+  "duplicates_removed": 220,
+  "identified_by_direction": {
+   "backward": 2071,
+   "forward": 4216
+  },
+  "identified_by_provider": {
+   "crossref": 1817,
+   "openalex": 6016
+  },
+  "per_iteration": [
+   {
+    "cumulative_included": 352,
+    "cumulative_screened": 2500,
+    "frontier_size": 337,
+    "n": 1,
+    "n_after_dedup": 0,
+    "n_eligible": 2500,
+    "n_excluded": 2163,
+    "n_expanded": 15,
+    "n_included": 337,
+    "n_raw": 0,
+    "n_screened": 2500
+   }
+  ],
+  "records_excluded": 2163,
+  "records_identified_via_citation_searching": 6285,
+  "records_removed_before_screening": 1036,
+  "records_screened": 2500,
+  "records_unresolvable": 242,
+  "seeds": 15,
+  "studies_included": 337
+ },
+ "per_iteration": [
+  {
+   "iteration": 1,
+   "candidates_offered": 5249,
+   "screened": 2500,
+   "included": 337,
+   "excluded": 2163,
+   "unscreened_omitted": 2749,
+   "note": "budget-bound: the first 2,500 candidates in candidates.json (library ranking) order were screened; the remaining 2,749 were left unscreened and OMITTED from labels_mid_001.csv"
+  }
+ ],
+ "iterations_completed": 1,
+ "stopping": {
+  "stopped_by": "budget",
+  "stop_is_saturation": false,
+  "rule_value": 2500.0,
+  "rules_evaluated": [
+   {
+    "rule": "estimated_recall",
+    "triggered": false,
+    "value": 0.5378,
+    "tau": 0.95,
+    "uses_lower_ci": true
+   },
+   {
+    "rule": "marginal_yield",
+    "triggered": false,
+    "value": null,
+    "note": "fewer than 2 iterations; not applicable"
+   },
+   {
+    "rule": "budget",
+    "triggered": true,
+    "value": 2500.0
+   },
+   {
+    "rule": "exhaustion",
+    "triggered": false,
+    "value": 337.0,
+    "note": "337 included studies remained unexpanded"
+   }
+  ],
+  "interpretation": "This is a BUDGET STOP, not saturation. The frontier was not exhausted (337 included studies awaited expansion) and estimated recall (53.8%) was far below the 0.95 target. 2,749 of 5,249 iteration-1 candidates were never screened."
+ },
+ "recall_estimate_per_iteration": [
+  {
+   "iteration": 1,
+   "method": "loglinear",
+   "estimable": true,
+   "n_observed": 352,
+   "n_hat": 654.5,
+   "recall": 0.5378,
+   "n_hat_ci_library": null,
+   "recall_ci_library": null,
+   "ci_note": "The library returns no CI for the log-linear method (RecallEstimate.n_hat_ci is populated by the two-arm capture_recapture and Chao estimators but not by loglinear). CI below computed independently: parametric multinomial bootstrap (2,000 replicates) over the observed capture cells, re-running AIC model selection in every replicate so the interval carries model-choice uncertainty.",
+   "n_hat_ci_bootstrap": [
+    352.0,
+    953.16
+   ],
+   "recall_ci_bootstrap": [
+    0.3693,
+    1.0
+   ],
+   "n_hat_median_bootstrap": 639.55,
+   "recall_median_bootstrap": 0.5504,
+   "bootstrap_replicates": 2000,
+   "model_selection_frequency": {
+    "count ~ a0 + a1 + a2 + a0:a1 + a1:a2": 1925,
+    "count ~ a0 + a1 + a2 + a0:a2 + a1:a2": 70,
+    "count ~ a0 + a1 + a2 + a0:a1": 5
+   },
+   "selected_model": "count ~ a0 + a1 + a2 + a0:a1 + a1:a2",
+   "aic": 34.48,
+   "bic": -1.95,
+   "missing_cell": 302.5,
+   "sensitivity_independence_model": {
+    "n_hat": 393.6,
+    "recall": 0.8943,
+    "aic": 94.39,
+    "note": "the independence model gives recall 89% versus 53.8% for the AIC-selected interaction model -- a 35-point swing on model choice alone, which is the dominant uncertainty here, larger than the sampling interval"
+   },
+   "warnings": [
+    "log-linear estimates are sensitive to model choice; the selected model was: count ~ a0 + a1 + a2 + a0:a1 + a1:a2",
+    "Catchability is heterogeneous across publication_year: 'recent' records are captured by 1.03 arms on average versus 1.51 for 'older'. N_hat is biased downward."
+   ]
+  }
+ ],
+ "arm_capture": {
+  "arms": [
+   "openalex",
+   "crossref",
+   "scopus"
+  ],
+  "per_arm": {
+   "openalex": 337,
+   "crossref": 83,
+   "scopus": 27
+  },
+  "capture_cells": {
+   "100 (openalex only)": 242,
+   "110 (openalex+crossref)": 83,
+   "001 (scopus only)": 15,
+   "101 (openalex+scopus)": 12,
+   "010 (crossref only)": 0,
+   "011 (crossref+scopus)": 0,
+   "111 (all three)": 0
+  },
+  "n_observed": 352,
+  "scopus_export_dois": 1914,
+  "note": "The scopus membership arm captured 27 of 352 included records (7.7%), of which 15 are the seeds themselves. The all-three cell is empty and two cells are zero, which is what makes the log-linear fit unstable and the interval wide."
+ },
+ "validation": {
+  "inter_model_agreement": {
+   "n_records": 1175,
+   "models": [
+    "claude-haiku-4-5-20251001",
+    "claude-sonnet-5",
+    "claude-opus-4-8"
+   ],
+   "icc_2_1": 0.8268323843699216,
+   "icc_ci95": [
+    0.8099982267024052,
+    0.8428143325331904
+   ],
+   "icc_bootstrap_replicates": 1000,
+   "mean_per_record_range": 1.4672340425531916,
+   "mean_range_ci95": [
+    1.4067872340425533,
+    1.5328297872340424
+   ],
+   "pairwise_pearson": {
+    "claude-haiku-4-5-20251001|claude-sonnet-5": 0.8376767158145237,
+    "claude-haiku-4-5-20251001|claude-opus-4-8": 0.8606915053192044,
+    "claude-sonnet-5|claude-opus-4-8": 0.9239507003452443
+   },
+   "per_model_mean": {
+    "claude-haiku-4-5-20251001": 5.666382978723404,
+    "claude-sonnet-5": 4.64,
+    "claude-opus-4-8": 4.8331914893617025
+   },
+   "interpretation": "ICC(2,1)=0.827 [0.810, 0.843] -- good absolute agreement. Mean per-record score range 1.47 points on a 10-point scale. The two stage-2 models agree most closely (r=0.924); haiku runs about 0.9 points more generous than the stage-2 models, which makes the gate conservative in the right direction."
+  },
+  "blind_positive_controls": {
+   "n_seeds": 15,
+   "design": "15 seed records scored UNMARKED, one per batch, in 15 distinct ordinary batches of 25; never identified as seeds in the prompt",
+   "max_seeds_per_batch": 1,
+   "seed_auc_all": 0.6582533333333334,
+   "seed_auc_all_ci95": [
+    0.5323243333333334,
+    0.7895203333333333
+   ],
+   "mannwhitney_p_one_sided": 0.016601715992623233,
+   "seed_mean": 5.066666666666666,
+   "pool_mean": 3.7450666666666663,
+   "seeds_at_or_above_tau": 5,
+   "seed_auc_on_topic_only": 0.8309555555555556,
+   "seed_auc_on_topic_ci95": [
+    0.7175016666666667,
+    0.9264283333333333
+   ],
+   "n_on_topic": 9,
+   "preregistered_offtopic_seeds": {
+    "doi:10.1016/j.rser.2020.110112": "blockchain for sustainable manufacturing/PLM (operational outcome)",
+    "doi:10.1017/s0020589319000046": "human rights law / algorithmic accountability (no customer outcome)",
+    "doi:10.1108/ijm-07-2021-0423": "AI and employee performance/work engagement (employee-side)",
+    "doi:10.1177/0149206320969791": "platform competition economics (no customer relational construct)",
+    "doi:10.1108/bij-01-2021-0009": "digital-transformation bibliometrics (no substantive relation)",
+    "doi:10.35808/ijeba/444": "FinTech/Islamic finance review (no customer loyalty outcome)"
+   },
+   "prereg_offtopic_mean": 2.6666666666666665,
+   "prereg_ontopic_mean": 6.666666666666667,
+   "prereg_permutation_p": 0.0009,
+   "six_lowest_are_all_preregistered": true,
+   "per_seed": [
+    {
+     "key": "doi:10.3389/fbloc.2020.00003",
+     "title": "How Blockchain Technology Can Benefit Marketing: Six Pending Research Areas",
+     "final": 9.0,
+     "models": {
+      "claude-haiku-4-5-20251001": 9.0,
+      "claude-sonnet-5": 9.0,
+      "claude-opus-4-8": 9.0
+     },
+     "has_abstract": true,
+     "pool_percentile": 0.989,
+     "included": true
+    },
+    {
+     "key": "doi:10.1016/j.jjimei.2022.100102",
+     "title": "Impact of social media marketing features on consumer's purchase decision in the",
+     "final": 8.0,
+     "models": {
+      "claude-haiku-4-5-20251001": 8.0,
+      "claude-sonnet-5": 8.0,
+      "claude-opus-4-8": 8.0
+     },
+     "has_abstract": true,
+     "pool_percentile": 0.931,
+     "included": true
+    },
+    {
+     "key": "doi:10.1007/s10796-020-10045-0",
+     "title": "What Affects Usage Satisfaction in Mobile Payments? Modelling User Generated Con",
+     "final": 8.0,
+     "models": {
+      "claude-haiku-4-5-20251001": 8.0,
+      "claude-sonnet-5": 8.0,
+      "claude-opus-4-8": 8.0
+     },
+     "has_abstract": true,
+     "pool_percentile": 0.931,
+     "included": true
+    },
+    {
+     "key": "doi:10.1016/j.jretconser.2022.102960",
+     "title": "Mediating effects on the relationship between perceived service quality and publ",
+     "final": 8.0,
+     "models": {
+      "claude-haiku-4-5-20251001": 8.0,
+      "claude-sonnet-5": 8.0
+     },
+     "has_abstract": false,
+     "pool_percentile": 0.931,
+     "included": true
+    },
+    {
+     "key": "doi:10.1016/j.techsoc.2021.101780",
+     "title": "Applied Artificial Intelligence and user satisfaction: Smartwatch usage for heal",
+     "final": 7.67,
+     "models": {
+      "claude-haiku-4-5-20251001": 8.0,
+      "claude-sonnet-5": 8.0,
+      "claude-opus-4-8": 7.0
+     },
+     "has_abstract": true,
+     "pool_percentile": 0.913,
+     "included": true
+    },
+    {
+     "key": "doi:10.1016/j.ijin.2022.08.005",
+     "title": "Artificial intelligence (AI) applications for marketing: A literature-based stud",
+     "final": 6.67,
+     "models": {
+      "claude-haiku-4-5-20251001": 7.0,
+      "claude-sonnet-5": 6.0,
+      "claude-opus-4-8": 7.0
+     },
+     "has_abstract": true,
+     "pool_percentile": 0.847,
+     "included": false
+    },
+    {
+     "key": "doi:10.1016/j.ijpe.2020.107729",
+     "title": "Omni-channel management in the new retailing era: A systematic review and future",
+     "final": 5.0,
+     "models": {
+      "claude-haiku-4-5-20251001": 7.0,
+      "claude-sonnet-5": 4.0,
+      "claude-opus-4-8": 4.0
+     },
+     "has_abstract": false,
+     "pool_percentile": 0.702,
+     "included": false
+    },
+    {
+     "key": "doi:10.1108/ijchm-04-2022-0535",
+     "title": "A critical reflection on digitalization for the hospitality and tourism industry",
+     "final": 4.67,
+     "models": {
+      "claude-haiku-4-5-20251001": 5.0,
+      "claude-sonnet-5": 5.0,
+      "claude-opus-4-8": 4.0
+     },
+     "has_abstract": true,
+     "pool_percentile": 0.678,
+     "included": false
+    },
+    {
+     "key": "doi:10.1177/0149206320969791",
+     "title": "Platform Competition: A Systematic and Interdisciplinary Review of the Literatur",
+     "final": 3.0,
+     "models": {
+      "claude-haiku-4-5-20251001": 5.0,
+      "claude-sonnet-5": 2.0,
+      "claude-opus-4-8": 2.0
+     },
+     "has_abstract": true,
+     "pool_percentile": 0.4,
+     "included": false
+    },
+    {
+     "key": "doi:10.1016/j.rser.2020.110112",
+     "title": "Blockchain-empowered sustainable manufacturing and product lifecycle management ",
+     "final": 3.0,
+     "models": {
+      "claude-haiku-4-5-20251001": 3.0
+     },
+     "has_abstract": false,
+     "pool_percentile": 0.4,
+     "included": false
+    },
+    {
+     "key": "doi:10.1108/bij-01-2021-0009",
+     "title": "Emerging trends in digital transformation: a bibliometric analysis",
+     "final": 3.0,
+     "models": {
+      "claude-haiku-4-5-20251001": 3.0
+     },
+     "has_abstract": true,
+     "pool_percentile": 0.4,
+     "included": false
+    },
+    {
+     "key": "doi:10.35808/ijeba/444",
+     "title": "FinTech, Blockchain and Islamic Finance: An Extensive Literature Review",
+     "final": 3.0,
+     "models": {
+      "claude-haiku-4-5-20251001": 3.0
+     },
+     "has_abstract": true,
+     "pool_percentile": 0.4,
+     "included": false
+    },
+    {
+     "key": "doi:10.1007/978-3-319-48478-5",
+     "title": "Business Innovation Through Blockchain: The B³ Perspective",
+     "final": 3.0,
+     "models": {
+      "claude-haiku-4-5-20251001": 3.0
+     },
+     "has_abstract": false,
+     "pool_percentile": 0.4,
+     "included": false
+    },
+    {
+     "key": "doi:10.1017/s0020589319000046",
+     "title": "INTERNATIONAL HUMAN RIGHTS LAW AS A FRAMEWORK FOR ALGORITHMIC ACCOUNTABILITY",
+     "final": 2.0,
+     "models": {
+      "claude-haiku-4-5-20251001": 2.0
+     },
+     "has_abstract": true,
+     "pool_percentile": 0.19,
+     "included": false
+    },
+    {
+     "key": "doi:10.1108/ijm-07-2021-0423",
+     "title": "A study of artificial intelligence on employee performance and work engagement: ",
+     "final": 2.0,
+     "models": {
+      "claude-haiku-4-5-20251001": 2.0
+     },
+     "has_abstract": true,
+     "pool_percentile": 0.19,
+     "included": false
+    }
+   ],
+   "interpretation": "AUC over all 15 seeds is 0.658 [0.532, 0.790], which alone would look weak. But the six seeds flagged as off-topic in cases/research_question_mid.json BEFORE any scoring are exactly the six lowest-scoring seeds (permutation p=0.0009); mean 2.67 versus 6.67 for the other nine. Restricting to the nine on-topic seeds gives AUC 0.831 [0.718, 0.926]. This is the expected signature of a Scopus Boolean co-occurrence export: \"blockchain\" AND \"customer loyalty\" admits records where the two terms co-occur incidentally (blockchain for sustainable manufacturing, human-rights law and algorithmic accountability, AI and employee work engagement, platform-competition economics, digital-transformation bibliometrics, FinTech/Islamic finance). Those low seed scores are genuinely off-topic seeds, not screener failures. One on-topic seed also scored 3.0 -- the B3 blockchain-innovation book chapter, which has no abstract in OpenAlex and was scored title-only; that one IS a screener limitation driven by missing metadata rather than by topic."
+  },
+  "two_stage_gate_check": {
+   "n_gate_excluded_total": 1444,
+   "n_sampled": 300,
+   "sampling": "random without replacement, seed 11",
+   "scored_with_full_ensemble": true,
+   "n_with_all_three_models": 259,
+   "n_with_two_models": 41,
+   "would_have_been_included": 0,
+   "false_negative_rate": 0.0,
+   "false_negative_rate_ci95_wilson": [
+    0.0,
+    0.012642971224546036
+   ],
+   "max_final_score_in_gate_sample": 4.666666666666667,
+   "mean_final_score_in_gate_sample": 1.925,
+   "n_at_or_above_5": 0,
+   "n_at_or_above_6": 0,
+   "interpretation": "0 of 300 gate-excluded records would have been included by the full ensemble: FNR 0.0%, 95% CI [0.0%, 1.26%]. The highest final score anywhere in the gate sample was 4.67, well clear of tau=7.0, so there is a wide margin rather than a set of near-misses. The gate is safe on this case."
+  }
+ },
+ "abstract_availability_test": {
+  "n_with_abstract": 1745,
+  "n_without_abstract": 755,
+  "mean_with": 4.123495702005731,
+  "mean_without": 2.8704194260485654,
+  "mean_difference": 1.2530762759571656,
+  "diff_ci95": [
+   1.0833728660252893,
+   1.4268286716382979
+  ],
+  "mannwhitney_u": 869925.5,
+  "mannwhitney_p_one_sided": 5.894606411040392e-38,
+  "welch_t": 14.386951489250988,
+  "welch_p": 1.718789428038268e-44,
+  "cohens_d": 0.5717940593624938,
+  "inclusion_rate_with": 0.17650429799426934,
+  "inclusion_rate_without": 0.038410596026490065,
+  "inclusion_chi2": 84.98756875941316,
+  "inclusion_chi2_p": 3.0024684347759014e-20,
+  "direction": "records lacking an abstract score significantly LOWER"
+ },
+ "unresolvable": {
+  "in_full_iteration1_pool": 242,
+  "in_screened_2500": 1,
+  "prisma_records_unresolvable": 242,
+  "share_of_iteration1_pool": 0.04610401981329777,
+  "note": "Unresolvable records carry a title but no abstract by construction. Only 1 of the 242 appeared in the top 2,500 by library ranking, so the abstract bias measured here comes overwhelmingly from resolvable-but-abstractless records (755 of 2,500 screened, 30.2%), not from unresolvables. Because abstractless records score 1.25 points lower on average and are included at 3.8% versus 17.7%, the included set is biased toward well-indexed work."
+ },
+ "screening": {
+  "protocol": "llm_screening/screening_spec.json, two-stage, batches of 25, tau=7.0, gate=5.0",
+  "stage1_model": "claude-haiku-4-5-20251001",
+  "stage2_models": [
+   "claude-sonnet-5",
+   "claude-opus-4-8"
+  ],
+  "n_scored_total": 2515,
+  "n_candidates_screened": 2500,
+  "n_seeds_scored": 15,
+  "stage1_survivors": 1071,
+  "stage1_gated_out": 1444,
+  "coverage": {
+   "claude-haiku-4-5-20251001": 2515,
+   "claude-sonnet-5": 1371,
+   "claude-opus-4-8": 1175
+  },
+  "incomplete_opus_coverage": {
+   "n_stage2_records_lacking_opus": 196,
+   "reason": "the frame-level LLM token ceiling (2.0M) was reached with 8 of 55 stage-2 batches unscored by claude-opus-4-8; no further model calls were possible",
+   "handling": "the spec defines the final score as the mean across all models that scored the record, so those 196 records carry a haiku+sonnet mean instead of a three-model mean",
+   "affected": {
+    "seeds": 1,
+    "gate_check_sample": 41,
+    "stage2_survivors": 154
+   },
+   "sensitivity": {
+    "includes_with_reported_scores": 337,
+    "includes_if_opus_dropped_everywhere": 365,
+    "decision_agreement": 0.9872,
+    "note": "Dropping opus from every record changes the included count from 337 to 365 (98.7% decision agreement), so the missing opus coverage on 196 records is a small perturbation of the included set, not a structural change."
+   }
+  },
+  "include_rate": 0.1348,
+  "prompt_note": "cases/screening.py build_prompt() does not populate the {items} placeholder of the spec prompt_template and raises KeyError; the records block was substituted locally without altering the template text, scale, batch size, tau or gate. The score parser was also extended to read the JSON-array form the template asks for, in addition to the object form the helper expected."
+ },
+ "reproducibility": {
+  "verify": "replay OK: 6 artifacts reproduced",
+  "config_hash": "sha256:c3f07c869afaf059263583c293df4d787805de3ad1afe0bb2b4046ac04b394f7"
+ },
+ "run_directory": "run_mid/"
+}

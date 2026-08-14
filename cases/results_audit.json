@@ -1,0 +1,9 @@
+{
+ "prisma_arithmetic": "all three cases balance exactly",
+ "arm_cells": "sum to n_observed in all three; includes the 15 seeds",
+ "labels_vs_prisma": "include counts match exactly in all three",
+ "icc": "reproduces to 3 decimals in all three (0.578 / 0.827 / 0.795)",
+ "auc_mid_large": "reproduces exactly (0.658 / 0.631)",
+ "auc_adverse": "NOT reproducible: 0.58-0.73 depending on basis, artifact states 0.781",
+ "gate_fnr_adverse": "artifact states NOT MEASURED (0 of 350 prepared records scored)"
+}

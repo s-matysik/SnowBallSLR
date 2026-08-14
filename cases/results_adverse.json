@@ -1,0 +1,636 @@
+{
+ "case": "adverse",
+ "label": "innovation x marketing x automation",
+ "generated_at": "2026-08-13T01:45:39.200355Z",
+ "prediction_registered": "cases/PREDICTION_adverse.md @ 2026-08-13T01:17:50Z, before any label/step/report",
+ "research_question": {
+  "research_question": "How is the adoption and intra-organisational diffusion of automation and intelligent-technology innovations - Industry 4.0, artificial intelligence, robotics, cloud and sales-force automation - reshaping marketing, sales and other customer- and market-facing business functions, and what organisational enablers, resistances and consequences does that transformation bring?",
+  "core_relation": "automation / AI / Industry 4.0 technology treated as an INNOVATION that an organisation, sector or workforce adopts, resists or diffuses, linked to an outcome in the MARKET-FACING domain: marketing theory and practice, sales and salesforce management, B2B buying and selling, customer/consumer interaction, business models, or the managerial and workforce conditions that govern that adoption",
+  "in_scope": [
+   "AI, machine learning or automation in marketing, advertising and marketing theory",
+   "sales force automation, CRM and salesperson adoption, resistance or job outcomes",
+   "adoption, acceptance, readiness, diffusion or implementation of Industry 4.0 / smart manufacturing / robotics in firms, including SMEs",
+   "technology-driven business model and value-proposition innovation, digital transformation of business functions",
+   "B2B marketing, organisational buying behaviour and industrial buyer-seller relationships under technological change",
+   "sector-level automation and robotics adoption studied with a managerial, economic, market or public-policy framing (agri-food 4.0, urban technology, financial trading, cloud in HRM)",
+   "workforce, skills, labour-market and human-performance consequences of intelligent machines in organisations",
+   "consumer or stakeholder perception of, and public policy toward, automation and AI technologies"
+  ],
+  "out_of_scope": [
+   "life sciences and biomedicine - structural biology, drug discovery, molecular screening, clinical medicine, laboratory automation, bioinformatics",
+   "purely technical engineering of automation systems - control theory, mechanism and machine design, scheduling algorithms, sensor or actuator hardware, CFD/FEM simulation - with no adoption, management or market dimension",
+   "computer-science method papers - algorithm or model benchmarks, network and edge-computing infrastructure, software architecture - where marketing or organisational adoption is at most a motivating sentence",
+   "process, production or supply-chain optimisation measured only in technical or cost-efficiency terms, with no market-facing or innovation-diffusion outcome",
+   "agronomy, food science, materials and environmental science where 'innovation' denotes a new technique rather than an adoption process",
+   "education, pedagogy and assessment as ends in themselves, unless the study is about adoption of an automated technology by an organisation",
+   "macroeconomic growth, national innovation-system and R&D-policy studies with no organisational adoption or marketing content",
+   "generic management, leadership, HRM or entrepreneurship research in which no automation or intelligent technology is the object of study"
+  ],
+  "derived_from": "the 15 blind seed titles of the adverse case (cases/seed_context_adverse.json); no other case's question was reused",
+  "note": "The seed set is heterogeneous by construction: the Boolean query 'innovation' AND 'marketing' AND 'automation' admits records whose three terms co-occur incidentally. Seven of the 15 seeds sit at the core (AI and marketing theory, sales force automation, B2B buying centre, Industry 4.0 readiness in SMEs, marketing perspective on Industry 4.0, marketing and public policy, intelligent machines and labour). One - 'Structural Biology and Drug Discovery' (2006) - is off topic on any reading of the question and is retained unmarked as a blind control. The out_of_scope list is therefore stated as carefully as the in_scope list: the discriminating criterion is whether an automation/AI technology is studied as something an organisation adopts with market-facing or managerial consequences, not merely whether the words innovation, marketing and automation appear.",
+  "confidence": "medium-high on the core relation; the seed set's periphery is genuinely broad and this is recorded rather than narrowed away"
+ },
+ "corpus": {
+  "scopus_export_records": 260,
+  "doi_coverage": 0.658,
+  "median_references": 16,
+  "span": "1971-2025",
+  "seeds": 15,
+  "seeds_resolved": 15
+ },
+ "prisma": {
+  "duplicates_removed": 595,
+  "identified_by_direction": {
+   "backward": 9861,
+   "forward": 31712
+  },
+  "identified_by_provider": {
+   "crossref": 8368,
+   "openalex": 38650
+  },
+  "per_iteration": [
+   {
+    "cumulative_included": 164,
+    "cumulative_screened": 1551,
+    "frontier_size": 149,
+    "n": 1,
+    "n_after_dedup": 0,
+    "n_eligible": 1551,
+    "n_excluded": 1402,
+    "n_expanded": 15,
+    "n_included": 149,
+    "n_raw": 0,
+    "n_screened": 1551
+   }
+  ],
+  "records_excluded": 1402,
+  "records_identified_via_citation_searching": 40719,
+  "records_removed_before_screening": 7731,
+  "records_screened": 1551,
+  "records_unresolvable": 1964,
+  "seeds": 15,
+  "studies_included": 149
+ },
+ "iterations": [
+  {
+   "iteration": 1,
+   "candidates": 1551,
+   "screened": 1551,
+   "included": 149,
+   "gate_survivors": 724,
+   "gate_excluded": 842,
+   "protocol": "full two-stage (haiku gate + sonnet-5 + opus-4-8)"
+  },
+  {
+   "iteration": 2,
+   "candidates": 31486,
+   "screened": 0,
+   "included": 0,
+   "stage1_scored": 2449,
+   "gate_survivors": 2140,
+   "gate_excluded": 309,
+   "protocol": "stage 1 only; stage 2 not run",
+   "note": "The per-frame LLM token ceiling (2.0M) was reached during the iteration-2 stage-2 fan-out, so no iteration-2 record carries a full-ensemble score. No inclusion decision was issued for iteration 2 and labels_adverse_002.csv was not written: substituting a haiku-only rule at tau=7.0 would have been an unvalidated surrogate (kappa=0.470 against the ensemble on the 724 iteration-1 records where both exist; it would have included 320 records where the ensemble includes 155). The run therefore stands at iteration 2, phase awaiting_labels, with 31486 candidates identified and unscreened."
+  }
+ ],
+ "stopping": {
+  "stopped_by": null,
+  "stop_is_saturation": false,
+  "rules_at_iteration_1": [
+   {
+    "rule": "estimated_recall",
+    "triggered": false,
+    "value": 1.2200196293886556e-10
+   },
+   {
+    "rule": "marginal_yield",
+    "triggered": false,
+    "value": null
+   },
+   {
+    "rule": "budget",
+    "triggered": false,
+    "value": 1551.0
+   },
+   {
+    "rule": "exhaustion",
+    "triggered": false,
+    "value": 149.0
+   }
+  ],
+  "honest_statement": "No stopping rule fired. The run halted because the screening resource ran out mid-iteration-2 - neither saturation nor the pre-specified budget rule (cumulative screened 1551 of a 4000 budget). Prediction 3 (early marginal-yield firing) is therefore UNTESTED, not confirmed: marginal_yield needs k=2 completed iterations and only one completed. The iteration-1 frontier did not exhaust either - it expanded to 31486 candidates - so nothing observed supports an early-exhaustion claim."
+ },
+ "recall_estimate": {
+  "configured_method": "loglinear",
+  "loglinear": {
+   "estimable": true,
+   "n_hat": 130917791152.12125,
+   "n_hat_ci": null,
+   "recall": 1.2526945234619682e-09,
+   "recall_ci": null,
+   "recall_lower": null,
+   "reason": null,
+   "method": "loglinear",
+   "n_observed": 164,
+   "warnings": [
+    "log-linear estimates are sensitive to model choice; the selected model was: count ~ a0 + a1 + a2 + a0:a1 + a0:a2 + a1:a2",
+    "Source arms 'openalex' and 'crossref' are positively dependent (conditional OR=29.40, p=0.04). N_hat is biased downward and the estimated recall is an UPPER BOUND.",
+    "Source arms 'crossref' and 'scopus' are positively dependent (conditional OR=5.50, p=0.0178). N_hat is biased downward and the estimated recall is an UPPER BOUND.",
+    "Catchability is heterogeneous across publication_year: 'recent' records are captured by 1.23 arms on average versus 1.83 for 'older'. N_hat is biased downward.",
+    "Catchability is heterogeneous across language: 'non-en' records are captured by 1.00 arms on average versus 1.57 for 'en'. N_hat is biased downward.",
+    "Catchability is heterogeneous across venue_type: 'unknown' records are captured by 1.00 arms on average versus 3.00 for 'conference-paper'. N_hat is biased downward.",
+    "8 discovered records could not be resolved to a persistent identifier and are excluded from the capture table."
+   ],
+   "detail": {
+    "formula": "count ~ a0 + a1 + a2 + a0:a1 + a0:a2 + a1:a2",
+    "aic": 39.874285442727256,
+    "bic": 2.40423445188801e-09,
+    "missing_cell": 130917790988.12125,
+    "arms": [
+     "openalex",
+     "crossref",
+     "scopus"
+    ],
+    "cells": {
+     "001": 3,
+     "010": 8,
+     "100": 80,
+     "101": 2,
+     "110": 61,
+     "111": 10
+    }
+   },
+   "verdict": "DEGENERATE - do not use"
+  },
+  "degeneracy_explanation": "The three-arm log-linear estimator selected the all-pairwise-interaction model count ~ a0+a1+a2+a0:a1+a0:a2+a1:a2, saturated for a 3-arm table carrying a structural zero. Cell 011 (crossref AND scopus but NOT openalex) is empty because openalex is the precedence-first provider and captures 93.3% of included records, so nearly every crossref-or-scopus record is also an openalex record. With that cell empty the fitted missing cell 000 diverges: n_hat = 1.3e11, recall = 1.3e-09, no CI. An identifiability failure of the estimator on this capture pattern, not a recall finding.",
+  "usable_estimates": {
+   "chapman_openalex_crossref": {
+    "n_hat": 170.11111111111111,
+    "n_hat_ci": [
+     161.05338011582205,
+     179.16884210640018
+    ],
+    "recall": 0.9464402351404311,
+    "recall_ci": [
+     0.8985937404472898,
+     0.9996685563768754
+    ],
+    "estimable": true
+   },
+   "chapman_openalex_scopus": {
+    "n_hat": 188.53846153846155,
+    "n_hat_ci": [
+     156.0,
+     229.67608859403336
+    ],
+    "recall": 0.8274173806609547,
+    "recall_ci": [
+     0.679217418560883,
+     1.0
+    ],
+    "estimable": true
+   },
+   "chapman_crossref_scopus": {
+    "n_hat": 115.36363636363636,
+    "n_hat_ci": [
+     84.0,
+     149.54483558433793
+    ],
+    "recall": 0.7281323877068558,
+    "recall_ci": [
+     0.5617044525260587,
+     1.0
+    ],
+    "estimable": true
+   },
+   "chao1": {
+    "estimable": true,
+    "n_hat": 229.72222222222223,
+    "n_hat_ci": [
+     202.79117894678006,
+     275.35032786070303
+    ],
+    "recall": 0.7139056831922612,
+    "recall_ci": [
+     0.595604883691898,
+     0.8087136770531803
+    ],
+    "recall_lower": 0.595604883691898,
+    "reason": null,
+    "method": "chao1",
+    "n_observed": 164,
+    "warnings": [
+     "Chao1 is a lower bound on N; the implied recall is therefore an upper bound",
+     "Source arms 'openalex' and 'crossref' are positively dependent (conditional OR=29.40, p=0.04). N_hat is biased downward and the estimated recall is an UPPER BOUND.",
+     "Source arms 'crossref' and 'scopus' are positively dependent (conditional OR=5.50, p=0.0178). N_hat is biased downward and the estimated recall is an UPPER BOUND.",
+     "Catchability is heterogeneous across publication_year: 'recent' records are captured by 1.23 arms on average versus 1.83 for 'older'. N_hat is biased downward.",
+     "Catchability is heterogeneous across language: 'non-en' records are captured by 1.00 arms on average versus 1.57 for 'en'. N_hat is biased downward.",
+     "Catchability is heterogeneous across venue_type: 'unknown' records are captured by 1.00 arms on average versus 3.00 for 'conference-paper'. N_hat is biased downward.",
+     "8 discovered records could not be resolved to a persistent identifier and are excluded from the capture table."
+    ],
+    "detail": {
+     "f1": 91,
+     "f2": 63,
+     "s_obs": 164,
+     "se": 18.004124279833114
+    }
+   }
+  },
+  "headline": {
+   "method": "Chao1 (does not require a fittable interaction structure; reported in place of the degenerate log-linear)",
+   "n_hat": 229.72222222222223,
+   "n_hat_ci": [
+    202.79117894678006,
+    275.35032786070303
+   ],
+   "recall": 0.7139056831922612,
+   "recall_ci": [
+    0.595604883691898,
+    0.8087136770531803
+   ],
+   "n_observed": 164,
+   "warnings": [
+    "Chao1 is a lower bound on N; the implied recall is therefore an upper bound",
+    "Source arms 'openalex' and 'crossref' are positively dependent (conditional OR=29.40, p=0.04). N_hat is biased downward and the estimated recall is an UPPER BOUND.",
+    "Source arms 'crossref' and 'scopus' are positively dependent (conditional OR=5.50, p=0.0178). N_hat is biased downward and the estimated recall is an UPPER BOUND.",
+    "Catchability is heterogeneous across publication_year: 'recent' records are captured by 1.23 arms on average versus 1.83 for 'older'. N_hat is biased downward.",
+    "Catchability is heterogeneous across language: 'non-en' records are captured by 1.00 arms on average versus 1.57 for 'en'. N_hat is biased downward.",
+    "Catchability is heterogeneous across venue_type: 'unknown' records are captured by 1.00 arms on average versus 3.00 for 'conference-paper'. N_hat is biased downward.",
+    "8 discovered records could not be resolved to a persistent identifier and are excluded from the capture table."
+   ],
+   "caveat": "Conditional on the reachable population at iteration 1 only. All arm-pair dependence diagnostics are positive (openalex/crossref conditional OR=29.4, p=0.04; crossref/scopus OR=5.50, p=0.018), biasing n_hat downward and making each recall figure an UPPER bound. Prediction 1 (lower recall than the favourable case) cannot be tested on the pre-specified footing, because the estimator the study specified is not identifiable here."
+  },
+  "trail": [
+   {
+    "iteration": 1,
+    "n_hat_loglinear": 1344240666702.8743,
+    "recall_loglinear": 1.2200196293886556e-10,
+    "n_hat_chao1": 229.72222222222223,
+    "recall_chao1": 0.7139056831922612,
+    "n_hat_chapman": 170.11111111111111,
+    "recall_chapman": 0.9640757674722403
+   }
+  ]
+ },
+ "arm_capture": {
+  "n_included": 164,
+  "per_arm": {
+   "openalex": 153,
+   "crossref": 79,
+   "scopus": 15
+  },
+  "per_arm_share": {
+   "openalex": 0.9329,
+   "crossref": 0.4817,
+   "scopus": 0.0915
+  },
+  "overlaps": {
+   "openalex_and_crossref": 71,
+   "openalex_and_scopus": 12,
+   "crossref_and_scopus": 10,
+   "all_three": 10,
+   "exactly_one": 91,
+   "exactly_two": 63
+  },
+  "cells_openalex_crossref_scopus": {
+   "001": 3,
+   "010": 8,
+   "100": 80,
+   "101": 2,
+   "110": 61,
+   "111": 10
+  },
+  "structural_zero": {
+   "cell": "011",
+   "meaning": "crossref+scopus without openalex",
+   "count": 0
+  },
+  "scopus_share_ci": [
+   0.0562,
+   0.1454
+  ],
+  "prediction_4": "CONFIRMED in absolute terms: the Scopus arm captured 15/164 = 9.1% of included records (95% CI 5.6%-14.5%), far below the 65.8% DOI-coverage ceiling the prediction named as an upper bound. Cross-case comparison is the parent's to make."
+ },
+ "validation": {
+  "1_inter_model_agreement": {
+   "subset": "the 724 iteration-1 records that passed the stage-1 gate and were scored by all three models",
+   "icc_2_1": 0.5781,
+   "icc_ci_95": [
+    0.544,
+    0.6101
+   ],
+   "icc_bootstrap": "1000 record-level resamples, percentile interval",
+   "mean_per_record_range": 2.1796,
+   "mean_range_ci_95": [
+    2.0912,
+    2.2735
+   ],
+   "pairwise_icc": {
+    "haiku_vs_sonnet": 0.3981,
+    "haiku_vs_opus": 0.4816,
+    "sonnet_vs_opus": 0.8416
+   },
+   "interpretation": "ICC(2,1)=0.578 is moderate agreement, below what a single-screener substitute would need. The structure is informative: the two stage-2 models agree well with each other (ICC=0.842) while each agrees only moderately with haiku (0.398, 0.482) - the gate model is systematically more generous, so the disagreement is largely a level shift rather than noise. A mean per-record range of 2.18 points on a 10-point scale straddles tau=7.0, so borderline inclusion decisions in this corpus are model-dependent. Reported as it came out."
+  },
+  "2_blind_positive_controls": {
+   "n_seeds": 15,
+   "n_candidates": 1551,
+   "design": "The 15 seeds were inserted at random positions into ordinary iteration-1 batches, unmarked and unlabelled in the prompt; no batch held more than 2 seeds and 14 distinct batches carried one.",
+   "auc": 0.7812,
+   "auc_ci_95": [
+    0.6412,
+    0.8962
+   ],
+   "auc_bootstrap": "2000 resamples of seeds and candidates, percentile interval",
+   "auc_stage1_only_full_pool": 0.7631,
+   "auc_stage1_ci_95": [
+    0.6252,
+    0.88
+   ],
+   "auc_excluding_offtopic_seed": 0.8316,
+   "auc_excl_ci_95": [
+    0.7228,
+    0.9176
+   ],
+   "seeds_at_or_above_tau": 6,
+   "candidate_include_rate": 0.0961,
+   "per_seed": [
+    {
+     "key": "doi:10.2174/138161206777585201",
+     "title": "Structural Biology and Drug Discovery",
+     "year": 2006,
+     "has_abstract": true,
+     "haiku": 1.0,
+     "sonnet": null,
+     "opus": null,
+     "final": 1.0,
+     "gated_out": true
+    },
+    {
+     "key": "doi:10.28945/1492",
+     "title": "Investigating Factors Affecting the Uptake of Automated Assessment Tec",
+     "year": 2011,
+     "has_abstract": true,
+     "haiku": 3.0,
+     "sonnet": null,
+     "opus": null,
+     "final": 3.0,
+     "gated_out": true
+    },
+    {
+     "key": "doi:10.1177/07439156211049216",
+     "title": "<i>JPP&amp;M</i> 's Global Perspective and Impact: An Agenda for Resea",
+     "year": 2021,
+     "has_abstract": true,
+     "haiku": 5.0,
+     "sonnet": 3.0,
+     "opus": 3.0,
+     "final": 3.67,
+     "gated_out": false
+    },
+    {
+     "key": "doi:10.3390/joitmc6040187",
+     "title": "Artificial Intelligence Technologies and Related Urban Planning and De",
+     "year": 2020,
+     "has_abstract": true,
+     "haiku": 5.0,
+     "sonnet": 4.0,
+     "opus": 6.0,
+     "final": 5.0,
+     "gated_out": false
+    },
+    {
+     "key": "doi:10.1109/6.570832",
+     "title": "Technology takes to securities trading",
+     "year": 1997,
+     "has_abstract": true,
+     "haiku": 6.0,
+     "sonnet": 6.0,
+     "opus": 5.0,
+     "final": 5.67,
+     "gated_out": false
+    },
+    {
+     "key": "doi:10.1108/s1877-636120220000027013",
+     "title": "Robotics and Automation for Agri-Food 4.0: Innovation and Challenges",
+     "year": 2022,
+     "has_abstract": true,
+     "haiku": 7.0,
+     "sonnet": 6.0,
+     "opus": 5.0,
+     "final": 6.0,
+     "gated_out": false
+    },
+    {
+     "key": "doi:10.1007/s00170-016-8493-8",
+     "title": "Cloud computing in human resource management (HRM) system for small an",
+     "year": 2016,
+     "has_abstract": false,
+     "haiku": 6.0,
+     "sonnet": 7.0,
+     "opus": 6.0,
+     "final": 6.33,
+     "gated_out": false
+    },
+    {
+     "key": "doi:10.1016/j.jik.2023.100407",
+     "title": "Global labour markets and workplaces in the age of intelligent machine",
+     "year": 2023,
+     "has_abstract": true,
+     "haiku": 7.0,
+     "sonnet": 6.0,
+     "opus": 7.0,
+     "final": 6.67,
+     "gated_out": false
+    },
+    {
+     "key": "doi:10.1108/s1069-0964(2012)0000018008",
+     "title": "Chapter 3 The Organizational Buying Center as a Framework for Emergent",
+     "year": 2012,
+     "has_abstract": true,
+     "haiku": 8.0,
+     "sonnet": 5.0,
+     "opus": 7.0,
+     "final": 6.67,
+     "gated_out": false
+    },
+    {
+     "key": "doi:10.2507/29th.daaam.proceedings.156",
+     "title": "Sharing Economy and „Industry 4.0“ as the Business Environment of Mill",
+     "year": 2018,
+     "has_abstract": true,
+     "haiku": 7.0,
+     "sonnet": 7.0,
+     "opus": 7.0,
+     "final": 7.0,
+     "gated_out": false
+    },
+    {
+     "key": "doi:10.1016/0272-6963(84)90012-3",
+     "title": "Progress toward the “factory of the future”",
+     "year": 1984,
+     "has_abstract": true,
+     "haiku": 9.0,
+     "sonnet": 5.0,
+     "opus": 8.0,
+     "final": 7.33,
+     "gated_out": false
+    },
+    {
+     "key": "doi:10.1145/3056540.3076192",
+     "title": "Bridging the Skills Gap of Workers in Industry 4.0 by Human Performanc",
+     "year": 2017,
+     "has_abstract": true,
+     "haiku": 8.0,
+     "sonnet": 7.0,
+     "opus": 7.0,
+     "final": 7.33,
+     "gated_out": false
+    },
+    {
+     "key": "doi:10.1109/iccakm46823.2020.9051550",
+     "title": "Are SMEs Ready for Industry 4.0 Technologies: An Exploratory Study of ",
+     "year": 2020,
+     "has_abstract": true,
+     "haiku": 8.0,
+     "sonnet": 9.0,
+     "opus": 8.0,
+     "final": 8.33,
+     "gated_out": false
+    },
+    {
+     "key": "doi:10.21511/im.16(2).2020.08",
+     "title": "How artificial intelligence can change the core of marketing theory",
+     "year": 2020,
+     "has_abstract": true,
+     "haiku": 9.0,
+     "sonnet": 10.0,
+     "opus": 9.0,
+     "final": 9.33,
+     "gated_out": false
+    },
+    {
+     "key": "doi:10.1016/j.indmarman.2008.04.004",
+     "title": "Salesperson's innovation resistance and job satisfaction in intra-orga",
+     "year": 2008,
+     "has_abstract": false,
+     "haiku": 9.0,
+     "sonnet": 10.0,
+     "opus": 10.0,
+     "final": 9.67,
+     "gated_out": false
+    }
+   ],
+   "interpretation": "AUC=0.781 (95% CI 0.641-0.896): the ensemble separates the reviewer's seeds from the candidate pool better than chance, but only 6 of 15 seeds reach tau=7.0. The per-seed table shows this is substantially a seed problem rather than a screener problem. 'Structural Biology and Drug Discovery' (2006) scored 1.0, the single lowest of all 15 - exactly the detection blind controls exist for: the Boolean query admitted a medicinal-chemistry review whose only link to the question is the word 'automation'. It was scored blind and is retained in every statistic; dropping it raises AUC to 0.832. Two further low scorers are peripheral rather than off-topic: automated assessment technology in education (3.0) and the JPP&M public-policy agenda (3.67). The remaining 12 seeds all score >= 5.0. The low absolute seed pass rate reflects a heterogeneous seed set drawn from a three-term Boolean intersection, and the one unambiguously off-topic seed was caught."
+  },
+  "3_two_stage_gate_check": {
+   "status": "NOT MEASURED AS SPECIFIED",
+   "reason": "The protocol requires scoring >= 300 gate-EXCLUDED records with the full stage-2 ensemble. A 350-record random sample was drawn (249 from iteration 1, 101 from iteration 2; RNG seed 4242; recorded at llm_screening/adverse/gate_sample.json) and its 28 batches were built, but the per-frame LLM token ceiling was reached before they ran. No stage-2 score exists for any gate-excluded record, so this case does not measure the gate's false-negative rate.",
+   "sample_prepared": 350,
+   "records_scored": 0,
+   "indirect_bound": {
+    "logic": "The tightest available substitute uses records that only just passed the gate. Of the 222 iteration-1 records scoring exactly haiku=5.0 - the lowest surviving score, nearest the excluded side of the boundary - 0 were included by the full ensemble. The ensemble include rate is monotone increasing in the stage-1 score (5:0.000, 6:0.038, 7:0.188, 8:0.617, 9:1.000), so records below 5.0 extrapolate to a rate at or below the 5.0 stratum's.",
+    "stratum": "haiku == 5.0",
+    "n": 222,
+    "ensemble_included": 0,
+    "one_sided_95_upper_bound": 0.0134,
+    "monotone_strata": {
+     "5": {
+      "n": 222,
+      "ensemble_included": 0,
+      "rate": 0.0
+     },
+     "6": {
+      "n": 182,
+      "ensemble_included": 7,
+      "rate": 0.0385
+     },
+     "7": {
+      "n": 149,
+      "ensemble_included": 28,
+      "rate": 0.1879
+     },
+     "8": {
+      "n": 133,
+      "ensemble_included": 82,
+      "rate": 0.6165
+     },
+     "9": {
+      "n": 37,
+      "ensemble_included": 37,
+      "rate": 1.0
+     },
+     "10": {
+      "n": 1,
+      "ensemble_included": 1,
+      "rate": 1.0
+     }
+    },
+    "caveat": "An extrapolation across the gate boundary, not the measurement the protocol asks for. It is consistent with the spec's own prior validation (0 of 90 full-ensemble includes lost on 302 records) but does not replace it. Treat the gate false-negative rate for this case as bounded at ~1.3% under monotonicity, and as formally unmeasured."
+   }
+  },
+  "4_abstract_availability_bias": {
+   "tested": true,
+   "stage1_full_pool": {
+    "n_with_abstract": 938,
+    "n_without": 628,
+    "mean_with": 4.548,
+    "mean_without": 3.8583,
+    "difference": 0.6897,
+    "test": "Mann-Whitney U, two-sided, tie-corrected normal approximation",
+    "z": 5.4808,
+    "p": 4.235201012114942e-08,
+    "rank_biserial": 0.1619
+   },
+   "stage2_subset": {
+    "n_with_abstract": 474,
+    "n_without": 250,
+    "mean_with": 5.6463,
+    "mean_without": 5.0853,
+    "z": 4.2758,
+    "p": 1.9043259386508637e-05,
+    "rank_biserial": 0.1927
+   },
+   "gate_pass_rate": {
+    "with_abstract": 0.5053,
+    "without": 0.3981
+   },
+   "include_rate": {
+    "with_abstract": 0.1258,
+    "without": 0.0589
+   },
+   "interpretation": "CONFIRMED and material. Records without an abstract score 0.69 points lower on the 10-point stage-1 scale (4.55 vs 3.86; p=4.2e-08), and the effect persists in the stage-2 subset (5.65 vs 5.09, p=1.9e-05). The consequence is the one the protocol warns about: abstract-less records pass the gate at 39.8% vs 50.5% and are included at 5.9% vs 12.6% - under half the rate. 628 of 1566 iteration-1 records (40.1%) lack an abstract and every unresolvable record lacks one, so the included set is biased toward well-indexed work. A screening-instrument limitation, not a property of the literature."
+  }
+ },
+ "unresolvable": {
+  "screened_and_unresolvable": 152,
+  "included_and_unresolvable": 8,
+  "all_works_unresolvable": 1964,
+  "prisma_records_unresolvable": 1964,
+  "share_of_screened": 0.098,
+  "share_of_included": 0.0488,
+  "share_of_all_identified": 0.0482,
+  "iteration2_pool_unresolvable": 1812,
+  "note": "Unresolvable records are retained, screened and counted in PRISMA but are terminal nodes: carrying no persistent identifier, they are never expanded. 152 of the 1551 screened iteration-1 records (9.8%) were unresolvable and 8 entered the included set, where they cannot contribute edges."
+ },
+ "screening_protocol": {
+  "spec": "llm_screening/screening_spec.json (unmodified)",
+  "tau": 7.0,
+  "stage1_model": "claude-haiku-4-5-20251001",
+  "stage1_gate": 5.0,
+  "stage2_models": [
+   "claude-sonnet-5",
+   "claude-opus-4-8"
+  ],
+  "batch_size": 25,
+  "records_scored_total": 4015,
+  "records_with_full_ensemble": 724,
+  "records_stage1_only": 3291,
+  "code_fixes": [
+   "cases/screening.py build_prompt: the spec template's {items} slot was never filled, raising KeyError('items'). Filled, so the prompt is the spec's prompt.",
+   "cases/screening.py parse_scores: accepted only the flat index->score object while the spec template asks for a JSON array of {id, Relevance_Score, title_only}. Array form now parsed too; scoring criteria unchanged.",
+   "cases/driver.py label: read StopDecision attributes off state.last_decisions, which stores dicts. Fixed.",
+   "run_adverse/config.yaml: budget max_screened corrected 1200 -> 4000, the case value in cases/seed_selection.json; declared in advance in PREDICTION_adverse.md."
+  ]
+ }
+}

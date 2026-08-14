@@ -1,0 +1,165 @@
+{
+ "n": 2500,
+ "basis": "all scored records (mean over whatever raters scored each)",
+ "raters": [
+  "claude-haiku-4-5-20251001",
+  "claude-opus-4-8",
+  "claude-sonnet-5"
+ ],
+ "tau": 7.0,
+ "n_full_pool": 2500,
+ "n_strict_common_basis": 1167,
+ "secondary_basis": {
+  "basis": "common basis (gate survivors)",
+  "n": 1167,
+  "topic_centroid_auc": 0.738
+ },
+ "per_predictor": {
+  "topic_centroid": {
+   "kind": "topical",
+   "auc": 0.7702,
+   "auc_ci95": [
+    0.7444,
+    0.7954
+   ],
+   "n_included": 337,
+   "n_excluded": 2163
+  },
+  "topic_max_seed": {
+   "kind": "topical",
+   "auc": 0.6812,
+   "auc_ci95": [
+    0.6561,
+    0.7091
+   ],
+   "n_included": 337,
+   "n_excluded": 2163
+  },
+  "venue_is_seed_venue": {
+   "kind": "topical",
+   "auc": 0.4935,
+   "auc_ci95": [
+    0.4812,
+    0.5079
+   ],
+   "n_included": 337,
+   "n_excluded": 2163
+  },
+  "cited_by": {
+   "kind": "prestige",
+   "auc": 0.4689,
+   "auc_ci95": [
+    0.4352,
+    0.5007
+   ],
+   "n_included": 337,
+   "n_excluded": 2161
+  },
+  "ref_count": {
+   "kind": "prestige",
+   "auc": 0.5433,
+   "auc_ci95": [
+    0.5089,
+    0.5741
+   ],
+   "n_included": 337,
+   "n_excluded": 2161
+  },
+  "year": {
+   "kind": "prestige",
+   "auc": 0.5587,
+   "auc_ci95": [
+    0.5258,
+    0.5899
+   ],
+   "n_included": 337,
+   "n_excluded": 2163
+  }
+ },
+ "topical_mean_auc": 0.6483,
+ "prestige_mean_auc": 0.5236,
+ "top_rank_agreement": {
+  "top_n": 250,
+  "overlap": 89,
+  "share": 0.356,
+  "chance": 0.1
+ },
+ "seed_leave_one_out": [
+  {
+   "key": "doi:10.1017/s0020589319000046",
+   "title": "INTERNATIONAL HUMAN RIGHTS LAW AS A FRAMEWORK FOR ALGORITHMIC ACCOUNTABILITY",
+   "tfidf_loo": 0.0463
+  },
+  {
+   "key": "doi:10.1007/978-3-319-48478-5",
+   "title": "Business Innovation Through Blockchain: The B³ Perspective",
+   "tfidf_loo": 0.0508
+  },
+  {
+   "key": "doi:10.1016/j.rser.2020.110112",
+   "title": "Blockchain-empowered sustainable manufacturing and product lifecycle management ",
+   "tfidf_loo": 0.0508
+  },
+  {
+   "key": "doi:10.1108/ijm-07-2021-0423",
+   "title": "A study of artificial intelligence on employee performance and work engagement: ",
+   "tfidf_loo": 0.0673
+  },
+  {
+   "key": "doi:10.1108/bij-01-2021-0009",
+   "title": "Emerging trends in digital transformation: a bibliometric analysis",
+   "tfidf_loo": 0.0764
+  },
+  {
+   "key": "doi:10.1016/j.ijpe.2020.107729",
+   "title": "Omni-channel management in the new retailing era: A systematic review and future",
+   "tfidf_loo": 0.0773
+  },
+  {
+   "key": "doi:10.1108/ijchm-04-2022-0535",
+   "title": "A critical reflection on digitalization for the hospitality and tourism industry",
+   "tfidf_loo": 0.0849
+  },
+  {
+   "key": "doi:10.35808/ijeba/444",
+   "title": "FinTech, Blockchain and Islamic Finance: An Extensive Literature Review",
+   "tfidf_loo": 0.0928
+  },
+  {
+   "key": "doi:10.1016/j.ijin.2022.08.005",
+   "title": "Artificial intelligence (AI) applications for marketing: A literature-based stud",
+   "tfidf_loo": 0.0949
+  },
+  {
+   "key": "doi:10.1016/j.jretconser.2022.102960",
+   "title": "Mediating effects on the relationship between perceived service quality and publ",
+   "tfidf_loo": 0.0974
+  },
+  {
+   "key": "doi:10.1177/0149206320969791",
+   "title": "Platform Competition: A Systematic and Interdisciplinary Review of the Literatur",
+   "tfidf_loo": 0.0976
+  },
+  {
+   "key": "doi:10.1016/j.jjimei.2022.100102",
+   "title": "Impact of social media marketing features on consumer's purchase decision in the",
+   "tfidf_loo": 0.1046
+  },
+  {
+   "key": "doi:10.1007/s10796-020-10045-0",
+   "title": "What Affects Usage Satisfaction in Mobile Payments? Modelling User Generated Con",
+   "tfidf_loo": 0.1141
+  },
+  {
+   "key": "doi:10.3389/fbloc.2020.00003",
+   "title": "How Blockchain Technology Can Benefit Marketing: Six Pending Research Areas",
+   "tfidf_loo": 0.1287
+  },
+  {
+   "key": "doi:10.1016/j.techsoc.2021.101780",
+   "title": "Applied Artificial Intelligence and user satisfaction: Smartwatch usage for heal",
+   "tfidf_loo": 0.1461
+  }
+ ],
+ "interpretation": "Read the PATTERN, not one number. Topical predictors above chance with prestige predictors at chance is evidence the screener judges topical relevance -- the specific failure a positive control cannot detect, because a prestige-driven screener also scores seeds highly. Prestige predictors ABOVE the topical ones would mean the scores track citation counts or venue standing, and the screening should not be trusted. Substantial-but-partial top-rank agreement is the expected result: identical rankings would mean the model added nothing over tf-idf."
+}

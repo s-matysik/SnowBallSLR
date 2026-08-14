@@ -1,0 +1,26 @@
+{
+ "research_question": "How do gamification and related immersive or game-like digital technologies (game design elements, VR/AR, metaverse, gamified platforms and apps) shape consumer engagement, experience, attitudes and behaviour in marketing and service contexts?",
+ "core_relation": "gamification and game design elements (points, badges, leaderboards, challenges, rewards, playful design) -- and the immersive technologies used the same way (VR, AR, metaverse) -- acting as drivers of consumer motivation, engagement, experience, attitude and behavioural intention in marketing, branding, retail, e-commerce, hospitality and tourism service settings",
+ "in_scope": [
+  "gamification in marketing, advertising, branding and loyalty programmes",
+  "effects of game design elements on consumer engagement, motivation, attitude or purchase/behavioural intention",
+  "gamified apps, platforms and e-commerce services studied from a consumer or customer-experience perspective",
+  "VR, AR and metaverse applications in marketing and in tourism/hospitality consumer experience",
+  "gamification in service marketing, customer experience and value co-creation",
+  "consumer adoption and continued use of gamified digital services",
+  "gamified persuasive design aimed at changing consumer behaviour or engagement with a commercial service",
+  "conceptual and review work defining gamification for marketing or service research"
+ ],
+ "out_of_scope": [
+  "gamification or serious games for classroom or academic learning outcomes with no consumer, customer or marketing angle",
+  "gamified or digital health interventions judged on clinical efficacy, with no consumer-marketing framing",
+  "game development engineering, graphics, game-AI algorithms, esports competition and player performance",
+  "gamification of employee training, HR, crowdsourcing labour or internal operations without a consumer-facing marketing element",
+  "marketing, tourism or consumer-behaviour studies with no gamified, game-like or immersive technology element",
+  "general information-systems, sustainability, climate or technology-policy agendas without a marketing or consumer focus",
+  "computer-science system architecture, networking, edge computing or software engineering",
+  "supply chain, logistics and operations management"
+ ],
+ "confidence": "medium",
+ "note": "Derived from the 15 seed titles of the 'gamification' AND 'marketing' Scopus export (14,302 records). The seeds cluster on two mutually reinforcing themes: gamification/game design elements as consumer-engagement mechanisms (Deterding 2011, Huotari & Hamari 2012, Hamari 2017 badges, Hamari & Koivisto 2015) and immersive/digital technology in tourism and service marketing (VR presence, AR/VR review, smart tourism ecosystems, metaverse, service disruption). Three seeds sit off the core: web-based health-intervention adherence (2012), game-based learning engagement (2016), and the COP26 digital-technology/climate agenda (2022) -- the last is a Boolean-query artefact of a broad AND query and should be expected to score low. This heterogeneity is a property of the corpus, not a flaw in the question, and out_of_scope is written to hold the line at the marketing/consumer boundary."
+}

@@ -1,0 +1,296 @@
+{
+ "adverse": {
+  "label": "innovation x marketing x automation",
+  "budget": 4000,
+  "n_corpus": 260,
+  "seeds": [
+   {
+    "doi": "10.1016/0272-6963(84)90012-3",
+    "title": "Progress toward the \"factory of the future\"",
+    "year": "1984",
+    "cited": 70
+   },
+   {
+    "doi": "10.1007/s00170-016-8493-8",
+    "title": "Cloud computing in human resource management (HRM) system for small and medium enterprises (SMEs)",
+    "year": "2016",
+    "cited": 46
+   },
+   {
+    "doi": "10.28945/1492",
+    "title": "Investigating factors affecting the uptake of automated assessment technology",
+    "year": "2011",
+    "cited": 19
+   },
+   {
+    "doi": "10.2507/29th.daaam.proceedings.156",
+    "title": "Sharing economy and \u201eindustry 4.0\u201c as the business environment of millennial generation \u2013 a marketing perspect",
+    "year": "2018",
+    "cited": 11
+   },
+   {
+    "doi": "10.21511/im.16(2).2020.08",
+    "title": "How artificial intelligence can change the core of marketing theory",
+    "year": "2020",
+    "cited": 21
+   },
+   {
+    "doi": "10.3390/joitmc6040187",
+    "title": "Artificial intelligence technologies and related urban planning and development concepts: How are they perceiv",
+    "year": "2020",
+    "cited": 135
+   },
+   {
+    "doi": "10.2174/138161206777585201",
+    "title": "Structural biology and drug discovery",
+    "year": "2006",
+    "cited": 117
+   },
+   {
+    "doi": "10.1016/j.indmarman.2008.04.004",
+    "title": "Salesperson's innovation resistance and job satisfaction in intra-organizational diffusion of sales force auto",
+    "year": "2008",
+    "cited": 63
+   },
+   {
+    "doi": "10.1145/3056540.3076192",
+    "title": "Bridging the skills gap of workers in industry 4.0 by human performance augmentation tools - Challenges and ro",
+    "year": "2017",
+    "cited": 120
+   },
+   {
+    "doi": "10.1108/s1069-0964(2012)0000018008",
+    "title": "The organizational buying center as a framework for emergent topics in business-to-business marketing",
+    "year": "2012",
+    "cited": 12
+   },
+   {
+    "doi": "10.1016/j.jik.2023.100407",
+    "title": "Global labour markets and workplaces in the age of intelligent machines",
+    "year": "2023",
+    "cited": 13
+   },
+   {
+    "doi": "10.1177/07439156211049216",
+    "title": "JPP&M's Global Perspective and Impact: An Agenda for Research on Marketing and Public Policy",
+    "year": "2022",
+    "cited": 23
+   },
+   {
+    "doi": "10.1108/s1877-636120220000027013",
+    "title": "Robotics and automation for agri-food 4.0: Innovation and challenges",
+    "year": "2022",
+    "cited": 7
+   },
+   {
+    "doi": "10.1109/6.570832",
+    "title": "Technology takes to securities trading",
+    "year": "1997",
+    "cited": 6
+   },
+   {
+    "doi": "10.1109/iccakm46823.2020.9051550",
+    "title": "Are SMEs Ready for Industry 4.0 Technologies: An Exploratory Study of i 4.0 Technological Impacts",
+    "year": "2020",
+    "cited": 12
+   }
+  ],
+  "export": "/Users/sebastianmatysik/!!!SnowBallSLR/scopus/260_records_innovation_ AND _marketing_ AND _automation.csv"
+ },
+ "mid": {
+  "label": "blockchain x customer loyalty",
+  "budget": 2500,
+  "n_corpus": 1995,
+  "seeds": [
+   {
+    "doi": "10.1016/j.ijpe.2020.107729",
+    "title": "Omni-channel management in the new retailing era: A systematic review and future research agenda",
+    "year": "2020",
+    "cited": 228
+   },
+   {
+    "doi": "10.1007/s10796-020-10045-0",
+    "title": "What Affects Usage Satisfaction in Mobile Payments? Modelling User Generated Content to Develop the \u201cDigital S",
+    "year": "2021",
+    "cited": 170
+   },
+   {
+    "doi": "10.3389/fbloc.2020.00003",
+    "title": "How Blockchain Technology Can Benefit Marketing: Six Pending Research Areas",
+    "year": "2020",
+    "cited": 99
+   },
+   {
+    "doi": "10.1016/j.jretconser.2022.102960",
+    "title": "Mediating effects on the relationship between perceived service quality and public library app loyalty during ",
+    "year": "2022",
+    "cited": 84
+   },
+   {
+    "doi": "10.1108/ijm-07-2021-0423",
+    "title": "A study of artificial intelligence on employee performance and work engagement: the moderating role of change ",
+    "year": "2022",
+    "cited": 104
+   },
+   {
+    "doi": "10.1016/j.rser.2020.110112",
+    "title": "Blockchain-empowered sustainable manufacturing and product lifecycle management in industry 4.0: A survey",
+    "year": "2020",
+    "cited": 377
+   },
+   {
+    "doi": "10.1177/0149206320969791",
+    "title": "Platform Competition: A Systematic and Interdisciplinary Review of the Literature",
+    "year": "2021",
+    "cited": 257
+   },
+   {
+    "doi": "10.1007/978-3-319-48478-5",
+    "title": "Business innovation through blockchain: The B3 perspective",
+    "year": "2017",
+    "cited": 204
+   },
+   {
+    "doi": "10.1016/j.ijin.2022.08.005",
+    "title": "Artificial intelligence (AI) applications for marketing: A literature-based study",
+    "year": "2022",
+    "cited": 273
+   },
+   {
+    "doi": "10.1017/s0020589319000046",
+    "title": "International human rights law as a framework for algorithmic accountability",
+    "year": "2019",
+    "cited": 91
+   },
+   {
+    "doi": "10.1016/j.jjimei.2022.100102",
+    "title": "Impact of social media marketing features on consumer's purchase decision in the fast-food industry: Brand tru",
+    "year": "2022",
+    "cited": 92
+   },
+   {
+    "doi": "10.1108/bij-01-2021-0009",
+    "title": "Emerging trends in digital transformation: a bibliometric analysis",
+    "year": "2022",
+    "cited": 105
+   },
+   {
+    "doi": "10.1108/ijchm-04-2022-0535",
+    "title": "A critical reflection on digitalization for the hospitality and tourism industry: value implications for stake",
+    "year": "2023",
+    "cited": 72
+   },
+   {
+    "doi": "10.1016/j.techsoc.2021.101780",
+    "title": "Applied Artificial Intelligence and user satisfaction: Smartwatch usage for healthcare in Bangladesh during CO",
+    "year": "2021",
+    "cited": 70
+   },
+   {
+    "doi": "10.35808/ijeba/444",
+    "title": "FinTech, blockchain and Islamic finance: An extensive literature review",
+    "year": "2020",
+    "cited": 91
+   }
+  ],
+  "export": "/Users/sebastianmatysik/!!!SnowBallSLR/scopus/\"blockchain\" AND \"customer loyalty\"-1995.csv"
+ },
+ "large": {
+  "label": "gamification x marketing",
+  "budget": 3000,
+  "n_corpus": 14302,
+  "seeds": [
+   {
+    "doi": "10.2196/jmir.2104",
+    "title": "Persuasive system design does matter: A systematic review of adherence to web-based interventions",
+    "year": "2012",
+    "cited": 972
+   },
+   {
+    "doi": "10.1016/j.tourman.2017.12.003",
+    "title": "Virtual reality, presence, and attitude change: Empirical evidence from tourism",
+    "year": "2018",
+    "cited": 757
+   },
+   {
+    "doi": "10.1016/j.jretconser.2016.12.013",
+    "title": "Consumer experiences, attitude and behavioral intention toward online food delivery (OFD) services",
+    "year": "2017",
+    "cited": 569
+   },
+   {
+    "doi": "10.1016/j.ijinfomgt.2015.04.006",
+    "title": "Why do people use gamification services?",
+    "year": "2015",
+    "cited": 476
+   },
+   {
+    "doi": "10.1080/13683500.2017.1417359",
+    "title": "New realities: a systematic literature review on virtual reality and augmented reality in tourism research",
+    "year": "2019",
+    "cited": 607
+   },
+   {
+    "doi": "10.1016/j.ijinfomgt.2019.08.002",
+    "title": "Artificial Intelligence (AI): Multidisciplinary perspectives on emerging challenges, opportunities, and agenda",
+    "year": "2021",
+    "cited": 1792
+   },
+   {
+    "doi": "10.1016/j.chb.2015.07.045",
+    "title": "Challenging games help students learn: An empirical study on engagement, flow and immersion in game-based lear",
+    "year": "2016",
+    "cited": 1147
+   },
+   {
+    "doi": "10.1145/2393132.2393137",
+    "title": "Defining gamification - A service marketing perspective",
+    "year": "2012",
+    "cited": 950
+   },
+   {
+    "doi": "10.1145/1979742.1979575",
+    "title": "Gamification: Using game design elements in non-gaming contexts",
+    "year": "2011",
+    "cited": 1296
+   },
+   {
+    "doi": "10.1016/j.chb.2015.03.036",
+    "title": "Do badges increase user activity? A field experiment on the effects of gamification",
+    "year": "2017",
+    "cited": 498
+   },
+   {
+    "doi": "10.1016/j.chb.2015.03.043",
+    "title": "Conceptual foundations for understanding smart tourism ecosystems",
+    "year": "2015",
+    "cited": 510
+   },
+   {
+    "doi": "10.1108/josm-12-2018-0398",
+    "title": "Technological disruptions in services: lessons from tourism and hospitality",
+    "year": "2019",
+    "cited": 607
+   },
+   {
+    "doi": "10.1016/j.tourman.2023.104724",
+    "title": "Metaverse as a disruptive technology revolutionising tourism management and marketing",
+    "year": "2023",
+    "cited": 382
+   },
+   {
+    "doi": "10.1016/j.ijinfomgt.2021.102456",
+    "title": "Climate change and COP26: Are digital technologies and information management part of the problem or the solut",
+    "year": "2022",
+    "cited": 379
+   },
+   {
+    "doi": "10.1016/j.ijinfomgt.2018.07.004",
+    "title": "The sharing economy and digital platforms: A review and research agenda",
+    "year": "2018",
+    "cited": 498
+   }
+  ],
+  "export": "/Users/sebastianmatysik/!!!SnowBallSLR/scopus/\"gamification\" AND \"marketing\"-14302.csv"
+ }
+}

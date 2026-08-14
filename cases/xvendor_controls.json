@@ -1,0 +1,212 @@
+{
+ "n_seeds": 15,
+ "n_candidates": 272,
+ "basis": [
+  "anthropic",
+  "deepseek",
+  "google",
+  "kimi",
+  "openai",
+  "xai"
+ ],
+ "auc_ensemble_mean": 0.4509,
+ "auc_ci95": [
+  0.2975,
+  0.6042
+ ],
+ "auc_excluding_lowest_seeds": 0.48,
+ "n_seeds_excluded": 1,
+ "auc_per_rater": {
+  "anthropic": 0.4496,
+  "deepseek": 0.4593,
+  "google": 0.404,
+  "kimi": 0.49,
+  "openai": 0.4321,
+  "xai": 0.4841
+ },
+ "seeds_at_or_above_tau": 5,
+ "candidate_include_rate": 0.375,
+ "per_seed": [
+  {
+   "key": "doi:10.1108/ijm-07-2021-0423",
+   "score": 1.33,
+   "per_rater": {
+    "anthropic": 1.0,
+    "deepseek": 3.0,
+    "google": 1.0,
+    "kimi": 1.0,
+    "openai": 1.0,
+    "xai": 1.0
+   }
+  },
+  {
+   "key": "doi:10.1017/s0020589319000046",
+   "score": 1.67,
+   "per_rater": {
+    "anthropic": 2.0,
+    "deepseek": 2.0,
+    "google": 1.0,
+    "kimi": 2.0,
+    "openai": 2.0,
+    "xai": 1.0
+   }
+  },
+  {
+   "key": "doi:10.1108/bij-01-2021-0009",
+   "score": 2.0,
+   "per_rater": {
+    "anthropic": 2.0,
+    "deepseek": 2.0,
+    "google": 1.0,
+    "kimi": 2.0,
+    "openai": 4.0,
+    "xai": 1.0
+   }
+  },
+  {
+   "key": "doi:10.1016/j.rser.2020.110112",
+   "score": 2.17,
+   "per_rater": {
+    "anthropic": 2.0,
+    "deepseek": 3.0,
+    "google": 1.0,
+    "kimi": 3.0,
+    "openai": 2.0,
+    "xai": 2.0
+   }
+  },
+  {
+   "key": "doi:10.1177/0149206320969791",
+   "score": 3.0,
+   "per_rater": {
+    "anthropic": 2.0,
+    "deepseek": 4.0,
+    "google": 4.0,
+    "kimi": 3.0,
+    "openai": 3.0,
+    "xai": 2.0
+   }
+  },
+  {
+   "key": "doi:10.35808/ijeba/444",
+   "score": 3.17,
+   "per_rater": {
+    "anthropic": 3.0,
+    "deepseek": 3.0,
+    "google": 3.0,
+    "kimi": 3.0,
+    "openai": 3.0,
+    "xai": 4.0
+   }
+  },
+  {
+   "key": "doi:10.1007/978-3-319-48478-5",
+   "score": 4.33,
+   "per_rater": {
+    "anthropic": 5.0,
+    "deepseek": 5.0,
+    "google": 3.0,
+    "kimi": 5.0,
+    "openai": 3.0,
+    "xai": 5.0
+   }
+  },
+  {
+   "key": "doi:10.1108/ijchm-04-2022-0535",
+   "score": 5.0,
+   "per_rater": {
+    "anthropic": 5.0,
+    "deepseek": 4.0,
+    "google": 7.0,
+    "kimi": 5.0,
+    "openai": 5.0,
+    "xai": 4.0
+   }
+  },
+  {
+   "key": "doi:10.1016/j.ijin.2022.08.005",
+   "score": 6.33,
+   "per_rater": {
+    "anthropic": 6.0,
+    "deepseek": 6.0,
+    "google": 8.0,
+    "kimi": 4.0,
+    "openai": 6.0,
+    "xai": 8.0
+   }
+  },
+  {
+   "key": "doi:10.1016/j.ijpe.2020.107729",
+   "score": 6.83,
+   "per_rater": {
+    "anthropic": 6.0,
+    "deepseek": 7.0,
+    "google": 8.0,
+    "kimi": 6.0,
+    "openai": 6.0,
+    "xai": 8.0
+   }
+  },
+  {
+   "key": "doi:10.1016/j.techsoc.2021.101780",
+   "score": 7.33,
+   "per_rater": {
+    "anthropic": 8.0,
+    "deepseek": 7.0,
+    "google": 9.0,
+    "kimi": 3.0,
+    "openai": 9.0,
+    "xai": 8.0
+   }
+  },
+  {
+   "key": "doi:10.1016/j.jretconser.2022.102960",
+   "score": 8.0,
+   "per_rater": {
+    "anthropic": 8.0,
+    "deepseek": 8.0,
+    "google": 9.0,
+    "kimi": 8.0,
+    "openai": 7.0,
+    "xai": 8.0
+   }
+  },
+  {
+   "key": "doi:10.1007/s10796-020-10045-0",
+   "score": 8.5,
+   "per_rater": {
+    "anthropic": 8.0,
+    "deepseek": 7.0,
+    "google": 10.0,
+    "kimi": 9.0,
+    "openai": 9.0,
+    "xai": 8.0
+   }
+  },
+  {
+   "key": "doi:10.1016/j.jjimei.2022.100102",
+   "score": 8.5,
+   "per_rater": {
+    "anthropic": 9.0,
+    "deepseek": 7.0,
+    "google": 10.0,
+    "kimi": 8.0,
+    "openai": 8.0,
+    "xai": 9.0
+   }
+  },
+  {
+   "key": "doi:10.3389/fbloc.2020.00003",
+   "score": 9.0,
+   "per_rater": {
+    "anthropic": 10.0,
+    "deepseek": 9.0,
+    "google": 9.0,
+    "kimi": 9.0,
+    "openai": 8.0,
+    "xai": 9.0
+   }
+  }
+ ],
+ "note": "Inspect per_seed before drawing a conclusion: a Boolean export can admit off-topic seeds, and a low-scoring seed may be the export's fault, not the screener's. Report both AUC figures either way."
+}

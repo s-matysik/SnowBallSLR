@@ -1,0 +1,113 @@
+{
+ "purpose": "Explain why the recall rule fires in simulation but never on live data, and test whether that gap is a property of the generator rather than of the rule.",
+ "live_measurements": {
+  "run_narrow": {
+   "openalex_only": 59,
+   "crossref_only": 262,
+   "both": 264,
+   "included": 591,
+   "overlap": 0.4467
+  },
+  "run_adverse": {
+   "openalex_only": 82,
+   "crossref_only": 8,
+   "both": 71,
+   "included": 164,
+   "overlap": 0.4329
+  },
+  "run_mid": {
+   "openalex_only": 254,
+   "crossref_only": 0,
+   "both": 83,
+   "included": 352,
+   "overlap": 0.2358
+  },
+  "run_large": {
+   "openalex_only": 654,
+   "crossref_only": 0,
+   "both": 43,
+   "included": 701,
+   "overlap": 0.0613
+  },
+  "run_llm": {
+   "openalex_only": 2283,
+   "crossref_only": 158,
+   "both": 342,
+   "included": 2787,
+   "overlap": 0.1227
+  }
+ },
+ "live_parent_counts": {
+  "run_narrow": {
+   "median_distinct_parents": 1,
+   "share_with_one_parent": 0.699
+  },
+  "run_adverse": {
+   "median_distinct_parents": 2,
+   "share_with_one_parent": 0.317
+  },
+  "run_mid": {
+   "median_distinct_parents": 1,
+   "share_with_one_parent": 0.98
+  },
+  "run_large": {
+   "median_distinct_parents": 2,
+   "share_with_one_parent": 0.482
+  }
+ },
+ "generator_defects": [
+  {
+   "defect": "provider coverage drawn per reference EDGE rather than per record",
+   "consequence": "a work's chance of being missed by a provider was 0.28**d in its in-degree d, so at a median in-degree of 21 every work was carried by every provider",
+   "status": "fixed in validation_generator.py: indexing is now decided once per (provider, record)",
+   "note": "real but not the binding constraint -- record-level indexing alone still left overlap at 99.9%"
+  },
+  {
+   "defect": "provider_coverage=(0.86, 0.72) and p_in=0.055 are both far more generous than the live corpora",
+   "consequence": "simulated arm overlap ~99% against a live band of 6% to 45%, and simulated median in-degree 21 against a live median of 1 to 2",
+   "status": "a calibrated setting is supplied alongside the defaults rather than replacing them, so the published benchmark stays reproducible"
+  }
+ ],
+ "calibration": {
+  "optimistic": {
+   "provider_coverage": [
+    0.86,
+    0.72
+   ],
+   "provider_dependence": 0.6,
+   "p_in": 0.055,
+   "refs_mean": 28.0
+  },
+  "calibrated": {
+   "provider_coverage": [
+    0.45,
+    0.22
+   ],
+   "provider_dependence": 0.4,
+   "p_in": 0.01,
+   "refs_mean": 22.0
+  },
+  "basis": "the calibrated setting was chosen as the first grid point whose mean arm overlap falls inside the measured live band of 6% to 45%"
+ },
+ "experiment": {
+  "script": "validation/validation_stopping_calibrated.py",
+  "design": "24 reviews per setting (12 graph seeds x 2 start-set sizes), expanded to six iterations, with the guarded recall rule evaluated at every iteration.",
+  "optimistic": {
+   "mean_arm_overlap": 0.9773,
+   "fired": 24,
+   "n": 24,
+   "mean_recall_at_fire": 0.917,
+   "mean_reachable": 0.9167
+  },
+  "calibrated": {
+   "mean_arm_overlap": 0.2454,
+   "fired": 10,
+   "n": 24,
+   "mean_recall_at_fire": 0.81,
+   "mean_reachable": 0.8125
+  },
+  "finding": "Firing is governed by the generator's provider model, not by the rule. At the shipped defaults arm overlap is 97.7% and the rule fires in 24 of 24 reviews. At an overlap matching the live band it fires in 10 of 24, and in the 14 that do not fire the reason is correct: the reachable ceiling is ~0.81, so an estimate reading 0.93 to 0.94 still leaves several percent of the population unfound and stays below tau=0.95.",
+  "premature_stops": "none. In both settings every firing occurred within 2 percentage points of the reachable ceiling, so the guard did not authorise an early stop in any of the 48 reviews.",
+  "bearing_on_the_live_runs": "The four live runs sit at the bottom of the overlap band (6% to 45%) and their lower confidence bounds plateaued near 0.88, so the rule declining to fire there is the same behaviour this experiment reproduces, not a separate failure. It also means the headline 127/270 figure from the published benchmark describes an optimistic provider model and should be read as an upper bound."
+ }
+}

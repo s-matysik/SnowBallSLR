@@ -1,0 +1,94 @@
+{
+ "n": 287,
+ "basis": [
+  "anthropic",
+  "deepseek",
+  "google",
+  "kimi",
+  "openai",
+  "xai"
+ ],
+ "by_tau": {
+  "5.0": {
+   "included": 169,
+   "share": 0.5889,
+   "included_per_rater": {
+    "anthropic": 179,
+    "deepseek": 182,
+    "google": 195,
+    "kimi": 139,
+    "openai": 184,
+    "xai": 167
+   },
+   "rater_disagreement": 56
+  },
+  "6.0": {
+   "included": 138,
+   "share": 0.4808,
+   "included_per_rater": {
+    "anthropic": 154,
+    "deepseek": 145,
+    "google": 184,
+    "kimi": 103,
+    "openai": 159,
+    "xai": 143
+   },
+   "rater_disagreement": 81
+  },
+  "6.5": {
+   "included": 123,
+   "share": 0.4286,
+   "included_per_rater": {
+    "anthropic": 126,
+    "deepseek": 114,
+    "google": 165,
+    "kimi": 84,
+    "openai": 118,
+    "xai": 118
+   },
+   "rater_disagreement": 81
+  },
+  "7.0": {
+   "included": 107,
+   "share": 0.3728,
+   "included_per_rater": {
+    "anthropic": 126,
+    "deepseek": 114,
+    "google": 165,
+    "kimi": 84,
+    "openai": 118,
+    "xai": 118
+   },
+   "rater_disagreement": 81
+  },
+  "7.5": {
+   "included": 92,
+   "share": 0.3206,
+   "included_per_rater": {
+    "anthropic": 91,
+    "deepseek": 79,
+    "google": 153,
+    "kimi": 79,
+    "openai": 81,
+    "xai": 96
+   },
+   "rater_disagreement": 74
+  },
+  "8.0": {
+   "included": 77,
+   "share": 0.2683,
+   "included_per_rater": {
+    "anthropic": 91,
+    "deepseek": 79,
+    "google": 153,
+    "kimi": 79,
+    "openai": 81,
+    "xai": 96
+   },
+   "rater_disagreement": 74
+  }
+ },
+ "records_in_boundary_zone_6_to_8": 70,
+ "boundary_share": 0.2439,
+ "note": "Report the band, not a single tau. A large boundary share means the included set is sensitive to the cut regardless of screener quality."
+}

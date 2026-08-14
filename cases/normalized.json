@@ -1,0 +1,341 @@
+{
+ "adverse": {
+  "case": "adverse",
+  "corpus_records": 260,
+  "identified": 40719,
+  "screened": 1551,
+  "included": 149,
+  "unresolvable": 152,
+  "iterations": 1,
+  "stopped_by": "none \u2014 halted on exhausted LLM screening resource mid-iteration-2 (per-frame 2.0M token ceiling); no stopping rule fired",
+  "stop_is_saturation": false,
+  "recall_estimate": {
+   "configured_method": "loglinear",
+   "loglinear_status": "DEGENERATE \u2014 structural zero in cell 011 (crossref+scopus without openalex) makes the selected all-pairwise model unidentifiable; n_hat=1.31e11, recall=1.25e-09, no CI",
+   "reported_method": "Chao1",
+   "n_hat": 229.72222222222223,
+   "n_hat_ci": [
+    202.79117894678006,
+    275.35032786070303
+   ],
+   "recall": 0.7139056831922612,
+   "recall_ci": [
+    0.595604883691898,
+    0.8087136770531803
+   ],
+   "n_observed": 164,
+   "alternatives": {
+    "chapman_openalex_crossref": {
+     "n_hat": 170.11111111111111,
+     "n_hat_ci": [
+      161.05338011582205,
+      179.16884210640018
+     ],
+     "recall": 0.9464402351404311,
+     "recall_ci": [
+      0.8985937404472898,
+      0.9996685563768754
+     ],
+     "estimable": true
+    },
+    "chapman_openalex_scopus": {
+     "n_hat": 188.53846153846155,
+     "n_hat_ci": [
+      156,
+      229.67608859403336
+     ],
+     "recall": 0.8274173806609547,
+     "recall_ci": [
+      0.679217418560883,
+      1
+     ],
+     "estimable": true
+    },
+    "chapman_crossref_scopus": {
+     "n_hat": 115.36363636363636,
+     "n_hat_ci": [
+      84,
+      149.54483558433793
+     ],
+     "recall": 0.7281323877068558,
+     "recall_ci": [
+      0.5617044525260587,
+      1
+     ],
+     "estimable": true
+    }
+   },
+   "warnings": [
+    "Chao1 is a lower bound on N; the implied recall is therefore an upper bound",
+    "Source arms 'openalex' and 'crossref' are positively dependent (conditional OR=29.40, p=0.04). N_hat is biased downward and the estimated recall is an UPPER BOUND.",
+    "Source arms 'crossref' and 'scopus' are positively dependent (conditional OR=5.50, p=0.0178). N_hat is biased downward and the estimated recall is an UPPER BOUND.",
+    "Catchability is heterogeneous across publication_year: 'recent' records are captured by 1.23 arms on average versus 1.83 for 'older'. N_hat is biased downward.",
+    "Catchability is heterogeneous across language: 'non-en' records are captured by 1.00 arms on average versus 1.57 for 'en'. N_hat is biased downward.",
+    "Catchability is heterogeneous across venue_type: 'unknown' records are captured by 1.00 arms on average versus 3.00 for 'conference-paper'. N_hat is biased downward.",
+    "8 discovered records could not be resolved to a persistent identifier and are excluded from the capture table."
+   ],
+   "caveat": "All estimates are conditional on the iteration-1 reachable population only and all arm-pair dependence tests are positive (openalex/crossref conditional OR=29.4 p=0.04; crossref/scopus OR=5.50 p=0.018), so every recall figure is an UPPER bound. Prediction 1 cannot be tested on the pre-specified footing because the study's chosen estimator is not identifiable in this case."
+  },
+  "arm_capture": {
+   "n_included": 164,
+   "per_arm": {
+    "openalex": 153,
+    "crossref": 79,
+    "scopus": 15
+   },
+   "per_arm_share": {
+    "openalex": 0.9329,
+    "crossref": 0.4817,
+    "scopus": 0.0915
+   },
+   "overlaps": {
+    "openalex_and_crossref": 71,
+    "openalex_and_scopus": 12,
+    "crossref_and_scopus": 10,
+    "all_three": 10,
+    "exactly_one": 91,
+    "exactly_two": 63
+   },
+   "cells_openalex_crossref_scopus": {
+    "100": 80,
+    "101": 2,
+    "110": 61,
+    "111": 10,
+    "001": 3,
+    "010": 8
+   },
+   "structural_zero": {
+    "cell": "011",
+    "meaning": "crossref+scopus without openalex",
+    "count": 0
+   },
+   "scopus_share_ci": [
+    0.0562,
+    0.1454
+   ],
+   "prediction_4": "CONFIRMED in absolute terms: the Scopus arm captured 15/164 = 9.1% of included records (95% CI 5.6%-14.5%), far below the 65.8% DOI-coverage ceiling the prediction named as an upper bound. Cross-case comparison is the parent's to make."
+  },
+  "icc": 0.5781,
+  "icc_ci": [
+   0.544,
+   0.6101
+  ],
+  "seed_auc": 0.7812,
+  "gate_false_negative_rate": 0.0134,
+  "abstract_bias": {
+   "tested": true,
+   "stage1_full_pool": {
+    "n_with_abstract": 938,
+    "n_without": 628,
+    "mean_with": 4.548,
+    "mean_without": 3.8583,
+    "difference": 0.6897,
+    "test": "Mann-Whitney U, two-sided, tie-corrected normal approximation",
+    "z": 5.4808,
+    "p": 4.235201012114942e-08,
+    "rank_biserial": 0.1619
+   },
+   "stage2_subset": {
+    "n_with_abstract": 474,
+    "n_without": 250,
+    "mean_with": 5.6463,
+    "mean_without": 5.0853,
+    "z": 4.2758,
+    "p": 1.9043259386508637e-05,
+    "rank_biserial": 0.1927
+   },
+   "gate_pass_rate": {
+    "with_abstract": 0.5053,
+    "without": 0.3981
+   },
+   "include_rate": {
+    "with_abstract": 0.1258,
+    "without": 0.0589
+   },
+   "interpretation": "CONFIRMED and material. Records without an abstract score 0.69 points lower on the 10-point stage-1 scale (4.55 vs 3.86; p=4.2e-08), and the effect persists in the stage-2 subset (5.65 vs 5.09, p=1.9e-05). The consequence is the one the protocol warns about: abstract-less records pass the gate at 39.8% vs 50.5% and are included at 5.9% vs 12.6% - under half the rate. 628 of 1566 iteration-1 records (40.1%) lack an abstract and every unresolvable record lacks one, so the included set is biased toward well-indexed work. A screening-instrument limitation, not a property of the literature."
+  },
+  "notes": "ADVERSE CASE, ITERATION 1 ONLY \u2014 read the stop reason before comparing. Iteration 1 ran the full validated protocol: 1,551 candidates screened (haiku gate then sonnet-5 + opus-4-8, tau=7.0), 149 included, no stopping rule fired. Iteration 2 expanded to 31,486 candidates \u2014 the frontier GREW, it did not exhaust \u2014 and 2,449 were stage-1 scored before the per-frame LLM token ceiling (2.0M) ended all model access. No iteration-2 inclusion decision was issued and labels_adverse_002.csv was not written; a haiku-only surrogate was refused because it agrees with the ensemble at kappa=0.470 on the 724 records where both exist (320 includes vs the ensemble's 155). This is a RESOURCE STOP, not saturation and not the budget rule (1,551 screened of a 4,000 budget). PREDICTIONS: (4) Scopus-arm share CONFIRMED \u2014 15/164 = 9.1% (95% CI 5.6-14.5%), far under the 65.8% DOI-coverage ceiling. (2) unresolvable share measured \u2014 152/1,551 = 9.8% of screened, 8/164 = 4.9% of included, 1,964/40,719 = 4.8% of all identified; 1,812 of the 31,486 iteration-2 candidates are unresolvable. (1) recall NOT comparably testable \u2014 the pre-specified log-linear estimator is degenerate here; Chao1 gives 0.714 (0.596-0.809) as an upper bound. (3) early marginal-yield firing UNTESTED \u2014 the rule needs 2 completed iterations and only 1 completed. DESIGN FINDING for the manuscript: the three-arm log-linear estimator here is not merely dependence-selecting, it is UNIDENTIFIABLE \u2014 openalex is precedence-first and captures 93.3% of included records, emptying cell 011 and letting the fitted missing cell diverge to 1.3e11. Any cross-case claim about arm dependence must report this case as non-estimable rather than fold in the 1.3e-09 number. SCREENING QUALITY: ICC(2,1)=0.578 (0.544-0.610) is only moderate, and the structure matters \u2014 the two stage-2 models agree at 0.842 while each agrees with haiku at 0.398/0.482, i.e. the gate model is systematically more generous. Mean per-record range 2.18 points straddles tau=7.0, so borderline calls in this corpus are model-dependent. Blind seed AUC 0.781 (0.641-0.896) with only 6/15 seeds reaching tau: the blind control worked as intended \u2014 'Structural Biology and Drug Discovery' (2006) scored 1.0, the lowest of all 15, and was retained in every statistic (excluding it raises AUC to 0.832). Two more low scorers (automated assessment in education 3.0; JPP&M policy agenda 3.67) are peripheral rather than off-topic; the other 12 seeds all score >=5.0. The depressed seed pass rate is therefore mostly a heterogeneous three-term Boolean seed set, not screener failure. GATE CHECK NOT MEASURED AS SPECIFIED: the 350-record gate-excluded sample was drawn and batched but never scored (token ceiling), so gate_false_negative_rate above is an INDIRECT one-sided 95% upper bound (0.0134) from the haiku=5.0 stratum, where 0 of 222 records were ensemble-included and the include rate is monotone in the stage-1 score (5:0.000, 6:0.038, 7:0.188, 8:0.617, 9:1.000). Treat it as a bound under monotonicity, not a measurement. ABSTRACT BIAS CONFIRMED and material: 4.55 vs 3.86 stage-1 mean (Mann-Whitney p=4.2e-08), persisting at stage 2 (5.65 vs 5.09, p=1.9e-05); abstract-less records pass the gate at 39.8% vs 50.5% and are included at 5.9% vs 12.6%. 40.1% of iteration-1 records lack an abstract and every unresolvable record does, so the included set is biased toward well-indexed work. LIBRARY BUGS FIXED (all in cases/, none in snowballslr/): build_prompt never filled the spec template's {items} slot (KeyError); parse_scores rejected the JSON-array response shape the spec's own prompt asks for; driver.py label read attributes off dicts. run_adverse/config.yaml carried budget 1200, not the case's 4000 \u2014 corrected and declared in advance in cases/PREDICTION_adverse.md."
+ },
+ "mid": {
+  "case": "mid",
+  "corpus_records": 1995,
+  "identified": 6285,
+  "screened": 2500,
+  "included": 337,
+  "unresolvable": 242,
+  "iterations": 1,
+  "stopped_by": "budget",
+  "stop_is_saturation": false,
+  "recall_estimate": {
+   "iteration": 1,
+   "method": "loglinear",
+   "estimable": true,
+   "n_observed": 352,
+   "n_hat": 654.5,
+   "recall": 0.5378,
+   "n_hat_ci_library": null,
+   "recall_ci_library": null,
+   "ci_note": "The library returns no CI for the log-linear method (RecallEstimate.n_hat_ci is populated by the two-arm capture_recapture and Chao estimators but not by loglinear). CI below computed independently: parametric multinomial bootstrap (2,000 replicates) over the observed capture cells, re-running AIC model selection in every replicate so the interval carries model-choice uncertainty.",
+   "n_hat_ci_bootstrap": [
+    352,
+    953.16
+   ],
+   "recall_ci_bootstrap": [
+    0.3693,
+    1
+   ],
+   "n_hat_median_bootstrap": 639.55,
+   "recall_median_bootstrap": 0.5504,
+   "bootstrap_replicates": 2000,
+   "model_selection_frequency": {
+    "count ~ a0 + a1 + a2 + a0:a1 + a1:a2": 1925,
+    "count ~ a0 + a1 + a2 + a0:a2 + a1:a2": 70,
+    "count ~ a0 + a1 + a2 + a0:a1": 5
+   },
+   "selected_model": "count ~ a0 + a1 + a2 + a0:a1 + a1:a2",
+   "aic": 34.48,
+   "bic": -1.95,
+   "missing_cell": 302.5,
+   "sensitivity_independence_model": {
+    "n_hat": 393.6,
+    "recall": 0.8943,
+    "aic": 94.39,
+    "note": "the independence model gives recall 89% versus 53.8% for the AIC-selected interaction model -- a 35-point swing on model choice alone, which is the dominant uncertainty here, larger than the sampling interval"
+   },
+   "warnings": [
+    "log-linear estimates are sensitive to model choice; the selected model was: count ~ a0 + a1 + a2 + a0:a1 + a1:a2",
+    "Catchability is heterogeneous across publication_year: 'recent' records are captured by 1.03 arms on average versus 1.51 for 'older'. N_hat is biased downward."
+   ]
+  },
+  "arm_capture": {
+   "arms": [
+    "openalex",
+    "crossref",
+    "scopus"
+   ],
+   "per_arm": {
+    "openalex": 337,
+    "crossref": 83,
+    "scopus": 27
+   },
+   "capture_cells": {
+    "100 (openalex only)": 242,
+    "110 (openalex+crossref)": 83,
+    "001 (scopus only)": 15,
+    "101 (openalex+scopus)": 12,
+    "010 (crossref only)": 0,
+    "011 (crossref+scopus)": 0,
+    "111 (all three)": 0
+   },
+   "n_observed": 352,
+   "scopus_export_dois": 1914,
+   "note": "The scopus membership arm captured 27 of 352 included records (7.7%), of which 15 are the seeds themselves. The all-three cell is empty and two cells are zero, which is what makes the log-linear fit unstable and the interval wide."
+  },
+  "icc": 0.8268323843699216,
+  "icc_ci": [
+   0.8099982267024052,
+   0.8428143325331904
+  ],
+  "seed_auc": 0.6582533333333334,
+  "gate_false_negative_rate": 0,
+  "abstract_bias": {
+   "n_with_abstract": 1745,
+   "n_without_abstract": 755,
+   "mean_with": 4.123495702005731,
+   "mean_without": 2.8704194260485654,
+   "mean_difference": 1.2530762759571656,
+   "diff_ci95": [
+    1.0833728660252893,
+    1.4268286716382979
+   ],
+   "mannwhitney_u": 869925.5,
+   "mannwhitney_p_one_sided": 5.894606411040392e-38,
+   "welch_t": 14.386951489250988,
+   "welch_p": 1.718789428038268e-44,
+   "cohens_d": 0.5717940593624938,
+   "inclusion_rate_with": 0.17650429799426934,
+   "inclusion_rate_without": 0.038410596026490065,
+   "inclusion_chi2": 84.98756875941316,
+   "inclusion_chi2_p": 3.0024684347759014e-20,
+   "direction": "records lacking an abstract score significantly LOWER"
+  },
+  "notes": "FAVOURABLE CONTRAST CASE. Budget stop, not saturation: the budget rule fired at iteration 1 after 2,500 of 5,249 iteration-1 candidates were screened in library ranking order; 2,749 candidates were never screened and are OMITTED from labels_mid_001.csv, the frontier was not exhausted (337 included studies awaited expansion), and estimated recall (53.8%) never approached the 0.95 target. Included: 337 new + 15 seeds = 352.\n\nRECALL ESTIMATE. Log-linear over three arms gives n_hat=654.5, recall=53.8%. The library returns NO CI for the log-linear method (n_hat_ci is populated only by the two-arm and Chao estimators) -- a reportable library gap. Computed independently: multinomial bootstrap, 2,000 replicates, AIC model selection re-run per replicate: n_hat CI [352, 953], recall CI [0.369, 1.000]. Model choice dominates: the independence model gives recall 89.4% versus 53.8% for the AIC-selected interaction model, a 35-point swing that exceeds the sampling interval. The library's own warning that heterogeneous catchability across publication year biases n_hat downward applies (recent records captured by 1.03 arms vs 1.51 for older). Treat 53.8% as a lower-bound-flavoured point estimate, not a precise value.\n\nTHREE-ARM CAPTURE. openalex 337, crossref 83, scopus 27 (of which 15 are the seeds). Cells: openalex-only 242, openalex+crossref 83, scopus-only 15, openalex+scopus 12; crossref-only, crossref+scopus and all-three are all EMPTY. Three empty cells out of seven is why the log-linear fit is unstable and the interval wide. The membership arm makes the estimator usable but contributes thin overlap.\n\nVALIDATION 1 -- inter-model agreement (n=1,175 with all three models). ICC(2,1)=0.827, bootstrap CI [0.810, 0.843]; mean per-record score range 1.47 points on a 10-point scale, CI [1.41, 1.53]. Stage-2 models agree most closely (sonnet-opus r=0.924); haiku scores ~0.9 points more generously than the stage-2 models, which makes the gate conservative in the safe direction.\n\nVALIDATION 2 -- blind positive controls. 15 seeds scored unmarked, ONE PER BATCH across 15 distinct ordinary batches of 25, never labelled as seeds. AUC over all 15 seeds vs the 2,500-record pool = 0.658, CI [0.532, 0.790] (Mann-Whitney p=0.017). Read alone this looks weak, and the inspection matters: the SIX seeds flagged as off-topic in cases/research_question_mid.json BEFORE any scoring are EXACTLY the six lowest-scoring seeds (permutation p=0.0009; off-topic mean 2.67 vs on-topic 6.67). Those six are blockchain-for-sustainable-manufacturing, human-rights-law/algorithmic accountability, AI-and-employee-work-engagement, platform-competition economics, digital-transformation bibliometrics, and FinTech/Islamic finance -- all genuine artefacts of a Scopus Boolean co-occurrence export where the two query terms co-occur incidentally. Restricted to the nine on-topic seeds, AUC = 0.831, CI [0.718, 0.926]. Judgement: these are off-topic SEEDS, not screener failures, and the pre-registration makes that a test rather than a post-hoc rescue. ONE exception is a real screener limitation: the B3 blockchain-innovation book chapter is on-topic but scored 3.0 because OpenAlex holds no abstract for it and it was scored title-only -- a missing-metadata failure, consistent with the abstract bias below. Only 5 of 15 seeds reached tau=7.0.\n\nVALIDATION 3 -- two-stage gate. 300 of the 1,444 gate-excluded records (random, seed 11) were re-scored with the full stage-2 ensemble: 0 would have been included. FNR = 0.0%, Wilson 95% CI [0.0%, 1.26%]. The highest final score anywhere in the gate sample was 4.67 against tau=7.0, so this is a wide margin rather than a cluster of near-misses. The gate is safe on this case.\n\nABSTRACT-AVAILABILITY BIAS (known bias, confirmed strongly). 1,745 screened records have an abstract, 755 do not (30.2%). Mean final score 4.12 vs 2.87, difference 1.25 points, CI [1.08, 1.43]; Mann-Whitney p=5.9e-38, Welch p=1.7e-44, Cohen d=0.57. Inclusion rate 17.7% vs 3.8% (chi2=85.0, p=3e-20). The included set is therefore biased toward well-indexed work. Note the mechanism here: only 1 of the 242 unresolvable records reached the top-2,500 by ranking, so this bias is driven overwhelmingly by resolvable-but-abstractless records, not by unresolvables.\n\nPROTOCOL DEVIATIONS AND LIMITATIONS, stated plainly. (1) cases/screening.py build_prompt() never populates the {items} placeholder of the spec prompt_template and raises KeyError; the records block was substituted locally with NO change to the template text, 1-10 scale, batch size 25, tau=7.0 or gate=5.0. The score parser was extended to read the JSON-array form the template actually requests, in addition to the object form the helper expected. (2) The frame-level LLM token ceiling (2.0M) was reached with 8 of 55 stage-2 batches unscored by claude-opus-4-8, so 196 stage-2 records (154 survivors, 41 gate-check, 1 seed) carry a haiku+sonnet mean rather than a three-model mean; the spec defines the final score as the mean over models that scored the record, so this is within protocol. Sensitivity: dropping opus from EVERY record moves the included count 337 -> 365, with 98.7% decision agreement, so the gap perturbs the included set slightly rather than restructuring it. ICC is computed only on the 1,175 records with complete three-model coverage. (3) Reproducibility: 'replay OK: 6 artifacts reproduced'.\n\nCOMPARISON-RELEVANT SUMMARY. As the favourable case this behaved as predicted on indexing quality (95.9% DOI coverage, median 84 references, 5,249 candidates from 15 seeds, only 4.6% unresolvable) and the screener was internally reliable here (ICC 0.827, gate FNR 0%). The two soft spots are not screener quality: the recall estimate is imprecise because the capture table has three empty cells and only 27 scopus-arm captures, and 30% of screened records still lack abstracts despite good DOI coverage."
+ },
+ "large": {
+  "case": "large",
+  "corpus_records": 14302,
+  "identified": 19676,
+  "screened": 3000,
+  "included": 686,
+  "unresolvable": 234,
+  "iterations": 1,
+  "stopped_by": "budget",
+  "stop_is_saturation": false,
+  "recall_estimate": {
+   "method": "loglinear",
+   "estimable": true,
+   "n_hat": 708.3932387968633,
+   "n_hat_ci": null,
+   "recall": 0.9895633690555545,
+   "recall_ci": null,
+   "n_observed": 701,
+   "by_iteration": [
+    {
+     "iteration": 1,
+     "n_hat": 708.3932387968633,
+     "recall": 0.9895633690555545,
+     "recall_lower": null
+    }
+   ],
+   "warnings": [
+    "model-choice sensitivity: count ~ a0 + a1 + a2",
+    "catchability heterogeneous by publication_year (recent 1.19 arms vs older 1.65) - N_hat biased downward",
+    "catchability heterogeneous by language (non-en 1.00 vs en 1.38) - N_hat biased downward",
+    "catchability heterogeneous by venue_type (review 1.00 vs conference-paper 2.00) - N_hat biased downward"
+   ],
+   "caveat": "Recall is over the SCREENED subsample only. 11,883 of 14,883 iteration-1 candidates were never screened and cannot enter a capture cell, so 98.96% measures three-arm coverage of what the screener looked at, NOT recall against the gamification-x-marketing literature. No CI was returned. Under a budget stop this must not be read as a corpus-recall claim."
+  },
+  "arm_capture": {
+   "arms": [
+    "openalex",
+    "crossref",
+    "scopus"
+   ],
+   "captured": {
+    "openalex": 697,
+    "crossref": 43,
+    "scopus": 219
+   },
+   "overlaps": {
+    "openalex_only": 456,
+    "openalex+scopus": 198,
+    "openalex+crossref": 26,
+    "openalex+crossref+scopus": 17,
+    "scopus_only": 4
+   },
+   "total_observed": 701,
+   "note": "OpenAlex captures 697/701; the Scopus membership arm adds real independent information (219 captured, 4 reached by no API arm), which is what makes the log-linear estimator identifiable here."
+  },
+  "icc": 0.7942,
+  "icc_ci": [
+   0.7706,
+   0.8141
+  ],
+  "seed_auc": 0.6312,
+  "gate_false_negative_rate": 0,
+  "abstract_bias": {
+   "n_with_abstract": 2454,
+   "n_without_abstract": 546,
+   "mean_with": 4.336,
+   "mean_without": 3.943,
+   "mann_whitney_z": 2.77,
+   "p_value": 0.0056,
+   "common_language_effect_size": 0.538,
+   "include_rate_with": 0.2433,
+   "include_rate_without": 0.163,
+   "significant": true,
+   "finding": "Records without an abstract score significantly lower (p=0.0056), small effect (CLES=0.538) but include rate 16.3% vs 24.3%. Every unresolvable record lacks an abstract, so the included set is biased toward well-indexed work."
+  },
+  "notes": "SCALE CASE, BUDGET-BOUND. Screened the first 3,000 of 14,883 iteration-1 candidates in candidates.json (library ranking) order; 686 included (701 with seeds). The budget rule fired at iteration 1 with value 3000. THIS IS A BUDGET STOP, NOT SATURATION: exhaustion did not fire (686 included studies remain unexpanded), marginal_yield was inapplicable (<2 iterations), and no iteration 2 ran. The 11,883 unscreened candidates were OMITTED from labels_large_001.csv, not marked excluded.\n\nAGREEMENT DEGRADES ON THE BROAD CORPUS - the flagged concern is confirmed. ICC(2,1)=0.794 (95% CI 0.771-0.814, n=544 three-model records, mean per-record range 1.28 points). Two-stage vs 3-model kappa at tau=7.0 is 0.892 here against the 0.935 narrow-topic reference in screening_spec.json. The decomposition localises the loss to the cheap gate model rather than the ensemble: sonnet~opus ICC=0.894 (r=0.908), haiku~opus ICC=0.750, haiku~sonnet ICC=0.676 (r=0.815). Implication for the manuscript: on a heterogeneous corpus the stage-1 gate model is the reliability bottleneck, and the two expensive models still agree well with each other. Caveat: ICC is computed on gate survivors (haiku>=5), a range-restricted subset, which attenuates it downward.\n\nSEED AUC IS POOR AS-MEASURED AND I AM REPORTING IT AS SUCH: 0.631 (95% CI 0.498-0.762) over all 15 blind seeds - the interval includes chance. Inspection attributes this to seed selection under a broad Boolean AND query, not solely screener failure. The four lowest seeds are genuinely off-topic for a gamification-x-marketing question: COP26 climate/digital-technology agenda (1.0), multidisciplinary AI agenda (2.0), web-based health-intervention adherence (3.0), game-based classroom learning (3.0). Excluding those four, AUC on the 11 on-topic seeds is 0.769 (95% CI 0.683-0.858) - acceptable but not strong. Two more score mid-range defensibly (online food delivery 4.0, smart tourism ecosystems 4.0: consumer/tourism papers with no gamified or immersive element). Confound: 7 of 15 seeds resolved without an abstract and were scored title-only, which the abstract test shows biases downward; three of the four low scorers did have abstracts, so title-only scoring is not the whole explanation.\n\nGATE FALSE-NEGATIVE RATE WAS NOT MEASURED - the 0.0 in the schema field is a placeholder for an unmeasured quantity and must NOT be pooled across cases as if measured. The frame's host.llm token ceiling (2.0M) was exhausted during stage 2, which also truncated opus coverage; no inference provider or alternate model route is configured, so the mandated check could not be completed by other means. The 320-record random sample of gate-excluded records and its 13 prompt batches were built but never scored. Available substitute, an ADJACENCY BOUND not the measurement: of the 284 candidates scoring exactly at the gate (haiku=5.0) the full ensemble included 0, one-sided 95% upper bound 0.0105. P(include | haiku) rises monotonically (5:0.000, 6:0.067, 7:0.565, 8:0.951, 9:0.990, 10:1.000), making a higher rate below the gate implausible, so ~1% is a conservative ceiling by extrapolation.\n\nPARTIAL OPUS COVERAGE: stage 1 haiku scored all 3,015 records (3,000 candidates + 15 blind seeds, no dropped batches); sonnet scored all 1,307 gate survivors; opus reached 550 of 1,307 before the ceiling. So 544 records carry a three-model mean, 754 a haiku+sonnet mean, 1,702 the haiku gate score alone. Decision impact is bounded: on the 544 fully-scored records the two-model and three-model means agree at tau=7.0 with kappa=0.892 (29 of 544 flip).\n\nUNRESOLVABLE RECORDS: 234 of 14,883 in the full pool (1.57%) but only 1 of the 3,000 screened (0.03%). The library's ranking pushed almost all unresolvable records past the budget cutoff, so the budget stop incidentally screened a better-indexed subset than the pool it was drawn from - this interacts with the abstract bias and works in the same direction.\n\nREPO NOTE for the cross-case build: cases/screening.py build_prompt() raises KeyError('items') - it never fills the {items} slot the spec template defines. I filled the template directly rather than patch a module the parallel cases were using. I did patch cases/driver.py: the report action crashed with AttributeError because RecallEstimateRecord carries flat n/n_hat/recall fields, not .iteration or .estimate."
+ }
+}

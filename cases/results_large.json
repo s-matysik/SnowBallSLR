@@ -1,0 +1,436 @@
+{
+ "case": "large",
+ "label": "gamification x marketing",
+ "corpus_records": 14302,
+ "doi_coverage": 0.915,
+ "span": "2011-2025",
+ "research_question": {
+  "research_question": "How do gamification and related immersive or game-like digital technologies (game design elements, VR/AR, metaverse, gamified platforms and apps) shape consumer engagement, experience, attitudes and behaviour in marketing and service contexts?",
+  "core_relation": "gamification and game design elements (points, badges, leaderboards, challenges, rewards, playful design) -- and the immersive technologies used the same way (VR, AR, metaverse) -- acting as drivers of consumer motivation, engagement, experience, attitude and behavioural intention in marketing, branding, retail, e-commerce, hospitality and tourism service settings",
+  "in_scope": [
+   "gamification in marketing, advertising, branding and loyalty programmes",
+   "effects of game design elements on consumer engagement, motivation, attitude or purchase/behavioural intention",
+   "gamified apps, platforms and e-commerce services studied from a consumer or customer-experience perspective",
+   "VR, AR and metaverse applications in marketing and in tourism/hospitality consumer experience",
+   "gamification in service marketing, customer experience and value co-creation",
+   "consumer adoption and continued use of gamified digital services",
+   "gamified persuasive design aimed at changing consumer behaviour or engagement with a commercial service",
+   "conceptual and review work defining gamification for marketing or service research"
+  ],
+  "out_of_scope": [
+   "gamification or serious games for classroom or academic learning outcomes with no consumer, customer or marketing angle",
+   "gamified or digital health interventions judged on clinical efficacy, with no consumer-marketing framing",
+   "game development engineering, graphics, game-AI algorithms, esports competition and player performance",
+   "gamification of employee training, HR, crowdsourcing labour or internal operations without a consumer-facing marketing element",
+   "marketing, tourism or consumer-behaviour studies with no gamified, game-like or immersive technology element",
+   "general information-systems, sustainability, climate or technology-policy agendas without a marketing or consumer focus",
+   "computer-science system architecture, networking, edge computing or software engineering",
+   "supply chain, logistics and operations management"
+  ],
+  "confidence": "medium",
+  "note": "Derived from the 15 seed titles of the 'gamification' AND 'marketing' Scopus export (14,302 records). The seeds cluster on two mutually reinforcing themes: gamification/game design elements as consumer-engagement mechanisms (Deterding 2011, Huotari & Hamari 2012, Hamari 2017 badges, Hamari & Koivisto 2015) and immersive/digital technology in tourism and service marketing (VR presence, AR/VR review, smart tourism ecosystems, metaverse, service disruption). Three seeds sit off the core: web-based health-intervention adherence (2012), game-based learning engagement (2016), and the COP26 digital-technology/climate agenda (2022) -- the last is a Boolean-query artefact of a broad AND query and should be expected to score low. This heterogeneity is a property of the corpus, not a flaw in the question, and out_of_scope is written to hold the line at the marketing/consumer boundary."
+ },
+ "prisma": {
+  "duplicates_removed": 191,
+  "identified_by_direction": {
+   "backward": 1858,
+   "forward": 17867
+  },
+  "identified_by_provider": {
+   "crossref": 1519,
+   "openalex": 19433
+  },
+  "per_iteration": [
+   {
+    "cumulative_included": 701,
+    "cumulative_screened": 3000,
+    "frontier_size": 686,
+    "n": 1,
+    "n_after_dedup": 0,
+    "n_eligible": 3000,
+    "n_excluded": 2314,
+    "n_expanded": 15,
+    "n_included": 686,
+    "n_raw": 0,
+    "n_screened": 3000
+   }
+  ],
+  "records_excluded": 2314,
+  "records_identified_via_citation_searching": 19676,
+  "records_removed_before_screening": 4793,
+  "records_screened": 3000,
+  "records_unresolvable": 234,
+  "seeds": 15,
+  "studies_included": 686
+ },
+ "per_iteration": [
+  {
+   "iteration": 1,
+   "candidates": 14883,
+   "screened": 3000,
+   "included": 686,
+   "candidates_unscreened": 11883,
+   "note": "screened the first 3000 candidates in candidates.json (library ranking) order; the remaining 11,883 were left unscreened and OMITTED from labels_large_001.csv"
+  }
+ ],
+ "iterations_completed": 1,
+ "rule_fired": {
+  "rule": "budget",
+  "value": 3000.0,
+  "rationale": "Citation searching was stopped after 3000 records had been screened, reaching the pre-specified screening budget of 3000.",
+  "is_saturation": false,
+  "other_rules": {
+   "estimated_recall": {
+    "triggered": false,
+    "value": 0.9895633690555545
+   },
+   "marginal_yield": {
+    "triggered": false,
+    "value": null,
+    "reason": "fewer than 2 iterations"
+   },
+   "exhaustion": {
+    "triggered": false,
+    "value": 686.0,
+    "reason": "686 included studies remain unexpanded"
+   }
+  }
+ },
+ "recall_estimate_by_iteration": [
+  {
+   "iteration": 1,
+   "method": "loglinear",
+   "estimable": true,
+   "n_hat": 708.3932387968633,
+   "n_hat_ci": null,
+   "recall": 0.9895633690555545,
+   "recall_ci": null,
+   "n_observed": 701,
+   "warnings": [
+    "log-linear estimates are sensitive to model choice; the selected model was: count ~ a0 + a1 + a2",
+    "Catchability is heterogeneous across publication_year: 'recent' records captured by 1.19 arms vs 1.65 for 'older'. N_hat biased downward.",
+    "Catchability is heterogeneous across language: 'non-en' 1.00 arms vs 'en' 1.38. N_hat biased downward.",
+    "Catchability is heterogeneous across venue_type: 'review' 1.00 arms vs 'conference-paper' 2.00. N_hat biased downward."
+   ],
+   "interpretation_caveat": "CRITICAL: this 98.96% is recall over the SCREENED subsample only. The estimator sees the 701 included records drawn from the 3,000 screened candidates; 11,883 candidates were never screened and cannot enter any capture cell. It therefore measures how completely the three arms cover the population the screener actually looked at, NOT recall against the gamification-x-marketing literature. Under a budget stop this quantity is close to vacuous as a corpus-recall claim and must not be reported as one. No CI was returned (n_hat_ci null), so it carries no interval either.",
+   "detail": {
+    "formula": "count ~ a0 + a1 + a2",
+    "aic": 39.22506260669668,
+    "bic": -2.7494185796263,
+    "missing_cell": 7.393238796863278,
+    "cells": {
+     "001": 4,
+     "100": 456,
+     "101": 198,
+     "110": 26,
+     "111": 17
+    }
+   }
+  }
+ ],
+ "arm_capture": {
+  "arms": [
+   "openalex",
+   "crossref",
+   "scopus"
+  ],
+  "captured": {
+   "openalex": 697,
+   "crossref": 43,
+   "scopus": 219
+  },
+  "overlaps_by_cell": {
+   "scopus": 4,
+   "openalex": 456,
+   "openalex+scopus": 198,
+   "openalex+crossref": 26,
+   "openalex+crossref+scopus": 17
+  },
+  "total_observed": 701,
+  "note": "cell key digits are openalex,crossref,scopus. openalex dominates (697/701); crossref adds 43; the scopus membership arm captures 219. Cell '001' = 4 records present in the Scopus export but reached by neither API arm."
+ },
+ "validation": {
+  "inter_model_agreement": {
+   "icc_3model": {
+    "value": 0.7941652172043026,
+    "ci": [
+     0.7706391920654018,
+     0.8140801961569244
+    ],
+    "n": 544,
+    "models": [
+     "claude-haiku-4-5-20251001",
+     "claude-sonnet-5",
+     "claude-opus-4-8"
+    ],
+    "mean_per_record_range": 1.2775735294117647
+   },
+   "icc_2model_full_stage2_subset": {
+    "value": 0.6758011942109603,
+    "ci": [
+     0.6537360269810096,
+     0.6959581933224811
+    ],
+    "n": 1298,
+    "models": [
+     "claude-haiku-4-5-20251001",
+     "claude-sonnet-5"
+    ],
+    "mean_per_record_range": 1.1910631741140216
+   },
+   "pairwise": {
+    "haiku-4-5-20251001~sonnet-5": {
+     "n": 1298,
+     "r": 0.8149,
+     "icc": 0.6758
+    },
+    "haiku-4-5-20251001~opus-4-8": {
+     "n": 544,
+     "r": 0.837,
+     "icc": 0.7497
+    },
+    "sonnet-5~opus-4-8": {
+     "n": 544,
+     "r": 0.9082,
+     "icc": 0.8939
+    }
+   },
+   "kappa_twostage_vs_3model": 0.891847423698138,
+   "kappa_disagreements": 29,
+   "degradation_finding": "ICC(2,1)=0.794 (95% CI 0.771-0.814) across the three models on the broad corpus, against the narrow-topic reference of kappa=0.935 for two-stage vs 3-model agreement reported in screening_spec.json; the same kappa here is 0.892. Agreement is moderate-to-good but visibly lower. The decomposition locates the loss in the cheap gate model, not the ensemble: sonnet~opus ICC=0.894 (r=0.908) while haiku~sonnet ICC=0.676 (r=0.815) and haiku~opus ICC=0.750. Mean per-record score range is 1.28 points on the 3-model subset. Caveat: ICC is computed on the gate survivors (haiku>=5), a range-restricted subset, which attenuates it relative to an all-records ICC.",
+   "restriction_caveat": "ICC computed on stage-2 records only, because by protocol design gate-excluded records receive one score. Range restriction attenuates ICC downward."
+  },
+  "blind_positive_controls": {
+   "n_seeds": 15,
+   "design": "15 seeds inserted at pseudo-random positions into the 3,000-record candidate stream before batching; max 2 seeds in any batch of 25, never labelled as seeds",
+   "auc_all_seeds": 0.6311666666666667,
+   "auc_ci": [
+    0.49803333333333333,
+    0.7617777777777778
+   ],
+   "seed_mean": 5.466666666666667,
+   "candidate_mean": 4.264444444444445,
+   "auc_ontopic_seeds_only": 0.7693030303030303,
+   "auc_ontopic_ci": [
+    0.6832272727272727,
+    0.8580757575757576
+   ],
+   "n_ontopic": 11,
+   "offtopic_seeds_excluded": [
+    "Persuasive System Design Does Matter: a Systematic Review of Adherence to Web-based Interventions",
+    "Climate change and COP26: Are digital technologies and information management part of the problem or the solution? An editorial reflection and call to action",
+    "Artificial Intelligence (AI): Multidisciplinary perspectives on emerging challenges, opportunities, and agenda for research, practice and policy",
+    "Challenging games help students learn: An empirical study on engagement, flow and immersion in game-based learning"
+   ],
+   "seed_detail": [
+    {
+     "key": "doi:10.2196/jmir.2104",
+     "title": "Persuasive System Design Does Matter: a Systematic Review of Adherence to Web-ba",
+     "final": 3.0,
+     "models": {
+      "haiku-4-5-20251001": 5.0,
+      "sonnet-5": 2.0,
+      "opus-4-8": 2.0
+     },
+     "has_abstract": true
+    },
+    {
+     "key": "doi:10.1145/2393132.2393137",
+     "title": "Defining gamification",
+     "final": 9.0,
+     "models": {
+      "haiku-4-5-20251001": 9.0,
+      "sonnet-5": 9.0,
+      "opus-4-8": 9.0
+     },
+     "has_abstract": true
+    },
+    {
+     "key": "doi:10.1145/1979742.1979575",
+     "title": "Gamification. using game-design elements in non-gaming contexts",
+     "final": 7.67,
+     "models": {
+      "haiku-4-5-20251001": 9.0,
+      "sonnet-5": 7.0,
+      "opus-4-8": 7.0
+     },
+     "has_abstract": true
+    },
+    {
+     "key": "doi:10.1108/josm-12-2018-0398",
+     "title": "Technological disruptions in services: lessons from tourism and hospitality",
+     "final": 5.67,
+     "models": {
+      "haiku-4-5-20251001": 6.0,
+      "sonnet-5": 6.0,
+      "opus-4-8": 5.0
+     },
+     "has_abstract": true
+    },
+    {
+     "key": "doi:10.1080/13683500.2017.1417359",
+     "title": "New realities: a systematic literature review on virtual reality and augmented r",
+     "final": 7.67,
+     "models": {
+      "haiku-4-5-20251001": 8.0,
+      "sonnet-5": 8.0,
+      "opus-4-8": 7.0
+     },
+     "has_abstract": true
+    },
+    {
+     "key": "doi:10.1016/j.tourman.2023.104724",
+     "title": "Metaverse as a disruptive technology revolutionising tourism management and mark",
+     "final": 9.0,
+     "models": {
+      "haiku-4-5-20251001": 9.0,
+      "sonnet-5": 9.0,
+      "opus-4-8": 9.0
+     },
+     "has_abstract": true
+    },
+    {
+     "key": "doi:10.1016/j.tourman.2017.12.003",
+     "title": "Virtual reality, presence, and attitude change: Empirical evidence from tourism",
+     "final": 7.5,
+     "models": {
+      "haiku-4-5-20251001": 7.0,
+      "sonnet-5": 8.0
+     },
+     "has_abstract": false
+    },
+    {
+     "key": "doi:10.1016/j.jretconser.2016.12.013",
+     "title": "Consumer experiences, attitude and behavioral intention toward online food deliv",
+     "final": 4.0,
+     "models": {
+      "haiku-4-5-20251001": 4.0
+     },
+     "has_abstract": false
+    },
+    {
+     "key": "doi:10.1016/j.ijinfomgt.2021.102456",
+     "title": "Climate change and COP26: Are digital technologies and information management pa",
+     "final": 1.0,
+     "models": {
+      "haiku-4-5-20251001": 1.0
+     },
+     "has_abstract": true
+    },
+    {
+     "key": "doi:10.1016/j.ijinfomgt.2019.08.002",
+     "title": "Artificial Intelligence (AI): Multidisciplinary perspectives on emerging challen",
+     "final": 2.0,
+     "models": {
+      "haiku-4-5-20251001": 2.0
+     },
+     "has_abstract": true
+    },
+    {
+     "key": "doi:10.1016/j.ijinfomgt.2018.07.004",
+     "title": "The sharing economy and digital platforms: A review and research agenda",
+     "final": 4.0,
+     "models": {
+      "haiku-4-5-20251001": 4.0
+     },
+     "has_abstract": false
+    },
+    {
+     "key": "doi:10.1016/j.ijinfomgt.2015.04.006",
+     "title": "Why do people use gamification services?",
+     "final": 7.5,
+     "models": {
+      "haiku-4-5-20251001": 7.0,
+      "sonnet-5": 8.0
+     },
+     "has_abstract": false
+    },
+    {
+     "key": "doi:10.1016/j.chb.2015.07.045",
+     "title": "Challenging games help students learn: An empirical study on engagement, flow an",
+     "final": 3.0,
+     "models": {
+      "haiku-4-5-20251001": 3.0
+     },
+     "has_abstract": false
+    },
+    {
+     "key": "doi:10.1016/j.chb.2015.03.043",
+     "title": "Conceptual foundations for understanding smart tourism ecosystems",
+     "final": 4.0,
+     "models": {
+      "haiku-4-5-20251001": 4.0
+     },
+     "has_abstract": false
+    },
+    {
+     "key": "doi:10.1016/j.chb.2015.03.036",
+     "title": "Do badges increase user activity? A field experiment on the effects of gamificat",
+     "final": 7.0,
+     "models": {
+      "haiku-4-5-20251001": 8.0,
+      "sonnet-5": 6.0
+     },
+     "has_abstract": false
+    }
+   ],
+   "interpretation": "AUC=0.631 (95% CI 0.498-0.762) over all 15 seeds is poor and its interval includes chance. Inspection shows this is dominated by genuinely off-topic seeds admitted by the broad Boolean AND query, not by screener failure: the four lowest-scoring seeds are the COP26 climate/digital-technology agenda (1.0), the multidisciplinary AI agenda paper (2.0), web-based health-intervention adherence (3.0) and game-based classroom learning (3.0) -- none of which concern gamification in a marketing or consumer context, and all four are correctly out of scope under the derived research question. Excluding those four, AUC on the 11 on-topic seeds is 0.769 (95% CI 0.683-0.858). Two further seeds score mid-range for a defensible reason: online food delivery (4.0) and smart tourism ecosystems (4.0) are consumer/tourism papers with no gamified or immersive element. A confound to note: 7 of 15 seeds resolved without an abstract and were scored title-only, which by the abstract test below biases them downward; three of the four 'off-topic' low scorers did have abstracts, so that is not the whole story. Conclusion: the screener separates on-topic seeds acceptably but not strongly, and the all-seed AUC is a property of seed selection under a broad Boolean query as much as of the screener."
+  },
+  "two_stage_gate_check": {
+   "status": "NOT MEASURED",
+   "reason": "The protocol requires scoring >=300 gate-EXCLUDED records with the full stage-2 ensemble. The 320-record random sample and its 13 prompt batches were built (handoff/gate_batches.json) but never scored: the frame's host.llm token ceiling (2.0M) was exhausted during stage 2, which also truncated opus coverage. No inference provider or alternate model route is configured for this session, so the measurement could not be completed by any other means.",
+   "sample_prepared": 320,
+   "gate_excluded_pool": 1708,
+   "substitute_bound": {
+    "what": "adjacency bound, NOT the required measurement",
+    "at_gate_stratum_n": 284,
+    "at_gate_stratum_full_ensemble_includes": 0,
+    "one_sided_95_upper": 0.010492914300075928,
+    "reasoning": "Of the 284 candidates scoring exactly at the gate (haiku=5.0) -- the records most similar to those just below it -- the full ensemble included 0. The one-sided 95% upper bound on that stratum's include rate is 0.0105. Monotonicity of P(include | haiku score) across the observed strata (haiku 5:0.000, 6:0.067, 7:0.565, 8:0.951, 9:0.990, 10:1.000) makes a higher rate below the gate implausible, so ~1% is a conservative ceiling. This is an extrapolation from adjacent data and must not be reported as the measured false-negative rate.",
+    "haiku_to_include_rate": {
+     "5.0": 0.0,
+     "6.0": 0.0673,
+     "7.0": 0.5647,
+     "8.0": 0.9507,
+     "9.0": 0.9899,
+     "10.0": 1.0
+    }
+   }
+  },
+  "abstract_availability_test": {
+   "n_with_abstract": 2454,
+   "n_without_abstract": 546,
+   "mean_with": 4.335982070089649,
+   "mean_without": 3.942918192918193,
+   "mann_whitney_z": 2.770487358475864,
+   "p_value": 0.005597247289962746,
+   "common_language_effect_size": 0.5378499183511408,
+   "include_rate_with": 0.24327628361858192,
+   "include_rate_without": 0.163003663003663,
+   "finding": "Records lacking an abstract score significantly lower: mean 3.94 (n=546) vs 4.34 (n=2454), Mann-Whitney z=2.77, p=0.0056. The effect is small (CLES=0.538, i.e. a 53.8% chance a with-abstract record outranks a without-abstract one) but the downstream consequence is not: the include rate is 16.3% without an abstract vs 24.3% with one. Since every unresolvable record lacks an abstract, the included set is biased toward well-indexed work."
+  }
+ },
+ "unresolvable": {
+  "in_full_candidate_pool": 234,
+  "in_the_3000_screened": 1,
+  "share_of_pool": 0.015722636565208628,
+  "share_of_screened": 0.0003333333333333333,
+  "note": "Unresolvable records concentrate in the unscreened tail: the library's ranking placed all but 1 of the 234 outside the first 3,000, so the budget stop incidentally excluded almost all of them. This makes the screened set better-indexed than the pool it was drawn from."
+ },
+ "scores_coverage": {
+  "records_scored": 3015,
+  "candidates": 3000,
+  "blind_seeds": 15,
+  "stage1_haiku": 3015,
+  "stage2_sonnet": 1307,
+  "stage2_opus": 550,
+  "note": "opus covered 550 of the 1,307 gate survivors before the frame LLM token ceiling was reached; 754 survivors carry a haiku+sonnet mean and 544 carry the full three-model mean. Final score is the mean over models that scored the record, per protocol. Effect on decisions is bounded: on the 544 records with all three scores, the haiku+sonnet mean and the three-model mean agree at tau=7.0 with kappa=0.892 (29 of 544 flip)."
+ },
+ "limitations": [
+  "Budget stop at iteration 1: 11,883 of 14,883 iteration-1 candidates were never screened, and no iteration 2 ran. This is a budget stop, not saturation.",
+  "The 98.96% recall estimate is conditioned on the screened subsample and is not a corpus-recall claim; it carries no CI.",
+  "The mandated gate false-negative measurement was not completed (frame LLM token ceiling); only an adjacency bound is available.",
+  "opus coverage is partial (550/1307), so 754 records rest on a two-model mean.",
+  "Inter-model agreement is measurably lower than on the narrow-topic reference, and the cheap stage-1 gate model is the weakest agreer."
+ ]
+}

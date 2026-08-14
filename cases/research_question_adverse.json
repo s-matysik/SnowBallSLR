@@ -1,0 +1,27 @@
+{
+ "research_question": "How is the adoption and intra-organisational diffusion of automation and intelligent-technology innovations - Industry 4.0, artificial intelligence, robotics, cloud and sales-force automation - reshaping marketing, sales and other customer- and market-facing business functions, and what organisational enablers, resistances and consequences does that transformation bring?",
+ "core_relation": "automation / AI / Industry 4.0 technology treated as an INNOVATION that an organisation, sector or workforce adopts, resists or diffuses, linked to an outcome in the MARKET-FACING domain: marketing theory and practice, sales and salesforce management, B2B buying and selling, customer/consumer interaction, business models, or the managerial and workforce conditions that govern that adoption",
+ "in_scope": [
+  "AI, machine learning or automation in marketing, advertising and marketing theory",
+  "sales force automation, CRM and salesperson adoption, resistance or job outcomes",
+  "adoption, acceptance, readiness, diffusion or implementation of Industry 4.0 / smart manufacturing / robotics in firms, including SMEs",
+  "technology-driven business model and value-proposition innovation, digital transformation of business functions",
+  "B2B marketing, organisational buying behaviour and industrial buyer-seller relationships under technological change",
+  "sector-level automation and robotics adoption studied with a managerial, economic, market or public-policy framing (agri-food 4.0, urban technology, financial trading, cloud in HRM)",
+  "workforce, skills, labour-market and human-performance consequences of intelligent machines in organisations",
+  "consumer or stakeholder perception of, and public policy toward, automation and AI technologies"
+ ],
+ "out_of_scope": [
+  "life sciences and biomedicine - structural biology, drug discovery, molecular screening, clinical medicine, laboratory automation, bioinformatics",
+  "purely technical engineering of automation systems - control theory, mechanism and machine design, scheduling algorithms, sensor or actuator hardware, CFD/FEM simulation - with no adoption, management or market dimension",
+  "computer-science method papers - algorithm or model benchmarks, network and edge-computing infrastructure, software architecture - where marketing or organisational adoption is at most a motivating sentence",
+  "process, production or supply-chain optimisation measured only in technical or cost-efficiency terms, with no market-facing or innovation-diffusion outcome",
+  "agronomy, food science, materials and environmental science where 'innovation' denotes a new technique rather than an adoption process",
+  "education, pedagogy and assessment as ends in themselves, unless the study is about adoption of an automated technology by an organisation",
+  "macroeconomic growth, national innovation-system and R&D-policy studies with no organisational adoption or marketing content",
+  "generic management, leadership, HRM or entrepreneurship research in which no automation or intelligent technology is the object of study"
+ ],
+ "derived_from": "the 15 blind seed titles of the adverse case (cases/seed_context_adverse.json); no other case's question was reused",
+ "note": "The seed set is heterogeneous by construction: the Boolean query 'innovation' AND 'marketing' AND 'automation' admits records whose three terms co-occur incidentally. Seven of the 15 seeds sit at the core (AI and marketing theory, sales force automation, B2B buying centre, Industry 4.0 readiness in SMEs, marketing perspective on Industry 4.0, marketing and public policy, intelligent machines and labour). One - 'Structural Biology and Drug Discovery' (2006) - is off topic on any reading of the question and is retained unmarked as a blind control. The out_of_scope list is therefore stated as carefully as the in_scope list: the discriminating criterion is whether an automation/AI technology is studied as something an organisation adopts with market-facing or managerial consequences, not merely whether the words innovation, marketing and automation appear.",
+ "confidence": "medium-high on the core relation; the seed set's periphery is genuinely broad and this is recorded rather than narrowed away"
+}

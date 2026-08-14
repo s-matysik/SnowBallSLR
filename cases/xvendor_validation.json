@@ -1,0 +1,147 @@
+{
+ "ran": "2026-08-14, six vendor families via their own APIs",
+ "vendors": {
+  "openai": "gpt-5.1",
+  "anthropic": "claude-sonnet-4-5-20250929",
+  "google": "gemini-2.5-flash",
+  "deepseek": "deepseek-chat",
+  "xai": "grok-4-1-fast-non-reasoning",
+  "kimi": "kimi-k2.6"
+ },
+ "n_records": 311,
+ "n_scored_by_all_six": 287,
+ "coverage_note": "Five vendors returned 311/311. Kimi returned 287/311 after a retry pass at batch size 8; 24 records remain unscored by it and are excluded from any statistic requiring all six. Kimi's replies were unparseable at batch size 25 and mostly parseable at 8, so the failure is batch-size sensitive, not credential-related.",
+ "between_family_agreement": {
+  "n_pairs": 15,
+  "icc_min": 0.7016,
+  "icc_max": 0.902,
+  "icc_median": 0.8351,
+  "all_pairs_at_least_070": true,
+  "weakest_pair": "google~moonshot",
+  "strongest_pair": "anthropic~openai",
+  "per_pair": {
+   "anthropic~deepseek": {
+    "n": 311,
+    "pearson": 0.9029,
+    "icc": 0.8987,
+    "mae": 0.778
+   },
+   "anthropic~google": {
+    "n": 311,
+    "pearson": 0.8536,
+    "icc": 0.7903,
+    "mae": 1.498
+   },
+   "anthropic~moonshot": {
+    "n": 287,
+    "pearson": 0.8628,
+    "icc": 0.8318,
+    "mae": 1.101
+   },
+   "anthropic~openai": {
+    "n": 311,
+    "pearson": 0.9035,
+    "icc": 0.902,
+    "mae": 0.81
+   },
+   "anthropic~xai": {
+    "n": 311,
+    "pearson": 0.8791,
+    "icc": 0.877,
+    "mae": 0.923
+   },
+   "deepseek~google": {
+    "n": 311,
+    "pearson": 0.8714,
+    "icc": 0.7737,
+    "mae": 1.582
+   },
+   "deepseek~moonshot": {
+    "n": 287,
+    "pearson": 0.8775,
+    "icc": 0.8531,
+    "mae": 1.0
+   },
+   "deepseek~openai": {
+    "n": 311,
+    "pearson": 0.9035,
+    "icc": 0.8992,
+    "mae": 0.797
+   },
+   "deepseek~xai": {
+    "n": 311,
+    "pearson": 0.8857,
+    "icc": 0.8801,
+    "mae": 0.923
+   },
+   "google~moonshot": {
+    "n": 287,
+    "pearson": 0.8368,
+    "icc": 0.7016,
+    "mae": 1.902
+   },
+   "google~openai": {
+    "n": 311,
+    "pearson": 0.9055,
+    "icc": 0.8319,
+    "mae": 1.35
+   },
+   "google~xai": {
+    "n": 311,
+    "pearson": 0.8113,
+    "icc": 0.7447,
+    "mae": 1.617
+   },
+   "moonshot~openai": {
+    "n": 287,
+    "pearson": 0.8788,
+    "icc": 0.8351,
+    "mae": 1.084
+   },
+   "moonshot~xai": {
+    "n": 287,
+    "pearson": 0.8234,
+    "icc": 0.8094,
+    "mae": 1.171
+   },
+   "openai~xai": {
+    "n": 311,
+    "pearson": 0.8565,
+    "icc": 0.8493,
+    "mae": 1.045
+   }
+  },
+  "interpretation": "This is the figure the manuscript could not previously report. Every one of the 15 cross-family pairs agrees at ICC >= 0.70, median 0.835, with Pearson correlations of 0.81-0.91. Six models from six independent vendors, sharing no training pipeline, converge on the same relevance ordering. The prior three-case figures (ICC 0.58-0.83) were all within one vendor family and therefore could not distinguish shared judgement from shared provenance; these can. The weakest pair is google~moonshot at 0.702 and the strongest anthropic~openai at 0.902, so the spread is real but no pair falls to a level that would undermine the ensemble."
+ },
+ "threshold": {
+  "n": 287,
+  "boundary_share": 0.2439,
+  "included_by_tau": {
+   "5.0": 169,
+   "6.0": 138,
+   "6.5": 123,
+   "7.0": 107,
+   "7.5": 92,
+   "8.0": 77
+  },
+  "note": "24% of records sit in the 6-8 boundary zone where the cut decides the outcome, close to the 32% measured on the single-family scores."
+ },
+ "bibliometric": {
+  "topical_mean": 0.5924,
+  "prestige_mean": 0.5296,
+  "topic_centroid": 0.6566,
+  "cited_by": 0.4992,
+  "note": "The topical-over-prestige pattern replicates on the six-vendor scores: centroid similarity 0.657 against citation count 0.499, exactly at chance. Independent of the earlier result, since the scores come from different models."
+ },
+ "controls": {
+  "n_seeds": 15,
+  "n_candidates": 272,
+  "auc": 0.4509,
+  "auc_ci95": [
+   0.2975,
+   0.6042
+  ],
+  "usable": false,
+  "note": "AUC 0.451 [0.298, 0.604], at chance -- but this is an artefact of the sample design, not a screener failure, and must not be reported as one. The 311 records were stratified 60-per-score-band to make the agreement and robustness designs efficient, which over-represents high scorers by construction: band 7-9 is 30.7% of the sample against 12.4% of the corpus. The candidate pool is therefore enriched with exactly the records that score like seeds, and a seeds-vs-candidates comparison on it is not interpretable. The valid control figures are the ones computed on the unstratified corpora (0.658 favourable, 0.631 large, 0.58-0.73 adverse). To repeat this design cross-vendor, score a random rather than stratified sample."
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "1_recall": {
+  "prediction": "estimated recall lower in the adverse corpus",
+  "adverse": 0.87,
+  "favourable": 0.484,
+  "held": false,
+  "note": "Chapman on (openalex, scopus), the only arm pair non-degenerate in all three cases"
+ },
+ "2_unresolvable": {
+  "prediction": "unresolvable share proportionally higher in the adverse corpus",
+  "adverse": 0.0482,
+  "favourable": 0.0385,
+  "large": 0.0119,
+  "held": true
+ },
+ "3_rule": {
+  "prediction": "the marginal-yield rule fires earlier in the adverse corpus",
+  "adverse_stop": "none \u2014 halted on exhausted LLM screening resource mid-iterat",
+  "favourable_stop": "budget",
+  "testable": false,
+  "note": "neither case reached a rule-driven stop: mid and large hit their screening budget at iteration 1 and adverse halted on an exhausted screening resource mid-iteration-2. No stopping rule fired in any case, so the prediction is untested, not refuted."
+ },
+ "4_scopus": {
+  "prediction": "the Scopus arm captures a smaller share of included records",
+  "adverse": 0.0915,
+  "favourable": 0.0767,
+  "large": 0.3124,
+  "ceiling_adverse": 0.658,
+  "ceiling_favourable": 0.959,
+  "held": false
+ }
+}

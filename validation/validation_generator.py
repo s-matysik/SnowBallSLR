@@ -87,6 +87,21 @@ def generate_graph(spec: GraphSpec) -> dict[str, Any]:
         f"p{j}": {k: [] for k in keys} for j in range(len(spec.provider_coverage))
     }
 
+    # Whether a provider indexes a record is decided ONCE per (provider, record). The
+    # shared latent term makes the two providers positively dependent -- a well-indexed
+    # work tends to be carried by both -- while the independent term leaves room for
+    # provider-only capture, which is the signal capture-recapture arms rely on.
+    indexed: dict[str, dict[str, bool]] = {}
+    for j, cov in enumerate(spec.provider_coverage):
+        pj = f"p{j}"
+        indexed[pj] = {}
+        for k in keys:
+            mix = (
+                spec.provider_dependence * latent[k]
+                + (1 - spec.provider_dependence) * rng.random()
+            )
+            indexed[pj][k] = mix < cov
+
     by_year: dict[int, list[str]] = {}
     for k in keys:
         by_year.setdefault(meta[k]["year"], []).append(k)
@@ -133,9 +148,13 @@ def generate_graph(spec: GraphSpec) -> dict[str, Any]:
         for j, cov in enumerate(spec.provider_coverage):
             pj = f"p{j}"
             for tgt in references[src]:
-                u = rng.random()
-                mix = spec.provider_dependence * latent[tgt] + (1 - spec.provider_dependence) * u
-                if mix < cov:
+                # Indexing is a property of the RECORD, not of each edge pointing at
+                # it. Drawing per edge made a work's chance of being missed 0.28**d in
+                # its in-degree d, so at a median in-degree of ~21 every work was
+                # visible to every provider and simulated arm overlap was 100% -- while
+                # the live runs show 6% to 45%. Deciding once per (provider, record)
+                # reproduces provider-only capture, which is what the arms measure.
+                if indexed[pj][tgt]:
                     provider_edges[pj][src].append(tgt)
 
     citations: dict[str, list[str]] = {k: [] for k in keys}

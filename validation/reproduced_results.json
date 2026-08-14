@@ -1,0 +1,28 @@
+{
+ "arms": {
+  "direction_iter1_mean_overlap": 11.5,
+  "direction_iter2_mean_overlap": 86,
+  "direction_iter3_mean_overlap": 98,
+  "provider_iter1_mean_overlap": 55.5,
+  "provider_iter2_mean_overlap": 109.5,
+  "provider_iter3_mean_overlap": 110
+ },
+ "stopping": {
+  "n_cells": 90,
+  "achievable_ceiling_mean": 0.924,
+  "marginal_yield_n_fired": 25,
+  "marginal_yield_mean_true_recall": 0.926,
+  "asymptote_n_fired": 7,
+  "asymptote_mean_true_recall": 0.93,
+  "budget_n_fired": 0,
+  "budget_mean_true_recall": null,
+  "exhaustion_n_fired": 90,
+  "exhaustion_mean_true_recall": 0.924,
+  "estimated_recall_prefix_n_fired": 90,
+  "estimated_recall_prefix_mean_true_recall": 0.66,
+  "estimated_recall_guarded_n_fired": 23,
+  "estimated_recall_guarded_mean_true_recall": 0.924
+ },
+ "quick": true,
+ "tolerance": 0.2
+}

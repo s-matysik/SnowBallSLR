@@ -5,6 +5,8 @@ Each test names the failure it locks down. All are offline and deterministic.
 
 from __future__ import annotations
 
+import re
+
 import pytest
 
 from snowballslr import Config
@@ -268,3 +270,96 @@ def test_verify_detects_a_tampered_request_key(tmp_path):
     report = verify_replay(tmp_path / "r", strict=False)
     assert not report.ok
     assert any("request key" in m for m in report.cache_entries_mismatched)
+
+def test_report_quotes_the_manifest_config_hash_not_the_live_one(tmp_path):
+    """The report printed `run.config.config_hash`, the LIVE value. Editing the config
+    after a run -- raising an iteration cap to continue past it, say -- made the report
+    quote a hash the manifest could not corroborate, while claiming the reader could
+    check it against that manifest."""
+    run = _run_with_cache(tmp_path)
+    recorded = run.manifest.config_hash
+
+    # change the config the way continuing a stopped run does, then regenerate
+    run.config.run.max_iterations += 6
+    assert run.config.config_hash != recorded, "expected the edit to move the hash"
+    run.report()
+
+    report = (tmp_path / "r" / "outputs" / "report.md").read_text()
+    hashes = re.findall(r"sha256:[0-9a-f]{64}", report)
+    assert hashes[0] == recorded, "the first hash printed must be the manifest's own"
+    assert "Configuration changed after this run was written" in report
+    assert run.config.config_hash in report, "the divergent live hash must be named too"
+
+
+def test_report_omits_the_drift_note_when_config_is_unchanged(tmp_path):
+    """The disclosure must not fire on a clean run, or every report carries a warning."""
+    run = _run_with_cache(tmp_path)
+    run.report()
+    report = (tmp_path / "r" / "outputs" / "report.md").read_text()
+    assert run.manifest.config_hash in report
+    assert "Configuration changed" not in report
+
+
+def test_verify_detects_a_config_edited_after_the_run(tmp_path):
+    """The drift check must read the LIVE config file, not the manifest's own snapshot.
+
+    A first version compared the snapshot against itself, which passes by construction
+    and therefore missed the case it was written for: an iteration cap raised in
+    `<run_dir>/config.yaml` to continue a stopped run, after which any regenerated
+    report quotes a hash the manifest cannot corroborate.
+    """
+    from snowballslr.determinism.verify import verify_replay
+
+    run = _run_with_cache(tmp_path)
+    assert verify_replay(tmp_path / "r", strict=False).ok
+
+    run.config.run.max_iterations += 6
+    run.config.to_yaml(tmp_path / "r" / "config.yaml")
+
+    report = verify_replay(tmp_path / "r", strict=False)
+    assert not report.ok
+    assert report.config_drift is not None
+    assert "run.max_iterations" in report.config_drift
+    assert "config.yaml" in report.config_drift
+
+
+def test_verify_rejects_a_manifest_whose_snapshot_contradicts_its_hash(tmp_path):
+    """`verify` never rehashed the manifest's own config snapshot, so a snapshot edited
+    apart from its recorded hash passed unnoticed."""
+    import json as _json
+
+    from snowballslr.determinism.verify import verify_replay
+
+    _run_with_cache(tmp_path)
+    assert verify_replay(tmp_path / "r", strict=False).ok
+
+    manifest_path = tmp_path / "r" / "run.json"
+    payload = _json.loads(manifest_path.read_text())
+    payload["config"]["stopping"]["mode"] = "all_of"
+    manifest_path.write_text(_json.dumps(payload))
+
+    report = verify_replay(tmp_path / "r", strict=False)
+    assert not report.ok
+    assert report.config_drift is not None
+    assert "altered apart from its hash" in report.config_drift
+
+
+def test_verify_tolerates_a_setting_added_after_the_run(tmp_path):
+    """A run predating a later-added setting stores no value for it, so reloading fills
+    in that setting's default and moves the hash. Failing on that would make `verify`
+    useless against any run older than the current release."""
+    import json as _json
+
+    from snowballslr.determinism.verify import verify_replay
+
+    _run_with_cache(tmp_path)
+    manifest_path = tmp_path / "r" / "run.json"
+    payload = _json.loads(manifest_path.read_text())
+    # emulate an older manifest: the settings simply are not recorded at all
+    payload["config"]["estimate"].pop("membership_doi_column", None)
+    payload["config"]["estimate"].pop("membership_sets", None)
+    manifest_path.write_text(_json.dumps(payload))
+
+    report = verify_replay(tmp_path / "r", strict=False)
+    assert report.config_drift is None, report.config_drift
+    assert report.ok

@@ -93,7 +93,21 @@ def build_summary(run: Any) -> str:
 
     lines.append("## Reproducibility")
     lines.append("")
-    lines.append(f"- Config hash: `{run.config.config_hash}`")
+    # The reader checks this against the manifest, so it must be the manifest's own
+    # value. Printing the live config hash silently diverges whenever the config is
+    # edited after the run was written -- a raised iteration cap, an adjusted
+    # threshold -- leaving the report quoting a hash `verify` cannot corroborate.
+    recorded = run.manifest.config_hash if run.manifest is not None else None
+    live = run.config.config_hash
+    lines.append(f"- Config hash: `{recorded or live}`")
+    if recorded is not None and recorded != live:
+        lines.append(
+            f"- **Configuration changed after this run was written.** The manifest "
+            f"records `{recorded}`, which is the configuration the run executed "
+            f"under; the configuration now on disk hashes to `{live}`. The counts "
+            f"above describe the run as executed. Re-running from the current "
+            f"configuration would not reproduce them."
+        )
     lines.append(f"- Cache entries: {len(run.cache)}")
     lines.append(
         "- Re-run `snowballslr verify <run_dir>` to confirm that this run "

@@ -72,6 +72,7 @@ class VerifyReport:
     artifacts_mismatched: list[str] = field(default_factory=list)
     entries_checked: int = 0
     cache_entries_mismatched: list[str] = field(default_factory=list)
+    config_drift: str | None = None
     counts: dict[str, int] = field(default_factory=dict)
     per_provider: dict[str, dict[str, int]] = field(default_factory=dict)
     diffs: list[EntryDiff] = field(default_factory=list)
@@ -86,6 +87,7 @@ class VerifyReport:
             "artifacts_mismatched": sorted(self.artifacts_mismatched),
             "entries_checked": self.entries_checked,
             "cache_entries_mismatched": sorted(self.cache_entries_mismatched),
+            "config_drift": self.config_drift,
             "counts": dict(sorted(self.counts.items())),
             "per_provider": {
                 k: dict(sorted(v.items())) for k, v in sorted(self.per_provider.items())
@@ -211,6 +213,131 @@ def _verify_cache_integrity(cache: Cache) -> list[str]:
     return sorted(bad)
 
 
+def _only_new_schema_keys(stored: Mapping[str, Any], config_cls: Any) -> bool:
+    """True when reloading the snapshot adds settings but changes none it recorded.
+
+    A run written before a setting existed stores no key for it, so reloading supplies
+    that setting's default and the hash moves. That is the schema advancing, not the
+    configuration being altered, and failing on it would make `verify` useless against
+    any run older than the current release.
+
+    This must be narrow. Rehashing an EDITED snapshot reproduces the edited value, so
+    the round-trip agrees with itself and only the mismatch against the manifest's
+    recorded hash reveals tampering. The allowance therefore applies only when the
+    round-trip genuinely ADDS keys and leaves every recorded value untouched.
+    """
+    try:
+        reloaded = config_cls.from_dict(stored).hashable()
+    except Exception:
+        return False
+
+    added = False
+
+    def walk(a: Any, b: Any) -> bool:
+        nonlocal added
+        if isinstance(a, Mapping) and isinstance(b, Mapping):
+            for key in set(a) | set(b):
+                if key not in a:
+                    added = True  # a setting the run predates
+                    continue
+                if key not in b:
+                    return False  # the run recorded a value the schema dropped
+                if a[key] is None and b[key] is not None:
+                    added = True  # stored as null, now carries a default
+                    continue
+                if not walk(a[key], b[key]):
+                    return False
+            return True
+        return bool(a == b)
+
+    return walk(stored, reloaded) and added
+
+
+def _changed_settings(
+    stored: Mapping[str, Any], live: Mapping[str, Any]
+) -> list[tuple[str, Any, Any]]:
+    """Settings the run recorded whose value has since changed, as (path, was, now).
+
+    Keys the run did not record are skipped: their value in `live` is whatever the
+    current schema defaults to, which says nothing about the run.
+    """
+    out: list[tuple[str, Any, Any]] = []
+
+    def walk(a: Any, b: Any, path: str) -> None:
+        if isinstance(a, Mapping):
+            if not isinstance(b, Mapping):
+                out.append((path, a, b))
+                return
+            for key in sorted(a):
+                if a[key] is None:
+                    continue
+                walk(a[key], b.get(key), f"{path}.{key}" if path else str(key))
+        elif a != b:
+            out.append((path, a, b))
+
+    walk(stored, live, "")
+    return out
+
+
+def _verify_config_hash(root: Path, manifest: RunManifest) -> str | None:
+    """Return a description of any drift between the live config and the manifest.
+
+    Two distinct things can go wrong, and both must be checked:
+
+    1. The manifest's own snapshot no longer hashes to its recorded hash -- the
+       snapshot was edited apart from the hash, or the schema has moved under it.
+    2. `<run_dir>/config.yaml`, which `Run.load` reads and which therefore drives
+       every regenerated report, no longer matches the configuration the run
+       executed under. Raising a stopping threshold or an iteration cap to continue
+       a stopped run writes this file, so the run directory ends up holding a report
+       whose config hash the manifest cannot corroborate.
+
+    Checking only (1) is not enough: it compares the snapshot against itself and
+    passes on exactly the drift that motivated this check.
+    """
+    from ..config import Config
+
+    recorded = manifest.config_hash
+    try:
+        snapshot = Config.from_dict(manifest.config).config_hash
+    except Exception as exc:  # a snapshot the current schema cannot load is itself drift
+        return f"manifest config could not be reloaded under the current schema: {exc}"
+    if snapshot != recorded and not _only_new_schema_keys(manifest.config, Config):
+        # A snapshot that rehashes differently is drift ONLY if the difference is in
+        # values the run actually set. A run predating a later-added setting stores no
+        # key for it, so reloading supplies that setting's default and moves the hash --
+        # schema evolution, not tampering, and failing on it would make `verify` useless
+        # against any run older than the current release.
+        return (
+            f"the manifest's config snapshot hashes to {snapshot} but the manifest "
+            f"records {recorded}; the snapshot was altered apart from its hash, so the "
+            f"manifest no longer describes the run"
+        )
+
+    cfg_path = root / "config.yaml"
+    if not cfg_path.exists():
+        return None
+    try:
+        live_cfg = Config.from_yaml(cfg_path)
+    except Exception as exc:
+        return f"{cfg_path.name} could not be loaded under the current schema: {exc}"
+    live = live_cfg.config_hash
+    if live == recorded:
+        return None
+    # Both sides are hashed through the current schema here, so a bare hash difference
+    # can still be schema evolution: the snapshot predates a setting whose default the
+    # live file now carries explicitly. Compare the values the run actually recorded.
+    changed = _changed_settings(manifest.config, live_cfg.hashable())
+    if not changed:
+        return None
+    detail = "; ".join(f"{path}: {was!r} -> {now!r}" for path, was, now in changed[:4])
+    return (
+        f"{cfg_path.name} hashes to {live} but the run executed under {recorded} "
+        f"({detail}); the configuration was changed after the run was written, so any "
+        f"report regenerated from it describes a configuration this run did not use"
+    )
+
+
 def verify_replay(run_dir: str | Path, *, strict: bool = True) -> VerifyReport:
     """Recompute artifacts from cache and compare against the manifest."""
     root = Path(run_dir)
@@ -237,6 +364,14 @@ def verify_replay(run_dir: str | Path, *, strict: bool = True) -> VerifyReport:
         if hash_file(path) != expected:
             report.artifacts_mismatched.append(name)
 
+    # The manifest records the configuration the run actually executed under. If the
+    # configuration on disk has since changed -- a stopping threshold edited, an
+    # iteration cap raised to let a stopped run continue -- then the manifest no
+    # longer describes the run, and any report regenerated from the live config will
+    # quote a different config hash than the manifest it claims to match. Comparing
+    # the two is the only way that drift becomes visible.
+    report.config_drift = _verify_config_hash(root, manifest)
+
     cache = Cache(root / manifest.config.get("determinism", {}).get("cache_dir", "cache"))
     report.entries_checked = len(cache)
 
@@ -247,7 +382,11 @@ def verify_replay(run_dir: str | Path, *, strict: bool = True) -> VerifyReport:
     # carries the hash of its own body -- so both are cheap to re-check.
     report.cache_entries_mismatched.extend(_verify_cache_integrity(cache))
 
-    report.ok = not report.artifacts_mismatched and not report.cache_entries_mismatched
+    report.ok = (
+        not report.artifacts_mismatched
+        and not report.cache_entries_mismatched
+        and report.config_drift is None
+    )
 
     if strict and not report.ok:
         report.write(root)

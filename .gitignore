@@ -93,6 +93,11 @@ softwarex-osp-template*.docx
 # use the sanitised copies under llm_eval/ instead.
 *.ipynb
 .ipynb_checkpoints/
+# One exception, by explicit path: the Colab quickstart. It is authored for
+# publication, holds no credentials, and is committed with every cell unexecuted so
+# there are no stored outputs to leak. The blanket rule above still covers every
+# other notebook, including any new one dropped into this directory.
+!notebooks/SnowBallSLR_quickstart.ipynb
 
 # API keys for the cross-vendor validation script -- never committed.
 .env

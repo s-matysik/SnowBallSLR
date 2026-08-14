@@ -37,6 +37,12 @@ PAGES: tuple[Page, ...] = (
         "Deterministic, saturation-aware snowballing for systematic literature reviews.",
     ),
     Page(
+        "COLAB.md",
+        "colab.html",
+        "Run it in Colab",
+        "Install and run a review in a Google Colab notebook, with nothing to set up locally.",
+    ),
+    Page(
         "SPEC.md",
         "spec.html",
         "Specification",

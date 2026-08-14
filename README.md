@@ -12,11 +12,17 @@ pip install ./SnowBallSLR
 ```
 
 A PyPI release is pending; until it lands, install from a clone as above. What was tested: a
-clean-virtual-environment install from a local checkout, after which `import snowballslr` and the
-`snowballslr` console script both work outside the source tree. `pip install
-git+https://github.com/s-matysik/SnowBallSLR.git` should be equivalent — the repository carries the
-same `pyproject.toml`, and it declares the build backend and console script — but it has not been
-exercised here, so the two-step form above is the one to trust.
+clean-virtual-environment install from a local checkout on Python 3.12, after which `import
+snowballslr` and the `snowballslr` console script both work outside the source tree, a live
+two-provider crawl resolves seeds and returns candidates, and the offline fixture path runs without
+network access. `pip install git+https://github.com/s-matysik/SnowBallSLR.git` should be equivalent
+— the repository carries the same `pyproject.toml`, declaring the build backend and console script —
+but it has not been exercised here, so the two-step form above is the one to trust.
+
+**No local setup: run it in Colab.** [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/s-matysik/SnowBallSLR/blob/main/notebooks/SnowBallSLR_quickstart.ipynb)
+The notebook installs the package, configures a two-source run, expands one iteration, screens, and
+writes PRISMA outputs. [COLAB.md](COLAB.md) covers the same ground in prose, including how to
+archive a run to Drive so it survives the runtime being deleted.
 
 ---
 
@@ -97,6 +103,21 @@ Every estimate carries diagnostics, and the library refuses to bluff:
 Estimates with fewer than three overlapping records are refused outright, and Chao1 is refused when every record was captured exactly once. A number that looks authoritative in a manuscript but rests on an overlap of one is worse than no number.
 
 **Choose arms that can capture the same record.** A citation graph is temporally acyclic, so backward and forward expansion sample near-disjoint strata: a work older than your seeds is normally reachable only backward, a newer one only forward. On this project's own reference run the two direction arms shared **0 of 478** records, and recall was correctly reported as not estimable; the same run under OpenAlex/Crossref arms overlaps on **172**. Arms are therefore defined by *provider* by default. Overlap also accrues only from the second iteration onward, which is why the `estimated_recall` rule will not fire while the estimated population is still moving (see below).
+
+**A database export can be a third arm.** Two provider arms leave independence untestable, and two arms drawn from citation APIs share whatever those APIs share. An arm can therefore filter on membership of a named record set loaded from a CSV of DOIs — a Scopus or Web of Science export, say — which is captured by a Boolean query rather than by citation chasing:
+
+```yaml
+estimate:
+  membership_sets:
+    scopus: exports/scopus.csv          # resolved relative to the run directory
+  arms:
+    - {name: openalex, filter: {provider: openalex}}
+    - {name: crossref, filter: {provider: crossref}}
+    - {name: scopus,   filter: {member_of: scopus}}
+  method: loglinear
+```
+
+An arm naming an undeclared set fails at configuration time rather than mid-run. How much the arms overlap governs whether the recall rule can fire at all: across four live reviews the two provider arms overlapped on 6% to 45% of included records, and at the low end the lower confidence bound never reaches a 0.95 threshold — correctly, because the population really is incompletely covered.
 
 ## Related tools
 

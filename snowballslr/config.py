@@ -173,6 +173,14 @@ class EstimateSettings(BaseModel):
     )
     method: Literal["chapman", "loglinear", "chao"] = "chapman"
 
+    # Membership arms: name -> path of a database export (CSV with a DOI column).
+    # An arm filter {"member_of": "<name>"} then captures records whose DOI is in
+    # that export. Both provider arms come from the same crawl, so a third arm
+    # drawn from a database the crawl did not use is what makes independence
+    # testable: with two arms a 2x2 table has no residual degree of freedom.
+    membership_sets: dict[str, str] = Field(default_factory=dict)
+    membership_doi_column: str = "DOI"
+
 
 class DeterminismSettings(BaseModel):
     cache_dir: str = "cache"
@@ -333,6 +341,33 @@ class Config(BaseModel):
             out.append(
                 f"estimate.method='{self.estimate.method}' is configured with only "
                 "two arms; log-linear model selection requires three or more."
+            )
+
+        members = {f.get("member_of") for f in filters if f.get("member_of")}
+        undeclared = members - set(self.estimate.membership_sets)
+        if undeclared:
+            out.append(
+                f"estimate.arms references membership set(s) {sorted(undeclared)} "
+                "that are not declared in estimate.membership_sets, so the "
+                "estimate will fail when it is computed. Declare each as "
+                "{name: path-to-export.csv}."
+            )
+        missing_files = {
+            name: path
+            for name, path in self.estimate.membership_sets.items()
+            if not Path(path).exists()
+        }
+        if missing_files:
+            out.append(
+                f"estimate.membership_sets points at missing file(s) "
+                f"{sorted(missing_files.values())}; those arms will capture nothing."
+            )
+        if members and not self.method_needs_three_arms() and len(self.estimate.arms) >= 3:
+            out.append(
+                "a membership arm is configured alongside three or more arms, but "
+                f"estimate.method='{self.estimate.method}' only uses the first two. "
+                "Set method: loglinear to use the third arm and make the "
+                "independence assumption testable."
             )
         return out
 

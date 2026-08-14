@@ -19,7 +19,7 @@ from typing import Any
 from ..config import Config
 from ..determinism.cache import Cache
 from ..determinism.manifest import IterationRecord, RunManifest, hash_obj
-from ..errors import LabelError, StateError
+from ..errors import ConfigError, LabelError, StateError
 from ..estimate import estimate_recall
 from ..identity.dedup import deduplicate
 from ..identity.keys import parse_identifier
@@ -625,7 +625,38 @@ class Run:
             arms,
             method=method or self.config.estimate.method,
             cache_window=window,
+            membership=self._membership_sets(),
         )
+
+    def _membership_sets(self):
+        """Membership arms, loaded once and cached for the run's lifetime.
+
+        Paths resolve relative to the run directory when not absolute, so a run
+        stays portable: a run directory moved alongside its exports still
+        estimates. A missing export is a hard error rather than a silently empty
+        arm, because an empty arm captures nothing and would make the estimate
+        look merely unlucky.
+        """
+        from ..estimate.membership import MembershipSet
+
+        spec = self.config.estimate.membership_sets
+        if not spec:
+            return None
+        if getattr(self, "_membership_cache", None) is None:
+            loaded = {}
+            for name, raw in spec.items():
+                path = Path(raw)
+                if not path.is_absolute() and not path.exists():
+                    path = self.root / raw
+                if not path.exists():
+                    raise ConfigError(
+                        f"membership set '{name}' points at a missing export: {raw}"
+                    )
+                loaded[name] = MembershipSet.from_csv(
+                    name, path, doi_column=self.config.estimate.membership_doi_column
+                )
+            self._membership_cache = loaded
+        return self._membership_cache
 
     def _cache_window(self) -> tuple[str, str] | None:
         stamps = sorted(

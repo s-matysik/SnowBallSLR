@@ -9,9 +9,11 @@ from .assumptions import AssumptionReport, diagnose, odds_ratio
 from .capture_recapture import RecallEstimate, chapman, lincoln_petersen
 from .chao import chao1, frequency_counts
 from .loglinear import loglinear
+from .membership import MembershipSet, load_membership_sets, normalize_doi
 
 __all__ = [
     "AssumptionReport",
+    "MembershipSet",
     "RecallEstimate",
     "capture_histories",
     "chao1",
@@ -20,18 +22,37 @@ __all__ = [
     "estimate_recall",
     "frequency_counts",
     "lincoln_petersen",
+    "load_membership_sets",
     "loglinear",
+    "normalize_doi",
     "odds_ratio",
 ]
 
 
-def _matches(work: Work, criteria: Mapping[str, str]) -> bool:
+def _matches(
+    work: Work,
+    criteria: Mapping[str, str],
+    membership: Mapping[str, MembershipSet] | None = None,
+) -> bool:
     for field, expected in criteria.items():
         if field == "direction":
             if Direction(expected) not in work.directions:
                 return False
         elif field == "provider":
             if expected not in work.providers:
+                return False
+        elif field == "member_of":
+            # A record is captured by a membership arm when its DOI appears in
+            # the named external set. A record without a DOI can never match:
+            # that is a real property of the arm, not a defect, and it is why
+            # MembershipSet reports the coverage of its source export.
+            arm_set = (membership or {}).get(expected)
+            if arm_set is None:
+                raise KeyError(
+                    f"arm filter references unknown membership set '{expected}'; "
+                    f"configured: {sorted(membership or {})}"
+                )
+            if work.doi not in arm_set:
                 return False
         else:
             if getattr(work, field, None) != expected:
@@ -40,7 +61,9 @@ def _matches(work: Work, criteria: Mapping[str, str]) -> bool:
 
 
 def capture_histories(
-    included: Sequence[Work], arms: Sequence[Mapping[str, object]]
+    included: Sequence[Work],
+    arms: Sequence[Mapping[str, object]],
+    membership: Mapping[str, MembershipSet] | None = None,
 ) -> dict[str, list[str]]:
     """Which arms captured each included work.
 
@@ -52,7 +75,7 @@ def capture_histories(
         hit = [
             str(arm["name"])
             for arm in arms
-            if _matches(work, dict(arm.get("filter") or {}))  # type: ignore[arg-type]
+            if _matches(work, dict(arm.get("filter") or {}), membership)  # type: ignore[arg-type]
         ]
         if hit:
             out[work.key] = sorted(set(hit))
@@ -66,9 +89,10 @@ def estimate_recall(
     method: str = "chapman",
     with_diagnostics: bool = True,
     cache_window: tuple[str, str] | None = None,
+    membership: Mapping[str, MembershipSet] | None = None,
 ) -> RecallEstimate:
     """Estimate recall of the union of source arms."""
-    histories = capture_histories(included, arms)
+    histories = capture_histories(included, arms, membership)
     arm_names = [str(a["name"]) for a in arms]
 
     if method == "chao":

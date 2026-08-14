@@ -7,8 +7,16 @@ Automated bidirectional citation searching (backward and forward) that iterates 
 To our knowledge, and based on a survey of citation-searching tools indexed on PyPI, CRAN and GitHub as of August 2026, no existing tool combines all three of: configurable quantitative stopping rules evaluated and logged at every iteration; capture–recapture recall estimation with explicit assumption diagnostics; and a hash-verified reproducibility layer that replays from a content-addressed response cache and classifies database drift on refetch. It is *not* the first tool to perform bidirectional citation searching — citationchaser and paperfetcher (both 2022) precede it, and both are cited below.
 
 ```bash
-pip install snowballslr
+git clone https://github.com/s-matysik/SnowBallSLR.git
+pip install ./SnowBallSLR
 ```
+
+A PyPI release is pending; until it lands, install from a clone as above. What was tested: a
+clean-virtual-environment install from a local checkout, after which `import snowballslr` and the
+`snowballslr` console script both work outside the source tree. `pip install
+git+https://github.com/s-matysik/SnowBallSLR.git` should be equivalent — the repository carries the
+same `pyproject.toml`, and it declares the build backend and console script — but it has not been
+exercised here, so the two-step form above is the one to trust.
 
 ---
 
@@ -103,7 +111,7 @@ SnowBallSLR is not the first tool to do bidirectional citation searching, and do
 | [LitBall](https://arxiv.org/abs/2402.08339) | Kotlin/JVM desktop | repo @ 2025-09-29 | ✅ | ✅ (user-driven rounds) | ✗ (stop is the curator's judgement) | ✗ | partial (persists state; no artifact manifest) |
 | SpiderCite (SR-Accelerator) | Web app | not inspected | ✅ (documented) | n/d | n/d | n/d | n/d |
 | [SYMBALS](https://doi.org/10.3389/frma.2021.685591) | Methodology | published article | ✗ (backward only) | ✅ (with active learning) | ✗ | ✗ | ✗ |
-| [ReviQ](https://doi.org/10.1016/j.softx.2026.102814) | Review workbench (Docker) | repo @ 2026-08-10 | ✗ (the chase is done externally and imported as BibTeX; no citation retrieval in the codebase) | records iterations | ✗ (saturation is a reviewer-set flag with an undo endpoint) | ✗ (relative recall per database; the source notes the true population is unknown) | ✗ (state export; no response hashing or cache) |
+| [ReviQ](https://doi.org/10.1016/j.softx.2026.102814) | Review workbench (Docker) | repo @ 2026-08-10 | ✗ (the chase is done externally and imported as BibTeX; no citation retrieval in the codebase) | ✗ (iterations are recorded, not performed) | ✗ (saturation is a reviewer-set flag with an undo endpoint) | ✗ (relative recall per database; the source notes the true population is unknown) | ✗ (state export; no response hashing or cache) |
 | **SnowBallSLR** | Python library + CLI | this repo, v1.0.0 | ✅ | ✅ (automatic) | ✅ (five rules, all logged every iteration) | ✅ (Chapman / log-linear / Chao1, with diagnostics) | ✅ (response cache, artifact manifest, drift classification) |
 
 A word on **ReviQ**, because the ✗ marks above understate it: it is a complete review workbench covering all eight Kitchenham phases, with two-reviewer screening, Cohen's κ and PABAK, quality assessment and data extraction — everything this library deliberately leaves out. The marks record only that it manages citation searching rather than performing it. The two compose: ReviQ can run the review, SnowBallSLR the citation-searching stage. Marks verified against its source, see `audit/reviq_code_audit.md`.

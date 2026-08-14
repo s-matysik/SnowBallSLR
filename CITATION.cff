@@ -10,7 +10,7 @@ abstract: >-
   hashed into a run manifest, and a verify command re-checks both and classifies
   what the databases changed on refetch.
 type: software
-version: 1.0.0
+version: 1.1.0
 license: MIT
 repository-code: "https://github.com/s-matysik/SnowBallSLR"
 keywords:

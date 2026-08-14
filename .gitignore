@@ -41,6 +41,33 @@ labels_*.csv
 # Internal audit and positioning material, kept out of the public repository:
 # the competitor threat assessment and the claim register are working documents
 # for manuscript preparation, not part of the software.
+# Scopus exports are licensed Elsevier content: the repository is MIT, but these
+# are not ours to redistribute. cases/ keeps the DOI-level results derived from
+# them, which is what a reader needs to check the analysis.
+scopus/
+cases/scores_*.json
+# Raw cross-vendor scores: keyed to record text derived from the licensed export.
+# The derived statistics in cases/xvendor_{validation,agreement,threshold,bibliometric}.json
+# are tracked, so a reviewer can check every reported figure without the raw scores.
+cases/xvendor_scores.json
+
+# Intermediate candidate pools handed to the screening sub-agents for the narrow run.
+# These are working files, superseded by cases/narrow_run.json (the full per-iteration
+# record) and llm_screening/narrow_run_outputs/ (PRISMA, included studies, manifest),
+# both of which ARE tracked.
+llm_screening/narrow?_slice_*.json
+
+# Scratch directory used to pass data between tools during analysis sessions.
+handoff/
+
+# Intermediate per-case screening state. These are working files -- batch streams and
+# candidate pools -- and some carry record abstracts derived from the licensed Scopus
+# export, which cannot be redistributed. The derived per-record scores and every
+# reported statistic live in cases/*.json, which IS tracked, so a reviewer can check
+# any published figure without them.
+llm_screening/case_*/
+llm_screening/adverse/
+
 notes/
 audit/
 AUDIT_INDEX.md
@@ -66,3 +93,6 @@ softwarex-osp-template*.docx
 # use the sanitised copies under llm_eval/ instead.
 *.ipynb
 .ipynb_checkpoints/
+
+# API keys for the cross-vendor validation script -- never committed.
+.env

@@ -61,11 +61,19 @@ estimate:
   # near-disjoint strata of a temporally acyclic graph, so direction arms
   # typically give zero overlap and no estimate; providers overlap heavily.
   # A third arm makes the independence assumption testable.
+  # The two API arms above frequently nest -- Crossref can be a strict subset of
+  # OpenAlex -- which the diagnostics flag as uninformative rather than reporting a
+  # spurious recall of 1.0. A membership arm built from a database export you already
+  # have is a genuinely different indexing pipeline and does not require a third API.
+  # Point membership_sets at your own export and uncomment the third arm to use it.
   arms:
     - {name: openalex, filter: {provider: openalex}}
     - {name: crossref, filter: {provider: crossref}}
-    - {name: semanticscholar, filter: {provider: semanticscholar}}
-  method: loglinear
+    # - {name: scopus, filter: {member_of: scopus}}
+  # membership_sets:
+  #   scopus: "scopus_export.csv"     # path relative to the run directory
+  # membership_doi_column: "DOI"
+  method: chapman                    # switch to loglinear once a third arm is enabled
 
 determinism:
   cache_dir: "cache"

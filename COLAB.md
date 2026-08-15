@@ -1,5 +1,10 @@
 # Running SnowBallSLR in Google Colab
 
+**[▶ Open the ready-made notebook in Colab](https://colab.research.google.com/github/s-matysik/SnowBallSLR/blob/main/notebooks/SnowBallSLR_quickstart.ipynb)**
+— nothing to install on your own machine. A Google account is all you need: the notebook
+runs in a browser tab, on Google's hardware, and you work through it cell by cell. If you
+would rather read first, the same workflow is written out below.
+
 Everything below was run end to end on a clean Python 3.12 environment — the version
 Colab ships — with no editable install and no repository on the path. Where a step's
 output is quoted, it is the output that step actually produced.

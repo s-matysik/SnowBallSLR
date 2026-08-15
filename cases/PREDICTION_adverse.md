@@ -1,10 +1,10 @@
-# Pre-registered prediction — adverse case
+# Pre-registered prediction - adverse case
 
-**Case:** `adverse` — Scopus query `"innovation" AND "marketing" AND "automation"`
+**Case:** `adverse` - Scopus query `"innovation" AND "marketing" AND "automation"`
 **Registered:** 2026-08-13T01:17:50Z (UTC, machine clock), before any `label`, `step` or
 `report` action was invoked on `run_adverse/`. The run's `init` had already been performed by
 the study harness at 2026-08-13T01:08:16Z; no screening decision existed at registration time
-(`state.json`: `phase = awaiting_labels`, `decisions = 15` — the 15 seeds only, `pending = 1551`).
+(`state.json`: `phase = awaiting_labels`, `decisions = 15` - the 15 seeds only, `pending = 1551`).
 Repo HEAD at registration: `770f4f8`.
 
 This file is the case-level instance of the study-wide prediction in `PREDICTION.md`. It is
@@ -18,7 +18,7 @@ demonstrably predates them.
 | Scopus export records | 260 |
 | DOI coverage in export | 65.8% |
 | Median references per record | 16 |
-| Publication span | 1971–2025 |
+| Publication span | 1971-2025 |
 | Seeds | 15 (DOI-resolved, all 15 resolved) |
 | Iteration-1 candidates | 1,551 |
 | Screening budget (cumulative screened) | 4,000 |
@@ -39,7 +39,7 @@ coverage, median 84 references):
 2. **The unresolvable share of identified records will be proportionally higher.** 65.8% DOI
    coverage means more retrieved references carry no persistent identifier; unresolvable records
    are retained and screened but are terminal nodes and are never expanded.
-3. **The marginal-yield rule will fire earlier** — in fewer iterations — because the frontier
+3. **The marginal-yield rule will fire earlier** - in fewer iterations - because the frontier
    exhausts sooner. (Exhaustion firing before marginal yield would be consistent with the same
    underlying mechanism; budget firing first would not.)
 4. **The Scopus membership arm will capture a smaller share of included records**, bounded above
@@ -74,7 +74,7 @@ coverage, median 84 references):
 
 ## What would refute the design rather than the prediction
 
-If the three-arm log-linear estimator is not estimable in this case at all — for example because
-the Scopus arm captures too few included records to fit an interaction term — then the adverse
+If the three-arm log-linear estimator is not estimable in this case at all - for example because
+the Scopus arm captures too few included records to fit an interaction term - then the adverse
 case cannot speak to arm dependence, and that is a limitation of the estimator's applicability
 rather than evidence about recall. It will be reported as such.

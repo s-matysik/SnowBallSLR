@@ -1,4 +1,4 @@
-# SnowSLR — Implementation Specification v1.0
+# SnowSLR - Implementation Specification v1.0
 
 **Deterministic, saturation-aware snowballing for systematic literature reviews.**
 
@@ -13,7 +13,7 @@ Target: Python ≥3.11 · MIT · PyPI `snowballslr` · Zenodo DOI · SoftwareX s
 Automates iterative bidirectional citation searching (snowballing) for SLRs, with three properties no existing tool combines:
 
 1. **Automatic iteration to an explicitly defined saturation point**, governed by formal, quantitative stopping rules.
-2. **Recall estimation via capture–recapture**, with explicit reporting of assumption violations.
+2. **Recall estimation via capture-recapture**, with explicit reporting of assumption violations.
 3. **Bit-for-bit reproducibility** of runs against live, mutating bibliographic APIs, plus a `verify` command that classifies drift between runs.
 
 ### 0.2 What SnowSLR does NOT do
@@ -222,7 +222,7 @@ All provider methods go through the cache layer (§8). A provider never touches 
 ### 4.4 Rate limiting and retries
 
 - Token-bucket limiter per provider, configurable rps.
-- Retry on 429/500/502/503/504: exponential backoff, base 1s, factor 2, jitter **disabled** (determinism — use fixed backoff sequence), max 5 attempts.
+- Retry on 429/500/502/503/504: exponential backoff, base 1s, factor 2, jitter **disabled** (determinism - use fixed backoff sequence), max 5 attempts.
 - 404 → `None`, cached as a negative result.
 - Any unrecoverable error aborts the iteration and writes a resumable checkpoint. No partial iteration is ever committed to state.
 
@@ -261,7 +261,7 @@ Applied in order; first match wins:
 | T3 | Jaro-Winkler(`title_norm`) ≥ `dedup.jw_threshold` (default 0.95) AND `abs(year_a - year_b) ≤ 1` AND equal first-author surname. |
 | T4 | Equal `title_norm` AND equal year (author missing on one side). |
 
-Blocking key for T2–T4: first 12 chars of `title_norm` + year bucket, to keep comparison O(n) in practice.
+Blocking key for T2-T4: first 12 chars of `title_norm` + year bucket, to keep comparison O(n) in practice.
 
 Clusters merged transitively. Merge order is deterministic: cluster representative is the member with the lexicographically smallest key.
 
@@ -284,9 +284,9 @@ Rankers receive `included` read-only and return scores. They have no access to `
 
 ### 6.2 Implementations
 
-**`LexicalRanker`** — BM25 (k1=1.2, b=0.75) over `title + " " + abstract`, query = concatenation of included titles+abstracts. Own implementation (≈60 LoC) rather than a dependency, to guarantee deterministic tokenization and IDF computation. Tokenizer: `title_norm` pipeline + split on whitespace + drop tokens of length 1 + fixed English stopword list shipped in-package.
+**`LexicalRanker`** - BM25 (k1=1.2, b=0.75) over `title + " " + abstract`, query = concatenation of included titles+abstracts. Own implementation (≈60 LoC) rather than a dependency, to guarantee deterministic tokenization and IDF computation. Tokenizer: `title_norm` pipeline + split on whitespace + drop tokens of length 1 + fixed English stopword list shipped in-package.
 
-**`NetworkRanker`** — feature vector per candidate, all computed from the citation graph only (works when abstracts are missing, which is common):
+**`NetworkRanker`** - feature vector per candidate, all computed from the citation graph only (works when abstracts are missing, which is common):
 - `n_parents`: number of distinct included works that led to this candidate
 - `cocitation`: number of included works co-cited with the candidate
 - `coupling`: size of shared reference set with included works
@@ -294,9 +294,9 @@ Rankers receive `included` read-only and return scores. They have no access to `
 
 Score = weighted sum of min-max normalized features; weights in config, defaults `(0.4, 0.25, 0.25, 0.10)`.
 
-**`EmbeddingRanker`** *(extra `[embeddings]`)* — cosine similarity of candidate embedding to centroid of included embeddings. Model name **and revision hash** pinned in config and recorded in the manifest. `model.eval()`, `torch.set_grad_enabled(False)`, fixed dtype float32, deterministic pooling. If the resolved model revision differs from the manifest, the run aborts.
+**`EmbeddingRanker`** *(extra `[embeddings]`)* - cosine similarity of candidate embedding to centroid of included embeddings. Model name **and revision hash** pinned in config and recorded in the manifest. `model.eval()`, `torch.set_grad_enabled(False)`, fixed dtype float32, deterministic pooling. If the resolved model revision differs from the manifest, the run aborts.
 
-**`RRFFusion`** — default. `score(d) = Σ_r 1/(k + rank_r(d))`, k=60. Deterministic, no training, trivially defensible in review.
+**`RRFFusion`** - default. `score(d) = Σ_r 1/(k + rank_r(d))`, k=60. Deterministic, no training, trivially defensible in review.
 
 Ties broken by canonical key ascending.
 
@@ -354,7 +354,7 @@ stopping:
 
 ---
 
-## 8. Capture–recapture estimation
+## 8. Capture-recapture estimation
 
 ### 8.1 Source arms
 
@@ -375,7 +375,7 @@ Arms are computed over **included** works only (relevant population), never over
 
 ### 8.2 Estimators
 
-**Two arms — Chapman (`capture_recapture.py`):**
+**Two arms - Chapman (`capture_recapture.py`):**
 
 ```
 N_hat = ((n1 + 1) * (n2 + 1)) / (m + 1) - 1
@@ -386,10 +386,10 @@ recall_hat = n_union / N_hat
 
 Guard: if `m < 3`, return `estimable=False` with an explicit reason. Never emit an estimate from near-zero overlap.
 
-**Three or more arms — log-linear (`loglinear.py`):**
+**Three or more arms - log-linear (`loglinear.py`):**
 Fit Poisson GLM on the 2^k − 1 observable capture-history cells (`statsmodels.GLM`), candidate models = independence + all sets of pairwise interactions; select by AIC (report BIC too); estimate the missing cell. Report the selected model formula explicitly.
 
-**Frequency-based lower bound — Chao1 (`chao.py`):**
+**Frequency-based lower bound - Chao1 (`chao.py`):**
 `N_hat = S_obs + f1²/(2·f2)` where `f1`/`f2` = number of included works discovered by exactly one / exactly two arms. Bias-corrected variant when `f2 = 0`. Serves as a distribution-free lower bound and as the direct point of comparison with Bron et al. (2025).
 
 ### 8.3 Assumption diagnostics (`assumptions.py`)
@@ -432,7 +432,7 @@ Entry:
 }
 ```
 
-`canonical_json` = sorted keys, no whitespace, UTF-8, `ensure_ascii=False`. Bodies stored raw and unmodified — parsing happens on read, so a parser bugfix never requires refetching.
+`canonical_json` = sorted keys, no whitespace, UTF-8, `ensure_ascii=False`. Bodies stored raw and unmodified - parsing happens on read, so a parser bugfix never requires refetching.
 
 ### 9.2 Run manifest (`run.json`)
 
@@ -462,9 +462,9 @@ Entry:
 
 Two modes:
 
-**`snowballslr verify <run_dir>`** — replay from cache. Recomputes every artifact and compares hashes against the manifest. Any mismatch is a bug. Exit code 1 on mismatch. This is INV-1's enforcement.
+**`snowballslr verify <run_dir>`** - replay from cache. Recomputes every artifact and compares hashes against the manifest. Any mismatch is a bug. Exit code 1 on mismatch. This is INV-1's enforcement.
 
-**`snowballslr verify <run_dir> --refresh`** — refetch every cached request against the live API and classify the diff:
+**`snowballslr verify <run_dir> --refresh`** - refetch every cached request against the live API and classify the diff:
 
 | Class | Definition |
 |---|---|
@@ -498,7 +498,7 @@ Emits `prisma.json` with the counts needed for the "Identification of studies vi
 
 ### 10.3 Exports (`report/export.py`)
 
-`candidates_iter_NNN.csv` (with `key,title,year,doi,venue,score,rank,found_via,parent_keys`), `.ris`, `.bib`; `included.csv`; `network.graphml` (nodes = works with decision attribute, edges = citation links with direction); `report.md` — human-readable run summary including the methods-ready stopping-rule rationale and the CMR estimate with its warnings.
+`candidates_iter_NNN.csv` (with `key,title,year,doi,venue,score,rank,found_via,parent_keys`), `.ris`, `.bib`; `included.csv`; `network.graphml` (nodes = works with decision attribute, edges = citation links with direction); `report.md` - human-readable run summary including the methods-ready stopping-rule rationale and the CMR estimate with its warnings.
 
 ### 10.4 Labels file contract
 
@@ -529,7 +529,7 @@ snowballslr export RUN_DIR --format ris|bib|csv --what candidates|included
 snowballslr snapshot RUN_DIR --out snapshot.tar.zst   # freeze cache for replication
 ```
 
-`seeds.txt`: one identifier per line — DOI, OpenAlex ID, S2 ID, or PMID. Mixed types allowed.
+`seeds.txt`: one identifier per line - DOI, OpenAlex ID, S2 ID, or PMID. Mixed types allowed.
 
 Exit codes: `0` ok · `1` verification/validation failure · `2` config error · `3` provider unrecoverable error · `4` stopping rule fired (in `step`, informational).
 
@@ -637,7 +637,7 @@ determinism:
 | **Provider contract** | Recorded HTTP fixtures per provider; parser tests for malformed/partial responses, missing abstracts, missing references, redirected IDs. |
 | **CLI** | `typer.testing.CliRunner` end-to-end on the fixture corpus. |
 
-Targets: line coverage ≥ 90%, branch coverage ≥ 80%. CI on Linux + macOS (arm64), Python 3.11/3.12/3.13. **No network in CI** (INV-4) — enforced by a `pytest` fixture that patches `httpx` transport to raise.
+Targets: line coverage ≥ 90%, branch coverage ≥ 80%. CI on Linux + macOS (arm64), Python 3.11/3.12/3.13. **No network in CI** (INV-4) - enforced by a `pytest` fixture that patches `httpx` transport to raise.
 
 ---
 
@@ -665,14 +665,14 @@ snowballslr-bench run \
   --out results/
 ```
 
-**Corpora:** SYNERGY (26 reviews, OpenAlex IDs), the 27 reviews from Rajit et al. 2025, plus 5–8 management/IS reviews with published inclusion lists. Minimum 25 reviews across ≥3 domains.
+**Corpora:** SYNERGY (26 reviews, OpenAlex IDs), the 27 reviews from Rajit et al. 2025, plus 5-8 management/IS reviews with published inclusion lists. Minimum 25 reviews across ≥3 domains.
 
 **Frozen snapshot:** build the full citation neighbourhood once, freeze it, run every simulation offline. Resolves API rate limits, cuts the experiment from weeks to hours, makes the study fully replicable, and dogfoods the determinism layer. The snapshot is deposited on Zenodo alongside the code.
 
 **Metrics (`simulation/metrics.py`):**
 - `recall@iteration`, precision, screening burden to reach 80/90/95% recall
 - Per stopping rule: actual recall at stop, over/undershoot vs oracle-optimal stop, regret (excess screening or missed studies)
-- CMR calibration: estimated vs true recall — calibration plot, bias, 95% CI coverage rate
+- CMR calibration: estimated vs true recall - calibration plot, bias, 95% CI coverage rate
 - Ablations: backward/forward/both; OpenAlex/+Crossref/+S2/+GROBID; RRF/BM25/network/random
 
 **Baselines:** exhaustion · single iteration (= what citationchaser and paperfetcher do) · paperfetcher itself where runnable · random candidate order · Boolean search alone where the original query is available.
@@ -691,14 +691,14 @@ snowballslr-bench run \
 | M3 | Identity + dedup | All property tests pass |
 | M4 | Ranking (BM25, network, RRF) | Deterministic ordering test passes |
 | M5 | Stopping rules | Synthetic-curve tests pass |
-| M6 | Capture–recapture + diagnostics | Synthetic-population bias tests pass |
+| M6 | Capture-recapture + diagnostics | Synthetic-population bias tests pass |
 | M7 | Determinism: cache, manifest, verify | INV-1 test green; `verify --refresh` produces classified diff |
 | M8 | Reporting: PRISMA, audit, exports, graph | Valid SVG; GraphML opens in VOSviewer/Gephi |
 | M9 | GROBID provider | End-to-end on 20 local PDFs, match rate reported |
 | M10 | Simulation harness + benchmarks | Full run on ≥25 reviews, results tables generated |
 | M11 | Docs, README, examples, Zenodo, PyPI | `pip install snowballslr` works from clean env |
 
-M0–M8 are the SoftwareX submission. M9–M11 complete the package; M10 additionally feeds the separate methodological paper.
+M0-M8 are the SoftwareX submission. M9-M11 complete the package; M10 additionally feeds the separate methodological paper.
 
 ---
 
@@ -707,9 +707,9 @@ M0–M8 are the SoftwareX submission. M9–M11 complete the package; M10 additio
 Status measured 2026-08-09 against this repository; a criterion is only marked met
 where it was actually run.
 
-1. INV-1 through INV-6 hold, each with a dedicated passing test. — **met**: INV-1 and INV-4 in `tests/test_determinism.py` and the autouse fixture in `tests/conftest.py`; INV-2 and INV-3 in `tests/test_invariants.py`; INV-5 in `tests/test_ranking.py`; INV-6 in `tests/test_types.py` and `tests/test_invariants.py`.
-2. `pip install snowballslr` in a clean venv; the quickstart in the README runs end-to-end offline on shipped fixtures. — **not met**: the package is not yet published to PyPI. Blocker for submission.
-3. Coverage ≥ 90% line / ≥ 80% branch. — **line met** at 91% (3543 statements, 314 missed); branch coverage not measured.
+1. INV-1 through INV-6 hold, each with a dedicated passing test. - **met**: INV-1 and INV-4 in `tests/test_determinism.py` and the autouse fixture in `tests/conftest.py`; INV-2 and INV-3 in `tests/test_invariants.py`; INV-5 in `tests/test_ranking.py`; INV-6 in `tests/test_types.py` and `tests/test_invariants.py`.
+2. `pip install snowballslr` in a clean venv; the quickstart in the README runs end-to-end offline on shipped fixtures. - **not met**: the package is not yet published to PyPI. Blocker for submission.
+3. Coverage ≥ 90% line / ≥ 80% branch. - **line met** at 91% (3543 statements, 314 missed); branch coverage not measured.
 4. `verify` detects and correctly classifies injected drift in a synthetic scenario covering all seven diff classes.
 5. Benchmark run over ≥25 reviews completes from the frozen snapshot in under 2 hours on a laptop.
 6. `report.md` contains a stopping-rule rationale sentence directly usable in a methods section without editing.
@@ -720,7 +720,7 @@ where it was actually run.
 ## 19. Positioning constraints (carry into code, docs, and paper)
 
 - **Never claim** "first Python library for snowballing." `paperfetcher` (Pallath & Zhang 2023) exists and does bidirectional citation searching in beta. The README must cite it in a "Related tools" section.
-- **Claim instead**, as a dated and scoped intersection — never as "first" or "only": *to our knowledge, and based on a survey of citation-searching tools indexed on PyPI, CRAN and GitHub as of August 2026, no existing tool combines automated iteration to a quantitative stopping criterion, capture–recapture recall estimation with assumption diagnostics, and a hash-verified reproducibility layer.* The hedge and the date are load-bearing: an intersection is refuted only by a tool holding all three properties, whereas each property individually has a precedent (`buscar` on stopping, `searchAnalyzeR` on the reproducibility layer, Bron et al. on Chao-as-stopping-criterion). Any tool released after that date does not refute the claim as written.
-- **Related tools that must be named and delineated, not omitted:** `paperfetcher` (one layer, beta), `citationchaser` (single pass), `LitBall` (iterates under curator judgement), `rjglasse/snowball` (iterates, human-gated, distribution name collides), `ReviQ` (SoftwareX 2026 — a review workbench whose snowballing iterations are populated by manual BibTeX import; it records saturation as a reviewer-set flag and does not retrieve citations, estimate recall, or hash responses — see `audit/reviq_code_audit.md`), `searchAnalyzeR` and `buscar`. Omitting any of these is the cheapest possible rebuttal to a novelty claim.
-- **Cite and delineate** in both README and paper: `citationchaser` (R/Shiny, single pass), `paperfetcher` (Python, single beta layer, Crossref/COCI), `LitBall` (Kotlin desktop, iterative, no recall estimation, no reproducibility layer), Rajit et al. 2025 (simulation study with replication scripts, not a library), Bron et al. 2025 (Chao's estimator as a stopping criterion — for TAR screening, not snowballing).
-- The documentation must state plainly that snowballing is a **complementary** method: automated citation searching has been shown not to beat Boolean search on recall. SnowSLR's value proposition is knowing when to stop and how much has been found — not replacing database search.
+- **Claim instead**, as a dated and scoped intersection - never as "first" or "only": *to our knowledge, and based on a survey of citation-searching tools indexed on PyPI, CRAN and GitHub as of August 2026, no existing tool combines automated iteration to a quantitative stopping criterion, capture-recapture recall estimation with assumption diagnostics, and a hash-verified reproducibility layer.* The hedge and the date are load-bearing: an intersection is refuted only by a tool holding all three properties, whereas each property individually has a precedent (`buscar` on stopping, `searchAnalyzeR` on the reproducibility layer, Bron et al. on Chao-as-stopping-criterion). Any tool released after that date does not refute the claim as written.
+- **Related tools that must be named and delineated, not omitted:** `paperfetcher` (one layer, beta), `citationchaser` (single pass), `LitBall` (iterates under curator judgement), `rjglasse/snowball` (iterates, human-gated, distribution name collides), `ReviQ` (SoftwareX 2026 - a review workbench whose snowballing iterations are populated by manual BibTeX import; it records saturation as a reviewer-set flag and does not retrieve citations, estimate recall, or hash responses - see `audit/reviq_code_audit.md`), `searchAnalyzeR` and `buscar`. Omitting any of these is the cheapest possible rebuttal to a novelty claim.
+- **Cite and delineate** in both README and paper: `citationchaser` (R/Shiny, single pass), `paperfetcher` (Python, single beta layer, Crossref/COCI), `LitBall` (Kotlin desktop, iterative, no recall estimation, no reproducibility layer), Rajit et al. 2025 (simulation study with replication scripts, not a library), Bron et al. 2025 (Chao's estimator as a stopping criterion - for TAR screening, not snowballing).
+- The documentation must state plainly that snowballing is a **complementary** method: automated citation searching has been shown not to beat Boolean search on recall. SnowSLR's value proposition is knowing when to stop and how much has been found - not replacing database search.

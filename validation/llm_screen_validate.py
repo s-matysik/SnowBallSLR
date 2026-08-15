@@ -122,7 +122,7 @@ def family_of(rater: str) -> str:
     Raters are keyed by vendor name when this script produced them, but a scores
     file written elsewhere may key them by raw model id (`claude-sonnet-5`,
     `gpt-5.1`, `gemini-2.5-flash`). Both must resolve to the same family, or the
-    within/between distinction — the whole point of the agreement design —
+    within/between distinction - the whole point of the agreement design -
     silently collapses into "every model is its own family".
     """
     for v in VENDORS:
@@ -702,7 +702,7 @@ def design_bibliometric(scores, records, seed_records, *, tau=7.0, log=print) ->
 
     A screener judging topical relevance should track the topical predictors and
     ignore the prestige ones. A screener rewarding well-cited or well-connected
-    work — plausible, since abstracts of highly cited papers read differently —
+    work - plausible, since abstracts of highly cited papers read differently -
     would show the opposite, and no positive control detects that: a prestige-driven
     screener still scores known-relevant seeds highly, because seeds tend to be
     well-cited papers.

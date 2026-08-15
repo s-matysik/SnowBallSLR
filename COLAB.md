@@ -1,18 +1,18 @@
 # Running SnowBallSLR in Google Colab
 
 **[▶ Open the ready-made notebook in Colab](https://colab.research.google.com/github/s-matysik/SnowBallSLR/blob/main/notebooks/SnowBallSLR_quickstart.ipynb)**
-— nothing to install on your own machine. A Google account is all you need: the notebook
+- nothing to install on your own machine. A Google account is all you need: the notebook
 runs in a browser tab, on Google's hardware, and you work through it cell by cell. If you
 would rather read first, the same workflow is written out below.
 
-Everything below was run end to end on a clean Python 3.12 environment — the version
-Colab ships — with no editable install and no repository on the path. Where a step's
+Everything below was run end to end on a clean Python 3.12 environment - the version
+Colab ships - with no editable install and no repository on the path. Where a step's
 output is quoted, it is the output that step actually produced.
 
 Colab gives you a throwaway machine with network access, which suits citation searching:
 the crawl is I/O-bound, not compute-bound, so the free tier is enough. What it does *not*
 give you is a persistent filesystem. Runs are reproducible from their own cache, so it is
-worth keeping the run directory — the last section covers that.
+worth keeping the run directory - the last section covers that.
 
 ## 1. Install
 
@@ -42,7 +42,7 @@ embedding-based ranking needs `sentence-transformers`, which is a large download
 
 ## 2. A live run in a notebook
 
-`pip install` gives you the library, not the demonstration data — the offline fixtures live
+`pip install` gives you the library, not the demonstration data - the offline fixtures live
 in the repository, not in the wheel. So the quickest real thing to do in Colab is a live
 crawl. This is the shape of it: one seed DOI, backward only, a screening budget so it
 cannot run away from you.
@@ -92,7 +92,7 @@ for work in candidates[:5]:
 Running exactly this produced `seeds resolved: 1` and `candidates: 18`.
 
 Read the config warnings rather than skipping them. They are the library's way of
-catching a design that cannot work — an arm on a disabled provider, an outdated type
+catching a design that cannot work - an arm on a disabled provider, an outdated type
 vocabulary, a set of arms that cannot overlap.
 
 ## 3. Screening, which is the part that needs you
@@ -120,8 +120,8 @@ run.label_from_file("labels_001.csv")   # columns: key, decision[, note]
 ```
 
 Then call `run.step()` again for the next iteration, and repeat until `run.state.phase`
-is `stopped`. Whichever rule fired is in `run.state.stopped_by`, and its reasoning —
-written to be pasted into a methods section — is in `run.state.last_decisions`.
+is `stopped`. Whichever rule fired is in `run.state.stopped_by`, and its reasoning -
+written to be pasted into a methods section - is in `run.state.last_decisions`.
 
 ## 4. Outputs
 
@@ -198,4 +198,4 @@ raises your rate limit. Semantic Scholar is supported and does take an optional 
 `api_key_env`.
 
 **Colab's `input()` blocks the cell.** Fine for a handful of records, painful for
-hundreds — use the CSV route instead.
+hundreds - use the CSV route instead.

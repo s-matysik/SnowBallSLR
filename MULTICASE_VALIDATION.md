@@ -30,9 +30,9 @@ identifier coverage are where citation searching should work worst.
 | Was that saturation? | no | no | no |
 
 **No stopping rule fired in any of the three runs.** All three were cut short by a resource
-limit — two by the configured screening budget, one by the LLM token ceiling of the process doing
-the screening. This is stated plainly because the alternative — describing a budget stop as
-saturation — is the exact reporting failure the library exists to prevent. It also means the
+limit - two by the configured screening budget, one by the LLM token ceiling of the process doing
+the screening. This is stated plainly because the alternative - describing a budget stop as
+saturation - is the exact reporting failure the library exists to prevent. It also means the
 recall figures below describe coverage of *what was screened*, not of the literature.
 
 ## The pre-registered prediction, tested
@@ -69,7 +69,7 @@ CI [203, 275] on N). A three-arm design does not
 guarantee a three-arm estimate.
 
 **Model choice dominates sampling uncertainty.** In the favourable case the AIC-selected
-interaction model gives recall 0.538 while the independence model gives 0.894 on identical data — a
+interaction model gives recall 0.538 while the independence model gives 0.894 on identical data - a
 35-point swing on model choice alone, larger than the bootstrap interval around either. Any
 reported log-linear recall must carry the model that produced it.
 
@@ -77,7 +77,7 @@ reported log-linear recall must carry the model that produced it.
 OpenAlex missed in both the favourable and large cases (8 in the adverse case). Two nested arms
 cannot estimate anything: Chapman returns a point estimate below the observed count, and the
 library correctly refuses it as uninformative rather than reporting a spurious recall of 1.0. This
-is direct evidence for the manuscript's arm-design argument, obtained on real data — and it means
+is direct evidence for the manuscript's arm-design argument, obtained on real data - and it means
 the two-arm provider design used in the earlier single-case study was closer to degenerate than
 that study could show.
 
@@ -97,24 +97,24 @@ Every case validated its own screener before using it, on its own data.
 |---|---|---|---|
 | ICC(2,1) across models | 0.578 | 0.827 | 0.794 |
 | 95% CI | [0.54, 0.61] | [0.81, 0.84] | [0.77, 0.81] |
-| Blind seed AUC | 0.58–0.73 (basis-dependent) | 0.658 | 0.631 |
+| Blind seed AUC | 0.58-0.73 (basis-dependent) | 0.658 | 0.631 |
 | Two-stage gate false negatives | 1.3% | 0% | not measured |
 
 Three findings worth stating.
 
 **Agreement is corpus-dependent, and weakest where the corpus is hardest.** ICC ranges from 0.58 in
 the adverse corpus to 0.83 in the favourable one, with non-overlapping intervals. A screener
-validated on one literature cannot be assumed reliable on another — which is an argument for
+validated on one literature cannot be assumed reliable on another - which is an argument for
 validating per case, as done here, rather than once.
 
 **Blind controls work, and caught a real problem.** Seed records were scored unmarked in ordinary
 batches. They separate from the candidate pool in every case, but the AUC is lowest in the large
 corpus (0.63), and inspection showed why: Scopus Boolean queries admit off-topic records, and some
-seeds are genuinely off-topic — the adverse seed set contains a structural-biology paper. Excluding
+seeds are genuinely off-topic - the adverse seed set contains a structural-biology paper. Excluding
 inspected off-topic seeds raises the large-case AUC to 0.77. Both numbers are reported.
 
 **The abstract-availability bias replicates in all three corpora.** Records without an abstract
-score systematically lower — by 0.69, 1.25 and 0.39 points respectively, significant in each case.
+score systematically lower - by 0.69, 1.25 and 0.39 points respectively, significant in each case.
 Every unresolvable record lacks an abstract, so the included set skews toward well-indexed work in
 every case. This is a property of abstract-based screening, not of one corpus.
 
@@ -127,7 +127,7 @@ real data rather than a theoretical one.
 
 It does not establish saturation behaviour on live data: no run reached a rule-driven stop, so the
 stopping rules remain evidenced only in simulation. Closing that would require screening one corpus
-to exhaustion — the adverse case is the affordable candidate, needing roughly 31,000 further
+to exhaustion - the adverse case is the affordable candidate, needing roughly 31,000 further
 records screened at iteration 2.
 
 ## Addendum: an independent re-check of these numbers
@@ -144,8 +144,8 @@ one model's score while survivors carry three, so the reported figure mixes scor
 reported here and in the manuscript as a range rather than a point. The favourable and large figures
 are unaffected.
 
-Two consequences. The adverse case's gate false-negative rate is also unmeasured — its own record
-says so, 350 records sampled and none scored before the screening resource ran out — so that
+Two consequences. The adverse case's gate false-negative rate is also unmeasured - its own record
+says so, 350 records sampled and none scored before the screening resource ran out - so that
 statistic rests on the favourable case's 0% alone. And `validation/llm_screen_validate.py` now
 enforces a common scoring basis for every statistic it computes, printing the record count it used,
 so this class of unreproducible figure cannot recur.

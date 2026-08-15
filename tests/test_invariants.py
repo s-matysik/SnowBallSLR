@@ -131,7 +131,7 @@ def test_inv3_serialized_state_collections_are_sorted(tmp_path):
 def test_inv3_pending_is_ranked_not_sorted_and_that_is_deliberate(tmp_path):
     """The one exception: `pending` is stored in ranked order, ties broken by key.
 
-    SPEC calls this out explicitly — the order *is* the product. It must still be
+    SPEC calls this out explicitly - the order *is* the product. It must still be
     deterministic, which the determinism suite covers.
     """
     run = Run.init(tmp_path / "r", ["doi:10.1/seed"], _config(), offline_graph=_graph())

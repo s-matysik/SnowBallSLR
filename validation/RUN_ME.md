@@ -6,7 +6,7 @@ Everything below is copy-paste. Run from the repository root
 
 ---
 
-## Step 0 — rotate the exposed keys first
+## Step 0 - rotate the exposed keys first
 
 `ewaluator.ipynb` has six live API keys pasted into its cells. Those keys are on disk and in the
 notebook's saved history. **Revoke and reissue all six before you use any of them here.** Nothing
@@ -14,7 +14,7 @@ below needs the old keys; it needs new ones.
 
 ---
 
-## Step 1 — install the vendor SDKs
+## Step 1 - install the vendor SDKs
 
     .venv/bin/pip install openai anthropic google-genai
 
@@ -23,7 +23,7 @@ package covers them.
 
 ---
 
-## Step 2 — put the new keys in `.env`
+## Step 2 - put the new keys in `.env`
 
 Create `.env` in the repository root. It is already in `.gitignore`, so it will never be committed:
 
@@ -33,14 +33,14 @@ Create `.env` in the repository root. It is already in `.gitignore`, so it will 
     DEEPSEEK_API_KEY=sk-...
     XAI_API_KEY=xai-...
 
-Any subset works. **Two different vendors is the minimum that makes this exercise worth running** —
+Any subset works. **Two different vendors is the minimum that makes this exercise worth running** -
 the whole point is to escape the single-family limitation. Six is what the shipped registry covers.
 
 Two setup facts worth knowing, both found the hard way:
 
 - **Moonshot runs two platforms with separate key namespaces.** `api.moonshot.cn` (mainland) and
   `api.moonshot.ai` (international) do not share keys: a key issued for one returns
-  `401 Invalid Authentication` on the other. The model catalogues differ too —
+  `401 Invalid Authentication` on the other. The model catalogues differ too -
   `kimi-k2-turbo-preview` exists on `.cn` and 404s on `.ai`. The registry ships with the
   international endpoint and `kimi-k2.6`. If your key 401s, it is a mainland key: switch
   `base_url` to `https://api.moonshot.cn/v1` and the model to `kimi-k2-turbo-preview` in the
@@ -53,26 +53,26 @@ Check what the script sees. This makes no API calls and costs nothing:
     .venv/bin/python validation/llm_screen_validate.py check-keys
 
 It lists every vendor, whether its key is set, and how many distinct families they span. If it
-reports fewer than two families it says so explicitly — add another vendor before continuing, because
+reports fewer than two families it says so explicitly - add another vendor before continuing, because
 one family is exactly the limitation this exercise exists to remove.
 
 ---
 
-## Step 3 — which data to use
+## Step 3 - which data to use
 
 **Use `validation/validation_records.json`.** It is the only records file you need, and it is built
 so all six designs run on it:
 
 - **311 records** from the blockchain × customer loyalty review (the best-validated case, ICC 0.827,
   so any degradation you see is attributable to the manipulation and not to a noisy baseline)
-- **296 candidates stratified across the whole 1–10 score range** — 60 per band. Stratification
+- **296 candidates stratified across the whole 1-10 score range** - 60 per band. Stratification
   matters: a plain random sample would be dominated by obvious excludes and would inflate every
   agreement statistic
 - **all 15 seed records mixed in, unmarked and shuffled**, so the blind controls in design 2 are
   scored on exactly the same basis as the candidates
 - every record carries the fields design 6 needs: `cited_by_count` and `reference_count` are present
   for all 311, `venue` for 303, `abstract` for 307. Note that **42 records have `cited_by_count` = 0**
-  — that is a real measured value, not a gap (OpenAlex reports 0 for each of the six spot-checked),
+  - that is a real measured value, not a gap (OpenAlex reports 0 for each of the six spot-checked),
   so uncited papers are correctly treated as uncited rather than dropped. The script drops a record
   from a predictor's AUC only when that predictor's value is genuinely absent, and reports the counts
   it used under `auc_class_counts`; read `n_missing_field` there rather than inferring coverage from
@@ -84,7 +84,7 @@ Supporting files, all already present:
 |---|---|---|
 | `validation/validation_records.json` | all designs | the 311 records |
 | `validation/validation_seeds.json` | design 6 | the 15 seeds, same fields |
-| `cases/research_question_mid.json` | designs 1–5 | the review's question, in scope and out of scope |
+| `cases/research_question_mid.json` | designs 1-5 | the review's question, in scope and out of scope |
 | `validation/wrong_question_for_negative_control.json` | design 5 | a *real* question from the adverse case, used as the wrong question |
 | `cases/seed_selection.json` | design 2 | seed DOIs, keyed by case |
 
@@ -94,14 +94,14 @@ narrows nothing you would act on.
 
 ---
 
-## Step 4 — score once (the only step that costs money in designs 1, 2, 3, 6)
+## Step 4 - score once (the only step that costs money in designs 1, 2, 3, 6)
 
     .venv/bin/python validation/llm_screen_validate.py score \
       --records validation/validation_records.json \
       --question cases/research_question_mid.json \
       --out cases/xvendor_scores.json
 
-Roughly 112k input tokens per vendor — about 0.56M across five vendors, a few cents to a few dollars
+Roughly 112k input tokens per vendor - about 0.56M across five vendors, a few cents to a few dollars
 depending on which models. Runs in a handful of minutes.
 
 Watch the last two lines. `coverage by rater count` should show most records scored by every vendor.
@@ -110,7 +110,7 @@ in the output file and are excluded from every statistic rather than silently av
 
 ---
 
-## Step 5 — the four free designs
+## Step 5 - the four free designs
 
 No API calls. Run them in this order, because the first one determines whether the rest mean
 anything.
@@ -125,7 +125,7 @@ check whose signal does not come from a language model.
       --out cases/xvendor_bibliometric.json
 
 Read `topical_mean_auc` against `prestige_mean_auc`. Topical above prestige means the scores track
-topic — good. **Prestige above topical means the scores track citation counts or venue standing, and
+topic - good. **Prestige above topical means the scores track citation counts or venue standing, and
 you should stop here**: no amount of further model calls fixes that, and no positive control would
 have caught it.
 
@@ -147,7 +147,7 @@ not achieved what you set out to do.
 
 Check `n_seeds` in the output. It should be close to 15; if it is much lower, some seeds were not
 scored by every vendor and the common-basis guard excluded them. Read `per_seed` before drawing any
-conclusion — a low-scoring seed can be a genuinely off-topic seed admitted by the Boolean query
+conclusion - a low-scoring seed can be a genuinely off-topic seed admitted by the Boolean query
 rather than a screener failure.
 
 **5d. Threshold sensitivity (design 3).**
@@ -156,9 +156,9 @@ rather than a screener failure.
       --scores cases/xvendor_scores.json --out cases/xvendor_threshold.json
 
 Report the whole band in the paper, not τ = 7 alone. `boundary_share` tells you what fraction of
-records sit in the 6–8 zone where the cut decides the outcome.
+records sit in the 6-8 zone where the cut decides the outcome.
 
-Shortcut for 5b–5d in one pass:
+Shortcut for 5b-5d in one pass:
 
     .venv/bin/python validation/llm_screen_validate.py validate \
       --scores cases/xvendor_scores.json \
@@ -167,12 +167,12 @@ Shortcut for 5b–5d in one pass:
 
 ---
 
-## Step 6 — the two designs that score again
+## Step 6 - the two designs that score again
 
 These change the prompt, so they cannot reuse step 4's scores. Use `--limit 150` to keep the cost
 proportionate; 150 records was enough to detect a 21% shift in the included set.
 
-**6a. Wording and order robustness (design 4)** — three scoring passes.
+**6a. Wording and order robustness (design 4)** - three scoring passes.
 
     .venv/bin/python validation/llm_screen_validate.py robustness \
       --records validation/validation_records.json \
@@ -184,7 +184,7 @@ the included set moves when the rubric is reworded but the criteria are not, and
 `flips_in_boundary_zone` tells you whether the movement is confined to borderline records (it was,
 13 of 14, in the single-model run already done).
 
-**6b. Negative control with a wrong question (design 5)** — two scoring passes.
+**6b. Negative control with a wrong question (design 5)** - two scoring passes.
 
     .venv/bin/python validation/llm_screen_validate.py negative \
       --records validation/validation_records.json \
@@ -197,14 +197,14 @@ screener is rewarding something other than topical relevance.
 
 ---
 
-## Step 7 — the human sample, and why the manuscript does not use it
+## Step 7 - the human sample, and why the manuscript does not use it
 
 **Not part of the submission.** The tooling is here because it is useful for your own reviews, but
 the manuscript reports no human-agreement coefficient, deliberately.
 
 The reason is that the only available screener is the author, who defined the research question,
 selected the seeds and wrote the rubric the models were given. An author-versus-ensemble κ measures
-how faithfully the models reproduce the framing they were handed — a high value is as consistent
+how faithfully the models reproduce the framing they were handed - a high value is as consistent
 with a well-specified prompt as with a well-judging screener, and a low one is as consistent with a
 badly-worded rubric. Neither reading supports a claim about screening quality, which is why
 screening guidance requires two *independent* reviewers. Reporting the number anyway would invite a
@@ -216,9 +216,9 @@ records from the pool), cross-family agreement across six vendors (the scores ar
 artefact), and non-model bibliometric convergence (the scores track topic, not prestige).
 
 If you have a colleague who did *not* write the protocol, the comparison becomes meaningful and the
-tooling is ready — about three hours of their time:
+tooling is ready - about three hours of their time:
 
-1. Give them `llm_screening/human_validation_sample.csv` — 200 records, stratified across the score
+1. Give them `llm_screening/human_validation_sample.csv` - 200 records, stratified across the score
    range, shuffled, **with the model scores withheld** in a separate key file. That separation is
    what makes the comparison blind; they must not see the key file.
 2. They fill the `decision` column with `include` or `exclude`, judging against the research question
@@ -228,7 +228,7 @@ tooling is ready — about three hours of their time:
        .venv/bin/python validation/score_human_agreement.py
 
    It reports Cohen's κ with a confidence interval, PABAK, the confusion matrix, and the ten
-   disagreements with the highest model scores — the same statistics ReviQ reports, so the
+   disagreements with the highest model scores - the same statistics ReviQ reports, so the
    comparison is like for like.
 
 **If you do run it, decide how you will report the number before you see it.** High κ validates the

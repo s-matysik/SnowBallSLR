@@ -3,14 +3,14 @@
 Validation study run 2026-08-09 against SnowBallSLR v1.0.0. Every number below was
 computed in this study; the code that produced them is saved alongside this report
 (`validation_generator.py`, `validation_experiments.py`). All experiments are
-offline and deterministic — no experiment touches a live API.
+offline and deterministic - no experiment touches a live API.
 
 ---
 
 ## 1. What was tested, and against what ground truth
 
 The library's headline contributions are (i) quantitative stopping rules and (ii)
-capture–recapture recall estimation. Neither can be validated on a real review,
+capture-recapture recall estimation. Neither can be validated on a real review,
 because a real review has no ground truth: you cannot measure the recall of a
 search whose target set is what you were trying to find. The study therefore uses
 two complementary sources of evidence.
@@ -28,7 +28,7 @@ reported below:
 - **A reachability ceiling.** A tunable share of relevant works has no citation
   path to the rest. Real reviews have this ceiling, and a benchmark without one
   flatters every stopping rule. Across the runs reported here the mean achievable
-  recall was **0.913**, not 1.0 — every rule is scored against that ceiling,
+  recall was **0.913**, not 1.0 - every rule is scored against that ceiling,
   never against 1.0.
 
 Design: 3 graph regimes (dense / sparse / diffuse) × 6 graphs per regime × 3 seed
@@ -55,16 +55,16 @@ studies left unfound.
 | estimated_recall, closure guard (after fix) | 127/270 | 0.906 | 0.000 | 0.0 |
 | marginal_yield (eps=0.01, k=2) | 17/270 | 0.921 | 0.000 | 0.0 |
 | asymptotic_coverage (tau=0.95) | 3/270 | 0.924 | 0.000 | 0.0 |
-| budget (max_screened=2500) | 0/0 | never fired | — | — |
+| budget (max_screened=2500) | 0/0 | never fired | - | - |
 | exhaustion | 270/270 | 0.913 | 0.000 | 0.0 |
 
 **The unguarded `estimated_recall` rule fired in every one of the 270 trials at a
-mean true recall of 0.450** — a 46-percentage-point shortfall, leaving a mean of
+mean true recall of 0.450** - a 46-percentage-point shortfall, leaving a mean of
 73.7 relevant studies unfound. It was the worst rule in the suite while being the
 one the README leads with.
 
 The cause is a **closure violation**, not an implementation error.
-Capture–recapture assumes a closed population. Snowballing enlarges the reachable
+Capture-recapture assumes a closed population. Snowballing enlarges the reachable
 population every time an included record enters the frontier, so an estimate at
 iteration *i* describes the population reachable *so far*. Early in a run the arms
 agree almost perfectly on a small reachable set, N̂ collapses onto the observed
@@ -84,8 +84,8 @@ Four candidate guards were compared on a common subset of trials:
 | M3 frontier gate | 0.914 | 0.000 | 0.0 | 1423 |
 
 `M0` is the shipped behaviour. `M1` (a minimum iteration count) is crude but
-recovers most of the loss. **`M2` — requiring N̂ to be stable within 5% for two
-consecutive iterations — removes the shortfall almost entirely (0.001) while still
+recovers most of the loss. **`M2` - requiring N̂ to be stable within 5% for two
+consecutive iterations - removes the shortfall almost entirely (0.001) while still
 stopping earlier than exhaustion**, and it is the one adopted, because it is stated
 in the estimator's own terms rather than as an arbitrary iteration count. `M3`
 (frontier-growth gate) performs marginally better but converges on exhaustion,
@@ -99,19 +99,19 @@ trials at a mean true recall of **0.906**, shortfall **0.000**, studies missed
 
 ## 3. Arm design: the shipped default could not produce an estimate at all
 
-Capture–recapture requires two arms that can both capture the same record. The
+Capture-recapture requires two arms that can both capture the same record. The
 shipped default paired the **backward** and **forward** directions. On the author's
 own real run:
 
 | Arm design | Arm 1 | Arm 2 | Overlap m | Estimable? |
 |---|---|---|---|---|
-| direction (backward / forward) — shipped default | 362 | 116 | **0** | No |
+| direction (backward / forward) - shipped default | 362 | 116 | **0** | No |
 | provider (OpenAlex / Crossref) | 338 | 312 | **172** | Yes |
 
 **The flagship feature was not estimable on the author's own data.** This is
 structural, not accidental: a citation graph is temporally acyclic, so a work older
 than the seed set is normally reachable only backward and a newer one only forward.
-The real run bears this out — median seed year 2023, median backward-discovered
+The real run bears this out - median seed year 2023, median backward-discovered
 year 2013, median forward-discovered year 2023.
 
 Direction arms can only overlap once a *later* iteration reaches a work from the
@@ -141,7 +141,7 @@ iteration depths.
 | direction | 2 | 24 | 0.960 | 0.874 | +0.085 |
 | direction | 3 | 24 | 0.999 | 0.920 | +0.079 |
 
-Bias is large and positive early and shrinks as the run proceeds — the closure
+Bias is large and positive early and shrinks as the run proceeds - the closure
 signature again. By contrast, varying the simulated dependence between provider
 arms from independent to strongly dependent barely moves it:
 
@@ -153,10 +153,10 @@ arms from independent to strongly dependent barely moves it:
 | 0.9 | 24 | +0.253 |
 
 This is a result worth stating plainly in the manuscript: **the dominant bias in
-capture–recapture applied to snowballing is the closure violation, not the
+capture-recapture applied to snowballing is the closure violation, not the
 dependence violation** that the methods literature usually emphasises. Dependence
-still biases N̂ downward and estimated recall upward — so estimated recall remains
-an upper bound, and the library says so — but at realistic iteration depths the
+still biases N̂ downward and estimated recall upward - so estimated recall remains
+an upper bound, and the library says so - but at realistic iteration depths the
 closure effect is the larger of the two.
 
 Chao1 was separately found to have no degeneracy guard: on the real run's capture
@@ -208,7 +208,7 @@ All checks below were run against the real 493-record corpus.
 | Full suite under `PYTHONHASHSEED=random` | PASS |
 
 **`verify` was checking only half of what it claimed.** It counted cache entries
-but validated none, so an edited cache body passed with `ok=True` — the cache being
+but validated none, so an edited cache body passed with `ok=True` - the cache being
 exactly the substrate a replay would be recomputed from. Every entry is
 content-addressed twice (its filename is the request key; it carries the hash of
 its own body), so both are now re-checked. Verified against the real run: the clean
@@ -223,7 +223,7 @@ Both were found by reading `run/state.json` rather than by simulation, and both 
 reported here because they explain a real result the author already has.
 
 **The silent-exhaustion trap.** `run/state.json` records `phase: stopped`,
-`stopped_by: exhaustion` at iteration 1, with 15 decisions — all of them seeds —
+`stopped_by: exhaustion` at iteration 1, with 15 decisions - all of them seeds -
 and 308 candidates never screened. `labels_001.csv` has all 308 decision cells
 empty. Because nothing was included, nothing entered the frontier, so the run
 terminated by `exhaustion` and reported a *completed* snowballing run that had
@@ -245,7 +245,7 @@ records are still retained, screened and counted in PRISMA as before.
 
 **Establishes.** That the unguarded `estimated_recall` rule stops far too early and
 that a closure guard fixes it; that direction-based arms cannot support
-capture–recapture on a citation graph; that Chao1 and `verify` had guards their
+capture-recapture on a citation graph; that Chao1 and `verify` had guards their
 documentation promised but did not implement; that the identity layer missed a
 measurable share of true duplicates; and that the determinism properties the
 library claims do hold, on real data, after all changes.
@@ -259,7 +259,7 @@ would survive different parameters; the exact numbers (0.450, 0.906) would not.
 Replication on published reviews with known inclusion lists is the natural next
 step and is the single strongest addition the manuscript could still gain.
 
-Two further limits should be stated in the paper. Capture–recapture arms in
+Two further limits should be stated in the paper. Capture-recapture arms in
 citation searching are positively dependent, so N̂ is biased downward and estimated
 recall should be read as an **upper** bound; with exactly two arms this is not
 testable, and a third arm is needed to make it so. And no stopping rule can exceed

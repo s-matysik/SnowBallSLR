@@ -90,7 +90,7 @@ def main() -> int:
         else:
             dd = {"rule": str(d)}
         print(f"  rule {dd.get('rule')}: triggered={dd.get('triggered')} "
-              f"value={dd.get('value')} — {(dd.get('rationale') or '')[:150]}")
+              f"value={dd.get('value')} - {(dd.get('rationale') or '')[:150]}")
     if st.phase == "stopped":
         print("RESULT: run stopped")
         return 0

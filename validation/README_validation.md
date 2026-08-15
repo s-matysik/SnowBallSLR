@@ -17,7 +17,7 @@ Put your keys in the environment, or in a `.env` file beside the script (it is g
     DEEPSEEK_API_KEY=...
     XAI_API_KEY=...
 
-Any subset works — vendors without a key are skipped and the run says which it used. **The keys
+Any subset works - vendors without a key are skipped and the run says which it used. **The keys
 that were pasted into `ewaluator.ipynb` should be treated as compromised and rotated**; they are in
 a file on disk and in that notebook's history.
 
@@ -27,7 +27,7 @@ Ready-made inputs are supplied, so each command below runs as written. `validati
 whole score range plus all 15 seeds mixed in unmarked, so blind controls work on the same basis as
 the candidates.
 
-**Step 0a — confirm which vendors are usable.** No API calls, no cost:
+**Step 0a - confirm which vendors are usable.** No API calls, no cost:
 
     python validation/llm_screen_validate.py check-keys
 
@@ -35,14 +35,14 @@ It reports how many distinct vendor *families* your keys span. Fewer than two an
 design measures within-family consistency, which is the limitation this whole exercise exists to
 remove.
 
-**Step 0b — score once, validate many times.** Scoring costs money; the validations do not.
+**Step 0b - score once, validate many times.** Scoring costs money; the validations do not.
 
     python validation/llm_screen_validate.py score \
       --records validation/validation_records.json \
       --question cases/research_question_mid.json \
       --out cases/xvendor_scores.json
 
-**1. Agreement, within vs between vendor families** — the design that answers the reviewer.
+**1. Agreement, within vs between vendor families** - the design that answers the reviewer.
 
     python validation/llm_screen_validate.py agreement \
       --scores cases/xvendor_scores.json --out cases/xvendor_agreement.json
@@ -61,14 +61,14 @@ it correctly reports one family and warns that within-family agreement is not va
     python validation/llm_screen_validate.py threshold \
       --scores cases/xvendor_scores.json --out cases/xvendor_threshold.json
 
-**4. Wording and order robustness** — three scoring passes, so roughly 3× the cost of step 0.
+**4. Wording and order robustness** - three scoring passes, so roughly 3× the cost of step 0.
 
     python validation/llm_screen_validate.py robustness \
       --records validation/validation_records.json \
       --question cases/research_question_mid.json \
       --out cases/xvendor_robustness.json --limit 150
 
-**5. Negative control: a plausible but wrong question** — two passes.
+**5. Negative control: a plausible but wrong question** - two passes.
 
     python validation/llm_screen_validate.py negative \
       --records validation/validation_records.json \
@@ -76,7 +76,7 @@ it correctly reports one family and warns that within-family agreement is not va
       --wrong-question validation/wrong_question_for_negative_control.json \
       --out cases/xvendor_negative.json --limit 150
 
-**6. Convergent validity against non-LLM bibliometric signals** — free, no API calls.
+**6. Convergent validity against non-LLM bibliometric signals** - free, no API calls.
 
     python validation/llm_screen_validate.py bibliometric \
       --scores cases/xvendor_scores.json \
@@ -84,7 +84,7 @@ it correctly reports one family and warns that within-family agreement is not va
       --seed-records validation/validation_seeds.json \
       --out cases/xvendor_bibliometric.json
 
-Designs 1–3 and 6 read one scores file and cost nothing. Designs 4–5 must score again, because they
+Designs 1-3 and 6 read one scores file and cost nothing. Designs 4-5 must score again, because they
 change the prompt.
 
 ## What each design proves, and what it does not
@@ -101,10 +101,10 @@ change the prompt.
 **Design 6 is the only one whose signal does not come from a language model**, which makes it the
 cheapest independent check available and the one to run first. Read the *pattern*: topical predictors
 above chance with prestige predictors at chance is evidence the screener judges relevance. Prestige
-predictors above the topical ones would mean the scores track citation counts or venue standing —
+predictors above the topical ones would mean the scores track citation counts or venue standing -
 a failure no positive control detects, because a prestige-driven screener also scores seeds highly.
 
-None of the six is a substitute for double-screening by an independent reviewer — they bound the
+None of the six is a substitute for double-screening by an independent reviewer - they bound the
 screener rather than validate it against expert judgement. But an author-versus-ensemble coefficient
 is not that substitute either: the author who wrote the rubric and chose the seeds cannot serve as
 the independent reviewer, so such a κ measures fidelity to the framing the models were handed. The
@@ -115,7 +115,7 @@ here for reviews where a colleague who did not author the protocol can screen th
 
 **Common-basis guard.** Every statistic is computed only over records scored by *every* rater in
 the comparison, and the count is printed. Mixing records scored by one model with records scored by
-three yields a number that cannot be reproduced later — that happened in the three-case study,
+three yields a number that cannot be reproduced later - that happened in the three-case study,
 where one case's reported control AUC of 0.781 could not be recovered from its own saved scores
 (three plausible bases gave 0.58, 0.61 and 0.73). The guard makes every figure checkable.
 

@@ -3,13 +3,13 @@
 Code reproducing the results in `../VALIDATION_REPORT.md`. Everything here is
 offline and deterministic; no module touches a live API.
 
-- `validation_generator.py` — synthetic citation-graph generator. Temporally
+- `validation_generator.py` - synthetic citation-graph generator. Temporally
   acyclic, topic-homophilous, with per-provider edge visibility driven by a shared
   latent indexability (so provider arms are positively dependent, as in reality)
   and a tunable share of relevant works with no citation path to the rest.
-- `validation_arms.py` — frontier expansion that records, for each discovered
+- `validation_arms.py` - frontier expansion that records, for each discovered
   work, which arm found it under each candidate arm design. Backs §3 and §4.
-- `validation_stopping.py` — runs a review to exhaustion and scores each stopping
+- `validation_stopping.py` - runs a review to exhaustion and scores each stopping
   rule against the oracle-optimal stop. Backs §2.
 
 Reproduce with a fixed seed, e.g.:

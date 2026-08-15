@@ -68,7 +68,7 @@ has not been performed here.
 Two further limits. No human-agreement coefficient is reported, and that is a scope decision rather
 than a pending measurement: the only screener available was the author, who set the question, seeds
 and rubric the models were given, so the coefficient would measure fidelity to that framing rather
-than agreement with independent expert judgement — which is why screening guidance requires two
+than agreement with independent expert judgement - which is why screening guidance requires two
 independent reviewers. What the controls do establish is that the ensemble separates known-relevant
 seeds from the candidate pool. The tooling for a genuine comparison ships here
 (`human_validation_sample.csv` plus `../validation/score_human_agreement.py`) and needs a screener

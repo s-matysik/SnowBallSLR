@@ -384,7 +384,7 @@ def render(page: Page, out_dir: Path) -> None:
     # The document's own H1 doubles as the browser title.
     match = re.search(r"<h1[^>]*>(.*?)</h1>", body, re.DOTALL)
     heading = re.sub(r"<[^>]+>", "", match.group(1)).strip() if match else page.title
-    title = heading if page.output == "index.html" else f"{heading} — SnowBallSLR"
+    title = heading if page.output == "index.html" else f"{heading} - SnowBallSLR"
 
     out_dir.joinpath(page.output).write_text(
         TEMPLATE.format(
@@ -419,7 +419,7 @@ def main() -> None:
     figures = ROOT / "figures"
     if figures.is_dir():
         shutil.copytree(figures, out_dir / "figures")
-        print(f"  figures/                     -> figures/")
+        print("  figures/                     -> figures/")
 
     # Tell GitHub Pages not to run the output through Jekyll.
     out_dir.joinpath(".nojekyll").write_text("", encoding="utf-8")

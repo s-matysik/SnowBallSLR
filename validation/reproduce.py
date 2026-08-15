@@ -238,7 +238,7 @@ def main(argv=None) -> int:
                                "quick": args.quick, "tolerance": tol}, indent=1))
     print(f"\nwrote {out.relative_to(HERE.parent)}")
 
-    print(f"\nE1 has no single published scalar to check against; its result is the ordering — "
+    print(f"\nE1 has no single published scalar to check against; its result is the ordering - "
           f"provider arms overlap far more than direction arms at every depth, which is what "
           f"the paper claims (direction {arms['direction_iter1_mean_overlap']} vs provider "
           f"{arms['provider_iter1_mean_overlap']} at one iteration).")

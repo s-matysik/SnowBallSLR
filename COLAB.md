@@ -19,7 +19,7 @@ Verify, in a new cell:
 
 ```python
 import snowballslr
-print(snowballslr.__version__)      # 1.1.0
+print(snowballslr.__version__)      # 1.0.0
 ```
 
 The command-line interface is installed too, if you prefer it:

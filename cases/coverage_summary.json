@@ -1,0 +1,149 @@
+{
+ "simulated": {
+  "chapman": {
+   "n": 1350,
+   "bias": -0.08333333333333333,
+   "ci_frac": 1.0,
+   "coverage": 0.0,
+   "valid": 618
+  },
+  "chao1": {
+   "n": 1350,
+   "bias": -0.08333333333333333,
+   "ci_frac": 0.5096296296296297,
+   "coverage": 0.14098837209302326,
+   "valid": 688
+  },
+  "loglinear": {
+   "n": 1350,
+   "bias": -0.08333333333333333,
+   "ci_frac": 0.0,
+   "coverage": null,
+   "valid": 0
+  }
+ },
+ "live": {
+  "adverse": {
+   "included": 164,
+   "n_obs": 161,
+   "arms": [
+    "crossref",
+    "openalex"
+   ],
+   "chapman": {
+    "n_hat": 170.1,
+    "ci": [
+     161.1,
+     179.2
+    ],
+    "estimable": true,
+    "n1": 153,
+    "n2": 79,
+    "m": 71,
+    "warn": 0
+   },
+   "chao1": {
+    "n_hat": 218.0,
+    "ci": [
+     194.6,
+     258.0
+    ],
+    "estimable": true,
+    "reason": null
+   },
+   "loglinear": {
+    "refused": "log-linear estimation requires at least three arms"
+   }
+  },
+  "favourable": {
+   "included": 352,
+   "n_obs": 337,
+   "arms": [
+    "crossref",
+    "openalex"
+   ],
+   "chapman": {
+    "n_hat": null,
+    "ci": null,
+    "estimable": false,
+    "n1": 337,
+    "n2": 83,
+    "m": 83,
+    "warn": 0
+   },
+   "chao1": {
+    "n_hat": 725.7,
+    "ci": [
+     613.9,
+     882.5
+    ],
+    "estimable": true,
+    "reason": null
+   },
+   "loglinear": {
+    "refused": "log-linear estimation requires at least three arms"
+   }
+  },
+  "large": {
+   "included": 701,
+   "n_obs": 697,
+   "arms": [
+    "crossref",
+    "openalex"
+   ],
+   "chapman": {
+    "n_hat": null,
+    "ci": null,
+    "estimable": false,
+    "n1": 697,
+    "n2": 43,
+    "m": 43,
+    "warn": 0
+   },
+   "chao1": {
+    "n_hat": 5670.4,
+    "ci": [
+     4256.1,
+     7646.8
+    ],
+    "estimable": true,
+    "reason": null
+   },
+   "loglinear": {
+    "refused": "log-linear estimation requires at least three arms"
+   }
+  },
+  "narrow": {
+   "included": 591,
+   "n_obs": 585,
+   "arms": [
+    "crossref",
+    "openalex"
+   ],
+   "chapman": {
+    "n_hat": 643.3,
+    "ci": [
+     620.0,
+     666.6
+    ],
+    "estimable": true,
+    "n1": 323,
+    "n2": 526,
+    "m": 264,
+    "warn": 0
+   },
+   "chao1": {
+    "n_hat": 780.2,
+    "ci": [
+     731.8,
+     844.5
+    ],
+    "estimable": true,
+    "reason": null
+   },
+   "loglinear": {
+    "refused": "log-linear estimation requires at least three arms"
+   }
+  }
+ }
+}

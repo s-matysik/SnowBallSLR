@@ -64,7 +64,7 @@ mean true recall of 0.450** - a 46-percentage-point shortfall, leaving a mean of
 one the README leads with.
 
 The cause is a **closure violation**, not an implementation error.
-Capture-recapture assumes a closed population. Snowballing enlarges the reachable
+The closed-population estimators used here assume a closed population. Snowballing enlarges the reachable
 population every time an included record enters the frontier, so an estimate at
 iteration *i* describes the population reachable *so far*. Early in a run the arms
 agree almost perfectly on a small reachable set, N̂ collapses onto the observed

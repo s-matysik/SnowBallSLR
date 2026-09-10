@@ -16,8 +16,8 @@ still low.
 Benchmarked on 270 simulated reviews with known ground truth, the unguarded rule
 fired in 270/270 trials at a mean *true* recall of 0.45. Requiring N-hat to be
 stable within ``max_drift`` for ``min_stable_iterations`` consecutive iterations
-before the rule may fire raised mean true recall at stop to 0.913 against an
-achievable ceiling of 0.914 -- i.e. it removed essentially all of the shortfall.
+before the rule may fire raised mean true recall at stop to 0.906 against an
+achievable ceiling of 0.913 -- i.e. it removed essentially all of the shortfall.
 The guard is on by default because the failure it prevents is silent and
 produces a confidently wrong number in a manuscript.
 """

@@ -438,7 +438,7 @@ Entry:
 
 ```json
 {
-  "snowballslr_version": "1.0.0",
+  "snowballslr_version": "1.0.1",
   "python_version": "3.12.4",
   "config_hash": "sha256:...",
   "config": {...},

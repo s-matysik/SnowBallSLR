@@ -91,8 +91,25 @@ def chapman(
     ) / (((m + 1) ** 2) * (m + 2))
     se = math.sqrt(max(var, 0.0))
 
+    if n_hat <= observed:
+        # One arm is contained in the other (m == min(n1, n2)), or the arms
+        # otherwise carry no information about the unseen remainder: the point
+        # estimate cannot exceed what has already been observed, so recall would
+        # be reported as exactly 1.0. Refuse rather than return that number.
+        return RecallEstimate(
+            method="chapman",
+            estimable=False,
+            n_observed=observed,
+            reason=(
+                f"point estimate {n_hat:.1f} does not exceed the observed count "
+                f"{observed}; the arms are nested or uninformative, so recall "
+                "cannot be estimated from them"
+            ),
+            detail={"n1": n1, "n2": n2, "m": m, "n_hat_raw": n_hat},
+        )
+
     lo = max(float(observed), n_hat - z * se)
-    hi = n_hat + z * se
+    hi = max(lo, n_hat + z * se)
 
     recall = min(1.0, observed / n_hat) if n_hat > 0 else None
     recall_ci = (

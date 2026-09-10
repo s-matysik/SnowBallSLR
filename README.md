@@ -133,7 +133,7 @@ SnowBallSLR is not the first tool to do bidirectional citation searching, and do
 | SpiderCite (SR-Accelerator) | Web app | not inspected | ✅ (documented) | n/d | n/d | n/d | n/d |
 | [SYMBALS](https://doi.org/10.3389/frma.2021.685591) | Methodology | published article | ✗ (backward only) | ✅ (with active learning) | ✗ | ✗ | ✗ |
 | [ReviQ](https://doi.org/10.1016/j.softx.2026.102814) | Review workbench (Docker) | repo @ 2026-08-10 | ✗ (the chase is done externally and imported as BibTeX; no citation retrieval in the codebase) | ✗ (iterations are recorded, not performed) | ✗ (saturation is a reviewer-set flag with an undo endpoint) | ✗ (relative recall per database; the source notes the true population is unknown) | ✗ (state export; no response hashing or cache) |
-| **SnowBallSLR** | Python library + CLI | this repo, v1.0.0 | ✅ | ✅ (automatic) | ✅ (five rules, all logged every iteration) | ✅ (Chapman / log-linear / Chao1, with diagnostics) | ✅ (response cache, artifact manifest, drift classification) |
+| **SnowBallSLR** | Python library + CLI | this repo, v1.0.1 | ✅ | ✅ (automatic) | ✅ (five rules, all logged every iteration) | ✅ (Chapman / log-linear / Chao1, with diagnostics) | ✅ (response cache, artifact manifest, drift classification) |
 
 A word on **ReviQ**, because the ✗ marks above understate it: it is a complete review workbench covering all eight Kitchenham phases, with two-reviewer screening, Cohen's κ and PABAK, quality assessment and data extraction - everything this library deliberately leaves out. The marks record only that it manages citation searching rather than performing it. The two compose: ReviQ can run the review, SnowBallSLR the citation-searching stage. Marks verified against its source, see `audit/reviq_code_audit.md`.
 

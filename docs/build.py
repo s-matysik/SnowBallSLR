@@ -301,7 +301,7 @@ TEMPLATE = """<!doctype html>
   <div class="nav-label">Project</div>
   <ul class="nav">
     <li><a href="https://github.com/s-matysik/SnowBallSLR">Repository</a></li>
-    <li><a href="https://github.com/s-matysik/SnowBallSLR/releases/tag/v1.0.0">Release v1.0.0</a></li>
+    <li><a href="https://github.com/s-matysik/SnowBallSLR/releases/tag/v1.0.1">Release v1.0.1</a></li>
     <li><a href="https://github.com/s-matysik/SnowBallSLR/issues">Issues</a></li>
   </ul>
 </nav>
@@ -309,7 +309,7 @@ TEMPLATE = """<!doctype html>
 {cards}
 {body}
 <div class="footer">
-  <p>SnowBallSLR v1.0.0 &middot; MIT licence &middot;
+  <p>SnowBallSLR v1.0.1 &middot; MIT licence &middot;
   built from <code>{source}</code> in the
   <a href="https://github.com/s-matysik/SnowBallSLR">repository</a>.</p>
 </div>

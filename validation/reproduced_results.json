@@ -1,28 +1,28 @@
 {
  "arms": {
-  "direction_iter1_mean_overlap": 11.5,
-  "direction_iter2_mean_overlap": 86,
-  "direction_iter3_mean_overlap": 98,
-  "provider_iter1_mean_overlap": 55.5,
-  "provider_iter2_mean_overlap": 109.5,
+  "direction_iter1_mean_overlap": 17.667,
+  "direction_iter2_mean_overlap": 92.167,
+  "direction_iter3_mean_overlap": 101.5,
+  "provider_iter1_mean_overlap": 65.333,
+  "provider_iter2_mean_overlap": 109.667,
   "provider_iter3_mean_overlap": 110
  },
  "stopping": {
-  "n_cells": 90,
+  "n_cells": 270,
   "achievable_ceiling_mean": 0.924,
-  "marginal_yield_n_fired": 25,
-  "marginal_yield_mean_true_recall": 0.926,
-  "asymptote_n_fired": 7,
-  "asymptote_mean_true_recall": 0.93,
+  "marginal_yield_n_fired": 61,
+  "marginal_yield_mean_true_recall": 0.927,
+  "asymptote_n_fired": 11,
+  "asymptote_mean_true_recall": 0.925,
   "budget_n_fired": 0,
   "budget_mean_true_recall": null,
-  "exhaustion_n_fired": 90,
+  "exhaustion_n_fired": 270,
   "exhaustion_mean_true_recall": 0.924,
-  "estimated_recall_prefix_n_fired": 90,
-  "estimated_recall_prefix_mean_true_recall": 0.66,
-  "estimated_recall_guarded_n_fired": 23,
-  "estimated_recall_guarded_mean_true_recall": 0.924
+  "estimated_recall_prefix_n_fired": 148,
+  "estimated_recall_prefix_mean_true_recall": 0.704,
+  "estimated_recall_guarded_n_fired": 0,
+  "estimated_recall_guarded_mean_true_recall": null
  },
- "quick": true,
- "tolerance": 0.2
+ "quick": false,
+ "tolerance": 0.02
 }

@@ -363,3 +363,29 @@ def test_verify_tolerates_a_setting_added_after_the_run(tmp_path):
     report = verify_replay(tmp_path / "r", strict=False)
     assert report.config_drift is None, report.config_drift
     assert report.ok
+
+
+def test_chapman_refuses_nested_arms_rather_than_reporting_recall_one():
+    """R2 revision: nested arms must be refused, not returned as recall 1.0.
+
+    With m == min(n1, n2) one arm is contained in the other, Chapman's point
+    estimate cannot exceed the observed count, and the previous implementation
+    returned it as estimable with recall exactly 1.0 and an interval whose lower
+    bound (clamped to the observed count) could exceed its upper bound.
+    """
+    from snowballslr.estimate.capture_recapture import chapman
+
+    est = chapman(337, 83, 83, n_observed=337)
+    assert est.estimable is False
+    assert est.n_hat is None
+    assert "does not exceed the observed count" in est.reason
+
+
+def test_chapman_interval_is_never_inverted():
+    from snowballslr.estimate.capture_recapture import chapman
+
+    for n1, n2, m, obs in ((153, 79, 71, 161), (323, 526, 264, 585), (60, 55, 20, 95)):
+        est = chapman(n1, n2, m, n_observed=obs)
+        if est.estimable and est.n_hat_ci:
+            lo, hi = est.n_hat_ci
+            assert lo <= hi, f"inverted interval for n1={n1} n2={n2} m={m}: {lo} > {hi}"

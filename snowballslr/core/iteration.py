@@ -51,7 +51,7 @@ class IterationStats:
 class RecallEstimateRecord:
     """The part of a recall estimate the stopping rules need across iterations.
 
-    Only the fields required to judge closure are retained, so the trail stays
+    Only the fields required to judge frame stability are retained, so the trail stays
     small and serializes cleanly into ``state.json``.
     """
 
@@ -89,7 +89,7 @@ class IterationHistory:
     stats: list[IterationStats] = field(default_factory=list)
     recall_estimate: Any = None  # RecallEstimate | None, set by the run before evaluation
     # One record per iteration at which a recall estimate was attempted. The
-    # closure guard in the estimated_recall rule reads this to decide whether
+    # stability guard in the estimated_recall rule reads this to decide whether
     # N-hat has settled; it must therefore survive save/load.
     recall_estimate_trail: list[RecallEstimateRecord] = field(default_factory=list)
 

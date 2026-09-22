@@ -1,0 +1,68 @@
+{
+ "one_sided_bound": {
+  "all_depths": {
+   "chapman": {
+    "n": 1617,
+    "n_hat_le_truth": 1.0,
+    "recall_is_upper_bound": 1.0,
+    "median_rel_bias": -0.09100660066006606,
+    "worst_over": -0.08276699029126214
+   },
+   "chao1": {
+    "n": 1620,
+    "n_hat_le_truth": 0.9925925925925926,
+    "recall_is_upper_bound": 0.9925925925925926,
+    "median_rel_bias": -0.08333333333333333,
+    "worst_over": 7.070833333333334
+   },
+   "loglinear": {
+    "n": 1620,
+    "n_hat_le_truth": 0.9641975308641976,
+    "recall_is_upper_bound": 0.9641975308641976,
+    "median_rel_bias": -0.08333333333333333,
+    "worst_over": 6.026179897722063e+18
+   }
+  },
+  "depth_ge_2": {
+   "chapman": {
+    "n": 1350,
+    "n_hat_le_truth": 1.0,
+    "recall_is_upper_bound": 1.0,
+    "median_rel_bias": -0.08333333333333333,
+    "worst_over": -0.08276699029126214
+   },
+   "chao1": {
+    "n": 1350,
+    "n_hat_le_truth": 1.0,
+    "recall_is_upper_bound": 1.0,
+    "median_rel_bias": -0.08333333333333333,
+    "worst_over": -0.02129629629629631
+   },
+   "loglinear": {
+    "n": 1350,
+    "n_hat_le_truth": 0.9711111111111111,
+    "recall_is_upper_bound": 0.9711111111111111,
+    "median_rel_bias": -0.08333333333333333,
+    "worst_over": 55109949.26601757
+   }
+  }
+ },
+ "premature_stops": {
+  "guarded": {
+   "n_fired": 127,
+   "mean_recall": 0.9064741907261592,
+   "mean_ceiling": 0.9064741907261592,
+   "premature": 0,
+   "premature_rate": 0.0,
+   "worst_shortfall": 0.0
+  },
+  "unguarded": {
+   "n_fired": 270,
+   "mean_recall": 0.4500658436213992,
+   "mean_ceiling": 0.9133539094650206,
+   "premature": 268,
+   "premature_rate": 0.9925925925925926,
+   "worst_shortfall": 0.8555555555555555
+  }
+ }
+}

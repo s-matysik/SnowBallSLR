@@ -389,3 +389,55 @@ def test_chapman_interval_is_never_inverted():
         if est.estimable and est.n_hat_ci:
             lo, hi = est.n_hat_ci
             assert lo <= hi, f"inverted interval for n1={n1} n2={n2} m={m}: {lo} > {hi}"
+
+
+def _capture_table(arms, pattern_counts):
+    """Build capture histories from {pattern: count}, pattern aligned with arms."""
+    histories, i = {}, 0
+    for pattern, n in pattern_counts.items():
+        for _ in range(n):
+            histories[f"r{i}"] = [a for a, bit in zip(arms, pattern, strict=True) if bit]
+            i += 1
+    return histories
+
+
+_LL_ARMS = ("openalex", "crossref", "scopus")
+
+
+def test_loglinear_refuses_when_an_interaction_cell_is_empty():
+    """R2 round 2: the adverse corpus returned n_hat = 1.3e11 instead of refusing.
+
+    openalex is the precedence-first provider, so the crossref-and-scopus-without-
+    openalex cell is structurally empty. The all-pairwise model then extrapolates the
+    missing cell with no data behind it and the fitted population diverges.
+    """
+    from snowballslr.estimate.loglinear import loglinear
+
+    counts = {(1, 0, 0): 70, (1, 1, 0): 60, (1, 0, 1): 18, (1, 1, 1): 5,
+              (0, 1, 0): 8, (0, 0, 1): 3}
+    est = loglinear(_capture_table(_LL_ARMS, counts), _LL_ARMS)
+    assert est.estimable is False
+    assert est.n_hat is None
+    assert "capture cell is empty" in est.reason
+    assert ["crossref", "scopus"] in est.detail["empty_pairwise_cells"]
+
+
+def test_loglinear_refuses_an_arm_that_captured_nothing():
+    """A two-arm capture table must not be reported as a three-arm design."""
+    from snowballslr.estimate.loglinear import loglinear
+
+    counts = {(1, 0, 0): 82, (1, 1, 0): 71, (0, 1, 0): 8}
+    est = loglinear(_capture_table(_LL_ARMS, counts), _LL_ARMS)
+    assert est.estimable is False
+    assert est.detail["empty_arms"] == ["scopus"]
+
+
+def test_loglinear_still_estimates_on_a_well_populated_table():
+    """The guards must not refuse a capture table that identifies the missing cell."""
+    from snowballslr.estimate.loglinear import loglinear
+
+    counts = {(1, 0, 0): 40, (0, 1, 0): 30, (0, 0, 1): 25, (1, 1, 0): 20,
+              (1, 0, 1): 18, (0, 1, 1): 15, (1, 1, 1): 12}
+    est = loglinear(_capture_table(_LL_ARMS, counts), _LL_ARMS)
+    assert est.estimable is True
+    assert est.n_hat > est.n_observed

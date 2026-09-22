@@ -4,11 +4,16 @@ Defaults to the *lower* bound of the 95% interval. Under positive dependence
 between source arms -- the normal situation in snowballing -- the point estimate
 of recall is optimistic, so stopping on it would stop early.
 
-**Closure guard (``min_stable_iterations``).** Capture-recapture assumes a
-*closed* population. Snowballing violates closure by construction: the reachable
-population grows every time an included record is added to the frontier, so an
-estimate computed at iteration *i* describes the population reachable *so far*,
-not the population that will exist at saturation. Early in a run the arms
+**Stability guard (``min_stable_iterations``).** The estimators used here assume
+a *closed* population, and that assumption holds: the estimand is the fixed set
+of eligible records existing at the search cutoff, and nothing enters or leaves
+it during a run. What a run does violate is the separate assumption that every
+member of the population can be captured on each occasion. At iteration *i* only
+records within *i* citation hops of the start set are reachable at all, so the
+rest have capture probability zero; the reachable frame grows every time an
+included record is added to the frontier, and an estimate computed at iteration
+*i* therefore sizes the frame reachable *so far*, not the population that will
+be reachable at saturation. Early in a run the arms
 therefore agree almost perfectly on a small reachable set, N-hat collapses onto
 the observed count, and estimated recall approaches 1.0 while true recall is
 still low.
@@ -47,15 +52,15 @@ class EstimatedRecall:
         self.min_stable_iterations = min_stable_iterations
         self.max_drift = max_drift
 
-    def _closure_status(self, history: IterationHistory) -> tuple[bool, str, dict]:
-        """Has N-hat settled enough for the closure assumption to be tenable?
+    def _stability_status(self, history: IterationHistory) -> tuple[bool, str, dict]:
+        """Has N-hat settled enough for the reachable frame to be treated as complete?
 
         Returns ``(stable, explanation, detail)``. Requires ``min_stable_iterations``
         consecutive iterations in which the relative change in N-hat stays within
         ``max_drift``.
         """
         if self.min_stable_iterations <= 0:
-            return True, "closure guard disabled", {"guard": "disabled"}
+            return True, "stability guard disabled", {"guard": "disabled"}
 
         trail = [
             e.n_hat
@@ -67,7 +72,7 @@ class EstimatedRecall:
             return (
                 False,
                 (
-                    f"only {len(trail)} estimable iteration(s) so far; the closure "
+                    f"only {len(trail)} estimable iteration(s) so far; the stability "
                     f"guard requires {needed} to judge whether the estimated "
                     "population has settled"
                 ),
@@ -128,7 +133,7 @@ class EstimatedRecall:
             )
 
         threshold_met = value >= self.tau
-        stable, closure_note, closure_detail = self._closure_status(history)
+        stable, stability_note, stability_detail = self._stability_status(history)
         triggered = threshold_met and stable
 
         bound = "lower bound of the 95% confidence interval" if self.use_lower_ci else "point estimate"
@@ -141,12 +146,12 @@ class EstimatedRecall:
         if triggered:
             rationale += (
                 f", meeting the pre-specified stopping threshold of {self.tau:.0%} "
-                f"({closure_note})."
+                f"({stability_note})."
             )
         elif threshold_met and not stable:
             rationale += (
                 f". The threshold of {self.tau:.0%} is met, but the rule is withheld "
-                f"because {closure_note}."
+                f"because {stability_note}."
             )
         else:
             rationale += f", below the pre-specified threshold of {self.tau:.0%}."
@@ -162,6 +167,6 @@ class EstimatedRecall:
                 "used_lower_ci": self.use_lower_ci,
                 "threshold_met": threshold_met,
                 "closure_stable": stable,
-                "closure": closure_detail,
+                "closure": stability_detail,
             },
         )

@@ -16,6 +16,11 @@ from .capture_recapture import RecallEstimate
 
 __all__ = ["loglinear"]
 
+#: Largest population estimate, as a multiple of the observed count, that a
+#: log-linear fit may return before it is refused as unidentified. Calibrated in
+#: supplementary Section S13; see the plausibility guard below.
+_MAX_N_HAT_MULTIPLE = 3.0
+
 
 def _cells(capture_histories: Mapping[str, Sequence[str]], arms: Sequence[str]):
     counts: dict[tuple[int, ...], int] = {}
@@ -102,6 +107,71 @@ def loglinear(
     m0 = float(model.predict(zero).iloc[0])
     n_hat = s_obs + m0
     recall = min(1.0, s_obs / n_hat) if n_hat > 0 else None
+
+    cell_detail = {"".join(map(str, k)): v for k, v in sorted(counts.items())}
+
+    # An arm that captured nothing is not a capture occasion. Leaving it in the model
+    # lets a two-arm design be reported as a three-arm one.
+    empty_arms = [
+        arms[i] for i in range(len(arms))
+        if not any(pattern[i] and n for pattern, n in counts.items())
+    ]
+    if empty_arms:
+        return RecallEstimate(
+            method="loglinear",
+            estimable=False,
+            n_observed=s_obs,
+            reason=(
+                f"arm(s) {', '.join(empty_arms)} captured no records, so the design is not "
+                f"the {len(arms)}-arm design the model assumes"
+            ),
+            detail={"formula": formula, "arms": arms, "cells": cell_detail,
+                    "empty_arms": empty_arms},
+        )
+
+    # Identifiability guard. A selected model carrying an interaction term needs the
+    # corresponding two-arm capture cell to be observed; when that cell is
+    # structurally zero the missing-cell prediction is an extrapolation with no data
+    # behind it, and the fit can return an arbitrarily large population. Refusing is
+    # the only safe answer: a number here would be reported to a reviewer as an
+    # estimate of how much literature remains unfound.
+    if ":" in formula:
+        empty_pairs = [
+            (arms[i], arms[j])
+            for i, j in itertools.combinations(range(len(arms)), 2)
+            if counts.get(tuple(1 if k in (i, j) else 0 for k in range(len(arms))), 0) == 0
+        ]
+        if empty_pairs:
+            pair = ", ".join(f"{a} and {b}" for a, b in empty_pairs[:3])
+            return RecallEstimate(
+                method="loglinear",
+                estimable=False,
+                n_observed=s_obs,
+                reason=(
+                    "the selected log-linear model carries an interaction term whose "
+                    f"capture cell is empty ({pair}), so the missing cell is not "
+                    "identified from these data"
+                ),
+                detail={"formula": formula, "arms": arms, "cells": cell_detail,
+                        "empty_pairwise_cells": [list(p) for p in empty_pairs]},
+            )
+
+    # Plausibility ceiling. Across the 1,620 simulated reviews of the coverage study
+    # (supplementary Section S13) no log-linear fit within 50% of the truth exceeded
+    # 2.09 times the observed count, so a ceiling of three rejects none of the 1,497
+    # accurate fits while catching unidentified blow-ups.
+    if n_hat > _MAX_N_HAT_MULTIPLE * s_obs:
+        return RecallEstimate(
+            method="loglinear",
+            estimable=False,
+            n_observed=s_obs,
+            reason=(
+                f"the fitted population {n_hat:.3g} exceeds {_MAX_N_HAT_MULTIPLE} times the "
+                f"{s_obs} records observed, which no capture table of this size supports"
+            ),
+            detail={"formula": formula, "arms": arms, "cells": cell_detail,
+                    "n_hat_rejected": n_hat},
+        )
 
     return RecallEstimate(
         method="loglinear",

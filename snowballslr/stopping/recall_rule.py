@@ -45,12 +45,26 @@ class EstimatedRecall:
         method: str = "chapman",
         min_stable_iterations: int = 2,
         max_drift: float = 0.05,
+        authoritative: bool = False,
     ) -> None:
         self.tau = tau
         self.use_lower_ci = use_lower_ci
         self.method = method
         self.min_stable_iterations = min_stable_iterations
         self.max_drift = max_drift
+        # The estimate is a diagnostic by default: a coverage study over 1,620
+        # evaluations with known truth found the estimators systematically low and
+        # their nominal intervals badly calibrated (supplementary Section S13), so
+        # a reading at or above ``tau`` is not sufficient evidence to end a review.
+        # Advisory decisions are still evaluated and recorded every iteration --
+        # they simply do not terminate the run. Set ``authoritative=True`` to opt
+        # into recall-based termination.
+        self.authoritative = authoritative
+
+    @property
+    def advisory(self) -> bool:
+        """True when this rule reports but does not terminate a run."""
+        return not self.authoritative
 
     def _stability_status(self, history: IterationHistory) -> tuple[bool, str, dict]:
         """Has N-hat settled enough for the reachable frame to be treated as complete?
@@ -156,6 +170,12 @@ class EstimatedRecall:
         else:
             rationale += f", below the pre-specified threshold of {self.tau:.0%}."
 
+        if self.advisory:
+            rationale += (
+                " This rule is advisory: the estimate is reported as a diagnostic and "
+                "does not terminate the run."
+            )
+
         return StopDecision(
             self.name,
             triggered,
@@ -168,5 +188,6 @@ class EstimatedRecall:
                 "threshold_met": threshold_met,
                 "closure_stable": stable,
                 "closure": stability_detail,
+                "advisory": self.advisory,
             },
         )

@@ -34,6 +34,11 @@ ranking:
 stopping:
   mode: any_of
   rules:
+    # Advisory by default: the estimate is reported every iteration but does not
+    # terminate the run. The coverage study in supplementary Section S13 found the
+    # estimators systematically low with badly calibrated intervals, so a reading
+    # at or above tau is not sufficient evidence to end a review. Add
+    # authoritative: true to opt into recall-based termination.
     - {type: estimated_recall, tau: 0.95, use_lower_ci: true}
     - {type: marginal_yield, eps: 0.01, k: 2}
     - {type: budget, max_screened: 2500}

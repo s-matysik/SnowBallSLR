@@ -51,17 +51,30 @@ class RuleSet:
         self.rules = list(rules)
         self.mode = mode
 
+    @staticmethod
+    def _terminating(decision: StopDecision) -> bool:
+        """A decision terminates the run unless its rule is advisory.
+
+        An advisory rule is evaluated and recorded every iteration but reports
+        rather than stops -- see ``EstimatedRecall``, whose estimate is a
+        diagnostic unless ``authoritative=True`` is configured.
+        """
+        return decision.triggered and not decision.detail.get("advisory", False)
+
     def evaluate(self, history: IterationHistory) -> tuple[bool, list[StopDecision]]:
         decisions = [r.evaluate(history) for r in self.rules]
-        fired = [d for d in decisions if d.triggered]
+        fired = [d for d in decisions if self._terminating(d)]
         # Exhaustion always terminates: there is nothing left to expand.
         if any(d.rule == "exhaustion" and d.triggered for d in decisions):
             return True, decisions
         if self.mode == "any_of":
             return bool(fired), decisions
-        applicable = [d for d in decisions if d.rule != "exhaustion"]
+        applicable = [
+            d for d in decisions
+            if d.rule != "exhaustion" and not d.detail.get("advisory", False)
+        ]
         return bool(applicable) and all(d.triggered for d in applicable), decisions
 
     def stopped_by(self, decisions: Sequence[StopDecision]) -> str | None:
-        fired = [d.rule for d in decisions if d.triggered]
+        fired = [d.rule for d in decisions if self._terminating(d)]
         return fired[0] if fired else None

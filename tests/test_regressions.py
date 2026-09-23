@@ -441,3 +441,75 @@ def test_loglinear_still_estimates_on_a_well_populated_table():
     est = loglinear(_capture_table(_LL_ARMS, counts), _LL_ARMS)
     assert est.estimable is True
     assert est.n_hat > est.n_observed
+
+
+def _recall_history(n_hat, n_obs, trail):
+    """Minimal history stub carrying a settled recall estimate."""
+    from snowballslr.core.iteration import RecallEstimateRecord
+    from snowballslr.estimate.capture_recapture import RecallEstimate
+
+    class _H:
+        def __init__(self):
+            self.recall_estimate = RecallEstimate(
+                method="chapman",
+                estimable=True,
+                n_observed=n_obs,
+                n_hat=n_hat,
+                n_hat_ci=(n_hat * 0.98, n_hat * 1.02),
+                recall=n_obs / n_hat,
+                recall_ci=(n_obs / n_hat, 1.0),
+            )
+            self.recall_estimate_trail = [
+                RecallEstimateRecord(n=k + 1, estimable=True, n_hat=v,
+                                     n_observed=n_obs, recall=n_obs / v,
+                                     recall_lower=n_obs / v)
+                for k, v in enumerate(trail)
+            ]
+
+    return _H()
+
+
+def test_recall_rule_is_advisory_by_default_and_does_not_stop_a_run():
+    """R2 revision: the estimate is a diagnostic, not a termination criterion.
+
+    The coverage study shows the estimators are systematically low and their
+    nominal intervals badly calibrated, so a reading at or above tau is not
+    sufficient evidence to end a review. The rule must still be evaluated and
+    recorded -- it simply must not terminate the run.
+    """
+    from snowballslr.stopping.compose import RuleSet
+    from snowballslr.stopping.recall_rule import EstimatedRecall
+
+    rule = EstimatedRecall(tau=0.90)
+    assert rule.advisory is True
+
+    hist = _recall_history(100.0, 99, [99.5, 100.0, 100.0])
+    decision = rule.evaluate(hist)
+    assert decision.triggered is True, "threshold and stability should both be met"
+    assert decision.detail["advisory"] is True
+    assert "advisory" in decision.rationale
+
+    rs = RuleSet([rule])
+    stopped, decisions = rs.evaluate(hist)
+    assert stopped is False, "an advisory rule must not terminate the run"
+    assert decisions[0] == decision, "the decision must still be recorded"
+    assert rs.stopped_by(decisions) is None
+
+
+def test_recall_rule_can_be_made_authoritative():
+    """The opt-in path must still terminate, so the benchmark remains expressible."""
+    from snowballslr.stopping.compose import RuleSet
+    from snowballslr.stopping.recall_rule import EstimatedRecall
+
+    rule = EstimatedRecall(tau=0.90, authoritative=True)
+    assert rule.advisory is False
+
+    hist = _recall_history(100.0, 99, [99.5, 100.0, 100.0])
+    decision = rule.evaluate(hist)
+    assert decision.triggered is True
+    assert decision.detail["advisory"] is False
+
+    rs = RuleSet([rule])
+    stopped, decisions = rs.evaluate(hist)
+    assert stopped is True
+    assert rs.stopped_by(decisions) == "estimated_recall"

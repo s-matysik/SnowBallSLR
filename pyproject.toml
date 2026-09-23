@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "snowballslr"
-version = "1.0.4"
+version = "1.0.5"
 description = "Deterministic, saturation-aware snowballing for systematic literature reviews"
 readme = "README.md"
 license = { text = "MIT" }

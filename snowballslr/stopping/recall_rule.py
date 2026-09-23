@@ -53,8 +53,10 @@ class EstimatedRecall:
         self.min_stable_iterations = min_stable_iterations
         self.max_drift = max_drift
         # The estimate is a diagnostic by default: a coverage study over 1,620
-        # evaluations with known truth found the estimators systematically low and
-        # their nominal intervals badly calibrated (supplementary Section S13), so
+        # evaluations with known truth found the estimators systematically low, and
+        # their nominal intervals badly calibrated -- 0% (Chapman) and 14% (Chao1)
+        # coverage over the 1,350 evaluations at depths 2-6 where all three are
+        # comparable (supplementary Section S13) -- so
         # a reading at or above ``tau`` is not sufficient evidence to end a review.
         # Advisory decisions are still evaluated and recorded every iteration --
         # they simply do not terminate the run. Set ``authoritative=True`` to opt

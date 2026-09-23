@@ -70,9 +70,11 @@ def build_summary(run: Any) -> str:
                 f"[{est.recall_ci[0]:.1%}, {est.recall_ci[1]:.1%}]"
             )
         if est.n_hat_ci or est.recall_ci:
-            # A coverage study over 1,620 evaluations with known truth found these
-            # nominal intervals containing the true population in 0% (Chapman) and
-            # 14% (Chao1) of reviews: positive dependence between capture arms biases
+            # A coverage study with known truth found these nominal intervals containing
+            # the true population in 0% (Chapman) and 14% (Chao1) of the 1,350 evaluations
+            # at depths 2-6, where all estimators are comparable on identical rows; over
+            # all 1,620 evaluations Chao1 reaches 16.7% and Chapman remains 0%. Positive
+            # dependence between capture arms biases
             # the point estimate downward and the interval with it. Reported as a
             # diagnostic of estimator precision, not as a coverage statement.
             lines.append(

@@ -72,7 +72,7 @@ def _rejection_report(
         "observed_values": observed,
     }
 
-_VERSION = "1.0.3"
+_VERSION = "1.0.4"
 
 
 class Run:

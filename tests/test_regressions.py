@@ -513,3 +513,13 @@ def test_recall_rule_can_be_made_authoritative():
     stopped, decisions = rs.evaluate(hist)
     assert stopped is True
     assert rs.stopped_by(decisions) == "estimated_recall"
+
+
+def test_interval_is_labelled_uncalibrated():
+    """R2 NB on false confidence: a nominal interval with 0% measured coverage
+    must not be presented to a user as a plain 95% CI."""
+    from snowballslr.estimate.capture_recapture import chapman
+
+    est = chapman(n1=100, n2=80, m=40)
+    assert est.estimable
+    assert any("not calibrated" in w for w in est.warnings), est.warnings

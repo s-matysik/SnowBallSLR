@@ -58,12 +58,27 @@ def build_summary(run: Any) -> str:
         lines.append(f"- Method: `{est.method}`")
         lines.append(f"- Estimated relevant population: {est.n_hat:.1f}")
         if est.n_hat_ci:
-            lines.append(f"- 95% CI for N: [{est.n_hat_ci[0]:.1f}, {est.n_hat_ci[1]:.1f}]")
+            lines.append(
+                f"- Nominal 95% interval for N (uncalibrated): "
+                f"[{est.n_hat_ci[0]:.1f}, {est.n_hat_ci[1]:.1f}]"
+            )
         if est.recall is not None:
             lines.append(f"- Estimated recall: {est.recall:.1%}")
         if est.recall_ci:
             lines.append(
-                f"- 95% CI for recall: [{est.recall_ci[0]:.1%}, {est.recall_ci[1]:.1%}]"
+                f"- Nominal 95% interval for recall (uncalibrated): "
+                f"[{est.recall_ci[0]:.1%}, {est.recall_ci[1]:.1%}]"
+            )
+        if est.n_hat_ci or est.recall_ci:
+            # A coverage study over 1,620 evaluations with known truth found these
+            # nominal intervals containing the true population in 0% (Chapman) and
+            # 14% (Chao1) of reviews: positive dependence between capture arms biases
+            # the point estimate downward and the interval with it. Reported as a
+            # diagnostic of estimator precision, not as a coverage statement.
+            lines.append(
+                "- Interval calibration: these nominal intervals are **not** calibrated. "
+                "Under dependent capture arms the estimate is biased low, so treat the "
+                "interval as a precision diagnostic rather than a coverage guarantee."
             )
     else:
         lines.append(f"- Not estimable: {est.reason}")

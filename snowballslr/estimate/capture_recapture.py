@@ -125,6 +125,11 @@ def chapman(
         )
     if se > n_hat:
         warnings.append("standard error exceeds the point estimate; interval is very wide")
+    warnings.append(
+        "the nominal 95% interval is not calibrated: a coverage study over 1,620 "
+        "evaluations with known truth contained the true population in 0% of cases, "
+        "because dependent capture arms bias the estimate low"
+    )
 
     return RecallEstimate(
         method="chapman",
